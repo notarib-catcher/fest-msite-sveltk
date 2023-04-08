@@ -4,6 +4,6 @@
 
 <div>
 
-    Home page
+
 
 </div>
