@@ -1,6 +1,6 @@
 <script>
 // @ts-nocheck
-
+    import downarrow from "../../assets/down-arrow.svg"
 	import { browser } from "$app/environment";
 
     const endTime = 1682652600000
@@ -25,6 +25,12 @@
 
         }, 1000)
 
+
+        document.addEventListener("scroll", (event) => {
+            document.getElementById('downarrow').className = " opacity-0 mb-20 transition-all duration-700"
+        });
+
+
     }
 
 </script>
@@ -47,6 +53,12 @@
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
                 </div>
             </div>
+        </div>
+        <div class="absolute w-screen bottom-0 h-[50px] flex items-center">
+            <div class=" mx-auto">
+                <img id="downarrow" src = {downarrow} alt={downarrow} class=" fadeinLate transition-all duration-700 mb-20">
+            </div>
+            <div class="fadeThisOut"></div>
         </div>
     </div>
 </div>
@@ -76,4 +88,49 @@
         opacity: 100%;
     }
     } 
+
+    .fadeinLate{
+        animation-name: lateFadeIn;
+        animation-duration: 4000ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forward;
+    }
+    
+
+    @keyframes lateFadeIn{
+            
+            0%{
+            opacity: 0;
+            }
+
+            75%{
+            opacity: 0;   
+            }
+
+            100%{
+            opacity: 100%;
+            }
+
+
+    }
+
+    .fadeThisOut{
+        animation-name: fadeOut;
+        animation-duration: 1000ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forward;
+        transition: all;
+    }
+
+    @keyframes fadeOut{
+        
+        0%{
+            opacity: 100%;
+        }
+        
+        105%{
+            opacity: 0;   
+        }
+     
+    }
 </style>
