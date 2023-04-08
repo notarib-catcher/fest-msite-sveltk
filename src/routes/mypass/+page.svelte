@@ -1,6 +1,6 @@
 <script>
-    import QRCode from "../../lib/common/QRJS.svelte"
+    import Carousel from "../../lib/mypass_pg/Carousel.svelte";
 </script>
-pass page
 
-<QRCode codeValue = "AAAAAAAAAAAAAA" squareSize = {200}/>
+<Carousel codeDataArr = {["HIIIIIII", "HELLLLOOOOO" , "HOOOOOOOOEOEOEO"]} />
+
