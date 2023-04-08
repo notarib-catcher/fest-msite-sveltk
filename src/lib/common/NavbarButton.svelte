@@ -24,9 +24,9 @@
 </script>
 
 {#if isLogoutbtn}
-<button type="button" class="  border-l-2 text-white border-x-zinc-600 font-extralight hover:text-fuchsia-500 duration-200" on:click={($page.data.session)?async ()=>{ await signOut({callbackUrl: "/"})}:() => {signIn("google")}} data-sveltekit-preload-data><div class="px-6 py-2.5">{($page.data.session)?"Logout":"Login"}</div></button>
+<button type="button" class="   text-white border-x-zinc-600 font-extralight from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text hover:text-transparent hover:font-semibold bg-gradient-to-r  text-xl  duration-200" on:click={($page.data.session)?async ()=>{ await signOut({callbackUrl: "/"})}:() => {signIn("google")}} data-sveltekit-preload-data><div class="px-16 py-2.5">{($page.data.session)?"Logout":"Login"}</div></button>
 {:else}
     {#key $page.url.pathname}
-        <button type="button" class="  border-l-2 text-white whitespace-nowrap border-x-zinc-600 font-extralight hover:text-fuchsia-500 duration-200" disabled={disabled} data-sveltekit-preload-data><a  href={(disabled)?"":navroute} class = ' h-full'><div class="px-6 py-2.5">{name}</div></a></button>
+        <button type="button" class=" text-white border-x-zinc-600 font-extralight from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap hover:text-transparent hover:font-semibold text-xl bg-gradient-to-r  duration-200" disabled={disabled} data-sveltekit-preload-data><a  href={(disabled)?"":navroute} class = ' h-full'><div class="px-16 py-2.5">{name}</div></a></button>
     {/key}
 {/if}
