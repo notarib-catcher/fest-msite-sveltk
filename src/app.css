@@ -1,3 +1,118 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Text-Gradient{
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+  
+html::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+body{
+    background: black;
+
+}
+
+.fadeinonload{
+    animation-name: FadeIn;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;	
+}
+
+.rotateinOnLoad1{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-name: rotIn1;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+}
+.rotateinOnLoad2{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-name: rotIn2;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+}
+.rotateinOnLoad3{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-name: rotIn3;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+}
+.rotateinOnLoad4{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-name: rotIn4;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+}
+
+
+
+@keyframes FadeIn {
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+}
+
+@keyframes rotIn1 {
+    0%{
+        transform: rotate(-100deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotIn2 {
+    0%{
+        transform: rotate(200deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotIn3 {
+    0%{
+        transform: rotate(500deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotIn4 {
+    0%{
+        transform: rotate(-400deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
