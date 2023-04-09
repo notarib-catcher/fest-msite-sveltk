@@ -6,9 +6,8 @@
     if(browser){
         if(data.cancelled){
             setTimeout(()=>{
-                window.location.href = "/book?cancelled"
-            },1000)
-            
+                window.location.replace("/book?cancelled") 
+            }, 1000)
         }
     }
   
