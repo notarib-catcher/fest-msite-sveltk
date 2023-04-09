@@ -5,6 +5,7 @@ import { MongoClient } from 'mongodb';
 
 const cstring = process.env.MONGO_URL
 
+
 // @ts-ignore
 const client = new MongoClient(cstring);
 const database = client.db(process.env.MONGO_DB_NAME);
@@ -17,6 +18,9 @@ const projection = {
 const options = {
   projection: projection
 }
+
+export const csr = false;
+
 
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
   const session = await event.locals.getSession();
