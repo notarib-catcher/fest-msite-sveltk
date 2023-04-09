@@ -28,6 +28,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
+    // @ts-ignore
     const session = await event.locals.getSession();
     const params = event.params
     if (!session?.user) {
@@ -41,7 +42,13 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
 
     if(existingPayment){
-        await razorInstance.paymentLink.cancel(existingPayment.p_id)
+
+        let plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
+
+        if(plink.status != "cancelled" && plink.status != "expired"){
+          await razorInstance.paymentLink.cancel(existingPayment.p_id)
+        }
+        
         await payments.findOneAndUpdate({
             p_id: existingPayment.p_id
         },{
