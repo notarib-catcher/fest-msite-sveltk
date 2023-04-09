@@ -1,13 +1,35 @@
 <script>
 	import { browser } from '$app/environment';
+    import { page } from '$app/stores';
+    import sign from 'jwt-encode'
 
 // @ts-nocheck
     export let data;
-    export const csr = false;
     if(browser){
         if(data.payment){
             document.body.style.overflowY = "hidden"
         }
+    }
+    
+
+    const signURL = (type = "", refcode = "NA") => {
+        let payload = {
+            type: type,
+            refcode: refcode,
+            iat: new Date().getTime()
+        }
+
+        // @ts-ignore
+        return sign(payload, $page.data.session?.user?.email)
+    }
+
+    const book = (type = "", refcode = "NA") => {
+        if(type == "" ){
+            return
+        }
+
+        let signed = signURL(type, refcode)
+        window.location.replace(data.origin + "/pay/" + signed)
     }
 
     
@@ -33,7 +55,9 @@
         </div>
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex items-center justify-center">
             <div class=" opacity-100 text-white">
-                hiiiiiii NERDS
+                <button class=" border-2 p-4" on:click={() => { book('STANDARD')}}>
+                    NERDS
+                </button> 
             </div>
         </div>
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex items-center justify-center">

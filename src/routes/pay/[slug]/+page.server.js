@@ -1,6 +1,9 @@
 import * as dotenv from 'dotenv' ;
+dotenv.config()
 import  Razorpay  from 'razorpay'
 import { v4 as uuidv4 } from 'uuid';
+
+import {verify} from 'jsonwebtoken'
 
 const passarray = [
     {
@@ -19,8 +22,9 @@ const passarray = [
 
 //@ts-ignore
 var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_secret: process.env.RAZORPAY_SECRET })
-dotenv.config()
 
+
+// @ts-ignore
 import { MongoClient, ObjectId } from 'mongodb';
 import { redirect } from '@sveltejs/kit';
 
@@ -49,8 +53,10 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
       throw redirect(302, "/book")
     }
 
-    //check for existing payment
     
+    //get params from JWT and verify it  too
+
+    // @ts-ignore
     const params = event.params
 
     
@@ -58,16 +64,30 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         throw redirect(302, "/?cancelled")
     }
 
-    let splitSlug = params.slug.split('-')
+    let decoded = {}
+    
+    try{
+        //@ts-ignore
+        decoded = verify(params.slug, session.user.email)
+        
+    }
+    catch(error){
+        throw redirect(301, "/book")
+    }
 
-    if(!splitSlug[2]){
+    // @ts-ignore
+    if(!decoded.refcode || !decoded.iat || !decoded.type){
         throw redirect(302, "/book")
     }
 
-    let queried_type = splitSlug[0]
-    let refCode = splitSlug[1]
-    let time = splitSlug [2]
+    // @ts-ignore
+    let { refcode, type } = decoded
+    // @ts-ignore
+    let time = decoded.iat
 
+    let queried_type = type
+
+    
     //timeout payment URLs after 20 seconds
 
     let ctime = new Date().getTime()
@@ -75,6 +95,8 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     if(ctime - parseInt(time) > 20000){
         throw redirect(302, "/book")
     }
+
+    //check for existing payment
 
     const query = { email: {$eq: session.user.email}, status: { $eq: 'created'} }
     const existingPayment = await payments.findOne(query, options)
@@ -89,6 +111,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
    
 
     let pass = passarray.find((pass) => {
+        // @ts-ignore
         return pass.type == queried_type
     })
 
@@ -100,8 +123,8 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
     let costMultiplier = 1;
 
-    if(refCode != "NA"){
-        let amb = await ambassadors.findOne({refCode : { $eq: refCode }})
+    if(refcode != "NA"){
+        let amb = await ambassadors.findOne({refCode : { $eq: refcode }})
         if(amb){
             costMultiplier = 0.8
             rcode = "y"
@@ -133,6 +156,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         notes:{},
         callback_url:"https://solstice.mitblrfest.in/mypass",
         callback_method: 'get'
+    // @ts-ignore
     }).catch(Error => {
         throw redirect(302, "/book?cancelled")
     })
@@ -145,7 +169,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         status: razorpaylink.status,
         p_id: razorpaylink.id,
         type: pass.type,
-        refCode: refCode
+        refCode: refcode
     })
 
 

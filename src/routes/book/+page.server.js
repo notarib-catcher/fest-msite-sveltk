@@ -19,13 +19,13 @@ const options = {
   projection: projection
 }
 
-export const csr = false;
+
 
 
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
   const session = await event.locals.getSession();
     if (!session?.user) {
-      return {passes: [], payment: null}
+      return {passes: [], payment: null, origin: process.env.ORIGIN}
     }
 
     const query = { email: {$eq: session.user.email}, generated: { $eq: true } }
@@ -42,7 +42,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
     const foundpasses = await cursor.toArray()
     
-    return {passes: foundpasses , payment: existingPayment};
+    return {passes: foundpasses , payment: existingPayment, origin: process.env.ORIGIN};
     
   
 };
