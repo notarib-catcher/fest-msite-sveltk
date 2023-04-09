@@ -7,7 +7,7 @@
 </script>
 
 
-<div id="nav-container" class=" w-screen sticky top-0">
+<div id="nav-container" class=" w-screen sticky top-0 z-10">
     
     <nav class=" w-full h-full bg-zinc-900  flex flex-row-reverse">
         <div class=" h-fit w-full px-4 my-auto order-1 font-extralight text-white align-middle text-xl flex-row flex">

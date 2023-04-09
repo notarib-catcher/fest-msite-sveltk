@@ -5,9 +5,11 @@
     import { page } from '$app/stores';
     import LoginNotif from "../lib/common/LoginNotif.svelte";
     import LogoutNotif from "../lib/common/LogoutNotif.svelte";
+	import CancelledNotif from "$lib/common/CancelledNotif.svelte";
 </script>
 <LoginNotif />
 <LogoutNotif />
+<CancelledNotif />
 
 {#if $page.url.pathname == "/"}
     <div id="banner-container">
