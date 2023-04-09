@@ -50,6 +50,31 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     }
 
     //check for existing payment
+    
+    const params = event.params
+
+    
+    if(!params.slug){
+        throw redirect(302, "/?cancelled")
+    }
+
+    let splitSlug = params.slug.split('-')
+
+    if(!splitSlug[2]){
+        throw redirect(302, "/book")
+    }
+
+    let queried_type = splitSlug[0]
+    let refCode = splitSlug[1]
+    let time = splitSlug [2]
+
+    //timeout payment URLs after 20 seconds
+
+    let ctime = new Date().getTime()
+
+    if(ctime - parseInt(time) > 20000){
+        throw redirect(302, "/book")
+    }
 
     const query = { email: {$eq: session.user.email}, status: { $eq: 'created'} }
     const existingPayment = await payments.findOne(query, options)
@@ -61,16 +86,8 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
     //get payment params
 
-    const params = event.params
+   
 
-    if(!params.slug){
-        throw redirect(302, "/?cancelled")
-    }
-
-    let splitSlug = params.slug.split('-')
-
-    let queried_type = splitSlug[0]
-    let refCode = splitSlug[1] || "N/A"
     let pass = passarray.find((pass) => {
         return pass.type == queried_type
     })
@@ -83,7 +100,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
     let costMultiplier = 1;
 
-    if(refCode != "N/A"){
+    if(refCode != "NA"){
         let amb = await ambassadors.findOne({refCode : { $eq: refCode }})
         if(amb){
             costMultiplier = 0.8
