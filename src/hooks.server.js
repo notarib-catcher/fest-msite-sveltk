@@ -12,6 +12,6 @@ export const handle = SvelteKitAuth({
         //@ts-ignore
         })], 
 
-        secret: process.env.SECRET,
-        trustHost: true
+    secret: process.env.SECRET,
+    trustHost: true
 })

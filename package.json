@@ -27,6 +27,7 @@
 	"type": "module",
 	"dependencies": {
 		"@auth/sveltekit": "^0.3.0",
-		"dotenv": "^16.0.3"
+		"dotenv": "^16.0.3",
+		"mongodb": "^5.2.0"
 	}
 }
