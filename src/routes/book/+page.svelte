@@ -3,6 +3,8 @@
     import { page } from '$app/stores';
     import sign from 'jwt-encode'
 
+    import { signIn } from '@auth/sveltekit/client';
+
 // @ts-nocheck
     export let data;
     if(browser){
@@ -24,6 +26,9 @@
     }
 
     const book = (type = "", refcode = "NA") => {
+        if(!$page.data.session){
+            signIn("google","/book?loginSuccess")
+        }
         if(type == "" ){
             return
         }
@@ -56,7 +61,11 @@
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex items-center justify-center">
             <div class=" opacity-100 text-white">
                 <button class=" border-2 p-4" on:click={() => { book('STANDARD')}}>
-                    NERDS
+                    {#if !$page.data.session}
+                    Sign in
+                    {:else}
+                    Book
+                    {/if}
                 </button> 
             </div>
         </div>
