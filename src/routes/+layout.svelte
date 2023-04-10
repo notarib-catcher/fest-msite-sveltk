@@ -12,9 +12,12 @@
 <CancelledNotif />
 
 {#if $page.url.pathname == "/"}
-    <div id="banner-container">
+    <div id="banner-container" class=" z-1">
         <Banner />
     </div>
 {/if}
-<Navbar />
+<div>
+    <Navbar />
+</div>
+
 <slot />

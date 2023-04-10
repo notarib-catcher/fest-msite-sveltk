@@ -47,6 +47,11 @@ const options = {
 }
 
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
+
+    if(!(process.env.ALLOW_PAYMENTS == "y")){
+        throw redirect(302, "/book")
+    }
+
     //check if not logged in
     const session = await event.locals.getSession();
     if (!session?.user) {
