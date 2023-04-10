@@ -45,15 +45,15 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
         let plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
 
-        if(plink.status != "cancelled" && plink.status != "expired"){
-          await razorInstance.paymentLink.cancel(existingPayment.p_id)
+        if(plink.status == "created"){
+          plink = await razorInstance.paymentLink.cancel(existingPayment.p_id)
         }
         
         await payments.findOneAndUpdate({
             p_id: existingPayment.p_id
         },{
             $set:{
-                status:"cancelled"
+                status: plink.status
             }
         })
 
