@@ -50,8 +50,8 @@
     {#if paymentclosed && !data.payment }
     <!-- Closed for regs at the moment -->
     <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-thin fadeinSlow ">
-        <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
-            <div class=" max-w-fit max-md:text-sm text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r bg-clip-text text-transparent text-2xl">
+        <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap max-md:font-semibold text-center max-md:text-3xl">
+            <div class=" max-w-fit max-md:text-sm whitespace-normal text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r max-md:bg-gradient-to-l bg-clip-text text-transparent text-2xl">
                 Registrations will open on 18-4-23
             </div>
         </div>   
