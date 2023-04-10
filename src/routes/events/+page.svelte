@@ -1,1 +1,1 @@
-events page
+events page.
