@@ -123,7 +123,7 @@
 
 
 <div id="nav-container" class=" w-screen md:sticky max-md:fixed max-md:top-0 z-10">
-    <div class=" md:hidden">
+    <div class=" md:hidden opacity-25">
         <button on:click={ onOpenMenu }>
             <img class=" h-10 w-10 fadeIn" src={hamburger} alt="open menu">
         </button>
