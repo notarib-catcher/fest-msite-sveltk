@@ -130,7 +130,7 @@
     </div>
     <div id="coverall" class=" fadeIn max-md:hide max-md:h-screen max-md:w-screen max-md:fixed z-[8] max-md:backdrop-blur-md max-md:top-0 max-md:left-0 md:pointer-events-none max-md:fadeIn max-md:hidden overflow-y-hidden">
     
-        <nav id="nav" class="md:shadow-lg pointer-events-auto   max-md:hidden md:w-full md:h-full bg-zinc-900  flex md:flex-row-reverse flex-col left-0 h-screen max-md:fixed  relative w-[50%] max-w-full">
+        <nav id="nav" class="md:shadow-lg pointer-events-auto   max-md:hidden md:w-full md:h-full bg-zinc-900  flex md:flex-row-reverse flex-col left-0 h-screen max-md:fixed  relative max-md:min-w-[40%] max-md:w-fit  max-w-full">
             <div class=" h-fit w-full px-4 my-auto order-1 font-extralight text-white align-middle text-xl flex-row flex">
                 
                 
@@ -141,7 +141,7 @@
                         <div class=" grid grid-flow-col grid-rows-1">
                             <div id="tappitytap" class=" max-md:hidden">Hello</div><div id="cursor" class=" loopOpacity font-bold mr-1 max-md:hidden  bg-clip-text text-transparent bg-gradient-to-b from-[#143E86] to-[#3BACC1]">|</div>
                         </div>
-                        <div class=" grid grid-flow-col grid-rows-1 bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent"> {#if $page.data.session}{$page.data.session.user?.name}{:else}<div class="max-md:hidden bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent">explorer</div>{/if}<div class=" max-md:hidden">!</div></div>
+                        <div class=" grid grid-flow-col grid-rows-1 bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent"> {#if $page.data.session}{$page.data.session.user?.name?.split(" ")[0]}{:else}<div class="max-md:hidden bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent">explorer</div>{/if}<div class=" max-md:hidden">!</div></div>
                     </div>
                     
                     
