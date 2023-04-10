@@ -160,3 +160,18 @@ body{
         transform: translateX(0);
     }
 }
+
+
+.backgroundpan {
+    background-size: 200%;
+    animation: backgroundpanAnim 1500ms linear infinite;
+}
+
+@keyframes backgroundpanAnim{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: -200% center;
+    }
+}

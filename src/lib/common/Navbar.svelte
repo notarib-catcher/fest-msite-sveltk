@@ -141,7 +141,7 @@
                         <div class=" grid grid-flow-col grid-rows-1">
                             <div id="tappitytap" class=" max-md:hidden">Hello</div><div id="cursor" class=" loopOpacity font-bold mr-1 max-md:hidden  bg-clip-text text-transparent bg-gradient-to-b from-[#143E86] to-[#3BACC1]">|</div>
                         </div>
-                        <div class=" grid grid-flow-col grid-rows-1 bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent"> {#if $page.data.session}{$page.data.session.user?.name?.split(" ")[0]}{:else}<div class="max-md:hidden bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent">explorer</div>{/if}<div class=" max-md:hidden">!</div></div>
+                        <div class=" grid grid-flow-col grid-rows-1 bg-gradient-to-tr font-semibold via-[#D283B8] to-[#6738BE] from-[#6738BE] bg-clip-text whitespace-nowrap text-transparent backgroundpan"> {#if $page.data.session}{$page.data.session.user?.name?.split(" ")[0]}{:else}<div class="max-md:hidden bg-gradient-to-tr font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-clip-text whitespace-nowrap text-transparent">explorer</div>{/if}<div class=" max-md:hidden">!</div></div>
                     </div>
                     
                     
