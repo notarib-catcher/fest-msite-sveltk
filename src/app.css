@@ -125,11 +125,11 @@ body{
 }
 
 .hide{
-        animation: hideAnim 0.5s forwards ease-in-out;
+        animation: hideAnim 250ms forwards ease-in-out;
 }
 
 .show{
-    animation: 1s ease-out 0s 1 showAnim;
+    animation: 250ms ease-out 0s 1 showAnim;
 }
 
 @keyframes  hideAnim{

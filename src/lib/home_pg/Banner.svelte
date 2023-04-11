@@ -3,7 +3,6 @@
     import downarrow from "../../assets/down-arrow.svg"
 	import { browser } from "$app/environment";
     import { onMount } from "svelte";
-    import Stars from "./Stars.svelte";
 
     const endTime = 1682652600000
     let dLeft = "-", hLeft = "-", mLeft = "-", sLeft = "-"
@@ -50,7 +49,6 @@
 
 
 <div id = "banner-inner-contain" class=" -z-[7]">
-   
     <div class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
         <div id = "banner-img-container z-[7] " class="  ">
             <div class="align-middle">
@@ -112,6 +110,7 @@
 
     .fadeThisOut{
         animation-name: fadeOut;
+        animation-timing-function: ease-out;
         animation-duration: 1000ms;
         animation-iteration-count: 1;
         animation-fill-mode: forward;
@@ -149,6 +148,7 @@
     animation-duration: 3000ms;
     animation-iteration-count: 1;
     animation-fill-mode: forward;
+    animation-timing-function: ease-out;
     }
 
     @keyframes fadeInCount {

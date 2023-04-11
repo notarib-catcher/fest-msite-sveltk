@@ -9,50 +9,50 @@
  
     
 
-        const onOpenMenu = async () => {
-            
-            // @ts-ignore
-      
-            // @ts-ignore
-            document.getElementById("nav").className = document.getElementById("nav").className.replaceAll("max-md:hidden", " ")
-            // @ts-ignore
-            // @ts-ignore
-            document.getElementById("nav").className = document.getElementById("nav").className.replaceAll("hide", " ")
-            
-            // @ts-ignore
-            document.getElementById("nav").className = document.getElementById("nav").className + " show "
-
-            // @ts-ignore
-            document.getElementById("coverall").className = document.getElementById("coverall").className.replaceAll("max-md:hidden", " ")
-           
-
-        }
-        const onCloseMenu = async () => {
-            
+    const onOpenMenu = async () => {
+        
+        // @ts-ignore
     
-            // @ts-ignore
+        // @ts-ignore
+        document.getElementById("nav").className = document.getElementById("nav").className.replaceAll("max-md:hidden", " ")
+        // @ts-ignore
+        // @ts-ignore
+        document.getElementById("nav").className = document.getElementById("nav").className.replaceAll("hide", " ")
+        
+        // @ts-ignore
+        document.getElementById("nav").className = document.getElementById("nav").className + " show "
 
-            document.getElementById("nav").className = document.getElementById("nav").className.replace("show", " ")
-            // @ts-ignore
-            document.getElementById("nav").className = document.getElementById("nav").className + " hide"
-            // @ts-ignore
+        // @ts-ignore
+        document.getElementById("coverall").className = document.getElementById("coverall").className.replaceAll("max-md:hidden", " ")
+        
+
+    }
+    const onCloseMenu = async () => {
+        
+
+        // @ts-ignore
+
+        document.getElementById("nav").className = document.getElementById("nav").className.replace("show", " ")
+        // @ts-ignore
+        document.getElementById("nav").className = document.getElementById("nav").className + " hide"
+        // @ts-ignore
 
 
+        
+        
+        // @ts-ignore
+        setTimeout(()=>{
+            // @ts-ignore
+            document.getElementById("nav").className = document.getElementById("nav").className + " max-md:hidden "
             
             
             // @ts-ignore
-            setTimeout(()=>{
-                // @ts-ignore
-                document.getElementById("nav").className = document.getElementById("nav").className + " max-md:hidden "
-                
-                
-                // @ts-ignore
-                document.getElementById("coverall").className = document.getElementById("coverall").className  + " max-md:hidden"
-                
-                
-            }, 500)
+            document.getElementById("coverall").className = document.getElementById("coverall").className  + " max-md:hidden"
             
-        }
+            
+        }, 250)
+        
+    }
     if(browser){
 
         window.addEventListener('resize', async () => {
@@ -128,8 +128,7 @@
             <img class=" h-10 w-10 fadeIn" src={hamburger} alt="open menu">
         </button>
     </div>
-    <div id="coverall" class=" fadeIn max-md:hide max-md:h-screen max-md:w-screen max-md:fixed z-[8] max-md:backdrop-blur-md max-md:top-0 max-md:left-0 md:pointer-events-none max-md:fadeIn max-md:hidden overflow-y-hidden">
-    
+    <div id="coverall" class=" overscroll-contain fadeIn max-md:hide max-md:h-screen max-md:w-screen max-md:fixed z-[8] max-md:backdrop-blur-md max-md:top-0 max-md:left-0 md:pointer-events-none max-md:fadeIn max-md:hidden overflow-y-hidden">
         <nav id="nav" class="md:shadow-lg pointer-events-auto   max-md:hidden md:w-full md:h-full bg-zinc-900  flex md:flex-row-reverse flex-col left-0 h-screen max-md:fixed  relative max-md:min-w-[40%] max-md:w-fit  max-w-full">
             <div class=" h-fit w-full px-4 my-auto order-1 font-light text-white align-middle text-xl flex-row flex">
                 
@@ -154,7 +153,7 @@
             <div><button class=" text-white md:hidden w-full text-left pl-4 text-2xl font-semibold mb-4 mt-4" on:click={onCloseMenu}>
                 <img src={leftarrow} class=" w-10 h-10" alt="close" />
             </button></div>
-            <div class=" max-md:order-5">
+            <div class=" max-md:hidden">
                 <NavbarButton name = "" navroute = "" isLogoutbtn = {true} />
             </div>
             <div class="md:hidden">
@@ -169,6 +168,9 @@
             {/if}
 
             <NavbarButton name = "Book" navroute = "/book" isLogoutbtn = {false}/>
+            <div class=" md:hidden">
+                <NavbarButton name = "" navroute = "" isLogoutbtn = {true} />
+            </div>
             <div class="max-md:hidden">
                 <NavbarButton name = "Events" navroute = "/events" isLogoutbtn = {false}/>
             </div>
