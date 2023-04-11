@@ -8,7 +8,7 @@
 	 import SolsticeFullLogo from '../../../src/assets/SolsticeFullLogo.svg'
 </script>
 
-<div class="m-10 p-5 border-2 border-yellow-600  w-fit rounded-2xl flex justify-center flex-col items-center text-center text-white">
+<div class="m-10 h-min p-5 border-2 border-yellow-600  w-fit rounded-2xl flex justify-center flex-col items-center text-center text-white">
 	<div class="flex w-full justify-start mb-2">
 		<img src={SolsticeFullLogo} alt="SolsticeLogoMITBLR" /> 
 	</div>
