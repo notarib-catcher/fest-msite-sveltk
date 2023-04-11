@@ -18,8 +18,6 @@ const projection = {
   }
 export async function load(){
     const foundevents = await events.find({},options).toArray();
-    console.log("check check check");
-    console.log(foundevents);
     if(foundevents.length == 0){
         return {};
     }
