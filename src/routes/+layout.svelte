@@ -16,7 +16,7 @@
         <Banner />
     </div>
 {/if}
-<div>
+<div class=" font-poppins">
     <Navbar />
 </div>
 

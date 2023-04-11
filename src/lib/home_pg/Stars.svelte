@@ -44,9 +44,9 @@ constructor(){
 }
 
 init = () => {
-    this.ctx.webkitImageSmoothingEnabled = false;
-    this.ctx.mozImageSmoothingEnabled = false;
-    this.ctx.imageSmoothingEnabled = false;
+    this.ctx.webkitImageSmoonormalgEnabled = false;
+    this.ctx.mozImageSmoonormalgEnabled = false;
+    this.ctx.imageSmoonormalgEnabled = false;
 
     console.count()
 this.render();

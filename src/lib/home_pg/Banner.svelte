@@ -50,7 +50,7 @@
 
 
 <div id = "banner-inner-contain" class=" -z-[7]">
-    <div  id="starcontain" class=" absolute top-0 left-0 z-[6] fadeinLate w-screen h-screen"><Stars /></div>
+   
     <div class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
         <div id = "banner-img-container z-[7] " class="  ">
             <div class="align-middle">
@@ -64,7 +64,7 @@
     <!--tech-->     <path class = "" d="M733.24 21.12V24.08H725.64V49H722V24.08H714.36V21.12H733.24ZM741.361 24.08V33.4H751.521V36.4H741.361V46H752.721V49H737.721V21.08H752.721V24.08H741.361ZM756.868 35.04C756.868 32.32 757.482 29.88 758.708 27.72C759.935 25.5333 761.602 23.8267 763.708 22.6C765.842 21.3733 768.202 20.76 770.788 20.76C773.828 20.76 776.482 21.4933 778.748 22.96C781.015 24.4267 782.668 26.5067 783.708 29.2H779.348C778.575 27.52 777.455 26.2267 775.988 25.32C774.548 24.4133 772.815 23.96 770.788 23.96C768.842 23.96 767.095 24.4133 765.548 25.32C764.002 26.2267 762.788 27.52 761.908 29.2C761.028 30.8533 760.588 32.8 760.588 35.04C760.588 37.2533 761.028 39.2 761.908 40.88C762.788 42.5333 764.002 43.8133 765.548 44.72C767.095 45.6267 768.842 46.08 770.788 46.08C772.815 46.08 774.548 45.64 775.988 44.76C777.455 43.8533 778.575 42.56 779.348 40.88H783.708C782.668 43.5467 781.015 45.6133 778.748 47.08C776.482 48.52 773.828 49.24 770.788 49.24C768.202 49.24 765.842 48.64 763.708 47.44C761.602 46.2133 759.935 44.52 758.708 42.36C757.482 40.2 756.868 37.76 756.868 35.04ZM810.607 21.12V49H806.967V36.36H792.767V49H789.127V21.12H792.767V33.36H806.967V21.12H810.607Z" fill="white"/>
                 </svg>
 
-                <div id = "countdownbox" class=" text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r via-[#c04d26] from-[#772f9e] to-[#623bac] backgroundpan countFadeIn">
+                <div id = "countdownbox" class=" text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r via-[#c04d26] from-[#772f9e] to-[#623bac] backgroundpan countFadeIn ">
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
                 </div>
             </div>
@@ -83,29 +83,7 @@
 
 <style>
 
-    .countFadeIn{
-    animation-name: fadeInCount;
-    animation-duration: 3000ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forward;
-    }
-
-    @keyframes fadeInCount {
-        0%{
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    50%{
-        transform: translateY(-50px);
-        opacity: 0;   
-    }
-
-    100%{
-        transform: translateY(0px);
-        opacity: 100%;
-    }
-    } 
+   
 
     .fadeinLate{
         animation-name: lateFadeIn;
@@ -165,4 +143,28 @@
         background-position: -200% center;
     }
 }
+
+.countFadeIn{
+    animation-name: fadeInCount;
+    animation-duration: 3000ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forward;
+    }
+
+    @keyframes fadeInCount {
+        0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    50%{
+        transform: translateY(-50px);
+        opacity: 0;   
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+    } 
 </style>
