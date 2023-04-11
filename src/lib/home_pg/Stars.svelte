@@ -1,15 +1,19 @@
-<script>
+<!-- <script>
 // @ts-nocheck
 
 	import { browser } from '$app/environment';
 	import { error } from '@sveltejs/kit';
-    import { onMount } from 'svelte';
-    
+  import { onDestroy } from 'svelte';
     
 
     export const ssr = false
 
     let particle = {}
+
+    onDestroy(() => { 
+      if(browser)
+        window.removeEventListener('resize',particle.render)
+    })
 
     class Particles{
 
@@ -67,10 +71,9 @@ return Math.random() * (max - min) + min;
 render = () => { 
 console.count()
 
-let self = this,
-    wHeight = window.innerWidth,
-    wWidth = window.innerHeight;
-    console.count()
+let self = this
+    
+ 
 
 
 
@@ -222,4 +225,4 @@ this.ctx.clearRect(0, 0, 10000, 10000);
     image-rendering: -webkit-optimize-contrast;
 
 }
-</style>
+</style> -->
