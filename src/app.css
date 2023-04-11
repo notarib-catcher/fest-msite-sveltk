@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 .Text-Gradient{
     background: -webkit-linear-gradient(#eee, #333);
@@ -13,6 +15,7 @@ html {
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
     overflow-x: hidden;
+    font-family:  'Poppins', sans-serif;
 }
   
 html::-webkit-scrollbar {
@@ -122,11 +125,11 @@ body{
 }
 
 .hide{
-        animation: hideAnim 0.5s forwards ease-in-out;
+        animation: hideAnim 250ms forwards ease-in-out;
 }
 
 .show{
-    animation: 1s ease-out 0s 1 showAnim;
+    animation: 250ms ease-out 0s 1 showAnim;
 }
 
 @keyframes  hideAnim{
@@ -174,4 +177,8 @@ body{
     to{
         background-position: -200% center;
     }
+}
+
+html{
+    
 }

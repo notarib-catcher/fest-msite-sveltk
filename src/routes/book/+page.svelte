@@ -49,7 +49,7 @@
 <div class=" bg-[#1e1e1e] min-h-screen h-fit flex items-center justify-center">
     {#if paymentclosed && !data.payment }
     <!-- Closed for regs at the moment -->
-    <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-thin fadeinSlow ">
+    <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
         <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap max-md:font-semibold text-center max-md:text-3xl">
             <div class=" max-w-fit max-md:text-sm whitespace-normal text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r max-md:bg-gradient-to-l bg-clip-text text-transparent text-2xl">
                 Registrations will open on 18-4-23
@@ -61,7 +61,7 @@
 
 
     {#if data.payment}
-        <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-thin fadeinSlow ">
+        <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
                 <div class=" max-w-fit max-md:text-sm text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r bg-clip-text text-transparent text-2xl">
                     You already have a pending payment ({data.payment.ref_id})<br><a href={data.payment.short_url} class=" font-semibold border-b-2 hover:border-b-4 duration-200 hover:font-bold active:text-white border-[#4b2c59] ">Pay it</a> or <a href={"/cancelpayment/" + data.payment.ref_id} class=" font-semibold border-b-2 active:text-white hover:border-b-4 hover:font-bold duration-200 border-[#4b2c59]">Cancel the payment</a>
