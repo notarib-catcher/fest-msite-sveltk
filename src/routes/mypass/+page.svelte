@@ -18,5 +18,8 @@
     }
 </script>
 
-<Carousel codeDataArr = {passstrArr} typeArr={passtypeArr} />
+<div class="bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 h-screen w-screen">
+    <Carousel codeDataArr = {passstrArr} typeArr={passtypeArr} />
+</div>
+
 

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /events
+Disallow: /pay/*
+Disallow: /cancelpayment/*
+Disallow: /mypass
+
+
+Sitemap: https://www.example.com/sitemap.xml

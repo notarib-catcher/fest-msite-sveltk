@@ -2,9 +2,15 @@
 // @ts-nocheck
     import downarrow from "../../assets/down-arrow.svg"
 	import { browser } from "$app/environment";
+    import { onMount } from "svelte";
+    import Stars from "./Stars.svelte";
 
     const endTime = 1682652600000
     let dLeft = "-", hLeft = "-", mLeft = "-", sLeft = "-"
+    onMount(() => {
+        window.scrollTo(0,0)
+    })
+
     if(browser){
 
         setInterval( () => {
@@ -29,15 +35,24 @@
         document.addEventListener("scroll", (event) => {
             document.getElementById('downarrow').className = " opacity-0 mb-20 transition-all duration-700"
         });
+        
+        document.addEventListener("resize", (event) => {
+            document.getElementById("starcontain").className = document.getElementById("starcontain").className + " hidden"
+            document.getElementById("starcontain").className = document.getElementById("starcontain").className.replaceAll("hidden", "")
+
+        })
+ 
 
 
     }
 
 </script>
 
-<div id = "banner-inner-contain">
-    <div class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center">
-        <div id = "banner-img-container" class="  ">
+
+<div id = "banner-inner-contain" class=" -z-[7]">
+    <div  id="starcontain" class=" absolute top-0 left-0 z-[6] fadeinLate w-screen h-screen"><Stars /></div>
+    <div class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
+        <div id = "banner-img-container z-[7] " class="  ">
             <div class="align-middle">
                 <svg width="815" height="280" viewBox="0 0 815 280" fill="none" class="fadeinonload max-w-[70%] mx-auto my-0"  xmlns="http://www.w3.org/2000/svg">
     <!--stice-->    <path d="M286.575 173.575H326.825V193H262.075V70.85H286.575V173.575ZM384.572 194.225C376.056 194.225 368.356 192.767 361.472 189.85C354.706 186.933 349.339 182.733 345.372 177.25C341.406 171.767 339.364 165.292 339.247 157.825H365.497C365.847 162.842 367.597 166.808 370.747 169.725C374.014 172.642 378.447 174.1 384.047 174.1C389.764 174.1 394.256 172.758 397.522 170.075C400.789 167.275 402.422 163.658 402.422 159.225C402.422 155.608 401.314 152.633 399.097 150.3C396.881 147.967 394.081 146.158 390.697 144.875C387.431 143.475 382.881 141.958 377.047 140.325C369.114 137.992 362.639 135.717 357.622 133.5C352.722 131.167 348.464 127.725 344.847 123.175C341.347 118.508 339.597 112.325 339.597 104.625C339.597 97.3917 341.406 91.0917 345.022 85.725C348.639 80.3583 353.714 76.275 360.247 73.475C366.781 70.5583 374.247 69.1 382.647 69.1C395.247 69.1 405.456 72.1917 413.272 78.375C421.206 84.4417 425.581 92.9583 426.397 103.925H399.447C399.214 99.725 397.406 96.2833 394.022 93.6C390.756 90.8 386.381 89.4 380.897 89.4C376.114 89.4 372.264 90.625 369.347 93.075C366.547 95.525 365.147 99.0833 365.147 103.75C365.147 107.017 366.197 109.758 368.297 111.975C370.514 114.075 373.197 115.825 376.347 117.225C379.614 118.508 384.164 120.025 389.997 121.775C397.931 124.108 404.406 126.442 409.422 128.775C414.439 131.108 418.756 134.608 422.372 139.275C425.989 143.942 427.797 150.067 427.797 157.65C427.797 164.183 426.106 170.25 422.722 175.85C419.339 181.45 414.381 185.942 407.847 189.325C401.314 192.592 393.556 194.225 384.572 194.225ZM532.163 70.85V90.625H499.613V193H475.113V90.625H442.563V70.85H532.163ZM574.539 70.85V193H550.039V70.85H574.539ZM592.795 131.75C592.795 119.733 595.478 109 600.845 99.55C606.328 89.9833 613.737 82.575 623.07 77.325C632.52 71.9583 643.078 69.275 654.745 69.275C668.395 69.275 680.353 72.775 690.62 79.775C700.887 86.775 708.062 96.4583 712.145 108.825H683.97C681.17 102.992 677.203 98.6167 672.07 95.7C667.053 92.7833 661.22 91.325 654.57 91.325C647.453 91.325 641.095 93.0167 635.495 96.4C630.012 99.6667 625.695 104.333 622.545 110.4C619.512 116.467 617.995 123.583 617.995 131.75C617.995 139.8 619.512 146.917 622.545 153.1C625.695 159.167 630.012 163.892 635.495 167.275C641.095 170.542 647.453 172.175 654.57 172.175C661.22 172.175 667.053 170.717 672.07 167.8C677.203 164.767 681.17 160.333 683.97 154.5H712.145C708.062 166.983 700.887 176.725 690.62 183.725C680.47 190.608 668.512 194.05 654.745 194.05C643.078 194.05 632.52 191.425 623.07 186.175C613.737 180.808 606.328 173.4 600.845 163.95C595.478 154.5 592.795 143.767 592.795 131.75ZM757.571 90.625V121.25H798.696V140.675H757.571V173.05H803.946V193H733.071V70.675H803.946V90.625H757.571Z" fill="white"/>
@@ -49,7 +64,7 @@
     <!--tech-->     <path class = "" d="M733.24 21.12V24.08H725.64V49H722V24.08H714.36V21.12H733.24ZM741.361 24.08V33.4H751.521V36.4H741.361V46H752.721V49H737.721V21.08H752.721V24.08H741.361ZM756.868 35.04C756.868 32.32 757.482 29.88 758.708 27.72C759.935 25.5333 761.602 23.8267 763.708 22.6C765.842 21.3733 768.202 20.76 770.788 20.76C773.828 20.76 776.482 21.4933 778.748 22.96C781.015 24.4267 782.668 26.5067 783.708 29.2H779.348C778.575 27.52 777.455 26.2267 775.988 25.32C774.548 24.4133 772.815 23.96 770.788 23.96C768.842 23.96 767.095 24.4133 765.548 25.32C764.002 26.2267 762.788 27.52 761.908 29.2C761.028 30.8533 760.588 32.8 760.588 35.04C760.588 37.2533 761.028 39.2 761.908 40.88C762.788 42.5333 764.002 43.8133 765.548 44.72C767.095 45.6267 768.842 46.08 770.788 46.08C772.815 46.08 774.548 45.64 775.988 44.76C777.455 43.8533 778.575 42.56 779.348 40.88H783.708C782.668 43.5467 781.015 45.6133 778.748 47.08C776.482 48.52 773.828 49.24 770.788 49.24C768.202 49.24 765.842 48.64 763.708 47.44C761.602 46.2133 759.935 44.52 758.708 42.36C757.482 40.2 756.868 37.76 756.868 35.04ZM810.607 21.12V49H806.967V36.36H792.767V49H789.127V21.12H792.767V33.36H806.967V21.12H810.607Z" fill="white"/>
                 </svg>
 
-                <div id = "countdownbox" class=" text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r from-[#f1d0e6] via-[#772f9e] to-[#623bac] countFadeIn">
+                <div id = "countdownbox" class=" text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r via-[#c04d26] from-[#772f9e] to-[#623bac] backgroundpan countFadeIn">
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
                 </div>
             </div>
@@ -58,9 +73,12 @@
             <div class=" mx-auto">
                 <img id="downarrow" src = {downarrow} alt={downarrow} class=" fadeinLate transition-all duration-700 mb-20">
             </div>
+            
             <div class="fadeThisOut"></div>
         </div>
     </div>
+    
+    
 </div>
 
 <style>
@@ -133,4 +151,18 @@
         }
      
     }
+
+    .backgroundpan {
+    background-size: 200%;
+    animation: backgroundpanAnim 4000ms linear infinite;
+}
+
+@keyframes backgroundpanAnim{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: -200% center;
+    }
+}
 </style>

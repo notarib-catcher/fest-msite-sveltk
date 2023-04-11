@@ -1,29 +1,26 @@
 <script>
-	import { browser } from '$app/environment';
+import { browser } from '$app/environment';
     import {page} from '$app/stores'
 
-    let isLogin = false
+    const isCancelled = $page.url.searchParams.has('cancelled')
     if(browser){
-        const urlParams = new URLSearchParams(window.location.search);
-        isLogin = urlParams.has('loginSuccess');
-
         window.history.pushState({}, document.title, window.location.pathname);
+    
+        
     }
-
 </script>
 
-
 <div class = "absolute top-0 w-screen h-fit z-20 pointer-events-none">
-    {#if isLogin}
-    <div class="  backdrop-blur-xl bg-gradient-to-r from-[#f1d0e6] via-[#772f9e] to-[#623bac] bg-clip-text text-transparent text-2xl font-semibold h-[50px] w-fit p-2 rounded-lg mx-auto ModalPopIn backgroundpan">
-        Welcome, {$page.data.session?.user?.name?.split(" ")[0]}!
+    {#if isCancelled}
+    <div class=" backdrop-blur-xl bg-gradient-to-r from-[#f1d0e6] via-[#772f9e] to-[#623bac] bg-clip-text text-transparent text-2xl font-semibold h-[50px] w-fit p-2 rounded-md mx-auto ModalPopIn">
+        Payment Cancelled
     </div>
     {/if}
 </div>
 
 <style>
 
-    .ModalPopIn{
+.ModalPopIn{
     transform: translateY(-100px);
     animation-name: login;
     animation-duration: 4000ms;

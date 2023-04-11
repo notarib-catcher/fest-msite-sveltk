@@ -12,6 +12,7 @@ html {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+    overflow-x: hidden;
 }
   
 html::-webkit-scrollbar {
@@ -19,7 +20,7 @@ html::-webkit-scrollbar {
 }
 
 body{
-    background: black;
+    background: #18181b;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
@@ -117,5 +118,60 @@ body{
 
     100%{
         transform: rotate(0deg);
+    }
+}
+
+.hide{
+        animation: hideAnim 0.5s forwards ease-in-out;
+}
+
+.show{
+    animation: 1s ease-out 0s 1 showAnim;
+}
+
+@keyframes  hideAnim{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.fadeOut{
+        animation: fadeOutAnim 0.5s forwards ease;
+        pointer-events: none;
+    }
+
+    @keyframes fadeOutAnim{
+        0%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+        } 
+    }
+
+@keyframes  showAnim{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+
+.backgroundpan {
+    background-size: 200%;
+    animation: backgroundpanAnim 1500ms linear infinite;
+}
+
+@keyframes backgroundpanAnim{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: -200% center;
     }
 }
