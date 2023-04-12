@@ -165,6 +165,14 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         if(filteredAllowed.length == 0) {
             throw redirect(301,"/book?cancelled")
         }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
     }
 
     if(queried_type == "UPGRADE:FLAGSHIP_TO_FULL_ACCESS" ){
@@ -185,6 +193,15 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         })
 
         if(filteredAllowed.length == 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+
+        //deny if they have a proshow  pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.includes("PROSHOW"))
+        })
+
+        if(filteredAllowed2.length > 0) {
             throw redirect(301,"/book?cancelled")
         }
     }

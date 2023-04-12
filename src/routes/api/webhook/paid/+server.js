@@ -87,6 +87,19 @@ export const POST = async ({request}) => {
     //MPTICKETSIGN GOES HERE
     let stringreturned = "THISISASIGNEDPASS"
 
+
+    //stop displaying the old pass
+    await passes.findOneAndUpdate({
+        email: {$eq: email},
+        type: { $ne: "FULL_ACCESS" }
+    },{
+        $set:{
+            generated: false
+        }
+    })
+
+
+
     //insert pass
     await passes.insertOne({
         email: email,
