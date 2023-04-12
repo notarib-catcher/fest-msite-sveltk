@@ -51,7 +51,6 @@ var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_sec
 // @ts-ignore
 import { MongoClient, ObjectId } from 'mongodb';
 import { redirect } from '@sveltejs/kit';
-import { requestHandler } from '@sentry/node/types/handlers.js';
 
 
 const cstring = process.env.MONGO_URL
