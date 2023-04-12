@@ -47,7 +47,7 @@
         </div>
     {:else}
         <div class=" mx-2 absolute text-white bg-gradient-to-tr from-[#49243d] via-[#442b51] to-[#2c125c] flex flex-col px-10 pb-10 pt-4 rounded-lg">
-            <div class="w-full text-center bg-clip-text text-transparent bg-gradient-to-r text-2xl font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] mb-4">
+            <div class="w-full text-center bg-clip-text text-transparent bg-gradient-to-r text-2xl font-semibold via-[#59e8f8] to-[#6088f9] from-[#6088f9]  mb-4">
                 Your Pass{#if codeDataArr.length > 1}es{/if}
             </div>
             <div class=" bg-white px-4 pt-4 rounded-lg shadow-2xl">
@@ -61,8 +61,8 @@
             </div>
             
             {#if codeDataArr.length > 1}
-                <div class="w-full text-center bg-clip-text text-transparent bg-gradient-to-r text-2xl font-semibold from-[#D283B8] via-[#995BBB] to-[#6738BE] mt-4">
-                    <button on:click={next} class=" w-fit px-4 rounded-lg h-full active:text-white bg-clip-border duration-200">next</button>
+                <div class="w-full text-center bg-clip-text text-transparent bg-gradient-to-r text-2xl font-semibold via-[#59e8f8] to-[#6088f9] from-[#6088f9]  mt-4">
+                    <button on:click={next} class=" w-fit px-4 rounded-lg h-full active:text-zinc-800 bg-clip-border duration-200">next</button>
                 </div>
             {/if}
             <div class=" w-full text-center pt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#c7acac] via-[#d6bfe2] to-[#7e7b83]">
