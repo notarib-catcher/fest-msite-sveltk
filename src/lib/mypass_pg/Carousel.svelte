@@ -51,7 +51,7 @@
     {#if codeDataArr.length == 0}
         <div>
             {#if !error}
-            No passes to display
+            No passes to display<br><br>Just made a payment?<br>Processing payments can take upto 5 minutes.
             {:else}
             Error, Please contact support
             {/if}

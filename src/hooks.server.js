@@ -30,6 +30,7 @@ export const handle = SvelteKitAuth({
     trustHost: true
 })
 
+// @ts-ignore
 export const handleError = (({ error, event }) => {
     SentryNode.captureException(error, { contexts: { sveltekit: { event } } });
   

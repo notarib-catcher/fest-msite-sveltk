@@ -188,6 +188,18 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         }
     }
 
+    if(queried_type == "FULL_ACCESS" ){
+        let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
+
+        //deny if they already have ANY pass
+       
+
+        if(cpass.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+        
+    }
+
    
 
 
