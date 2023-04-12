@@ -17,9 +17,9 @@
 			<h3 class="ml-8 mb-8">{data.event?.longDescription}</h3>
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
 			<h3 class="ml-8 mb-16">{data.event?.rules}</h3>
-			<h3 class="bg-clip-text text-transparent bg-gradient-to-tr from-[#331b6e] via-[#9538cf] to-[#c499de] w-max font-poppins font-bold text-[3vh]">Date: </h3>
-			<h3 class="bg-clip-text text-transparent bg-gradient-to-tr from-[#331b6e] via-[#9538cf] to-[#c499de] w-max font-poppins font-bold text-[3vh]">Time: </h3>
-			<h3 class="bg-clip-text text-transparent bg-gradient-to-tr from-[#331b6e] via-[#9538cf] to-[#c499de] w-max font-poppins font-bold text-[3vh]">Award: </h3>
+			<h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal text-[3vh]">Date: </h3>
+			<h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal text-[3vh]">Time: </h3>
+			<h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal text-[3vh]">Award: </h3>
 		</div>
 	</div>
 </div>
