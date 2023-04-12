@@ -2,7 +2,7 @@ import * as SentrySvelte from '@sentry/svelte';
 import { BrowserTracing } from '@sentry/tracing';
 
 SentrySvelte.init({
-  dsn: 'https://123772cef35244dc9d44952c84d88c3a@o4504999335886848.ingest.sentry.io/4504999337852928',
+  dsn: 'https://79e7c19686934f2c93548b81a2898ab3@o4504999335886848.ingest.sentry.io/4504999386284032',
   integrations: [new BrowserTracing()],
   tracesSampleRate: 1.0,
 });

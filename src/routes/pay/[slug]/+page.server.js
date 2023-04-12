@@ -11,7 +11,7 @@ const passarray = [
         INRcost: 500
     },
     {
-        type: "MINI",
+        type: "FLAGSHIP",
         INRcost: 500
     },
     {
