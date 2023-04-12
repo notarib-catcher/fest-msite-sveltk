@@ -217,6 +217,64 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         
     }
 
+    if(queried_type == "PROSHOW" ){     
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+        //deny if they already have a proshow pass
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.includes("PROSHOW"))
+        })
+
+        if(filteredAllowed.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
+    if(queried_type.startsWith("FLAGSHIP") ){     
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.startsWith("PROSHOW"))
+        })
+
+        if(filteredAllowed.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
     let existingallaccesspass = cpass.filter((somepass) => {
         return somepass.type == "FULL_ACCESS"
     })
