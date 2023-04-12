@@ -73,7 +73,7 @@
     <div class="top-20 grid grid-flow-col max-md:grid-flow-row w-fit mx-[200px] md:gap-9 lg:gap-44 xl:gap-80 gap-y-9 ">
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center">
             <div class=" opacity-100 text-white">
-                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('STANDARD')}}>
+                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('UPGRADE:PROSHOW_TO_FULL_ACCESS')}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
