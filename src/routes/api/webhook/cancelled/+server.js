@@ -22,22 +22,23 @@ var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_sec
  * 
  * @param {import("../../../$types").RequestEvent} request 
  */
-export const POST = async (request) => {
+export const POST = async ({request}) => {
 
-    const signature = request.request.headers.get('X-Razorpay-Signature') || "nosig"
-    const reqOb = await request.request.json()
+    const signature = request.headers.get('X-Razorpay-Signature') || "nosig"
+    const reqOb = await request.json()
     console.log("validating...")
     console.log(reqOb)
     try{
-        const validRequest = validateWebhookSignature(JSON.stringify(await request.request.json()), signature, secret)
+        const validRequest = validateWebhookSignature(JSON.stringify(reqOb), signature, secret)
+        if(!validRequest){
+            throw error(403,"Invalid Signature")
+        }
     }
     catch(error){
         console.error(error)
         throw error(500,"Signature Verifcation Failure")
     }
-    if(!validRequest){
-        throw error(403,"Invalid Signature")
-    }
+    
     
     console.log("valid webhook")
     console.log(reqOb)
