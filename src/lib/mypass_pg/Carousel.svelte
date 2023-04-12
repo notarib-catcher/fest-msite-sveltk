@@ -1,5 +1,7 @@
 <script>
+	import { browser } from "$app/environment";
 	import { goto } from "$app/navigation";
+    import QRCode from "../../lib/common/QRJS.svelte"
 
 // @ts-nocheck
 
@@ -14,6 +16,18 @@
 
     let error = false;
 
+    
+    let cursor = 0;
+    let currentData = codeDataArr[0];
+
+    const next = () => {
+        cursor = (cursor + 1)% codeDataArr.length
+    }
+
+    $: currentData = codeDataArr[cursor]
+
+    if(browser){
+        
     if(codeDataArr.length != typeArr.length){
         codeDataArr = []
         error = true;
@@ -23,18 +37,15 @@
         goto('/book')
     }
 
-    import QRCode from "../../lib/common/QRJS.svelte"
-
-    let cursor = 0;
-    let currentData = codeDataArr[0];
+    
 
 
-    const next = () => {
-        cursor = (cursor + 1)% codeDataArr.length
+
+
+
+
     }
 
-
-    $: currentData = codeDataArr[cursor]
 </script>
 <div class=" flex items-center justify-center h-screen w-screen text-white ">
     {#if codeDataArr.length == 0}

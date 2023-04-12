@@ -39,8 +39,8 @@ export const POST = async ({request}) => {
             throw error(403,"Invalid Signature")
         }
     }
-    catch(error){
-        console.error(error)
+    catch(ierror){
+        console.error(ierror)
         throw error(500,"Signature Verifcation Failure")
     }
     
@@ -57,7 +57,7 @@ export const POST = async ({request}) => {
     let assocPayment = await payments.findOne({ p_id : { $eq : p_id}})
     // @ts-ignore
     if(assocPayment.status == "paid"){
-        return new Response({})
+        return new Response()
     }
     
     payments.findOneAndUpdate({ p_id : { $eq: p_id}}, { $set: { status: "paid"}})
@@ -99,6 +99,6 @@ export const POST = async ({request}) => {
 
 
     
-    return new Response({})
+    return new Response()
 
 }
