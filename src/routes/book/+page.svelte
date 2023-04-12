@@ -84,7 +84,7 @@
         </div>
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center">
             <div class=" opacity-100 text-white">
-                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('STANDARD')}}>
+                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('PROSHOW')}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
