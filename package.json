@@ -28,6 +28,10 @@
 	"dependencies": {
 		"@auth/sveltekit": "^0.3.0",
 		"@picocss/pico": "^1.5.9",
+		"@sentry/node": "^7.47.0",
+		"@sentry/svelte": "^7.47.0",
+		"@sentry/tracing": "^7.47.0",
+		"@sentry/vite-plugin": "^0.6.0",
 		"dotenv": "^16.0.3",
 		"jsonwebtoken": "^9.0.0",
 		"jwt-encode": "^1.0.1",

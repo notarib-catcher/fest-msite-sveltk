@@ -1,7 +1,21 @@
 import { SvelteKitAuth } from "@auth/sveltekit"
 import Google from "@auth/core/providers/google"
+
+import * as SentryNode from '@sentry/node';
+import '@sentry/tracing';
 import * as dotenv from 'dotenv' 
 dotenv.config()
+
+SentryNode.init({
+    dsn: process.env.SENTRY_DSN,
+    tracesSampleRate: 1.0,
+    // Add the Http integration for tracing
+    integrations: [new SentryNode.Integrations.Http()]
+});
+  
+SentryNode.setTag('svelteKit', 'server');
+
+
 export const handle = SvelteKitAuth({
     //@ts-ignore
     providers:[ Google({
@@ -15,3 +29,12 @@ export const handle = SvelteKitAuth({
     secret: process.env.SECRET,
     trustHost: true
 })
+
+export const handleError = (({ error, event }) => {
+    SentryNode.captureException(error, { contexts: { sveltekit: { event } } });
+  
+    return {
+      // @ts-ignore
+      message: error.message,
+    };
+  })
