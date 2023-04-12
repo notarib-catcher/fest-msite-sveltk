@@ -27,7 +27,14 @@ export const POST = async (request) => {
     const signature = request.request.headers.get('X-Razorpay-Signature') || "nosig"
     const reqOb = await request.request.json()
     console.log("validating...")
-    const validRequest = validateWebhookSignature(JSON.stringify(await request.request.json()), signature, secret)
+    console.log(reqOb)
+    try{
+        const validRequest = validateWebhookSignature(JSON.stringify(await request.request.json()), signature, secret)
+    }
+    catch(error){
+        console.error(error)
+        throw error(500,"Signature Verifcation Failure")
+    }
     if(!validRequest){
         throw error(403,"Invalid Signature")
     }
