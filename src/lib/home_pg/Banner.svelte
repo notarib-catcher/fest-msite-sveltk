@@ -6,12 +6,26 @@
 
     const endTime = 1682652600000
     let dLeft = "-", hLeft = "-", mLeft = "-", sLeft = "-"
+    let particles = 40
+    let delay = 2
     onMount(() => {
         window.scrollTo(0,0)
+        var container = document.getElementById("wave");
+        for(let i=2;i<=particles;i++)
+            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i}'></div>`
+        container = document.getElementById("wave2");
+        for(let i=2;i<=particles;i++)
+            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+1*delay}'></div>`
+        container = document.getElementById("wave3");
+        for(let i=2;i<=particles;i++)
+            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+2*delay}'></div>`
+        container = document.getElementById("wave4");
+        for(let i=2;i<=particles;i++)
+            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+3*delay}'></div>`
     })
 
     if(browser){
-
+        
         setInterval( () => {
             let Ctime = new Date().getTime()
 
@@ -40,7 +54,8 @@
             document.getElementById("starcontain").className = document.getElementById("starcontain").className.replaceAll("hidden", "")
 
         })
- 
+        
+       
 
 
     }
@@ -49,7 +64,23 @@
 
 
 <div id = "banner-inner-contain" class=" -z-[7]">
-    <div class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
+    <div id="container" class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
+        <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden">
+            <div class="h-[20vw] flex flex-col justify-end">
+                <div class="absolute waves mb-0 h-[0%] w-screen flex flex-row justify-between items-center" id="wave">
+                    <div class="wavy" style="--i: 1"/>
+                </div>
+                <div class="waves absolute mb-0 h-[0%] ml-2 w-screen flex flex-row justify-between items-center" id="wave2">
+                    <div class="wavy" style="--i: {delay}"/>
+                </div>
+                <div class="absolute waves h-[0%] w-screen ml-4 flex flex-row justify-between items-center" id="wave3">
+                    <div class="wavy" style="--i: {delay*2}"/>
+                </div>
+                <div class="waves absolute mb-0 h-[0%] ml-6 w-screen flex flex-row justify-between items-center" id="wave4">
+                    <div class="wavy" style="--i: {delay*3}"/>
+                </div>
+            </div>
+        </div>
         <div id = "banner-img-container z-[7] " class="  ">
             <div class="align-middle">
                 <svg width="815" height="280" viewBox="0 0 815 280" fill="none" class="fadeinonload max-w-[70%] mx-auto my-0"  xmlns="http://www.w3.org/2000/svg">
@@ -80,8 +111,31 @@
 </div>
 
 <style>
+    .wavy{
+        height: 2px;
+        width: 2px;
+        background-color: white;
+        filter: blur(1px);
+        box-shadow: 0 0 3px rgb(255, 255, 255);
+    }
 
+    .waves div{
+        animation: wave 5s infinite;
+        animation-timing-function: ease-in-out;
+        animation-delay: calc(var(--i)*100ms);
+    }
    
+    @keyframes wave{
+        0%{
+            transform: translateY(0vw);
+        }
+        50%{
+            transform: translateY(-20vw);
+        }
+        100%{
+            transform: translateY(0vw);
+        }
+    }
 
     .fadeinLate{
         animation-name: lateFadeIn;
