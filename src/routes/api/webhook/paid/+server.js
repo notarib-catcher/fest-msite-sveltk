@@ -81,7 +81,7 @@ export const POST = async ({request}) => {
         type = "!ALL!"
     }
 
-    //Rename full access pass to match schema
+    //Rename full access pass to match type used by MPTICKET for an all access pass
     type = (type == "FULL_ACCESS")?"!ALL!":type;
 
     //MPTICKETSIGN GOES HERE
@@ -92,7 +92,7 @@ export const POST = async ({request}) => {
         email: email,
         token: stringreturned,
         generated: true,
-        type: type,
+        type: (type=="!ALL!")?"FULL_ACCESS":type,
         paymentID: p_id,
         refCode: (refcode != 'NA')?refcode:""
     })

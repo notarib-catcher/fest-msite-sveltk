@@ -149,7 +149,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
         //deny if they already have the all access pass
         let filteredDenied = cpass.filter((pass) => {
-            return (pass.type == "ALL")
+            return (pass.type == "FULL_ACCESS")
         })
 
         if(filteredDenied.length > 0) {
