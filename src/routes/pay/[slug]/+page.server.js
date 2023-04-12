@@ -51,6 +51,7 @@ var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_sec
 // @ts-ignore
 import { MongoClient, ObjectId } from 'mongodb';
 import { redirect } from '@sveltejs/kit';
+import { requestHandler } from '@sentry/node/types/handlers.js';
 
 
 const cstring = process.env.MONGO_URL
@@ -143,9 +144,10 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         return pass.type == queried_type
     })
 
+    let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
 
-    if(queried_type == "UPGRADE:PROSHOW_TO_FULL_ACCESS" ){
-        let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
+
+    if(queried_type == "UPGRADE:PROSHOW_TO_FULL_ACCESS" ){     
 
         //deny if they already have the all access pass
         let filteredDenied = cpass.filter((pass) => {
@@ -167,7 +169,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     }
 
     if(queried_type == "UPGRADE:FLAGSHIP_TO_FULL_ACCESS" ){
-        let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
+        
 
         //deny if they already have the all access pass
         let filteredDenied = cpass.filter((pass) => {
@@ -189,7 +191,6 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     }
 
     if(queried_type == "FULL_ACCESS" ){
-        let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
 
         //deny if they already have ANY pass
        
@@ -198,6 +199,14 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
             throw redirect(301,"/mypass?cancelled")
         }
         
+    }
+
+    let existingallaccesspass = cpass.filter((somepass) => {
+        return somepass.type == "FULL_ACCESS"
+    })
+
+    if(existingallaccesspass.length > 0){
+        throw redirect(301,"/mypass?cancelled")
     }
 
    
