@@ -94,16 +94,16 @@
     <div id="container" class="relative top-0 h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center -z-10">
         <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden z-[-1]">
             <div class="h-[30vw] flex flex-col justify-end fadeinLate">
-                <div class="absolute waves mb-0 h-[0%] z-[6] w-screen flex flex-row justify-between items-center" id="wave" bind:this={wave1}>
+                <div class="absolute waves  h-[0%]  w-[150vw] flex flex-row justify-between items-center" id="wave" bind:this={wave1}>
                     <div class="wavy" style="--i: 1"/>
                 </div>
-                <div class="waves absolute mb-0 h-[0%] ml-2 w-screen flex flex-row justify-between items-center" id="wave2" bind:this={wave2}>
+                <div class="waves absolute mb-0 ml-2 h-[0%]  -translate-x-2 w-[150vw] flex flex-row justify-between items-center" id="wave2" bind:this={wave2}>
                     <div class="wavy" style="--i: {delay}"/>
                 </div>
-                <div class="absolute waves h-[0%] w-screen ml-4 flex flex-row justify-between items-center" id="wave3" bind:this={wave3}>
+                <div class="absolute waves h-[0%] ml-4 w-[150vw] -translate-x-4 flex flex-row justify-between items-center" id="wave3" bind:this={wave3}>
                     <div class="wavy" style="--i: {delay*2}"/>
                 </div>
-                <div class="waves absolute mb-0 h-[0%] ml-6 w-screen flex flex-row justify-between items-center" id="wave4" bind:this={wave4}>
+                <div class="waves absolute mb-0 ml-6 h-[0%] w-[150vw] -translate-x-6 flex flex-row justify-between items-center" id="wave4" bind:this={wave4}>
                     <div class="wavy" style="--i: {delay*3}"/>
                 </div>
             </div>
