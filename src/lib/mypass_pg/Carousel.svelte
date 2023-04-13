@@ -61,7 +61,7 @@
             <div class="w-full text-center bg-clip-text text-transparent bg-gradient-to-r text-2xl font-semibold via-[#59e8f8] to-[#6088f9] from-[#6088f9]  mb-4">
                 Your Pass{#if codeDataArr.length > 1}es{/if}
             </div>
-            <div class=" bg-white px-4 pt-4 rounded-lg shadow-2xl">
+            <div class=" bg-[#e6e6e6] px-4 pt-4 rounded-lg shadow-2xl">
                 {#key currentData}
                     <QRCode codeValue = {currentData} squareSize = {300}/>
                 {/key}
