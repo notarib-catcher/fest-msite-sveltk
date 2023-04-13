@@ -28,9 +28,16 @@
         
         },1500)
 
+        //prevent duplication by checking for a weird ID  (see the next comment)
+        if(document.getElementById("wavyyyy2")){
+            return
+        }
+
+
         var container = wave1
         for(let i=2;i<=particles;i++)
-            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i}'></div>`
+            //give this one a weird ID we can check for later
+            container.innerHTML += `<div id="wavyyyy${i}" class='wavy s-CrrGW-6Buhux' style='--i:${i}'></div>`
         container = wave2
         for(let i=2;i<=particles;i++)
             container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+1*delay}'></div>`
@@ -84,8 +91,8 @@
 
 
 <div id = "banner-inner-contain" class=" ">
-    <div id="container" class=" h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center z-[7]">
-        <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden">
+    <div id="container" class="relative top-0 h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center -z-10">
+        <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden z-[-1]">
             <div class="h-[30vw] flex flex-col justify-end fadeinLate">
                 <div class="absolute waves mb-0 h-[0%] z-[6] w-screen flex flex-row justify-between items-center" id="wave" bind:this={wave1}>
                     <div class="wavy" style="--i: 1"/>
@@ -134,12 +141,13 @@
     .wavy{
         height: 2px;
         width: 2px;
-        background-color: white;
+        z-index: -1;
         
-        box-shadow: 0 0 3px rgb(255, 255, 255);
+        box-shadow: 0 0 3px rgb(68, 211, 227);
     }
 
     .waves div{
+        position: relative;
         animation: wave 5s infinite;
         animation-timing-function: ease-in-out;
         animation-delay: calc(var(--i)*100ms);
@@ -148,12 +156,17 @@
     @keyframes wave{
         0%{
             transform: translateY(0vw);
+            background-color: rgb(241, 123, 45);
+
+            
         }
         50%{
             transform: translateY(-30vw);
+            background-color: rgb(68, 211, 227);
         }
         100%{
             transform: translateY(0vw);
+            background-color: rgb(241, 123, 45);
         }
     }
 
