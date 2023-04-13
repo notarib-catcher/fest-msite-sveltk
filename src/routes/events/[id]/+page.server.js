@@ -6,17 +6,13 @@ const cstring = process.env.MONGO_URL
 
 // @ts-ignore
 const client = new MongoClient(cstring);
-const database = client.db('content');
+const database = client.db(process.env.MONGO_DB_NAME);
 const events = database.collection('events');
 
-const projection = {
-    _id: 0
-  }
-  
-  const options = {
-    projection: projection
 
-  }
+  
+  
+// @ts-ignore
 export async function load({params}){
     
     const foundevents = await events.find({route:params.id}).toArray();
