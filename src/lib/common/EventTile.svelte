@@ -6,7 +6,6 @@
 	 */
 	 export let data;
 	 import SolsticeFullLogo from '../../../src/assets/SolsticeFullLogo.svg'
-	 import{goto} from '$app/navigation';
 </script>
 
 <div class="m-10 h-min p-5 border-2 border-yellow-600  w-fit rounded-2xl flex justify-center flex-col items-center text-center text-white">
@@ -14,13 +13,11 @@
 		<img src={SolsticeFullLogo} alt="SolsticeLogoMITBLR" /> 
 	</div>
     <img src={data.image} alt="eventImage" class="rounded-3xl" width={220} height={220}/>
-	<p class="text-2xl font-bold">{data.title}</p>
+	<p class="text-2xl font-bold">{data.name}</p>
 	<div class="w-[220px] m-2 text-xl font-light">
-		<p>{data.shortDescription}</p>
+		<p>{data.slug}</p>
 	</div>
 	<div class="w-full flex justify-end mt-2">
-		<button class=" bg-gradient-to-tr from-[#D2691E] to-[#FFD700] hover:bg-blue-700 text-black font-sans py-2 px-4 rounded-xl" on:click={()=>{
-			goto('/events/'+data._id)
-		}}>Register</button>
+		<button class=" bg-gradient-to-tr from-[#D2691E] to-[#FFD700] hover:bg-blue-700 text-black font-sans py-2 px-4 rounded-xl" on:click={()=>{}}>Register</button>
 	</div>
 </div>
