@@ -6,6 +6,8 @@ import { validateWebhookSignature } from 'razorpay/dist/utils/razorpay-utils';
 import { sign } from 'jsonwebtoken'
 dotenv.config()
 
+const webprivkey = process.env.WEBPRIVKEY?.replaceAll("$n$","\n")
+
 import { MongoClient } from 'mongodb';
 
 const cstring = process.env.MONGO_URL || ""
@@ -49,8 +51,8 @@ export const POST = async ({request}) => {
 
 
 
-    let { notes, id:p_id } = reqOb.payload.payment_link.entity
-    let { type, sessionemail:email, refcode } = notes
+    let { notes, id:p_id, customer } = reqOb.payload.payment_link.entity
+    let { type, sessionemail:email, refcode, name } = notes
 
 
     //debounce code
@@ -83,6 +85,22 @@ export const POST = async ({request}) => {
 
     //Rename full access pass to match type naming used by MPTICKET for an all access pass
     type = (type == "FULL_ACCESS")?"!ALL!":type;
+
+
+    //sign MPTICKET payload
+    let ticketServerPayload = sign({
+        "name": name,
+        "phone": customer.contact || "+910000000000",
+        "email": email,
+        "type" : type
+    // @ts-ignore
+    },webprivkey,{
+        algorithm: 'RS256'
+    })
+
+    console.log("PAYLOAD: "+ ticketServerPayload)
+
+    //TODO send it to MPTICKET and add it to stringreturned
 
     //MPTICKETSIGN GOES HERE
     let stringreturned = "THISISASIGNEDPASS"

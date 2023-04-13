@@ -326,6 +326,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         },
         reminder_enable: false,
         notes:{
+            name: session.user.name || "Anonymous",
             type: queried_type,
             sessionemail: session.user.email || "noneprovided",
             refcode: refcode
