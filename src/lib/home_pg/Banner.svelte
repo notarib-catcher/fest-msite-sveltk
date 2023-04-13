@@ -67,7 +67,10 @@
 
 
         document.addEventListener("scroll", (event) => {
-            document.getElementById('downarrow').className = " opacity-0 mb-20 transition-all duration-700"
+            let downarrow = document.getElementById('downarrow')
+            if(downarrow){
+                downarrow.className = " opacity-0 mb-20 transition-all duration-700"
+            }
         });
         
         
