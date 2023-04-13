@@ -3,9 +3,12 @@
 // @ts-nocheck
 
 	import EventTile from '$lib/events_pg/EventTile.svelte';
-import { each } from 'svelte/internal';
 
-     export let data;
+  let eventData = {
+    events:[
+    //static event data here
+    ]
+  }
 </script>
 
 <div class=" flex flex-col p-20">
@@ -13,7 +16,7 @@ import { each } from 'svelte/internal';
       Gold Events
     </h1>
       <div class="flex flex-row flex-wrap justify-center">
-        {#each data.events as event}
+        {#each eventData.events as event}
         <EventTile data={event}/>
         {/each}
       </div>
