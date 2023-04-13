@@ -7,16 +7,40 @@ import {verify} from 'jsonwebtoken'
 
 const passarray = [
     {
-        type: "STANDARD",
+        type: "FULL_ACCESS",
+        INRcost: 700
+    },
+    {
+        type: "FLAGSHIP_1",
         INRcost: 500
     },
     {
-        type: "MINI",
+        type: "FLAGSHIP_2",
+        INRcost: 500
+    },
+    {
+        type: "FLAGSHIP_3",
+        INRcost: 500
+    },
+    {
+        type: "FLAGSHIP_4",
+        INRcost: 500
+    },
+    {
+        type: "FLAGSHIP_5",
         INRcost: 500
     },
     {
         type: "PROSHOW",
-        INRcost: 500
+        INRcost: 400
+    },
+    {
+        type: "UPGRADE:PROSHOW_TO_FULL_ACCESS",
+        INRcost: 300
+    },
+    {
+        type: "UPGRADE:FLAGSHIP_TO_FULL_ACCESS",
+        INRcost: 200
     }
 ]
 
@@ -35,6 +59,7 @@ const cstring = process.env.MONGO_URL
 const client = new MongoClient(cstring);
 const database = client.db(process.env.MONGO_DB_NAME);
 const payments = database.collection('payments')
+const passes = database.collection('passes')
 const ambassadors = database.collection('ambassadors')
 
 
@@ -113,12 +138,154 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
     //get payment params
 
-   
-
     let pass = passarray.find((pass) => {
         // @ts-ignore
         return pass.type == queried_type
     })
+
+    let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
+
+
+    if(queried_type == "UPGRADE:PROSHOW_TO_FULL_ACCESS" ){     
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+        //deny if they dont have a proshow pass
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.includes("PROSHOW"))
+        })
+
+        if(filteredAllowed.length == 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
+    if(queried_type == "UPGRADE:FLAGSHIP_TO_FULL_ACCESS" ){
+        
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+        //deny if they dont have a flagship pass
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed.length == 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+
+        //deny if they have a proshow  pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.includes("PROSHOW"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
+    if(queried_type == "FULL_ACCESS" ){
+
+        //deny if they already have ANY pass
+       
+
+        if(cpass.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+        
+    }
+
+    if(queried_type == "PROSHOW" ){     
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+        //deny if they already have a proshow pass
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.includes("PROSHOW"))
+        })
+
+        if(filteredAllowed.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
+    if(queried_type.startsWith("FLAGSHIP") ){     
+
+        //deny if they already have the all access pass
+        let filteredDenied = cpass.filter((pass) => {
+            return (pass.type == "FULL_ACCESS")
+        })
+
+        if(filteredDenied.length > 0) {
+            throw redirect(301,"/mypass?cancelled")
+        }
+
+
+        let filteredAllowed = cpass.filter((pass) => {
+            return (pass.type.startsWith("PROSHOW"))
+        })
+
+        if(filteredAllowed.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+        //deny if they have a flagship pass
+        let filteredAllowed2 = cpass.filter((pass) => {
+            return (pass.type.startsWith("FLAGSHIP"))
+        })
+
+        if(filteredAllowed2.length > 0) {
+            throw redirect(301,"/book?cancelled")
+        }
+    }
+
+    let existingallaccesspass = cpass.filter((somepass) => {
+        return somepass.type == "FULL_ACCESS"
+    })
+
+    if(existingallaccesspass.length > 0){
+        throw redirect(301,"/mypass?cancelled")
+    }
+
+   
+
+
 
     let rcode = "n"
 
@@ -158,7 +325,11 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
             sms: false
         },
         reminder_enable: false,
-        notes:{},
+        notes:{
+            type: queried_type,
+            sessionemail: session.user.email || "noneprovided",
+            refcode: refcode
+        },
         callback_url:"https://solstice.mitblrfest.in/mypass",
         callback_method: 'get'
     // @ts-ignore

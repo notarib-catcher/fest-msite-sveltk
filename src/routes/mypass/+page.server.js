@@ -20,7 +20,7 @@ const options = {
   projection: projection
 }
 
-export const load =  async (event) => {
+export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
   const session = await event.locals.getSession();
     if (!session?.user) {
       throw redirect(303, '/'); //Not logged in => No access
