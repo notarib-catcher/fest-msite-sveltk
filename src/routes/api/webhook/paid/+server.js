@@ -3,7 +3,8 @@ import * as dotenv from 'dotenv' ;
 import  Razorpay  from 'razorpay'
 import { validateWebhookSignature } from 'razorpay/dist/utils/razorpay-utils';
 
-import { sign } from 'jsonwebtoken'
+import * as jwt from 'jsonwebtoken'
+
 dotenv.config()
 
 const webprivkey = process.env.WEBPRIVKEY?.replaceAll("$n$","\n")
@@ -88,7 +89,7 @@ export const POST = async ({request}) => {
 
 
     //sign MPTICKET payload
-    let ticketServerPayload = sign({
+    let ticketServerPayload = jwt.sign({
         "name": name,
         "phone": customer.contact || "+910000000000",
         "email": email,
