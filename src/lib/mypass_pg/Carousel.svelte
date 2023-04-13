@@ -3,6 +3,17 @@
 	import { goto } from "$app/navigation";
     import QRCode from "../../lib/common/QRJS.svelte"
 
+
+    const passNameDisplay = {
+      "PROSHOW":  "Proshow access",
+      "FULL_ACCESS": "All access pass",
+      "FLAGSHIP_HCKTH": "Hackathon",
+      "FLAGSHIP_ESPRT": "Esports",
+      "FLAGSHIP_DESGN": "Design-a-thon",
+      "FLAGSHIP_TRHUN": "Treasure Hunt",
+      "FLAGSHIP_PDISC": "Panel Discussion",
+      "STAFF" : "Event staff"
+    }
 // @ts-nocheck
 
     /**
@@ -17,6 +28,8 @@
     let error = false;
 
     
+    
+    
     let cursor = 0;
     let currentData = codeDataArr[0];
 
@@ -26,24 +39,33 @@
 
     $: currentData = codeDataArr[cursor]
 
+    /**
+	 * @type {any[]}
+	 */
+    const nameArr = []
+
+    const convertTypeToName = (type = "Custom") => {
+        // @ts-ignore
+        nameArr.push(passNameDisplay[type] || "Custom Pass")
+    }
+
+    typeArr.map(convertTypeToName)
+
     if(browser){
         
-    if(codeDataArr.length != typeArr.length){
-        codeDataArr = []
-        error = true;
-    }
+        if(codeDataArr.length != typeArr.length){
+            codeDataArr = []
+            error = true;
+        }
 
-    if(codeDataArr.length == 0){
-        goto('/book')
-    }
-
-    
-
-
-
-
-
-
+        if(codeDataArr.length == 0){
+            setTimeout(
+                () => {
+                    goto('/book')
+                }, 3000
+            )
+            
+        }   
     }
 
 </script>
@@ -51,7 +73,7 @@
     {#if codeDataArr.length == 0}
         <div>
             {#if !error}
-            No passes to display<br>Just made a payment?<br>Processing payments can take upto 5 minutes.
+            No passes to display<br><br>Just made a payment?<br>Processing payments can take upto 5 minutes.
             {:else}
             Error, Please contact support
             {/if}
@@ -66,7 +88,7 @@
                     <QRCode codeValue = {currentData} squareSize = {300}/>
                 {/key}
                 <div class="w-full text-center bg-clip-text bg-gradient-to-t text-transparent from-[#49243d] via-[#442b51] to-[#2c125c] text-2xl font-extrabold  mt-2 mb-3 ">
-                    {typeArr[cursor]}
+                    {nameArr[cursor]}
                 </div>
 
             </div>
