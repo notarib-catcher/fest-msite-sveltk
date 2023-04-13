@@ -4,7 +4,7 @@
 	import { browser } from "$app/environment";
     import { onMount } from "svelte";
 
-    const endTime = 1682652600000
+    const endTime = 1682739000000
     let dLeft = "-", hLeft = "-", mLeft = "-", sLeft = "-"
     let particles = 40
     let delay = 2
