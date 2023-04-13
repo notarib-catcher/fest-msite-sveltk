@@ -6,7 +6,7 @@
     $: {
       if (typeof gtag !== 'undefined') {
         gtag('config', 'G-8KMYR18X52', {
-          page_title: document.title,
+          page_title: $page.url.pathname.replaceAll("/",""),
           page_path: $page.url.pathname,
         })
       }
