@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import * as dotenv from 'dotenv' ;
+import axios from 'axios'
 import  Razorpay  from 'razorpay'
 import { validateWebhookSignature } from 'razorpay/dist/utils/razorpay-utils';
 
@@ -104,8 +105,9 @@ export const POST = async ({request}) => {
     //TODO send it to MPTICKET and add it to stringreturned
 
     //MPTICKETSIGN GOES HERE
-    let stringreturned = "THISISASIGNEDPASS"
+    let payloadreturned = await axios.post("https://ticketing.mitblrfest.in/sign",ticketServerPayload)
 
+    let stringreturned = payloadreturned.data
 
     //stop displaying the old pass
     await passes.findOneAndUpdate({
