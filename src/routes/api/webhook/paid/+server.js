@@ -4,8 +4,8 @@ import axios from 'axios'
 import  Razorpay  from 'razorpay'
 import { validateWebhookSignature } from 'razorpay/dist/utils/razorpay-utils';
 
-import {sign} from 'jsonwebtoken'
-
+import jwt from 'jsonwebtoken'
+const {sign} = jwt
 dotenv.config()
 
 const webprivkey = process.env.WEBPRIVKEY?.replaceAll("$n$","\n")
