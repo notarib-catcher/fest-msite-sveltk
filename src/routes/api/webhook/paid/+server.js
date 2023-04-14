@@ -4,7 +4,7 @@ import axios from 'axios'
 import  Razorpay  from 'razorpay'
 import { validateWebhookSignature } from 'razorpay/dist/utils/razorpay-utils';
 
-import * as jwt from 'jsonwebtoken'
+import {sign} from 'jsonwebtoken'
 
 dotenv.config()
 
@@ -90,7 +90,7 @@ export const POST = async ({request}) => {
 
 
     //sign MPTICKET payload
-    let ticketServerPayload = jwt.sign({
+    let ticketServerPayload = sign({
         "name": name,
         "phone": customer.contact || "+910000000000",
         "email": email,
