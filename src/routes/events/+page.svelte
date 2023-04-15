@@ -40,7 +40,7 @@ import { each, onMount } from 'svelte/internal';
     <h1 class="text-6xl font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
       Gold Events
     </h1>
-    <div class="flex flex-row flex-wrap justify-center">
+    <div class="flex flex-row flex-wrap justify-center items-center">
       {#each data.events as event}
       <EventTile data={event}/>
       {/each}

@@ -25,9 +25,9 @@ export async function load({params}){
         let event = foundevents[i];
         modifiedevents.push({
             _id: event._id.toString(),
-            name: event.name,
+            name: event.title,
             pass: event.pass,
-            slug: event.slug,
+            slug: event.shortDescription,
             rules: event.rules,
             longDescription: event.longDescription,
             image: event.image,
