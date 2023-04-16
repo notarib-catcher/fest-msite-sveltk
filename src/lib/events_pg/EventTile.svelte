@@ -9,11 +9,11 @@
 	 import{goto} from '$app/navigation';
 </script>
 
-<div class="m-10 h-min p-5 border-2 border-yellow-600 hover:bg-[#3c3c3c] hover:scale-110  transition-all duration-300 delay-100 ease-in-out  w-fit rounded-2xl flex justify-center flex-col items-center text-center text-white">
+<div class="m-6 h-[650px] p-5 border-2 max-w-[400px] w-fit border-yellow-600 hover:bg-[#303033] hover:mx-[5%] hover:scale-110  transition-all duration-300 delay-100 ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white">
 	<div class="flex w-full justify-start mb-2">
 		<img src={SolsticeFullLogo} alt="SolsticeLogoMITBLR" /> 
 	</div>
-    <img src={data.image} alt="eventImage" class="rounded-3xl m-2 h-[150px]" width={220}/>
+    <img src={data.image} alt="eventImage" class="rounded-3xl m-2 h-[165px]" width={220}/>
 	<p class="text-2xl font-bold">{data.title}</p>
 	<div class="w-[220px] m-2 text-xl font-light">
 		<p>{data.shortDescription}</p>
