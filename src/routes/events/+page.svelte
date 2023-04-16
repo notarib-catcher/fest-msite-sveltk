@@ -2,6 +2,7 @@
   // @ts-nocheck
   
     import EventTile from '$lib/events_pg/EventTile.svelte';
+	import { Container } from 'postcss';
   import { each, onMount } from 'svelte/internal';
         
   
@@ -28,7 +29,9 @@
       onMount(()=>{
         var countainer = document.getElementById("stars")
         for(let i =0;i<particles;i++)
-        countainer.innerHTML += `<div class=" bg-white h-[3px] w-[3px] rounded-full blur-[1px] absolute ease-in-out s-N-9Ekhs3dG6k" style="top: ${Math.random()*window.innerHeight*1.5}px;left: ${Math.random()*innerWidth*1.5}px;opacity:${Math.random()}" id="star"></div>`
+        if(!countainer.innerHTML.includes(`<div class=" bg-white h-[3px] w-[3px] rounded-full blur-[1px] absolute ease-in-out s-N-9Ekhs3dG6k"`)){
+          countainer.innerHTML += `<div class=" bg-white h-[3px] w-[3px] rounded-full blur-[1px] absolute ease-in-out s-N-9Ekhs3dG6k" style="top: ${Math.random()*window.innerHeight*1.5}px;left: ${Math.random()*innerWidth*1.5}px;opacity:${Math.random()}" id="star"></div>`
+        }
         console.log(countainer.innerHTML)
       })
   
