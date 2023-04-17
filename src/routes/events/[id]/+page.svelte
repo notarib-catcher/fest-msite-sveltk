@@ -5,8 +5,8 @@
 <div class="text-white flex h-full items-center  flex-col py-[5vh]">
 	<h3 class="m-[5vh] w-max text-center h-full font-poppins bg-gradient-to-tr font-bold from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] bg-clip-text text-transparent text-[6vh]">{data.event?.name}</h3>
 	<div class="flex flex-row flex-wrap md:flex-nowrap mt-10 justify-evenly w-[95vw] h-full">
-		<div class="relative flex flex-col w-[40vw] mx-7 flex-grow-[1] justify-evenly items-end">
-			<img src={data.event?.image} alt={data.event?.name} class=" absolute top-0 w-full rounded-lg shadow-xl shadow-black h-fit mb-[5vh]"/>
+		<div class="relative flex flex-col w-[40vw] mx-7 flex-grow-[1] items-end">
+			<img src={data.event?.image} alt={data.event?.name} class=" top-0 w-full rounded-lg shadow-xl shadow-black h-fit mb-[5vh]"/>
 			<button on:click={() => window.history.back()}
 				class="bg-gradient-to-tr from-[#D2691E] to-[#FFD700] w-max text-white font-sans py-2 px-4 rounded-xl"
 				>Registrations will open soon!</button

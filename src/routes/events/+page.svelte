@@ -20,11 +20,9 @@
         function handleMouse(event){
           m.x = multiplier*event.clientX;
           m.y = multiplier*event.clientY;
-          console.log(m);
           var root = document.querySelector(':root');
           root.style.setProperty('--x', `${m.x}%`);
           root.style.setProperty('--y', `${m.y}%`);
-          console.log(window.innerHeight)
         }
       onMount(()=>{
         var countainer = document.getElementById("stars")
