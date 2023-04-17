@@ -1,3 +1,4 @@
+import { redirect } from '@sveltejs/kit';
 import * as dotenv from 'dotenv' ;
 dotenv.config()
 import { MongoClient } from 'mongodb';
@@ -9,18 +10,13 @@ const client = new MongoClient(cstring);
 const database = client.db('content');
 const events = database.collection('efficientFetching');
 
-const projection = {
-    _id: 0
-  }
   
-  const options = {
-    projection: projection
-
-  }
+  const options = {}
 export async function load(){
-    const foundevents = await events.find({title:"events"},options).toArray();
-    if(foundevents.length == 0){
-        return {};
+    const foundevents = await events.findOne({title:"events"},options)
+    console.log(foundevents)
+    if(!foundevents){
+        throw redirect(302,'/');
     }
-    return {events:foundevents[0].data};
+    return {events:foundevents.data};
 }

@@ -6,7 +6,10 @@
     import LoginNotif from "../lib/common/LoginNotif.svelte";
     import LogoutNotif from "../lib/common/LogoutNotif.svelte";
 	import CancelledNotif from "$lib/common/CancelledNotif.svelte";
+	import Footer from "$lib/common/Footer.svelte";
+	import Analytics from "$lib/common/Analytics.svelte";
 </script>
+<Analytics/>
 <LoginNotif />
 <LogoutNotif />
 <CancelledNotif />
@@ -21,3 +24,7 @@
 </div>
 
 <slot />
+
+{#if $page.url.pathname != "/"}
+<Footer />
+{/if}

@@ -1,8 +1,5 @@
 <script>
 // @ts-nocheck
-
-	import { browser } from "$app/environment";
-	import { onMount } from "svelte";
     import Popup from "./Popup.svelte";
 
 

@@ -27,9 +27,11 @@ export async function load({params}){
             _id: event._id.toString(),
             name: event.title,
             pass: event.pass,
-            slug: event.slug,
-            rules: event.rules,
-            longDescription: event.longDescription,
+            slug: event.shortDescription,
+            rules: event.rules.substr(1,event.rules.length-2).split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
+                return  {text:v, br:"<br>"} }),
+            longDescription: event.longDescription.substr(1,event.longDescription.length-2).split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
+                return  {text:v, br:"<br>"} }),
             image: event.image,
             route: event.route,
             

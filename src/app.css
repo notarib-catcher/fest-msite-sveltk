@@ -106,7 +106,7 @@ body{
 
 @keyframes rotIn3 {
     0%{
-        transform: rotate(500deg);
+        transform: rotate(-500deg);
     }
 
     100%{
@@ -116,7 +116,7 @@ body{
 
 @keyframes rotIn4 {
     0%{
-        transform: rotate(-400deg);
+        transform: rotate(400deg);
     }
 
     100%{
@@ -179,6 +179,54 @@ body{
     }
 }
 
-html{
-    
+.slowRotateClockwise{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation:clockwiserotateslow 40000ms linear infinite
+
+}
+
+.slowerRotateClockwise{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation:clockwiserotateslow 60000ms linear infinite
+
+}
+
+@keyframes clockwiserotateslow{
+    0%{
+        transform:rotate(0deg);
+    }
+    50%{
+        transform:rotate(180deg);
+    }
+    100%{
+        transform:rotate(360deg)
+    }
+}
+
+.slowRotateAntiClockwise{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation:anticlockwiserotateslow 60000ms linear infinite
+
+}
+
+.slowerRotateAntiClockwise{
+    transform-origin: center;
+    transform-box: fill-box;
+    animation:anticlockwiserotateslow 80000ms linear infinite
+
+}
+
+@keyframes anticlockwiserotateslow{
+    0%{
+        transform:rotate(-0deg);
+    }
+    50%{
+        transform:rotate(-180deg);
+    }
+    100%{
+        transform:rotate(-360deg)
+    }
 }

@@ -2,6 +2,8 @@ import { redirect } from '@sveltejs/kit'
 import * as dotenv from 'dotenv' ;
 dotenv.config()
 
+export const prerender = true
+
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
     if(process.env.REDIRECT_ALL_TRAFFIC == "y"){
         // @ts-ignore

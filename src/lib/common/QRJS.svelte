@@ -26,7 +26,7 @@
           // @ts-ignore
           height: squareSize,
           colorDark : "#000000",
-          colorLight : "#ffffff",
+          colorLight : "#e6e6e6",
           // @ts-ignore
           correctLevel : QRCode.CorrectLevel.H
               });		

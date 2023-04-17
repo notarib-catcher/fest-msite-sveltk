@@ -64,7 +64,7 @@
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
                 <div class=" max-w-fit max-md:text-sm text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r bg-clip-text text-transparent text-2xl">
-                    You already have a pending payment ({data.payment.ref_id})<br><a href={data.payment.short_url} class=" font-semibold border-b-2 hover:border-b-4 duration-200 hover:font-bold active:text-white border-[#4b2c59] ">Pay it</a> or <a href={"/cancelpayment/" + data.payment.ref_id} class=" font-semibold border-b-2 active:text-white hover:border-b-4 hover:font-bold duration-200 border-[#4b2c59]">Cancel the payment</a>
+                    You already have a pending payment ({data.payment.ref_id})<br><a href={data.payment.short_url} class=" font-semibold border-b-2 hover:border-b-4 duration-200 hover:font-bold active:text-white border-[#4b2c59] ">Pay it</a> or <a data-sveltekit-preload-data="tap" href={"/cancelpayment/" + data.payment.ref_id} class=" font-semibold border-b-2 active:text-white hover:border-b-4 hover:font-bold duration-200 border-[#4b2c59]">Cancel the payment</a>
                 </div>
             </div>   
         </div>
@@ -73,7 +73,7 @@
     <div class="top-20 grid grid-flow-col max-md:grid-flow-row w-fit mx-[200px] md:gap-9 lg:gap-44 xl:gap-80 gap-y-9 ">
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center">
             <div class=" opacity-100 text-white">
-                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('STANDARD')}}>
+                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('UPGRADE:PROSHOW_TO_FULL_ACCESS')}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -84,7 +84,7 @@
         </div>
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center">
             <div class=" opacity-100 text-white">
-                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('STANDARD')}}>
+                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('PROSHOW')}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -95,7 +95,7 @@
         </div>
         <div class=" h-[300px] w-[200px] bgGradientCardBLue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center">
             <div class=" opacity-100 text-white">
-                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('STANDARD')}}>
+                <button class=" bg-gradient-to-tr bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { book('FULL_ACCESS')}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
