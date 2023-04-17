@@ -30,7 +30,7 @@ export async function load({params}){
             slug: event.shortDescription,
             rules: event.rules.substr(1,event.rules.length-2).split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
                 return  {text:v, br:"<br>"} }),
-            longDescription: event.longDescription.substr(1,event.longDescription.length-2).split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
+            longDescription: event.longDescription.split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
                 return  {text:v, br:"<br>"} }),
             image: event.image,
             route: event.route,
