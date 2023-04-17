@@ -39,11 +39,7 @@
     <div class="stars  h-full fixed -z-10 w-full stars" id="stars">
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div>
-<<<<<<< HEAD
     <div on:mousemove={handleMouse} class=" flex flex-col p-20 w-fit">
-=======
-    <div on:mousemove={handleMouse} class=" flex flex-col p-20">
->>>>>>> master
       <h1 class="text-6xl font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
         Events
       </h1>
@@ -66,9 +62,5 @@
   .stars div{
     transform: translate(var(--x),var(--y));
   }
-<<<<<<< HEAD
   </style>
   
-=======
-  </style>
->>>>>>> master
