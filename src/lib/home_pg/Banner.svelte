@@ -29,7 +29,7 @@
         },1500)
 
         //prevent duplication by checking for a weird ID  (see the next comment)
-        if(document.getElementById("wavyyyy2")){
+        if(document.getElementById("wavyyyy5")){
             return
         }
 
@@ -77,7 +77,9 @@
             let downarrow = document.getElementById('downarrow')
             if(downarrow){
                 downarrow.className = " opacity-0 mb-20 transition-all duration-700"
+
             }
+            document.removeEventListener('scroll',this)
         });
         
         
