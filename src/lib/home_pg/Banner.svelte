@@ -33,16 +33,16 @@
         var container = wave1
         for(let i=2;i<=particles;i++)
             //give this one a weird ID we can check for later
-            container.innerHTML += `<div id="wavyyyy${i}" class='wavy s-CrrGW-6Buhux' style='--i:${i}'></div>`
+            container.innerHTML += `<div id="wavyyyy${i}" class='wavy block' style='--i:${i}'></div>`
         container = wave2
         for(let i=2;i<=particles;i++)
-            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+1*delay}'></div>`
+            container.innerHTML += `<div class='wavy block ' style='--i:${i+1*delay}'></div>`
         container = wave3
         for(let i=2;i<=particles;i++)
-            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+2*delay}'></div>`
+            container.innerHTML += `<div class='wavy  block ' style='--i:${i+2*delay}'></div>`
         container = wave4
         for(let i=2;i<=particles;i++)
-            container.innerHTML += `<div class='wavy s-CrrGW-6Buhux' style='--i:${i+3*delay}'></div>`
+            container.innerHTML += `<div class='wavy block ' style='--i:${i+3*delay}'></div>`
 
 
 
@@ -136,38 +136,7 @@
 </div>
 
 <style>
-    .wavy{
-        height: 2px;
-        width: 2px;
-        z-index: -1;
-        
-        box-shadow: 0 0 3px rgb(68, 211, 227);
-    }
-
-    .waves div{
-        position: relative;
-        animation: wave 5s infinite;
-        animation-timing-function: ease-in-out;
-        animation-delay: calc(var(--i)*100ms);
-    }
-   
-    @keyframes wave{
-        0%{
-            transform: translateY(0vw);
-            background-color: rgb(241, 123, 45);
-
-            
-        }
-        50%{
-            transform: translateY(-30vw);
-            background-color: rgb(68, 211, 227);
-        }
-        100%{
-            transform: translateY(0vw);
-            background-color: rgb(241, 123, 45);
-        }
-    }
-
+    
     .fadeinLate{
         animation-name: lateFadeIn;
         animation-duration: 5000ms;

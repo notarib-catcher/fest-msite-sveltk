@@ -230,3 +230,35 @@ body{
         transform:rotate(-360deg)
     }
 }
+
+.wavy{
+        height: 2px;
+        width: 2px;
+        z-index: -1;
+        
+        box-shadow: 0 0 3px rgb(68, 211, 227);
+    }
+
+    .waves div{
+        position: relative;
+        animation: wave 5s infinite;
+        animation-timing-function: ease-in-out;
+        animation-delay: calc(var(--i)*100ms);
+    }
+   
+    @keyframes wave{
+        0%{
+            transform: translateY(0vw);
+            background-color: rgb(241, 123, 45);
+
+            
+        }
+        50%{
+            transform: translateY(-30vw);
+            background-color: rgb(68, 211, 227);
+        }
+        100%{
+            transform: translateY(0vw);
+            background-color: rgb(241, 123, 45);
+        }
+    }
