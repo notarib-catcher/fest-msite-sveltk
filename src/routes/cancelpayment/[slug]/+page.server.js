@@ -42,21 +42,34 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
 
     if(existingPayment){
+        let plink = {status:"cancelled"}
 
-        let plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
+        if(existingPayment.p_id != "UPI"){
+          plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
 
-        if(plink.status == "created"){
-          plink = await razorInstance.paymentLink.cancel(existingPayment.p_id)
-        }
-        
-        await payments.findOneAndUpdate({
+          if(plink.status == "created"){
+            plink = await razorInstance.paymentLink.cancel(existingPayment.p_id)
+          }
+
+          await payments.findOneAndUpdate({
             p_id: existingPayment.p_id
-        },{
-            $set:{
-                status: plink.status
-            }
-        })
+            },{
+                $set:{
+                    status: plink.status
+                }
+          })
+          return {cancelled: true}
 
+
+        }
+
+        await payments.findOneAndUpdate({
+          ref_id:params.slug
+          },{
+              $set:{
+                  status: plink.status
+              }
+        })
         return {cancelled: true}
     }
 

@@ -7,40 +7,44 @@ import {verify} from 'jsonwebtoken'
 
 const passarray = [
     {
-        type: "FULL_ACCESS",
-        INRcost: 700
-    },
-    {
-        type: "FLAGSHIP_1",
-        INRcost: 500
-    },
-    {
-        type: "FLAGSHIP_2",
-        INRcost: 500
-    },
-    {
-        type: "FLAGSHIP_3",
-        INRcost: 500
-    },
-    {
-        type: "FLAGSHIP_4",
-        INRcost: 500
-    },
-    {
-        type: "FLAGSHIP_5",
-        INRcost: 500
-    },
-    {
         type: "PROSHOW",
-        INRcost: 400
+        INRcost: 450,
+        open: true
     },
     {
-        type: "UPGRADE:PROSHOW_TO_FULL_ACCESS",
-        INRcost: 300
+        type: "FLAGSHIP_HCKTH",
+        INRcost: 200,
+        open: true
     },
     {
-        type: "UPGRADE:FLAGSHIP_TO_FULL_ACCESS",
-        INRcost: 200
+        type: "FLAGSHIP_DESGN",
+        INRcost: 200,
+        open: true
+    },
+    {
+        type: "FLAGSHIP_THUNT",
+        INRcost: 200,
+        open: true
+    },
+    {
+        type: "ESPORT_VAL",
+        INRcost: 200,
+        open: true
+    },
+    {
+        type: "ESPORT_COD",
+        INRcost: 200,
+        open: true
+    },
+    {
+        type: "ESPORT_CROYL",
+        INRcost: 50,
+        open: true
+    },
+    {
+        type: "ESPORT_FIFA",
+        INRcost: 50,
+        open: true
     }
 ]
 
@@ -49,7 +53,7 @@ var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_sec
 
 
 // @ts-ignore
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { redirect } from '@sveltejs/kit';
 
 
@@ -143,147 +147,18 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         return pass.type == queried_type
     })
 
+    if(!pass?.open){
+        throw redirect(302, "/book?cancelled")
+    }
+
     let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
 
-
-    if(queried_type == "UPGRADE:PROSHOW_TO_FULL_ACCESS" ){     
-
-        //deny if they already have the all access pass
-        let filteredDenied = cpass.filter((pass) => {
-            return (pass.type == "FULL_ACCESS")
-        })
-
-        if(filteredDenied.length > 0) {
-            throw redirect(301,"/mypass?cancelled")
-        }
-
-        //deny if they dont have a proshow pass
-        let filteredAllowed = cpass.filter((pass) => {
-            return (pass.type.includes("PROSHOW"))
-        })
-
-        if(filteredAllowed.length == 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-        //deny if they have a flagship pass
-        let filteredAllowed2 = cpass.filter((pass) => {
-            return (pass.type.startsWith("FLAGSHIP"))
-        })
-
-        if(filteredAllowed2.length > 0) {
-            throw redirect(301,"/book?cancelled")
+    for(let i in cpass){
+        if(cpass[i].type == queried_type){
+            throw redirect(301,"/mypass")
         }
     }
-
-    if(queried_type == "UPGRADE:FLAGSHIP_TO_FULL_ACCESS" ){
-        
-
-        //deny if they already have the all access pass
-        let filteredDenied = cpass.filter((pass) => {
-            return (pass.type == "FULL_ACCESS")
-        })
-
-        if(filteredDenied.length > 0) {
-            throw redirect(301,"/mypass?cancelled")
-        }
-
-        //deny if they dont have a flagship pass
-        let filteredAllowed = cpass.filter((pass) => {
-            return (pass.type.startsWith("FLAGSHIP"))
-        })
-
-        if(filteredAllowed.length == 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-
-        //deny if they have a proshow  pass
-        let filteredAllowed2 = cpass.filter((pass) => {
-            return (pass.type.includes("PROSHOW"))
-        })
-
-        if(filteredAllowed2.length > 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-    }
-
-    if(queried_type == "FULL_ACCESS" ){
-
-        //deny if they already have ANY pass
-       
-
-        if(cpass.length > 0) {
-            throw redirect(301,"/mypass?cancelled")
-        }
-        
-    }
-
-    if(queried_type == "PROSHOW" ){     
-
-        //deny if they already have the all access pass
-        let filteredDenied = cpass.filter((pass) => {
-            return (pass.type == "FULL_ACCESS")
-        })
-
-        if(filteredDenied.length > 0) {
-            throw redirect(301,"/mypass?cancelled")
-        }
-
-        //deny if they already have a proshow pass
-        let filteredAllowed = cpass.filter((pass) => {
-            return (pass.type.includes("PROSHOW"))
-        })
-
-        if(filteredAllowed.length > 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-        //deny if they have a flagship pass
-        let filteredAllowed2 = cpass.filter((pass) => {
-            return (pass.type.startsWith("FLAGSHIP"))
-        })
-
-        if(filteredAllowed2.length > 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-    }
-
-    if(queried_type.startsWith("FLAGSHIP") ){     
-
-        //deny if they already have the all access pass
-        let filteredDenied = cpass.filter((pass) => {
-            return (pass.type == "FULL_ACCESS")
-        })
-
-        if(filteredDenied.length > 0) {
-            throw redirect(301,"/mypass?cancelled")
-        }
-
-
-        let filteredAllowed = cpass.filter((pass) => {
-            return (pass.type.startsWith("PROSHOW"))
-        })
-
-        if(filteredAllowed.length > 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-        //deny if they have a flagship pass
-        let filteredAllowed2 = cpass.filter((pass) => {
-            return (pass.type.startsWith("FLAGSHIP"))
-        })
-
-        if(filteredAllowed2.length > 0) {
-            throw redirect(301,"/book?cancelled")
-        }
-    }
-
-    let existingallaccesspass = cpass.filter((somepass) => {
-        return somepass.type == "FULL_ACCESS"
-    })
-
-    if(existingallaccesspass.length > 0){
-        throw redirect(301,"/mypass?cancelled")
-    }
-
-   
+    
 
 
 
@@ -306,7 +181,25 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         }
     }
 
+    if(process.env.USE_ALTERNATE_PAYMENT == 'y'){
+        let refid = uuidv4();
+        payments.insertOne({
+            name:session.user.name,
+            //@ts-ignore
+            ref_id: refid,
+            amount: (pass.INRcost * 100 * costMultiplier),
+            email: session.user.email,
+            short_url: "/upi",
+            status: "created",
+            p_id: "UPI",
+            type: pass.type,
+            refCode: refcode,
+            // @ts-ignore
+            contact: decoded.contact || null
+        })
 
+        return{ link: "/upi", rcodestatus: rcode}
+    }
 
     let refid = uuidv4();
     let razorpaylink = await razorInstance.paymentLink.create({
@@ -341,12 +234,15 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     payments.insertOne({
         //@ts-ignore
         ref_id: razorpaylink.reference_id,
+        amount: (pass.INRcost * 100 * costMultiplier),
         email: session.user.email,
         short_url: razorpaylink.short_url,
         status: razorpaylink.status,
         p_id: razorpaylink.id,
         type: pass.type,
-        refCode: refcode
+        refCode: refcode,
+        // @ts-ignore
+        contact: decoded.contact || null
     })
 
 
