@@ -12,8 +12,8 @@
       "FLAGSHIP_HCKTH": "Hackathon",
       "FLAGSHIP_DESGN": "Design-a-thon",
       "FLAGSHIP_THUNT": "Treasure Hunt",
-      "ESPORT_VAL": "Esports - Valorant",
-      "ESPORT_COD": "Esports - COD Mobile",
+      "ESPORT_VALO": "Esports - Valorant",
+      "ESPORT_CODM": "Esports - COD Mobile",
       "ESPORT_CROYL": "Esport - Clash Royale",
 
       //staff access
