@@ -28,11 +28,12 @@
 
 
 
-    const signURL = (type = "", refcode = "NA") => {
+    const signURL = (type = "", refcode = "NA", phone = "0000000000", extradat = "") => {
         let payload = {
             type: type,
-            refcode: refcode,
-            contact: "+910000000000",
+            refcode: (refcode.trim() == "")?"NA" : refcode.trim().toUpperCase(),
+            extradat: extradat?.substring(0,100) || "",
+            contact: "+91" + phone,
             iat: new Date().getTime()
         }
 
@@ -40,15 +41,35 @@
         return sign(payload, $page.data.session?.user?.email)
     }
 
-    const book = (type = "", refcode = "NA") => {
+    const book = (Bevent) => {
+        let {detail: options} = Bevent
         if(!$page.data.session){
             signIn("google","/book?loginSuccess")
         }
+
+        let {event, extradat, phnum, refcode, eventChosen} = options
+        let type = ""
+        if(eventChosen == "VALO" || eventChosen == "CODM" || eventChosen == "FIFA" ||  eventChosen == "CROYL"){
+            type = "ESPORT_" + eventChosen
+        }
+
+        if(eventChosen == "THUNT" || eventChosen == "DESGN" || eventChosen == "HCKTH"){
+            type = "FLAGSHIP_" + eventChosen
+        }
+
+        if(event.toLowerCase().includes("proshow")){
+            type = "PROSHOW"
+        }
+
+        if(event.toLowerCase().includes("standard")){
+            type = "STANDARD"
+        }
+
         if(type == "" ){
             return
         }
 
-        let signed = signURL(type, refcode)
+        let signed = signURL(type, refcode, phnum, extradat)
         window.location.replace(data.origin + "/pay/" + signed)
     }
 
@@ -75,7 +96,7 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { popupProshow = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -87,7 +108,7 @@
                 Join the fun!
             </div>
             {#if popupProshow}
-                <Popup title="Proshow Pass" innerText="hello" type="gold" on:close ={() => { popupProshow = false}} />
+                <Popup title="Proshow Pass" innerText="hello" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
         </div>
         <div class=" h-[300px] w-[250px] bgGradientCardBlue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
@@ -97,7 +118,7 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { popupFlagship = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupFlagship = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -109,7 +130,7 @@
                 Attend a Flagship Event
             </div>
             {#if popupFlagship}
-            <Popup title="Flagship Event" innerText="hello" type="gold" on:close ={() => { popupFlagship = false}} />
+            <Popup title="Flagship Event" innerText="hello" type="gold" on:close ={() => { popupFlagship = false}} on:book={book}/>
             {/if}
         </div>
         <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
@@ -119,7 +140,7 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { popupProshow = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -131,7 +152,7 @@
                 Enjoy the music!
             </div>
             {#if popupProshow}
-            <Popup title="Proshow Pass" innerText="hello" type="gold" on:close ={() => { popupProshow = false}} />
+            <Popup title="Proshow Pass" innerText="hello" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
         </div>
         <!--card-->
@@ -142,7 +163,7 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { popupStandard = true}} >
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -154,7 +175,7 @@
                 All mini & fun events
             </div>
             {#if popupStandard}
-            <Popup title="Standard Pass" innerText="hello" type="gold" on:close ={() => { popupStandard = false}} />
+            <Popup title="Standard Pass" innerText="hello" type="gold" on:close ={() => { popupStandard = false}} on:book={book}/>
             {/if}
         </div>
         <!--endofcard-->
@@ -165,7 +186,7 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => { popupEsports = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -177,7 +198,7 @@
                 Compete in E-sports
             </div>
             {#if popupEsports}
-            <Popup title="Esports" innerText="hello" type="gold" on:close ={() => { popupEsports = false}} />
+            <Popup title="Esports" innerText="hello" type="gold" on:close ={() => { popupEsports = false}} on:book={book}/>
             {/if}
         </div>
         

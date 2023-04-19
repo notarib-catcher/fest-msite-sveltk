@@ -55,13 +55,16 @@
             eventChosen: eventChosen
         }
 
-        dispatch("bookPress",data)
+        console.log(data)
+
+        dispatch2("book",data)
      }
 
 
 
 
     const dispatch = createEventDispatcher()
+    const dispatch2 = createEventDispatcher()
     
 </script>
 

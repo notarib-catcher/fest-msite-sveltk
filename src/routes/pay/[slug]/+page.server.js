@@ -27,7 +27,7 @@ const passarray = [
         open: true
     },
     {
-        type: "ESPORT_VAL",
+        type: "ESPORT_VALO",
         INRcost: 200,
         open: true
     },
@@ -76,16 +76,18 @@ const options = {
 }
 
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
-
+console.count("pprc")
     if(!(process.env.ALLOW_PAYMENTS == "y")){
         throw redirect(302, "/book")
     }
+    console.count("pprc")
 
     //check if not logged in
     const session = await event.locals.getSession();
     if (!session?.user) {
       throw redirect(302, "/book")
     }
+    console.count("pprc")
 
     
     //get params from JWT and verify it  too
@@ -113,14 +115,16 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     if(!decoded.refcode || !decoded.iat || !decoded.type){
         throw redirect(302, "/book")
     }
+    console.count("pprc")
 
     // @ts-ignore
-    let { refcode, type } = decoded
+    let { refcode, type, extradat } = decoded
     // @ts-ignore
     let time = decoded.iat
 
     let queried_type = type
 
+console.count("pprc")
     
     //timeout payment URLs after 20 seconds
 
@@ -139,6 +143,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         throw redirect(302, "/book")
     }
 
+    console.count("pprc")
 
     //get payment params
 
@@ -194,6 +199,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
             p_id: "UPI",
             type: pass.type,
             refCode: refcode,
+            extradat: extradat?.substring(0,150) || "",
             // @ts-ignore
             contact: decoded.contact || null
         })
@@ -222,7 +228,8 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
             name: session.user.name || "Anonymous",
             type: queried_type,
             sessionemail: session.user.email || "noneprovided",
-            refcode: refcode
+            refcode: refcode,
+            extradat: extradat?.substring(0,100) || ""
         },
         callback_url:"https://solstice.mitblrfest.in/mypass",
         callback_method: 'get'
@@ -241,6 +248,7 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
         p_id: razorpaylink.id,
         type: pass.type,
         refCode: refcode,
+        extradat: extradat?.substring(0,100) || "",
         // @ts-ignore
         contact: decoded.contact || null
     })
