@@ -54,7 +54,8 @@
         }
 
         if(eventChosen == "THUNT" || eventChosen == "DESGN" || eventChosen == "HCKTH"){
-            type = "FLAGSHIP_" + eventChosen
+            type = "FLAGSHIP"
+            extradat += " " + eventChosen
         }
 
         if(event.toLowerCase().includes("proshow")){
@@ -167,7 +168,7 @@
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
-                    ₹200
+                    ₹50
                     {/if}
                 </button> 
             </div>

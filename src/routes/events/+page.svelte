@@ -2,13 +2,13 @@
   // @ts-nocheck
   
     import EventTile from '$lib/events_pg/EventTile.svelte';
-	import { Container } from 'postcss';
-  import { each, onMount } from 'svelte/internal';
+    // import { Container } from 'postcss';
+    // import { each, onMount } from 'svelte/internal';
         
   
-        let particles = 300
-        let m = {x: 0,y:0}
-        let multiplier = -10
+        // let particles = 300
+        // let m = {x: 0,y:0}
+        // let multiplier = -10
         
         // function newanimate(){
           
@@ -52,13 +52,13 @@
   
   
   <style>
-  :root{
+  /* :root{
     --x : 100%;
     --y : 100%;
-  }
+  } */
   
-  .stars div{
+  /* .stars div{
     transform: translate(var(--x),var(--y));
-  }
+  } */
   </style>
   

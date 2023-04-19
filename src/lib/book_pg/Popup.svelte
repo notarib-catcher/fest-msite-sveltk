@@ -22,6 +22,7 @@
      let extradat = ""
      let refcode = ""
      let eventChosen = ""
+     let eventChosen2 = ""
 
      onMount( ()=> {
         document.addEventListener('input', ()=>{
@@ -52,7 +53,8 @@
             extradat: extradat,
             phnum: phnum,
             refcode: refcode,
-            eventChosen: eventChosen
+            eventChosen: eventChosen,
+            eventChosen2: eventChosen2
         }
 
         console.log(data)
@@ -85,8 +87,8 @@
         <div class=" text-white font-extralight">
             {#if title.toLowerCase().includes("flagship") || title.toLowerCase().includes("esports")}
             <div class=" m-2">
-                Select your event
-            </div> <select class=" text-center w-full from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r text-black text-2xl font-semibold rounded-lg " bind:value={eventChosen}>
+                Select your preferred event
+            </div><select class=" text-center w-full from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r text-black text-2xl font-semibold rounded-lg " bind:value={eventChosen}>
                 {#if title.toLowerCase().includes("flagship")}
                 <option value="HCKTH">Hackathon</option>
                 <option value="THUNT">Treasure Hunt</option>

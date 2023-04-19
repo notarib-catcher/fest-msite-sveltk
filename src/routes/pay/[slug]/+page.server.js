@@ -12,17 +12,7 @@ const passarray = [
         open: true
     },
     {
-        type: "FLAGSHIP_HCKTH",
-        INRcost: 200,
-        open: true
-    },
-    {
-        type: "FLAGSHIP_DESGN",
-        INRcost: 200,
-        open: true
-    },
-    {
-        type: "FLAGSHIP_THUNT",
+        type: "FLAGSHIP",
         INRcost: 200,
         open: true
     },
@@ -32,7 +22,7 @@ const passarray = [
         open: true
     },
     {
-        type: "ESPORT_COD",
+        type: "ESPORT_CODM",
         INRcost: 200,
         open: true
     },
