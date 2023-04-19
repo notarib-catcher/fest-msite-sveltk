@@ -28,6 +28,11 @@
         
         },1500)
 
+         //prevent duplication by checking for a weird ID  (see the next comment)
+         if(document.getElementById("wavyyyy5")){
+            return
+        }
+
 
 
         var container = wave1
