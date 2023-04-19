@@ -66,9 +66,11 @@
             sLeft = Math.floor(((endTime - Ctime) - (dLeft*86400000) - (hLeft*3600000) - (mLeft*60000)) / 1000)
 
             //Single digits are padded with a 0 to the left (XX:9 -> XX:09)
+            dLeft = (dLeft < 10)? `0${dLeft}` : dLeft
             hLeft = (hLeft < 10)? `0${hLeft}` : hLeft
             mLeft = (mLeft < 10)? `0${mLeft}` : mLeft
             sLeft = (sLeft < 10)? `0${sLeft}` : sLeft
+
 
 
         }, 1000)
