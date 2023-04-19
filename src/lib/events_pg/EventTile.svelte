@@ -16,7 +16,7 @@
 			<div class="pt-6">
 				<img src={SolsticeFullLogo} alt="SolsticeLogoMITBLR" /> 
 			</div>
-			<div class="h-0 w-0 flex justify-center items-end border-[17px] border-t-[22px] border-x-[30px] border-b-transparent {data.pass === 'flagship'? "border-red-600": data.pass==='mini'? "border-green-600":"border-blue-600"}" >
+			<div class="h-0 w-0 flex justify-center items-end border-[17px] border-t-[22px] border-x-[30px] border-b-transparent {data.pass === 'flagship'? "border-red-600": data.pass==='standard'? "border-green-600":"border-blue-600"}" >
 				<p class="text-[12px]">{data.pass}</p>
 			</div>
 		</div>

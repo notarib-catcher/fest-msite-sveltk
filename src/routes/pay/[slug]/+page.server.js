@@ -17,6 +17,11 @@ const passarray = [
         open: true
     },
     {
+        type: "STANDARD",
+        INRcost: 50,
+        open: true
+    },
+    {
         type: "ESPORT_VALO",
         INRcost: 200,
         open: true

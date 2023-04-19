@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class=" w-full text-center pt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#c7acac] via-[#d6bfe2] to-[#7e7b83]">
-                <div class=" font-bold text-white">Send ₹{data.amount/100} to this QR.<br>Then fill <a class=" underline">this form</a></div><br>We verify payments within 10 minutes.<br> <i>You can cancel your payment on the Book page.</i>
+                <div class=" font-bold text-white">Send ₹{data.amount/100} to this QR.<br>Then fill <a class=" underline" href="https://forms.gle/5JXihNqmkzLRao688">this form</a></div><br>We verify payments within 10 minutes.<br> <i>You can cancel your payment on the Book page.</i>
             </div>
             
         </div>
