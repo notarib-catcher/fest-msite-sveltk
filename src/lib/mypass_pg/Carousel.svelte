@@ -15,6 +15,7 @@
       "ESPORT_VALO": "Esports - Valorant",
       "ESPORT_CODM": "Esports - COD Mobile",
       "ESPORT_CROYL": "Esport - Clash Royale",
+      "STANDARD":"Standard access"
 
       //staff access
       "STAFF" : "Event staff"
