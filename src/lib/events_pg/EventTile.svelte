@@ -29,7 +29,7 @@
 		</div>
 		
 		<div class=" absolute flex justify-end mt-2 z-[1] bottom-0">
-			<a href = "/events" class=" mx-auto mb-8 bg-gradient-to-tr from-[#a123a8] to-[#e4c724] hover:bg-blue-700 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg">Learn More</a>
+			<a href = {"/events/" + data._id} class=" mx-auto mb-8 bg-gradient-to-tr from-[#a123a8] to-[#e4c724] hover:bg-blue-700 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg">Learn More</a>
 		</div>
 	</div>
 	

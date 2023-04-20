@@ -14,15 +14,15 @@
 				>Registrations will open soon!</button
 			>
 		</div>
-		<div class="flex flex-col mt-10 sm:mt-0 px-6 flex-grow-[1]">
+		<div class="flex flex-col mt-10 md:mt-0 px-6 flex-grow-[1]">
 			<h1 class="text-[3vh] font-poppins mb-5">About the Event:</h1>
-			<h3 class="ml-8 sm:w-[45vw] mb-8">{#each data.event?.longDescription as {text,br}}
+			<h3 class="ml-8 max-md:w-full md:w-[45vw] mb-8">{#each data.event?.longDescription as {text,br}}
 				{text}
 				{@html br}
 				{@html br}
 			{/each}</h3>
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
-			<h3 class="ml-8 sm:w-[45vw] mb-16">
+			<h3 class="ml-8 md:w-[45vw] mb-16">
 			{#if data.event?.rules[0].text.startsWith("https")}
 			<a class=" underline" href={data.event?.rules[0].text}>Link</a>
 			{:else}

@@ -18,6 +18,8 @@
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 @keyframes gradient {
@@ -34,6 +36,9 @@
 
 
 .circles{
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -43,6 +48,9 @@
 }
 
 .circles li{
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
     position: absolute;
     display: block;
     list-style: none;

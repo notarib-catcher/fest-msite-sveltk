@@ -45,7 +45,9 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
         {#each data.events as event}
-        <EventTile data={event}/>
+        {#if !event.hide}
+          <EventTile data={event}/>
+        {/if}
         {/each}
       </div>
     </div>
