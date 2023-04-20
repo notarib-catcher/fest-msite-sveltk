@@ -105,7 +105,7 @@ export const POST = async ({request}) => {
     //TODO send it to MPTICKET and add it to stringreturned
 
 
-    let payloadreturned = await axios.post("https://13.233.55.15/sign",{token: ticketServerPayload})
+    let payloadreturned = await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})
 
     let stringreturned = payloadreturned.data
 
