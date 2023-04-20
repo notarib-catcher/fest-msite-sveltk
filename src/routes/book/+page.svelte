@@ -303,18 +303,18 @@
     }
 
     .bgGradientCardGold{
-        background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.6) ,rgba(209, 105, 31, 0.3));
+        background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.461),rgba(219, 196, 44, 0.726),rgba(209, 105, 31, 0.475));
         transition-duration: 200ms;
         transition-property: all;
     }
         
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(44, 61, 89, 0.4),rgba(141, 145, 141, 0.4));
+        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.436), rgba(44, 61, 89, 0.4), rgba(141, 145, 141, 0.445));
         transition-duration: 200ms;
         transition-property: all;
     }
     .bgGradientCardRed{
-        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.349) , rgba(230, 60, 60, 0.491));
+        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.47), rgba(50, 84, 142, 0.525), rgba(230, 60, 60, 0.571));
         transition-duration: 200ms;
         transition-property: all;
     }
