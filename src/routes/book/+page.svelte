@@ -111,11 +111,11 @@
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -123,7 +123,7 @@
                     {/if}
                 </button> 
             </div>
-            <div class=" absolute bottom-0 text-sm mb-6 text-[#ffffff]">
+            <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
                 Join the fun!
             </div>
             {#if popupProshow}
@@ -133,11 +133,11 @@
         <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#bcbbbb] ">Flagship Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupFlagship = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupFlagship = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -145,7 +145,7 @@
                     {/if}
                 </button> 
             </div>
-            <div class=" absolute bottom-0 text-sm mb-6 text-[#bcbbbb]">
+            <div class=" absolute bottom-0 text-sm mb-12 text-[#bcbbbb]">
                 Attend a Flagship Event
             </div>
             {#if popupFlagship}
@@ -155,11 +155,11 @@
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
             <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#ffffff] ">Proshow + Standard Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -167,7 +167,7 @@
                     {/if}
                 </button> 
             </div>
-            <div class=" absolute bottom-0 text-sm mb-6 text-[#ffffff]">
+            <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
                 Enjoy the music!
             </div>
             {#if popupProshow}
@@ -178,11 +178,11 @@
         <div class=" h-[300px] w-[250px] bgGradientCardGold border-[1px] border-white rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -190,7 +190,7 @@
                     {/if}
                 </button> 
             </div>
-            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+            <div class=" absolute bottom-0 text-sm mb-8 text-center text-[#ffffff]">
                 Everything, Everywhere,<br>All at Once.
             </div>
             {#if popupStandard}
@@ -203,11 +203,11 @@
             <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
                 <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">Esports Pass</div>
                 <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                    <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                    <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
                 </div>
                 <div class=" relative opacity-100 text-white ">
                     
-                    <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}}>
+                    <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}}>
                         {#if !$page.data.session}
                         SIGN IN
                         {:else}
@@ -215,7 +215,7 @@
                         {/if}
                     </button> 
                 </div>
-                <div class=" absolute bottom-0 text-sm mb-6 text-[#bcbbbb]">
+                <div class=" absolute bottom-0 text-sm mb-12 text-[#bcbbbb]">
                     Compete in E-sports
                 </div>
                 {#if popupEsports}
@@ -232,11 +232,11 @@
         <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Upgrade</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -257,11 +257,11 @@
         <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else window.location.replace('/mypass')}} >
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else window.location.replace('/mypass')}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -308,7 +308,7 @@
     }
         
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.8), rgba(25, 40, 65, 0.5),rgba(141, 145, 141, 0.4));
+        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(25, 40, 65, 0.5),rgba(141, 145, 141, 0.4));
         box-shadow: 0px 0px 30px #fffFFF33;
     }
     .bgGradientCardRed{
