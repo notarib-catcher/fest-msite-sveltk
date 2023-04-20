@@ -89,8 +89,8 @@
         </div>
     {/if}
 
-    <div class="top-20 grid grid-flow-col max-lg:grid-flow-row w-fit mx-[200px] max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
+    <div class="top-20 grid grid-flow-col max-lg:grid-flow-row max-lg:mb-5 w-fit mx-[200px] max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
+        <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
@@ -111,9 +111,9 @@
             {#if popupProshow}
                 <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
-        </div>
-        <div class=" h-[300px] w-[250px] bgGradientCardBlue rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#bcbbbb] ">Flagship + Standard Pass</div>
+        </div> -->
+        <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#bcbbbb] ">Flagship Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
             </div>
@@ -134,7 +134,7 @@
             <Popup title="Flagship Event" innerText="hello" type="gold" on:close ={() => { popupFlagship = false}} on:book={book}/>
             {/if}
         </div>
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
+        <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
             <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#ffffff] ">Proshow + Standard Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
@@ -155,10 +155,10 @@
             {#if popupProshow}
             <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
-        </div>
+        </div> -->
         <!--card-->
-        <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">Standard Pass</div>
+        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
             </div>
@@ -172,8 +172,8 @@
                     {/if}
                 </button> 
             </div>
-            <div class=" absolute bottom-0 text-sm mb-6 text-[#bcbbbb]">
-                All mini & fun events
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
             </div>
             {#if popupStandard}
             <Popup title="Standard Pass" innerText="hello" type="gold" on:close ={() => { popupStandard = false}} on:book={book}/>
@@ -183,7 +183,7 @@
         
         <div>
             <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
-                <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">*Esports Pass</div>
+                <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">Esports Pass</div>
                 <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                     <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
                 </div>
@@ -204,7 +204,6 @@
                 <Popup title="Esports" innerText="Esports passes do NOT include access to Fun/Mini events" type="gold" on:close ={() => { popupEsports = false}} on:book={book}/>
                 {/if}
             </div>
-            <div class=" text-red-600 text-sm font-normal pl-2 opacity-50"> *The Esports pass does not include<br>access to Fun/Mini events</div>
         </div>
         <!--endofallcards-->
         
@@ -236,17 +235,17 @@
 
     }
 
-    .bgGradientCardBlue{
-        background-image: linear-gradient(to top right, rgba(101, 201, 243, 0.5), rgba(67, 102, 186, 0.7) , rgba(141, 107, 205, 0.9))
+    .bgGradientCardYellowHighlight{
+        background-image: linear-gradient(to top, rgb(194, 174, 39) ,rgb(123, 21, 160), rgb(78, 26, 155))
     }
     .bgGradientCardGold{
         background-image: linear-gradient(to bottom left, rgba(255, 217, 0, 0.765), rgba(255, 187, 0, 0.678) , rgba(199, 92, 16, 0.927))
     }
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top right, rgba(150, 150, 150, 0.671), rgba(25, 40, 65, 0.516) , rgba(107, 108, 107, 0.781))
+        background-image: linear-gradient(to top , rgba(24, 5, 79, 0.671), rgb(63, 12, 82),rgba(102, 34, 205, 1) )
     }
     .bgGradientCardRed{
-        background-image: linear-gradient(to top right, rgba(78, 78, 78, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781))
+        background-image: linear-gradient(to top , rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781))
     }
 
 
