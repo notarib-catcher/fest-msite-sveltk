@@ -23,7 +23,7 @@
 		<img src={data.image} alt="eventImage" class=" w-full h-[230px] group-[imghov] absolute -z-1" width={220}/>
 		<p class="text-2xl font-bold">{data.title}</p>
 		<div class="relative w-full h-full bgshadow p-5  transition-all duration-300 peer">
-			<div class="w-[220px] m-2 text-xl translate-y-24 font-light relative z-10 ">
+			<div class="w-[220px] max-md:w-[300px] max-w-full m-2 text-xl translate-y-24 font-light relative z-[2] ">
 				<p>{data.shortDescription}</p>
 			</div>
 		</div>

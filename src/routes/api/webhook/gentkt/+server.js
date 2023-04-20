@@ -76,7 +76,7 @@ console.count()
 console.count()
 
 
-    let stringreturned = (await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})).data
+    let stringreturned = (await axios.post("https://13.233.55.15/sign",{token: ticketServerPayload})).data
     console.count()
     console.log("inserting...")
     await passes.insertOne({
