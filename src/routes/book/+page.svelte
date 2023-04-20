@@ -130,7 +130,7 @@
                 <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
         </div> -->
-        <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+        <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#bcbbbb] ">Flagship Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
@@ -175,7 +175,7 @@
             {/if}
         </div> -->
         <!--card-->
-        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+        <div class=" h-[300px] w-[250px] bgGradientCardGold border-[1px] border-white rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
@@ -200,7 +200,7 @@
         <!--endofcard-->
         
         <div>
-            <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+            <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
                 <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">Esports Pass</div>
                 <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                     <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
@@ -229,7 +229,7 @@
     </div>
     {:else if data.top_pass.type != "FULL_ACCESS"}
     <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Upgrade</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
@@ -254,7 +254,7 @@
     </div>
     {:else}
     <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
@@ -302,17 +302,18 @@
 
     }
 
-    .bgGradientCardYellowHighlight{
-        background-image: linear-gradient(to top right, rgba(219, 196, 44, 0.543) ,rgba(148, 25, 193, 0.658), rgb(78, 26, 155))
-    }
     .bgGradientCardGold{
-        background-image: linear-gradient(to bottom left, rgba(255, 217, 0, 0.765), rgba(255, 187, 0, 0.678) , rgba(199, 92, 16, 0.927))
+        background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.6) ,rgba(209, 105, 31, 0.3));
+        box-shadow: 0px 0px 30px #fffFFF33;
     }
+        
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top , rgba(23, 5, 79, 0.637), rgba(63, 12, 82, 0.683),rgba(102, 34, 205, 0.573) )
+        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.8), rgba(25, 40, 65, 0.5),rgba(141, 145, 141, 0.4));
+        box-shadow: 0px 0px 30px #fffFFF33;
     }
     .bgGradientCardRed{
-        background-image: linear-gradient(to top , rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781))
+        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781));
+        box-shadow: 0px 0px 30px #fffFFF33;
     }
 
 
