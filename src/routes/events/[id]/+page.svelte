@@ -1,4 +1,6 @@
 <script>
+	import { rule } from "postcss";
+
 	export let data;
 </script>
 
@@ -21,10 +23,14 @@
 			{/each}</h3>
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
 			<h3 class="ml-8 sm:w-[45vw] mb-16">
-			{#each data.event?.rules as {text,br}}
-			{text}
-			{@html br}
-			{/each}
+			{#if data.event?.rules[0].startsWith("https")}
+			<a href={data.event?.rules[0]}>Link</a>
+			{:else}
+				{#each data.event?.rules as {text,br}}
+				{text}
+				{@html br}
+				{/each}
+			{/if}
 			</h3>
 			<h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal text-[3vh]">Date: </h3>
 			<h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal text-[3vh]">Time: </h3>

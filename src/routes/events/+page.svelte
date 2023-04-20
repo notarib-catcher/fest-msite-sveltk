@@ -37,7 +37,7 @@
     <!-- <div class="stars  h-full fixed -z-10 w-full stars" id="stars">
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
-    <div  class=" flex flex-col max-md:p-10 md:p-20 w-screen">
+    <div  class=" flex flex-col max-sm:p-10 max-md:p-16 md:p-20 w-screen">
       <h1 class="text-6xl font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
         Events
       </h1>
