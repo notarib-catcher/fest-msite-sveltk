@@ -117,8 +117,8 @@
             {/if} -->
         </div>
         <div class="w-full text-center mt-4  font-semibold from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-xs ">Press anywhere outside to dismiss</div>
-        <button class=" w-fit font-normal text-center border-[#ffffff8e] border-[2px]  rounded-lg p-2 text-md  my-4  " on:click={sendDat}>
-            <div class=" w-full text-center text-xl font-normal  bg-clip-text text-transparent bg-gradient-to-r from-[#123776] via-[#aa48a0] to-[#a0bdc27f]">Book now!</div>
+        <button class=" w-fit font-normal text-center  bg-white bg-opacity-[2%]  rounded-lg p-2 text-md  my-4  " on:click={sendDat}>
+            <div class=" w-full text-center text-xl font-normal  bg-clip-text text-transparent bg-gradient-to-r from-[#2058b7] via-[#aa48a0] to-[#a0bdc27f]">Book now!</div>
         </button>
     </div> 
     <button class=" pointer-events-auto fixed backdrop-blur-md top-0 left-0 h-screen w-screen cursor-pointer fadeinSlow" on:click={() => {dispatch("close",{ details: "close"})}}>
