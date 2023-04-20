@@ -3,6 +3,7 @@
 
 	import { createEventDispatcher } from "svelte";
 	import { onMount } from "svelte";
+    import bgimg from "../../assets/starsbg.svg"
     /**
 	 * @type {any}
 	 */
@@ -13,6 +14,8 @@
      export let title;
 
      export let type;
+
+     const bgImage = `${bgimg}`;
 
      let noEvent
      let noPhNum
@@ -73,13 +76,13 @@
 
 
 <div class=" fixed top-0 left-0 z-[11] w-screen max-xs:w-[600px] h-screen flex items-center justify-center font-normal fadeinSlow ">
-    <div class=" bg-black p-4 rounded-2xl  max-md:font-semibold text-center max-md:text-md z-[9] max-w-[60%] max-md:max-w-[80%] max-md:my-[10%]">
-        <div class=" w-full font-extrabold whitespace-nowrap text-center mb-6 from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r max-md:bg-gradient-to-l bg-clip-text text-transparent text-4xl max-md:text-xl">
-            {title}
+    
+    <div class=" bg-[#1e1e1e] relative  p-2 rounded-2xl  max-md:font-semibold text-center max-md:text-md z-[9] max-w-[20%] max-sm:max-w-[60%] max-xs:max-w-[80%] max-md:max-w-[40%]  max-md:text-sm max-xl:max-w-[30%] max-md:my-[10%] overflow-hidden" >
+        <div class=" absolute z-[6] pointer-events-none">
+            <img src={bgimg} class="">
         </div>
-        <div class=" w-full max-md:text-sm whitespace-normal justify-evenly text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r max-md:bg-gradient-to-l bg-clip-text text-transparent text-2xl">
-            {innerText}
-        </div>
+        
+       
         <!--error boxes, hidden by default-->
         <div class=" text-red-500 font-bold w-full animate-bounce mt-2 hidden" bind:this={noPhNum}> Please enter your phone number</div>
         <!-- <div class=" text-red-500 font-bold w-full animate-bounce mt-2 hidden" bind:this={noEvent}> Please select an event</div> -->
@@ -102,12 +105,11 @@
                 {/if}
             </select>
             {/if} -->
-            <div class=" m-2">
-                Phone number
-            </div> <input class=" font-semibold text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r rounded-lg p-2 text-xl text-black w-full " bind:value={phnum} type="text" maxlength="10">
-            <div class=" m-2">
-                Referral Code (if any)
-            </div> <input class=" font-semibold text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r rounded-lg p-2 text-xl text-black w-full " bind:value={refcode} type="text" maxlength="6">
+            <div class=" px-4 sm:px-6">
+                <input placeholder="Phone Number" pattern="\d*" class=" max-sm:text-sm placeholder:max-md:text-sm w-full  text-left bg-transparent border-[#ffffff8e] border-b-[2px] p-2 text-xl placeholder:font-normal font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#11326c] via-[#b34da976] to-[#A0BDC2] placeholder:bg-clip-text placeholder:text-transparent placeholder:bg-gradient-to-r placeholder:from-[#11326c] placeholder:via-[#F365E5] placeholder:to-[#A0BDC2] outline-none duration-200 caret-[#ffffff5b] " bind:value={phnum} type="text" maxlength="10">
+                <input placeholder="Referral Code" class=" w-full placeholder:max-md:text-sm  text-left bg-transparent border-[#ffffff8e] border-b-[2px] p-2 text-xl placeholder:font-normal font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#11326c] via-[#9e42958b] to-[#A0BDC2] placeholder:bg-clip-text placeholder:text-transparent placeholder:bg-gradient-to-r placeholder:from-[#11326c] placeholder:via-[#F365E5] placeholder:to-[#A0BDC2] outline-none  duration-200 caret-[#ffffff5b]" bind:value={refcode} type="text" maxlength="6">
+            </div>
+             
             <!-- {#if eventChosen == "HCKTH" || eventChosen == "THUNT" || eventChosen == "DESGN"}
             <div class=" my-2 relative">
                 Team member details (Gmail)
@@ -115,8 +117,8 @@
             {/if} -->
         </div>
         <div class="w-full text-center mt-4  font-semibold from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-xs ">Press anywhere outside to dismiss</div>
-        <button class=" w-full font-normal text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r rounded-lg p-2 text-md  mt-2  " on:click={sendDat}>
-            <div class=" w-full text-center text-xl font-bold text-black">Book now!</div>
+        <button class=" w-fit font-normal text-center border-[#ffffff8e] border-[2px]  rounded-lg p-2 text-md  my-4  " on:click={sendDat}>
+            <div class=" w-full text-center text-xl font-normal  bg-clip-text text-transparent bg-gradient-to-r from-[#123776] via-[#aa48a0] to-[#a0bdc27f]">Book now!</div>
         </button>
     </div> 
     <button class=" pointer-events-auto fixed backdrop-blur-md top-0 left-0 h-screen w-screen cursor-pointer fadeinSlow" on:click={() => {dispatch("close",{ details: "close"})}}>
@@ -131,6 +133,10 @@
         animation-duration: 250ms;
         animation-iteration-count: 1;
         animation-fill-mode: forward;
+    }
+
+    .bgstars{
+        background-image: image();
     }
     
 
@@ -149,7 +155,6 @@
 
     }
 
-    .bgGradientCardBLue{
-        background-image: linear-gradient(to top right, rgba(101, 201, 243, 0.5), rgba(67, 102, 186, 0.7) , rgba(141, 107, 205, 0.9))
-    }
+    
+    
 </style>
