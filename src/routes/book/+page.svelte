@@ -107,8 +107,8 @@
     {/if}
 
     {#if !data.top_pass.type}
-    <div class="top-20 grid grid-flow-col max-lg:grid-flow-row max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-20 xl:gap-36 gap-y-9 ">
-        <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
+    <div class="top-20 grid grid-flow-col max-md:grid-flow-row max-lg:grid-rows-2 max-lg:gap-10 max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
+        <div class=" h-[300px] w-[250px] bgGradientCardBlueAccent rounded-3xl border-white border-[1px] bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
@@ -129,7 +129,7 @@
             {#if popupProshow}
                 <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
-        </div> -->
+        </div>
         <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
             <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#bcbbbb] ">Flagship Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
@@ -152,8 +152,8 @@
             <Popup title="Flagship Event" innerText="Access to all flagship and standard events" type="FLAGS" on:close ={() => { popupFlagship = false}} on:book={book}/>
             {/if}
         </div>
-        <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
-            <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#ffffff] ">Proshow + Standard Pass</div>
+        <div class=" h-[300px] w-[250px] bgGradientCardBlueAccent border-white border-[1px] rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
+            <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
@@ -173,7 +173,7 @@
             {#if popupProshow}
             <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
-        </div> -->
+        </div> 
         <!--card-->
         <div class=" h-[300px] w-[250px] bgGradientCardGold border-[1px] border-white rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
@@ -319,6 +319,17 @@
         transition-property: all;
     }
 
+    .bgGradientCardBlueAccent{
+        background-image: linear-gradient(to top right, rgba(141, 107, 205, 0.3), rgba(67, 102, 186, 0.59), rgba(98, 200, 243, 0.8));
+        transition-duration: 200ms;
+        transition-property: all;
+    }
+
+    .bgGradientCardBlueAccent:hover{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
+    }
+
     .bgGradientCardRed:hover{
         box-shadow: 0px 0px 30px #fffFFF33;
 
@@ -330,6 +341,11 @@
         box-shadow: 0px 0px 30px #fffFFF33;
     }
 
+    .bgGradientCardBlueAccent:focus{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
+    }
+
     .bgGradientCardRed:focus{
         box-shadow: 0px 0px 30px #fffFFF33;
 
@@ -339,6 +355,10 @@
     }
     .bgGradientCardGold:focus{
         box-shadow: 0px 0px 30px #fffFFF33;
+    }
+    .bgGradientCardBlueAccent:focus-within{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
     }
 
     .bgGradientCardRed:focus-within{
