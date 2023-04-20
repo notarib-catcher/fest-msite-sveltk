@@ -14,6 +14,8 @@ const cstring = process.env.MONGO_URL || ""
 const client = new MongoClient(cstring);
 const database = client.db(process.env.MONGO_DB_NAME);
 const passes = database.collection('passes')
+const tickets = database.collection('tickets')
+const revocations = database.collection('revocations')
 const payments = database.collection('payments')
 const staff_secret = process.env.STAFF_ENDPOINT_SECRET
 
@@ -62,6 +64,22 @@ console.count()
 
     let type = assocPayment.type
     type = (type == "FULL_ACCESS")?"!ALL!":type;
+    if(type.startsWith('UPGRADE:')){
+
+        let toRevoke = await tickets.findOne({ email: {$eq: email}, type: { $ne: "!ALL!"}  })
+        if(toRevoke){
+            let alreadyRevoked = await revocations.findOne( {_id: {$eq: toRevoke?._id}})
+            if(!alreadyRevoked){
+                await revocations.insertOne({
+                    _id: toRevoke._id,
+                    type: "!FULL!",
+                    reason: "Upgraded to new ticket"
+                })
+            }
+        }
+
+        type = "!ALL!"
+    }
 
 
     let ticketServerPayload = sign({
@@ -78,6 +96,17 @@ console.count()
 
     let stringreturned = (await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})).data
     console.count()
+    //stop displaying old pass
+    await passes.findOneAndUpdate({
+        email: {$eq: email},
+        type: { $ne: "FULL_ACCESS" }
+    },{
+        $set:{
+            generated: false
+        }
+    })
+    
+    
     console.log("inserting...")
     await passes.insertOne({
 
