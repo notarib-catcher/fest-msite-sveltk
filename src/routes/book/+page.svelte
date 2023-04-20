@@ -304,13 +304,19 @@
 
     .bgGradientCardGold{
         background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.6) ,rgba(209, 105, 31, 0.3));
+        transition-duration: 200ms;
+        transition-property: all;
     }
         
     .bgGradientCardSilver{
         background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(44, 61, 89, 0.4),rgba(141, 145, 141, 0.4));
+        transition-duration: 200ms;
+        transition-property: all;
     }
     .bgGradientCardRed{
         background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.349) , rgba(230, 60, 60, 0.491));
+        transition-duration: 200ms;
+        transition-property: all;
     }
 
     .bgGradientCardRed:hover{
@@ -321,6 +327,28 @@
         box-shadow: 0px 0px 30px #fffFFF33;
     }
     .bgGradientCardGold:hover{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
+
+    .bgGradientCardRed:focus{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
+    }
+    .bgGradientCardSilver:focus{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
+    .bgGradientCardGold:focus{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
+
+    .bgGradientCardRed:focus-within{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
+    }
+    .bgGradientCardSilver:focus-within{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
+    .bgGradientCardGold:focus-within{
         box-shadow: 0px 0px 30px #fffFFF33;
     }
 
