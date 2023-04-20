@@ -111,7 +111,7 @@
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -133,7 +133,7 @@
         <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 w-full text-right p-4  text-md font-cstm text-[#bcbbbb] ">Flagship Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -155,7 +155,7 @@
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
             <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#ffffff] ">Proshow + Standard Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -178,7 +178,7 @@
         <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -203,7 +203,7 @@
             <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
                 <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#bcbbbb] ">Esports Pass</div>
                 <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                    <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                    <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
                 </div>
                 <div class=" relative opacity-100 text-white ">
                     
@@ -232,7 +232,7 @@
         <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Upgrade</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -257,7 +257,7 @@
         <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-16"> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
@@ -303,7 +303,7 @@
     }
 
     .bgGradientCardYellowHighlight{
-        background-image: linear-gradient(to top, rgba(219, 196, 44, 0.543) ,rgba(148, 25, 193, 0.658), rgb(78, 26, 155))
+        background-image: linear-gradient(to top right, rgba(219, 196, 44, 0.543) ,rgba(148, 25, 193, 0.658), rgb(78, 26, 155))
     }
     .bgGradientCardGold{
         background-image: linear-gradient(to bottom left, rgba(255, 217, 0, 0.765), rgba(255, 187, 0, 0.678) , rgba(199, 92, 16, 0.927))
