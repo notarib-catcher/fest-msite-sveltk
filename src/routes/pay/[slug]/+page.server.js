@@ -1,254 +1,287 @@
-import * as dotenv from 'dotenv' ;
-dotenv.config()
-import  Razorpay  from 'razorpay'
+import * as dotenv from 'dotenv';
+import Razorpay from 'razorpay';
 import { v4 as uuidv4 } from 'uuid';
 
-import {verify} from 'jsonwebtoken'
+import { verify } from 'jsonwebtoken';
+// @ts-ignore
+import { MongoClient } from 'mongodb';
+import { redirect } from '@sveltejs/kit';
+
+dotenv.config();
 
 const passarray = [
     {
         type: "PROSHOW",
         INRcost: 450,
-        open: true
+        open: false
     },
+
     {
         type: "FLAGSHIP",
         INRcost: 200,
         open: true
     },
+
     {
-        type: "STANDARD",
-        INRcost: 50,
+        type: "FULL_ACCESS",
+        INRcost: 600,
         open: true
     },
+
     {
-        type: "ESPORT_VALO",
+        type: "ESPORTS",
         INRcost: 200,
         open: true
     },
+
     {
-        type: "ESPORT_CODM",
-        INRcost: 200,
+        type: "UPGRADE:PROSHOW_TO_FULL_ACCESS",
+        INRcost: 150,
         open: true
     },
+
     {
-        type: "ESPORT_CROYL",
-        INRcost: 50,
+        type: "UPGRADE:FLAGSHIP_TO_FULL_ACCESS",
+        INRcost: 400,
         open: true
     },
+
     {
-        type: "ESPORT_FIFA",
-        INRcost: 50,
+        type: "UPGRADE:ESPORTS_TO_FULL_ACCESS",
+        INRcost: 400,
         open: true
     }
-]
+];
 
 //@ts-ignore
-var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_secret: process.env.RAZORPAY_SECRET })
-
-
-// @ts-ignore
-import { MongoClient } from 'mongodb';
-import { redirect } from '@sveltejs/kit';
-
-
-const cstring = process.env.MONGO_URL
+const razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID, key_secret: process.env.RAZORPAY_SECRET });
+const connectionString = process.env.MONGO_URL;
 
 // @ts-ignore
-const client = new MongoClient(cstring);
+const client = new MongoClient(connectionString);
 const database = client.db(process.env.MONGO_DB_NAME);
-const payments = database.collection('payments')
-const passes = database.collection('passes')
-const ambassadors = database.collection('ambassadors')
+const payments = database.collection('payments');
+const passes = database.collection('passes');
+const ambassadors = database.collection('ambassadors');
 
 
 const projection = {
-  _id: 0, type: 1, link: 1
-}
+    _id: 0, type: 1, link: 1
+};
 
 const options = {
-  projection: projection
-}
+    projection: projection
+};
 
-export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
-console.count("pprc")
-    if(!(process.env.ALLOW_PAYMENTS == "y")){
-        throw redirect(302, "/book")
-    }
+export const load = async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
+    let costMultiplier = 1;
+    let referralStatus = "n";
+
     console.count("pprc")
+    if (process.env.ALLOW_PAYMENTS != "y") {
+        throw redirect(302, "/book");
+    }
+    console.count("pprc");
 
     //check if not logged in
     const session = await event.locals.getSession();
     if (!session?.user) {
-      throw redirect(302, "/book")
+        throw redirect(302, "/book");
     }
-    console.count("pprc")
 
-    
-    //get params from JWT and verify it  too
+    console.count("pprc");
 
     // @ts-ignore
-    const params = event.params
-
-    
-    if(!params.slug){
+    const params = event.params;
+    if (!params.slug) {
         throw redirect(302, "/?cancelled")
     }
 
-    let decoded = {}
-    
-    try{
+    let decoded = {};
+
+    try {
         //@ts-ignore
-        decoded = verify(params.slug, session.user.email)
-        
-    }
-    catch(error){
-        throw redirect(301, "/book")
+        decoded = verify(params.slug, session.user.email);
+    } catch (error) {
+        throw redirect(301, "/book");
     }
 
     // @ts-ignore
-    if(!decoded.refcode || !decoded.iat || !decoded.type){
-        throw redirect(302, "/book")
+    if (!decoded.refcode || !decoded.iat || !decoded.type) {
+        throw redirect(302, "/book");
     }
-    console.count("pprc")
+    console.count("pprc");
 
     // @ts-ignore
-    let { refcode, type, extradat } = decoded
+    const { refcode: referralCode, type } = decoded;
     // @ts-ignore
-    let time = decoded.iat
+    const time = decoded.iat;
 
-    let queried_type = type
+    const queried_type = type;
 
-console.count("pprc")
-    
+    console.count("pprc");
+
     //timeout payment URLs after 20 seconds
 
-    let ctime = new Date().getTime()
-
-    if(ctime - parseInt(time) > 20000){
-        throw redirect(302, "/book")
+    if (new Date().getTime() - parseInt(time) > 20_000) {
+        throw redirect(302, "/book");
     }
 
     //check for existing payment
+    const query = { email: { $eq: session.user.email }, status: { $eq: 'created' } };
+    const existingPayment = await payments.findOne(query, options);
 
-    const query = { email: {$eq: session.user.email}, status: { $eq: 'created'} }
-    const existingPayment = await payments.findOne(query, options)
-
-    if(existingPayment){
-        throw redirect(302, "/book")
+    if (existingPayment) {
+        throw redirect(302, "/book");
     }
 
-    console.count("pprc")
+    console.count("pprc");
 
     //get payment params
 
-    let pass = passarray.find((pass) => {
+    const pass = passarray.find((pass) => {
         // @ts-ignore
-        return pass.type == queried_type
+        return pass.type == queried_type;
     })
 
-    if(!pass?.open){
-        throw redirect(302, "/book?cancelled")
+    if (!pass?.open) {
+        throw redirect(302, "/book?cancelled");
     }
 
-    let cpass = await passes.find({email : {$eq: session.user.email}}).toArray()
+    let currentPass = await passes.findOne({ email: { $eq: session.user.email }, generated: { $eq: true } });
 
-    for(let i in cpass){
-        if(cpass[i].type == queried_type){
-            throw redirect(301,"/mypass")
-        }
-    }
-    
-
-
-
-    let rcode = "n"
-
-    if(!pass){
-        throw redirect(302, "/?cancelled")
+    if (!pass) {
+        throw redirect(302, "/?cancelled");
     }
 
-    let costMultiplier = 1;
+    if (referralCode != "NA") {
+        let ambassador = await ambassadors.findOne({ refCode: { $eq: referralCode } })
 
-    if(refcode != "NA"){
-        let amb = await ambassadors.findOne({refCode : { $eq: refcode }})
-        if(amb){
-            costMultiplier = 0.8
-            rcode = "y"
-        }
-        else{
-            return{ link: process.env.ORIGIN + "/book", rcodestatus: "i"}
+        if (ambassador) {
+            costMultiplier = 0.8;
+            referralStatus = "y";
+        } else {
+            return { link: process.env.ORIGIN + "/book", rcodestatus: "i" };
         }
     }
 
-    if(process.env.USE_ALTERNATE_PAYMENT == 'y'){
-        let refid = uuidv4();
-        payments.insertOne({
-            name:session.user.name,
+
+    let allowedPasses = getValidPasses(currentPass);
+
+    if (allowedPasses.includes(queried_type)) {
+        return await paymentHandler(session, decoded, pass, queried_type, costMultiplier, referralCode, referralStatus);
+    } else {
+        throw redirect(302, "/mypass");
+    }
+};
+
+/**
+ * Handle pass upgrades as follows.
+ *     CURRENT PASS -> UPGRADE OPTIONS
+ *     FULL_ACCESS -> Nothing
+ *     PROSHOW -> UPGRADE:PROSHOW_TO_FULL_ACCESS
+ *     ESPORTS -> UPGRADE:ESPORTS_TO_FULL_ACESSS
+ *     FLAGSHIP -> UPGRADE:FLAGSHIP_TO_FUL
+ *     NO PASS -> ANY OF [PROSHOW, ESPORTS, FLAGSHIP, FULL_ACCESS]
+ *
+ * Return all the passes that can be upgraded to.
+ */
+const getValidPasses = (currentPass) => {
+    if (!currentPass) {
+        return ["ESPORTS", "FLAGSHIP", "PROSHOW", "FULL_ACCESS"];
+    }
+
+    let validPasses = [];
+
+    switch (currentPass.type) {
+        case 'STAFF':
+            throw redirect(301, "/mypass");
+
+        case 'FULL_ACCESS':
+            throw redirect(301, "/mypass");
+
+        case 'PROSHOW':
+            return ["UPGRADE:PROSHOW_TO_FULL_ACCESS"];
+
+        case 'ESPORTS':
+            return ["UPGRADE:ESPORTS_TO_FULL_ACCESS"];
+
+        case 'FLAGSHIP':
+            return ["UPGRADE:FLAGSHIP_TO_FULL_ACCESS"];
+    }
+
+    return validPasses;
+}
+
+// @ts-ignore
+const paymentHandler = async (session, decoded, pass, queried_type, costMultiplier, referralCode, referralStatus) => {
+    let referenceID = uuidv4();
+
+    if (process.env.USE_ALTERNATE_PAYMENT == 'y') {
+
+        await payments.insertOne({
+            name: session.user.name,
             //@ts-ignore
-            ref_id: refid,
+            ref_id: referenceID,
             amount: (pass.INRcost * 100 * costMultiplier),
             email: session.user.email,
             short_url: "/upi",
             status: "created",
             p_id: "UPI",
             type: pass.type,
-            refCode: refcode,
-            extradat: extradat?.substring(0,150) || "",
+            refCode: referralCode,
             // @ts-ignore
             contact: decoded.contact || null
-        })
+        });
 
-        return{ link: "/upi", rcodestatus: rcode}
+        return { link: "/upi", rcodestatus: referralStatus };
     }
 
-    let refid = uuidv4();
-    let razorpaylink = await razorInstance.paymentLink.create({
-        reference_id: refid,
-        amount: (pass.INRcost * 100 * costMultiplier),
+    let razorpayLink = await razorInstance.paymentLink.create({
+        reference_id: referenceID,
+        amount: pass.INRcost * 100 * costMultiplier,
         currency: "INR",
         accept_partial: false,
-        description: "TechSolstice " + pass.type + " pass",
-        customer:{
+        description: `TechSolstice ${ pass.type } pass`,
+
+        customer: {
             name: session.user.name || "Anonymous",
             email: session.user.email || "solstice.common.acc@mitblrfest.in",
-            contact: "+91" + "0000000000"
+            contact: decoded.contact || "+91" + "0000000000"
         },
+
         notify: {
-            email:true,
+            email: true,
             sms: false
         },
+
         reminder_enable: false,
-        notes:{
+        notes: {
             name: session.user.name || "Anonymous",
             type: queried_type,
             sessionemail: session.user.email || "noneprovided",
-            refcode: refcode,
-            extradat: extradat?.substring(0,100) || ""
+            refcode: referralCode,
         },
-        callback_url:"https://solstice.mitblrfest.in/mypass",
-        callback_method: 'get'
-    // @ts-ignore
-    }).catch(Error => {
-        throw redirect(302, "/book?cancelled")
-    })
 
-    payments.insertOne({
+        callback_url: "https://solstice.mitblrfest.in/mypass",
+        callback_method: 'get'
+    }).catch(() => {
+        throw redirect(302, "/book?cancelled");
+    });
+
+    await payments.insertOne({
         //@ts-ignore
-        ref_id: razorpaylink.reference_id,
-        amount: (pass.INRcost * 100 * costMultiplier),
+        ref_id: razorpayLink.reference_id,
+        amount: pass.INRcost * 100 * costMultiplier,
         email: session.user.email,
-        short_url: razorpaylink.short_url,
-        status: razorpaylink.status,
-        p_id: razorpaylink.id,
+        short_url: razorpayLink.short_url,
+        status: razorpayLink.status,
+        p_id: razorpayLink.id,
         type: pass.type,
-        refCode: refcode,
-        extradat: extradat?.substring(0,100) || "",
+        refCode: referralCode,
         // @ts-ignore
         contact: decoded.contact || null
-    })
+    });
 
-
-
-    return{ link: razorpaylink.short_url, rcodestatus: rcode}
+    return { link: razorpayLink.short_url, rcodestatus: referralStatus };
 };
