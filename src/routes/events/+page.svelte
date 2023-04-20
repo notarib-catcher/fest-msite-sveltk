@@ -40,7 +40,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
     </div> -->
     <div  class=" flex flex-col max-sm:p-10 max-md:p-16 md:p-20 w-screen">
       <BgAnim />
-      <h1 class="text-6xl font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
+      <h1 class="text-6xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
         Events
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
