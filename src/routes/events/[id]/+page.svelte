@@ -24,7 +24,7 @@
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
 			<h3 class="ml-8 sm:w-[45vw] mb-16">
 			{#if data.event?.rules[0].text.startsWith("https")}
-			<a href={data.event?.rules[0].text}>Link</a>
+			<a class=" underline" href={data.event?.rules[0].text}>Link</a>
 			{:else}
 				{#each data.event?.rules as {text,br}}
 				{text}

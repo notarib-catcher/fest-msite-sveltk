@@ -7,6 +7,7 @@
 
     import { signIn } from '@auth/sveltekit/client';
 	import Popup from '$lib/book_pg/Popup.svelte';
+	import BgAnim from '$lib/common/BGAnim.svelte';
 
     let popupFlagship = false
     let popupProshow = false
@@ -93,7 +94,8 @@
 </script>
 
 
-<div class=" bg-[#1e1e1e] min-h-screen h-fit flex items-center justify-center">
+<div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative">
+    <BgAnim />
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
@@ -301,13 +303,13 @@
     }
 
     .bgGradientCardYellowHighlight{
-        background-image: linear-gradient(to top, rgb(194, 174, 39) ,rgb(123, 21, 160), rgb(78, 26, 155))
+        background-image: linear-gradient(to top, rgba(219, 196, 44, 0.543) ,rgba(148, 25, 193, 0.658), rgb(78, 26, 155))
     }
     .bgGradientCardGold{
         background-image: linear-gradient(to bottom left, rgba(255, 217, 0, 0.765), rgba(255, 187, 0, 0.678) , rgba(199, 92, 16, 0.927))
     }
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top , rgba(24, 5, 79, 0.671), rgb(63, 12, 82),rgba(102, 34, 205, 1) )
+        background-image: linear-gradient(to top , rgba(23, 5, 79, 0.637), rgba(63, 12, 82, 0.683),rgba(102, 34, 205, 0.573) )
     }
     .bgGradientCardRed{
         background-image: linear-gradient(to top , rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781))
