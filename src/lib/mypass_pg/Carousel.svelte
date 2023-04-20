@@ -6,17 +6,11 @@
 
     const passNameDisplay = {
         //legacy pass - all access doesnt exist anymore
-      "FULL_ACCESS": "ALL ACCESS [NON STAFF]",
+      "FULL_ACCESS": "All Access Pass",
         //normal passes
       "PROSHOW":  "Proshow access",
-      "FLAGSHIP_HCKTH": "Hackathon",
-      "FLAGSHIP_DESGN": "Design-a-thon",
-      "FLAGSHIP_THUNT": "Treasure Hunt",
-      "ESPORT_VALO": "Esports - Valorant",
-      "ESPORT_CODM": "Esports - COD Mobile",
-      "ESPORT_CROYL": "Esport - Clash Royale",
-      "STANDARD":"Standard access",
-
+      "FLAGSHIP": "All flagships",
+      "ESPORTS": "Esports - Valorant",
       //staff access
       "STAFF" : "Event staff"
     }

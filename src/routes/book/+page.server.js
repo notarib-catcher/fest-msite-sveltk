@@ -25,7 +25,7 @@ const options = {
 export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
   const session = await event.locals.getSession();
     if (!session?.user) {
-      return {passes: [], payment: null, origin: process.env.ORIGIN}
+      return {top_pass: {}, payment: null, origin: process.env.ORIGIN}
     }
 
     const query = { email: {$eq: session.user.email}, generated: { $eq: true } }
@@ -41,8 +41,19 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
 
 
     const foundpasses = await cursor.toArray()
+    if(foundpasses.length > 0){
+      let fpass = foundpasses.filter((pass) => {
+        pass.type == "FULL_ACCESS"
+      })
+
+      if(fpass.length>0){
+        return {top_pass:fpass , payment: existingPayment, origin: process.env.ORIGIN};
+      }
+    }
+
+
     
-    return {passes: foundpasses , payment: existingPayment, origin: process.env.ORIGIN};
+    return { top_pass: foundpasses[0] || {}, payment: existingPayment, origin: process.env.ORIGIN};
     
   
 };

@@ -8,8 +8,6 @@
     import { signIn } from '@auth/sveltekit/client';
 	import Popup from '$lib/book_pg/Popup.svelte';
 
-    let paymentclosed = true
-
     let popupFlagship = false
     let popupProshow = false
     let popupStandard = false
@@ -18,6 +16,21 @@
 // @ts-nocheck
     export let data;
 
+    const upgradeArr = {
+        "ESPORTS":400,
+        "FLAGSHIP":400,
+        "PROSHOW":150,
+    }
+
+    let upgradeprice = "Unavailable"
+
+    if(data.top_pass.type){
+        if(data.top_pass.type != "FULL_ACCESS"){
+            if(upgradeArr[data.top_pass.type]){
+                upgradeprice = upgradeArr[data.top_pass.type]
+            }
+        }
+    }
     
 
     if(browser){
@@ -28,11 +41,10 @@
 
 
 
-    const signURL = (type = "", refcode = "NA", phone = "0000000000", extradat = "") => {
+    const signURL = (type = "", refcode = "NA", phone = "0000000000") => {
         let payload = {
             type: type,
             refcode: (refcode.trim() == "")?"NA" : refcode.trim().toUpperCase(),
-            extradat: extradat?.substring(0,100) || "",
             contact: "+91" + phone,
             iat: new Date().getTime()
         }
@@ -47,30 +59,33 @@
             signIn("google","/book?loginSuccess")
         }
 
-        let {event, extradat, phnum, refcode, eventChosen} = options
-        let type = ""
-        if(eventChosen == "VALO" || eventChosen == "CODM" || eventChosen == "FIFA" ||  eventChosen == "CROYL"){
-            type = "ESPORT_" + eventChosen
-        }
+        let {phnum, refcode, type} = options
 
-        if(eventChosen == "THUNT" || eventChosen == "DESGN" || eventChosen == "HCKTH"){
+        if(type == "FLAGS"){
             type = "FLAGSHIP"
-            extradat += " " + eventChosen
         }
 
-        if(event.toLowerCase().includes("proshow")){
-            type = "PROSHOW"
+        if(type == "AAP"){
+            type = "FULL_ACCESS"
         }
 
-        if(event.toLowerCase().includes("standard")){
-            type = "STANDARD"
+        if(type == "ESPRT"){
+            type = "ESPORTS"
         }
 
-        if(type == "" ){
-            return
-        }
+        // if(event.toLowerCase().includes("proshow")){
+        //     type = "PROSHOW"
+        // }
 
-        let signed = signURL(type, refcode, phnum, extradat)
+        // if(event.toLowerCase().includes("standard")){
+        //     type = "STANDARD"
+        // }
+
+        // if(type == "" ){
+        //     return
+        // }
+
+        let signed = signURL(type, refcode, phnum)
         window.location.replace(data.origin + "/pay/" + signed)
     }
 
@@ -89,6 +104,7 @@
         </div>
     {/if}
 
+    {#if !data.top_pass.type}
     <div class="top-20 grid grid-flow-col max-lg:grid-flow-row max-lg:mb-5 w-fit mx-[200px] max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
@@ -131,7 +147,7 @@
                 Attend a Flagship Event
             </div>
             {#if popupFlagship}
-            <Popup title="Flagship Event" innerText="hello" type="gold" on:close ={() => { popupFlagship = false}} on:book={book}/>
+            <Popup title="Flagship Event" innerText="Access to all flagship and standard events" type="FLAGS" on:close ={() => { popupFlagship = false}} on:book={book}/>
             {/if}
         </div>
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
@@ -168,7 +184,7 @@
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
-                    ₹50
+                    ₹600
                     {/if}
                 </button> 
             </div>
@@ -176,7 +192,7 @@
                 Everything, Everywhere,<br>All at Once.
             </div>
             {#if popupStandard}
-            <Popup title="Standard Pass" innerText="hello" type="gold" on:close ={() => { popupStandard = false}} on:book={book}/>
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" type="AAP" on:close ={() => { popupStandard = false}} on:book={book}/>
             {/if}
         </div>
         <!--endofcard-->
@@ -193,7 +209,7 @@
                         {#if !$page.data.session}
                         SIGN IN
                         {:else}
-                        BUY NOW
+                        ₹200
                         {/if}
                     </button> 
                 </div>
@@ -201,7 +217,7 @@
                     Compete in E-sports
                 </div>
                 {#if popupEsports}
-                <Popup title="Esports" innerText="Esports passes do NOT include access to Fun/Mini events" type="gold" on:close ={() => { popupEsports = false}} on:book={book}/>
+                <Popup title="Esports" innerText="Compete in esports and access all standard events" type="ESPRT" on:close ={() => { popupEsports = false}} on:book={book}/>
                 {/if}
             </div>
         </div>
@@ -209,6 +225,55 @@
         
 
     </div>
+    {:else if data.top_pass.type != "FULL_ACCESS"}
+    <div>
+        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Upgrade</div>
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+            </div>
+            <div class=" relative opacity-100 text-white ">
+                
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    {upgradeprice!="Unavailable"?"₹"+upgradeprice:upgradeprice}
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
+            {#if popupStandard && upgradeprice != "Unavailable"}
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" type={"UPGRADE:"+data.top_pass.type.toUpperCase()+"_TO_FULL_ACCESS"} on:close ={() => { popupStandard = false}} on:book={book}/>
+            {/if}
+        </div>
+    </div>
+    {:else}
+    <div>
+        <div class=" h-[300px] w-[250px] bgGradientCardYellowHighlight rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-5"> 
+            </div>
+            <div class=" relative opacity-100 text-white ">
+                
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-16" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else window.location.replace('/mypass')}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    Already Owned
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
+        </div>
+    </div>
+    {/if}
+
 </div>
 
 <style>
