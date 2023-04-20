@@ -304,18 +304,25 @@
 
     .bgGradientCardGold{
         background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.6) ,rgba(209, 105, 31, 0.3));
-        box-shadow: 0px 0px 30px #fffFFF33;
     }
         
     .bgGradientCardSilver{
         background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(44, 61, 89, 0.4),rgba(141, 145, 141, 0.4));
-        box-shadow: 0px 0px 30px #fffFFF33;
     }
     .bgGradientCardRed{
         background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.349) , rgba(230, 60, 60, 0.491));
-        box-shadow: 0px 0px 30px #fffFFF33;
     }
 
+    .bgGradientCardRed:hover{
+        box-shadow: 0px 0px 30px #fffFFF33;
+
+    }
+    .bgGradientCardSilver:hover{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
+    .bgGradientCardGold:hover{
+        box-shadow: 0px 0px 30px #fffFFF33;
+    }
 
     li {
         text-align: left;
