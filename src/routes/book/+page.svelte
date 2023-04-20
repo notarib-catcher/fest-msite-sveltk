@@ -107,7 +107,7 @@
     {/if}
 
     {#if !data.top_pass.type}
-    <div class="top-20 grid grid-flow-col max-lg:grid-flow-row max-lg:mb-5 w-fit mx-[200px] max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
+    <div class="top-20 grid grid-flow-col max-lg:grid-flow-row max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-20 xl:gap-36 gap-y-9 ">
         <!-- <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4  text-md font-cstm text-[#ffffff] ">Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
@@ -308,11 +308,11 @@
     }
         
     .bgGradientCardSilver{
-        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(25, 40, 65, 0.5),rgba(141, 145, 141, 0.4));
+        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.434), rgba(44, 61, 89, 0.4),rgba(141, 145, 141, 0.4));
         box-shadow: 0px 0px 30px #fffFFF33;
     }
     .bgGradientCardRed{
-        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.516) , rgba(230, 60, 60, 0.781));
+        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.671), rgba(50, 84, 142, 0.349) , rgba(230, 60, 60, 0.491));
         box-shadow: 0px 0px 30px #fffFFF33;
     }
 
