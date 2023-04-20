@@ -29,7 +29,7 @@
 		</div>
 		
 		<div class="w-full flex justify-end mt-2">
-			<button class=" mx-auto mb-4 bg-gradient-to-tr from-[#4c2509] to-[#75660f] hover:bg-blue-700 transition-all duration-200 text-white font-light py-2 px-4 rounded-lg" on:click={()=>{
+			<button class=" mx-auto mb-8 bg-gradient-to-tr from-[#a123a8] to-[#e4c724] hover:bg-blue-700 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg" on:click={()=>{
 				goto('/events/'+data._id)
 			}}>Learn More</button>
 		</div>
