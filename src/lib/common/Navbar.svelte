@@ -125,7 +125,7 @@
 <div id="nav-container" class=" w-screen {$page.url.pathname == "/"?"":"fixed"}  top-0 z-10">
     <div class=" md:hidden opacity-25">
         <button on:click={ onOpenMenu }>
-            <img class=" h-10 w-10 fadeIn" src={hamburger} alt="open menu">
+            <img class="{$page.url.pathname != "/"?"":"fixed "} top-2 left-2 h-10 w-10 fadeIn" src={hamburger} alt="open menu">
         </button>
     </div>
     <div id="coverall" class=" overscroll-contain fadeIn max-md:hide max-md:h-screen w-screen max-md:fixed z-[8] max-md:backdrop-blur-md max-md:top-0 max-md:left-0 md:pointer-events-none max-md:fadeIn max-md:hidden overflow-hidden">
