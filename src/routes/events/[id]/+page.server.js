@@ -34,7 +34,12 @@ export async function load({params}){
                 return  {text:v, br:"<br>"} }),
             image: event.image,
             route: event.route,
+            date: event.Date,
+            prizepool:event.prizepool ,
+            time: event.time,
+            venue: event.venue,
             
+
         });
     }
     if(modifiedevents.length == 0){
