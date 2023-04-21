@@ -51,6 +51,10 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
             plink = await razorInstance.paymentLink.cancel(existingPayment.p_id)
           }
 
+          if(plink.status == "paid"){
+            throw redirect(302,'/callback/pay/' + params.slug)
+          }
+
           await payments.findOneAndUpdate({
             p_id: existingPayment.p_id
             },{
