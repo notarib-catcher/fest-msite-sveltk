@@ -4,6 +4,7 @@
 	import { createEventDispatcher } from "svelte";
 	import { onMount } from "svelte";
     import bgimg from "../../assets/starsbg.svg"
+	import { Warning } from "postcss";
     /**
 	 * @type {any}
 	 */
@@ -81,7 +82,9 @@
         <div class=" absolute z-[6] pointer-events-none">
             <img src={bgimg} class="">
         </div>
-        
+        <div class=" from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-center text-sm p-2">
+            For any team event every <br>team member must have a pass.
+        </div>
        
         <!--error boxes, hidden by default-->
         <div class=" text-red-500 font-bold w-full animate-bounce mt-2 hidden" bind:this={noPhNum}> Please enter your phone number</div>
@@ -116,7 +119,7 @@
             </div> <textarea class=" w-full font-normal text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r rounded-lg p-2 text-md text-black  " bind:value={extradat}></textarea>
             {/if} -->
         </div>
-        <div class="w-full text-center mt-4  font-semibold from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-xs ">Press anywhere outside to dismiss</div>
+        <div class="w-full text-center mt-4  font-semibold from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-xs px-3 ">Press anywhere outside to dismiss</div>
         <button class=" w-fit font-normal text-center  bg-white bg-opacity-[2%]  rounded-lg p-2 text-md  my-4  " on:click={sendDat}>
             <div class=" w-full text-center text-xl font-normal  bg-clip-text text-transparent bg-gradient-to-r from-[#2058b7] via-[#aa48a0] to-[#a0bdc27f]">Book now!</div>
         </button>
