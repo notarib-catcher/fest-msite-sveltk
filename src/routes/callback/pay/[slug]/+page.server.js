@@ -11,7 +11,9 @@ const {sign} = jwt
 import { MongoClient } from 'mongodb';
 import { redirect } from '@sveltejs/kit';
 
+
 dotenv.config();
+const webprivkey = process.env.WEBPRIVKEY?.replaceAll("$n$","\n")
 
 
 //@ts-ignore
@@ -81,16 +83,17 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     //any other state (expired/cancelled)
 
     if(linkobj.status != 'paid'){
-        return { "Payment unprocessed" }
+        return { res: "Payment unprocessed", redirect: "/book" }
     }
 
     //payment success, add pass
 
     let {type, refCode, contact, p_id} = paymentdoc
+    console.log("Processing: " + type + " for " + params.slug)
 
     if(type.startsWith('UPGRADE:')){
 
-        let toRevoke = await tickets.findOne({ email: {$eq: email}, type: { $ne: "!ALL!"}  })
+        let toRevoke = await tickets.findOne({ email: {$eq: session.user.email}, type: { $ne: "!ALL!"}  })
         if(toRevoke){
             let alreadyRevoked = await revocations.findOne( {_id: {$eq: toRevoke?._id}})
             if(!alreadyRevoked){
@@ -104,14 +107,16 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
         type = "!ALL!"
     }
+    console.log("Revoke check done")
 
     //Rename full access pass to match type naming used by MPTICKET for an all access pass
     type = (type == "FULL_ACCESS")?"!ALL!":type;
+    console.log("signing")
 
 
     //sign MPTICKET payload
     let ticketServerPayload = sign({
-        "name": name,
+        "name": session.user.name,
         "phone": contact || "+910000000000",
         "email": session.user.email,
         "type" : type
@@ -119,6 +124,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     },webprivkey,{
         algorithm: 'RS256'
     })
+
 
     console.log("PAYLOAD: "+ ticketServerPayload)
 
@@ -153,7 +159,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
 
     
-    return new Response()
+    return {res: "Payment processed! Redirecting...", redirect: "/mypass"}
 
 
 }
