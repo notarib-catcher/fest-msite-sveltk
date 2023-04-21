@@ -92,10 +92,14 @@
 
     
 </script>
-
-
+{#if !data.top_pass.type}
+<div class=" w-screen mt-20 px-5 z-[2]  text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr  md:hidden">You can upgrade a purchased pass to all access by paying the difference.</div>
+{/if}
 <div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative">
     <BgAnim />
+    {#if !data.top_pass.type}
+    <div class=" absolute w-screen top-0 z-[2] h-fit text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr pt-20 max-md:hidden">You can upgrade a purchased pass to all access by paying the difference.</div>
+    {/if}
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
@@ -105,9 +109,12 @@
             </div>   
         </div>
     {/if}
-
     {#if !data.top_pass.type}
-    <div class="top-20 grid grid-flow-col max-md:grid-flow-row max-lg:grid-rows-2 max-lg:gap-10 max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
+    
+
+    <div class=" top-20 grid h-fit  grid-flow-col max-md:grid-flow-row max-lg:grid-rows-2 max-lg:gap-10 max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
+        
+        
         <div class=" h-[300px] w-[250px] bgGradientCardBlueAccent rounded-3xl border-white border-[1px] bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
             <div class="absolute top-0 right-0 p-4 text-center text-md font-cstm text-[#ffffff] ">Standard + Proshow Pass</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
