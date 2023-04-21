@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import * as dotenv from 'dotenv' ;
 import axios from 'axios'
 import  Razorpay  from 'razorpay'
@@ -31,6 +31,8 @@ var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_sec
  * @param {import("../../../$types").RequestEvent} request 
  */
 export const POST = async ({request}) => {
+
+    return new Response()
 
     const signature = request.headers.get('X-Razorpay-Signature') || "nosig"
     const reqOb = await request.json()
