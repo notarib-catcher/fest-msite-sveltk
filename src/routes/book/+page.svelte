@@ -93,12 +93,12 @@
     
 </script>
 {#if !data.top_pass.type}
-<div class=" w-screen mt-20 px-5 z-[2]  text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr  md:hidden">You can upgrade a purchased pass to all access by paying the difference.</div>
+<div class=" w-screen mt-20 px-5 z-[2]  text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr  md:hidden">You can upgrade a pass to all access by paying the difference.</div>
 {/if}
 <div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative">
     <BgAnim />
     {#if !data.top_pass.type}
-    <div class=" absolute w-screen top-0 z-[2] h-fit text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr pt-20 max-md:hidden">You can upgrade a purchased pass to all access by paying the difference.</div>
+    <div class=" absolute w-screen top-0 z-[2] h-fit text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr pt-20 max-md:hidden">You can upgrade a pass to all access by paying the difference.</div>
     {/if}
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
