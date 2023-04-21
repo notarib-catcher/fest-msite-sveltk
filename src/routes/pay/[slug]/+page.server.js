@@ -263,7 +263,7 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
             refcode: referralCode,
         },
 
-        callback_url: "https://solstice.mitblrfest.in/mypass",
+        callback_url: process.env.ORIGIN + "/callback/pay/" + referenceID,
         callback_method: 'get'
     }).catch(() => {
         throw redirect(302, "/book?cancelled");
