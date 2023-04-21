@@ -96,7 +96,7 @@ console.count()
 
     let stringreturned = (await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})).data
     console.count()
-    //stop displaying old pass
+    //stop displaying any older pass
     await passes.findOneAndUpdate({
         email: {$eq: email},
         type: { $ne: "FULL_ACCESS" }
