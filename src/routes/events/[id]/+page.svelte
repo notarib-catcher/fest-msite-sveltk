@@ -17,11 +17,11 @@
 				alt={data.event?.name}
 				class=" top-0 w-full rounded-lg shadow-xl shadow-black h-fit mb-[5vh]"
 			/>
-			<button
-				on:click={() => window.history.back()}
+			<a
+				href="/book"
 				class="bg-gradient-to-tr from-[#D2691E] to-[#FFD700] w-max text-white font-sans py-2 px-4 rounded-xl"
-				>Registrations will open soon!</button
-			>
+				>Registrations open!</a>
+			
 		</div>
 		<div class="flex flex-col mt-10 md:mt-0 px-6 flex-grow-[1]">
 			<h1 class="text-[3vh] font-poppins mb-5">About the Event:</h1>
