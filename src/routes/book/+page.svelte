@@ -127,7 +127,7 @@
                 Join the fun!
             </div>
             {#if popupProshow}
-                <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
+                <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="PROSHOW" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
         </div>
         <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
@@ -171,7 +171,7 @@
                 Enjoy the music!
             </div>
             {#if popupProshow}
-            <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="gold" on:close ={() => { popupProshow = false}} on:book={book}/>
+            <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="PROSHOW" on:close ={() => { popupProshow = false}} on:book={book}/>
             {/if}
         </div> 
         <!--card-->

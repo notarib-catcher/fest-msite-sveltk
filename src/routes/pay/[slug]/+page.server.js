@@ -145,7 +145,8 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     })
 
     if (!pass?.open) {
-        throw redirect(302, "/book?cancelled");
+        console.log(queried_type)
+        throw redirect(302, "/book?cancelled&passnotopen");
     }
 
     let currentPass = await passes.findOne({ email: { $eq: session.user.email }, generated: { $eq: true } });
