@@ -23,7 +23,7 @@
       <a
         href={data.event?.reglink || "/book"}
         class="bg-gradient-to-tr from-[#D2691E] to-[#FFD700] w-max text-white font-sans py-2 px-4 rounded-xl"
-      >Registrations open!</a>
+      >{(data.event?.reglink)?"Register (external site)":"Registrations open!"}</a>
 
     </div>
     <div class="flex flex-col mt-10 md:mt-0 px-6 flex-grow-[1]">
