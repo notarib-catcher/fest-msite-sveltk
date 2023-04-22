@@ -1,4 +1,6 @@
 <script>
+	import { browser } from '$app/environment';
+
 
 	export let data;
 </script>
@@ -57,7 +59,7 @@
 			</h3>
 			
 			{#if data.event?.rules.length>0}
-			{#if data.event?.rules[0] && data.event?.rules[0] != ""}
+			{#if data.event?.rules[0]  && data.event.rules[0].text && data.event.rules[0].text.trim().length }
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
 			<h3 class="ml-8 md:w-[45vw] mb-16">
 				{#if data.event?.rules[0].text.startsWith('https')}
