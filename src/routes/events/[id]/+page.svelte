@@ -1,5 +1,4 @@
 <script>
-	import { rule } from 'postcss';
 
 	export let data;
 </script>
@@ -56,7 +55,9 @@
 					{@html br}
 				{/each}
 			</h3>
+			
 			{#if data.event?.rules.length>0}
+			{#if data.event?.rules[0] && data.event?.rules[0] != ""}
 			<h1 class="text-[3vh] font-poppins mb-5">Rules:</h1>
 			<h3 class="ml-8 md:w-[45vw] mb-16">
 				{#if data.event?.rules[0].text.startsWith('https')}
@@ -68,6 +69,7 @@
 					{/each}
 				{/if}
 			</h3>
+			{/if}
 			{/if}
 			
 		</div>
