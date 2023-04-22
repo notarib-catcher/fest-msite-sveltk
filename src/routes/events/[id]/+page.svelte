@@ -70,6 +70,11 @@
           <h3 class="ml-8 md:w-[45vw] mb-16">
             {#if data.event?.rules[0].text.startsWith('https')}
               <a class=" underline" href={data.event?.rules[0].text}>Link</a>
+            {:else}
+              {#each data.event?.rules as { text, br }}
+                {text}
+                {@html br}
+              {/each}
             {/if}
           </h3>
         {/if}
