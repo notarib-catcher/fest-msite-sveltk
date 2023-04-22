@@ -18,7 +18,7 @@
 				class=" top-0 w-full rounded-lg shadow-xl shadow-black h-fit mb-[5vh]"
 			/>
 			<a
-				href="/book"
+				href={data.event?.reglink || "/book"}
 				class="bg-gradient-to-tr from-[#D2691E] to-[#FFD700] w-max text-white font-sans py-2 px-4 rounded-xl"
 				>Registrations open!</a>
 			

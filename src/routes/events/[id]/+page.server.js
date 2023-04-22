@@ -38,6 +38,7 @@ export async function load({params}){
             prizepool:event.prizepool ,
             time: event.time,
             venue: event.venue,
+            reglink: event.reglink || null
             
 
         });
