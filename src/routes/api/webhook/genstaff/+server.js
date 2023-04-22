@@ -51,11 +51,12 @@ console.count()
 
     let stringreturned = (await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})).data
     console.count()
-    //stop displaying any older pass
+
+
+    //stop displaying any older passES
 
     await passes.updateMany({
-        email: {$eq: email},
-        type: { $ne: "FULL_ACCESS" }
+        email: {$eq: email}
     },{
         $set:{
             generated: false
@@ -65,7 +66,6 @@ console.count()
     
 
     await passes.insertOne({
-
         email: email,
         token: stringreturned,
         generated: true,
