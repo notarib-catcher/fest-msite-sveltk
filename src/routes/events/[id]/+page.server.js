@@ -12,13 +12,13 @@ const events = database.collection('events');
 const projection = {
     _id: 0
   }
-  
+
   const options = {
     projection: projection
 
   }
 export async function load({params}){
-    
+
     const foundevents = await events.find({route:params.id}).toArray();
     let modifiedevents = [];
     for(let i=0;i<foundevents.length;i++){
@@ -38,9 +38,8 @@ export async function load({params}){
             prizepool:event.prizepool ,
             time: event.time,
             venue: event.venue,
-            reglink: event.reglink || null
-            
-
+            reglink: event.reglink || null,
+            mdLink: event.mdLink || null
         });
     }
     if(modifiedevents.length == 0){

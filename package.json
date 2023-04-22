@@ -39,6 +39,7 @@
 		"jwt-encode": "^1.0.1",
 		"mongodb": "^5.2.0",
 		"razorpay": "^2.8.6",
+		"svelte-markdown": "^0.2.3",
 		"uuid": "^9.0.0"
 	}
 }
