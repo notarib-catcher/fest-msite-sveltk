@@ -7,7 +7,7 @@
 
 <b>This is no ordinary fest.</b><br><br>This is a fest curated by a team that hasn't slept for days, a team that's surviving on coffee just to make sure that the Bangalore's Tech Circuit gets the finest of the events possible. 
 Tech Solstice brings to you a platform to compete with the lot that follows Linus as enthusiastically as you do. Both Sebastian and Torvalds.
-From E-sports to Hackathons, everyone can find an event right for their interests.<br><br> 
+<br>From E-sports to Hackathons, everyone can find an event right for their interests.<br><br> 
 Join us for mind bending events that make you wanna rip your head off.<br><br class=" lg:hidden">Join us for the amazing concert and DJ nights.<br><br class=" sm:hidden">
 Join us to code, quiz or debate.<br><br><b>Join us to not be ordinary.</b>
     </p>
