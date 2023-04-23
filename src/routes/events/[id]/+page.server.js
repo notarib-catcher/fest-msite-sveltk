@@ -1,3 +1,4 @@
+import { redirect } from '@sveltejs/kit';
 import * as dotenv from 'dotenv' ;
 dotenv.config()
 import { MongoClient } from 'mongodb';
@@ -43,7 +44,7 @@ export async function load({params}){
         });
     }
     if(modifiedevents.length == 0){
-        return {};
+        throw redirect(301,"/404")
     }
     return {event:modifiedevents[0]};
 }
