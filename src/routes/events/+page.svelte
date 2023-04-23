@@ -100,7 +100,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/each}
       </div>
       <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#6212a4] via-[#2D6DB1] to-[#6212a4] text-transparent w-full max-lg:text-center bg-clip-text">
-        Fun Mini events
+        Mini events
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
         {#each standard as event}
