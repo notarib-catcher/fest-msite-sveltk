@@ -76,13 +76,12 @@
         }, 1000)
 
 
-        document.addEventListener("scroll", (event) => {
+        document.addEventListener("scroll", async (event) => {
             let downarrow = document.getElementById('downarrow')
             if(downarrow){
                 downarrow.className = " opacity-0 mb-20 transition-all duration-700"
 
             }
-            document.removeEventListener('scroll',this)
         });
         
         
@@ -97,18 +96,18 @@
 
 <div id = "banner-inner-contain" class=" ">
     <div id="container" class="relative top-0 h-screen w-screen bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 bg-opacity-0 flex justify-center items-center -z-10">
-        <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden z-[-1]">
+        <div class="absolute mb-0 h-screen w-screen flex flex-col justify-center overflow-hidden ">
             <div class="h-[30vw] flex flex-col justify-end fadeinLate">
-                <div class="absolute waves  h-[0%]  w-[100vw] flex flex-row justify-between items-center" id="wave" bind:this={wave1}>
+                <div class="absolute will-change-scroll waves  h-[0%]  w-[100vw] flex flex-row justify-between items-center" id="wave" bind:this={wave1}>
                     <div class="wavy" style="--i: 1"/>
                 </div>
-                <div class="waves absolute mb-0 ml-2 h-[0%]   -translate-x-2 w-[100vw] flex flex-row justify-between items-center" id="wave2" bind:this={wave2}>
+                <div class="waves absolute will-change-scroll mb-0 ml-2 h-[0%]   -translate-x-2 w-[100vw] flex flex-row justify-between items-center" id="wave2" bind:this={wave2}>
                     <div class="wavy" style="--i: {delay}"/>
                 </div>
-                <div class="absolute waves h-[0%] ml-4 w-[100vw] -translate-x-4 flex flex-row justify-between items-center" id="wave3" bind:this={wave3}>
+                <div class="absolute waves will-change-scroll h-[0%] ml-4 w-[100vw] -translate-x-4 flex flex-row justify-between items-center" id="wave3" bind:this={wave3}>
                     <div class="wavy" style="--i: {delay*2}"/>
                 </div>
-                <div class="waves absolute mb-0 ml-6 h-[0%] w-[100vw] -translate-x-6 flex flex-row justify-between items-center" id="wave4" bind:this={wave4}>
+                <div class="waves absolute will-change-scroll mb-0 ml-6 h-[0%] w-[100vw] -translate-x-6 flex flex-row justify-between items-center" id="wave4" bind:this={wave4}>
                     <div class="wavy" style="--i: {delay*3}"/>
                 </div>
             </div>
@@ -130,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute w-screen bottom-0 h-[50px] flex items-center max-md:hidden">
+        <div class="absolute w-screen bottom-0 h-[50px] flex items-center">
             <div class=" mx-auto">
                 <img id="downarrow" src = {downarrow} alt={downarrow} class=" fadeinLate transition-all duration-700 mb-20">
             </div>

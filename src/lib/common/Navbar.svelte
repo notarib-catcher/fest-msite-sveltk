@@ -129,7 +129,7 @@
         </button>
     </div>
     <div id="coverall" class=" overscroll-contain fadeIn max-md:hide max-md:h-screen w-screen max-md:fixed z-[8] max-md:backdrop-blur-md max-md:top-0 max-md:left-0 md:pointer-events-none max-md:fadeIn max-md:hidden overflow-hidden">
-        <nav id="nav" class=" md:shadow-lg pointer-events-auto   max-md:hidden md:w-full md:h-full bg-zinc-900 bg-opacity-80 flex md:flex-row-reverse flex-col left-0 h-screen max-md:fixed sticky max-md:min-w-[40%] max-md:w-fit  max-w-full">
+        <nav id="nav" class=" md:shadow-lg pointer-events-auto   max-md:hidden md:w-full md:h-full {$page.url.pathname != "/"?" bg-opacity-0 ":" bg-opacity-80 "} bg-zinc-900 flex md:flex-row-reverse flex-col left-0 h-screen max-md:fixed sticky max-md:min-w-[40%] max-md:w-fit  max-w-full">
             <div class=" h-fit w-full px-4 my-auto order-1 font-light text-white align-middle text-xl flex-row flex">
                 
                 
