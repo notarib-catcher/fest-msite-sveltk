@@ -109,16 +109,15 @@
       <div class="flex flex-col mt-10 lg:mt-0 text-justify flex-grow-[1] text-white">
         {#if data.event?.rules.length > 0}
           {#if data.event?.rules[0] && data.event?.rules[0].text != ""}
-            <h1 class="text-[3vh] max-lg:text-center font-bold font-poppins mb-5">Rules:</h1>
+            <h1 class="text-[3vh] max-lg:text-center font-bold font-poppins mb-5">Rules: {#if data.event?.rules[0].text.startsWith('https')}
+              <a class=" underline" href={data.event?.rules[0].text}>Link</a>{/if}</h1>
             <div class=" lg:w-[45vw] mb-16">
-              {#if data.event?.rules[0].text.startsWith('https')}
-                <a class=" underline" href={data.event?.rules[0].text}>Link</a>
-              {:else}
+              {#if !data.event?.rules[0].text.startsWith('https')}
                 {#each data.event?.rules as { text, br }}
-                  {text}
-                  {@html br}
+                {text}
+                {@html br}
                 {/each}
-              {/if}
+              {/if} 
             </div>
           {/if}
         {/if}
