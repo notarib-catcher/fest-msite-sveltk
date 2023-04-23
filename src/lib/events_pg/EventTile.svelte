@@ -10,57 +10,55 @@
 </script>
 
 <div
-	class=" border border-[#D4AF37] first-letter: overflow-hidden group-[imghov] relative m-6 pt-0 h-[650px] max-w-[400px] w-fit hover:scale-110 transition-all duration-300 delay-100 ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white"
+	class=" border-[2px] {
+			data.forceTop?"border-[#26e2faaf]"
+			: data.pass ==='Flagship'
+			? 'border-[#9a0b0b8a]'
+			: data.pass === 'Standard'
+			? 'border-[#2564eb9c] '
+			: data.pass == 'Proshow'
+			? 'border-[#c59421cb]'
+			:  data.pass == 'Esports'
+			? 'border-[#d620ffcb]'
+			: data.pass == 'Free'
+			? 'border-[#18ff189b]'
+			: 'border-[#0e5f0e9b]'} borderbox  first-letter: overflow-hidden group-[imghov] relative m-6 pt-0 w-[291px] h-[547px]  hover:scale-110 transition-all duration-100  ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white"
 >
 	<div class=" relative flex w-full justify-between mb-2">
-		<div class="relative pt-6 -z-[1]">
+		<div class="relative pt-6 pl-4 -z-[1]">
 			<img src={SolsticeFullLogo} alt="logo" />
 		</div>
 
-		<div
-			class="  z-[1] h-0 w-0 mr-1 capitalize flex justify-center items-end border-[30px] border-t-[50px] border-x-[32px] bg-black bg-opacity-0 border-b-transparent {data.pass ===
-			'Flagship'
-				? 'border-[#9a0b0b8a]'
-				: data.pass === 'Standard'
-				? 'border-[#2564eb9c] '
-				: data.pass == 'Proshow'
-				? 'border-[#c59421cb]'
-				:  data.pass == 'Esports'
-				? 'border-[#d620ffcb]'
-				: data.pass == 'Free'
-				? 'border-[#18ff189b]'
-				: 'border-[#0e5f0e9b]'}"
-		>
-			<p class="text-[12px] -translate-y-3 font-bold">{data.pass}</p>
-		</div>
+		
+			<p class="text-[18px] mt-6 mr-4 font-bold">{data.pass}</p>
+		
 	</div>
 	<img
 		src={data.image}
 		alt="eventImage"
-		class=" w-full h-[230px] group-[imghov] absolute -z-1"
+		class="  h-[165px] w-[220px] rounded-xl top-16 group-[imghov] absolute -z-1"
 		width={220}
 	/>
-	<p class="text-2xl font-bold">{data.title}</p>
-	<div class=" relative w-full h-full bgshadow p-5 transition-all duration-300 peer">
-		<div class="w-[200px] max-w-full m-2 text-xl translate-y-24 font-light relative z-[2]">
+	<div class=" relative flex justify-center w-full h-full bg-transparent p-5 transition-all duration-300 peer">
+		<div class="w-[200px] pointer-events-none max-w-full m-2 text-[17.5px]  translate-y-40 font-light relative z-[2]">
 			<p>{data.shortDescription}</p>
 		</div>
 	</div>
 
-	<div class="flex justify-end mt-2 z-[1] bottom-0 flex-col text-center ">
+	<div class="flex justify-end z-[1] bottom-0 flex-col text-center ">
 		{#if data.prizepool != undefined}
-			<div class="mt-10 w-full">
+			<div class="mb-1 w-full">
 				<p class="text-white font-normal">Prize pool: {data.prizepool}</p>
 			</div>
 		{/if}
 		{#if data.team != undefined}
-			<div class="m-2 w-full flex justify-center mb-5">
+			<div class="w-full flex justify-center mb-2">
 				<p class="text-white font-normal">Team: {data.team}</p>
 			</div>
 		{/if}
 		<a
 			href={'/events/' + data._id}
-			class=" mx-auto mb-8 bg-gradient-to-tr from-[#a123a8] to-[#e4c724] hover:bg-blue-700 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg"
+			class=" mx-auto mb-8 bg-gradient-to-tr from-[#d2691e54] to-[#ffd900c7] hover:bg-blue-700 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg"
 			>Learn More</a
 		>
 	</div>
@@ -78,4 +76,11 @@
 			rgba(24, 24, 27, 0)
 		);
 	}
+
+	
+
+	.borderbox:hover{
+		box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.685);
+	}
+	
 </style>

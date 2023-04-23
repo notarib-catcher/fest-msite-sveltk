@@ -33,24 +33,95 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
   
   
        export let data;
+
+       let topevents = data.events.filter((event) => {
+          return event.pass == "Flagship"  || event.pass == "Proshow" || event._id == "hacksolstice"
+       })
+       let hackathon = topevents.pop()
+       let dj = topevents.pop()
+       let thunt = topevents.pop()
+       
+       topevents.unshift(dj)
+       topevents.unshift(thunt)
+       topevents.unshift(hackathon)
+
+       for(let i in topevents){
+        topevents[i].forceTop = true
+       }  
+
+       let remainingevents1 = data.events.filter((event)=> {
+        return !topevents.includes(event)
+       })
+
+       let freeevents = remainingevents1.filter((event)=> {
+        return event.pass.toLowerCase() == "free"
+       })
+
+       let remainingevents2 = remainingevents1.filter((event)=> {
+        return !freeevents.includes(event)
+       })
+
+       let standard = remainingevents2.filter((event)=>{
+        return (event.pass.toLowerCase() == "standard")
+       })
+
+       let esports = remainingevents2.filter((event)=> {
+        return !standard.includes(event)
+       })
+       
   </script>
+  <BgAnim />
   <div>
+    
     <!-- <div class="stars  h-full fixed -z-10 w-full stars" id="stars">
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
-    <div  class=" flex flex-col max-sm:p-10 max-md:p-16 md:p-20 w-screen">
-      <BgAnim />
-      <h1 class="text-6xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-fit bg-clip-text">
-        Events
+    <div  class=" flex flex-col justify-center  max-sm:p-10 max-md:p-16 md:p-20 left-0 min-w-min">
+      
+      <h1 class="text-6xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text">
+        Top Events
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
-        {#each data.events as event}
+        {#each topevents as event}
+        {#if !event.hide}
+          <EventTile data={event}/>
+        {/if}
+        {/each}
+      </div>
+
+      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#26bf87] via-[#17d337] to-[#26bf87] text-transparent w-full max-lg:text-center bg-clip-text">
+        Open to all
+      </h1>
+      <div class="flex flex-row flex-wrap justify-center items-center">
+        {#each freeevents as event}
+        {#if !event.hide}
+          <EventTile data={event}/>
+        {/if}
+        {/each}
+      </div>
+      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#6212a4] via-[#2D6DB1] to-[#6212a4] text-transparent w-full max-lg:text-center bg-clip-text">
+        Fun Mini events
+      </h1>
+      <div class="flex flex-row flex-wrap justify-center items-center">
+        {#each standard as event}
+        {#if !event.hide}
+          <EventTile data={event}/>
+        {/if}
+        {/each}
+      </div>
+      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#880cae] via-[#280bbc] to-[#880cae] text-transparent w-full max-lg:text-center bg-clip-text">
+        Esports Competitions
+      </h1>
+      <div class="flex flex-row flex-wrap justify-center items-center">
+        {#each esports as event}
         {#if !event.hide}
           <EventTile data={event}/>
         {/if}
         {/each}
       </div>
     </div>
+    
+  
     
   </div>
   
