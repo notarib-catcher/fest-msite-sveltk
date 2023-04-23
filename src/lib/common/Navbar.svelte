@@ -5,7 +5,9 @@
 	import { browser } from "$app/environment";
     import leftarrow from "../../assets/left-svgrepo-com.svg"
     import hamburger from "../../assets/hamburger-md-svgrepo-com.svg"
+    import { navigating } from "$app/stores";
 
+    $: if($navigating) onCloseMenu();
  
     
 
@@ -29,6 +31,10 @@
     }
     const onCloseMenu = async () => {
         
+        if(window.innerWidth > 768){
+                // @ts-ignore
+                return
+            }
 
         // @ts-ignore
 
@@ -113,6 +119,7 @@
             await new Promise((resolve) => setTimeout(resolve, 100));  
             }   
         }
+        
 
         
         start()
