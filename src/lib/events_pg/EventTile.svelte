@@ -70,7 +70,7 @@
 		<a
 			href={'/events/' + data._id}
 			class=" border-[2px] {
-				data.forceTop?"text-[#26e2faaf]"
+				data.forceTop?"border-[#26e2faaf] hover:bg-[#26e2faaf]"
 				: data.pass ==='Flagship'
 				? 'border-[#f0efed] hover:bg-[#f0efed]'
 				: data.pass === 'Standard'
