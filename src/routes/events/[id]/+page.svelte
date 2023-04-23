@@ -1,11 +1,13 @@
 <script>
 
-  import MarkdownBox from "$lib/common/MarkdownBox.svelte";
+  import BgAnim from "$lib/common/BGAnim.svelte";
+import MarkdownBox from "$lib/common/MarkdownBox.svelte";
 
   export let data;
 
 
 </script>
+<BgAnim/>
 <div
     class=" mt-20 max-lg:mt-16 pb-5 text-center w-full font-poppins bg-gradient-to-tr font-bold {
           data.event.pass == "flagship"?"from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1]"
