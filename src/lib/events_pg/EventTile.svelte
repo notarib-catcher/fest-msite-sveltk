@@ -32,11 +32,11 @@
 		
 			<p class="text-[18px] mt-6 mr-4 font-bold {
 				data.pass ==='Flagship'
-				? 'text-[#f0efed]'
+				? 'from-[#125ddf]  to-[#F365E5] bg-clip-text text-transparent bg-gradient-to-r'
 				: data.pass === 'Standard'
 				? 'text-[#2564eb9c] '
 				: data.pass == 'Proshow'
-				? 'text-[#21adc5cb]'
+				? 'text-[#e5d016]'
 				:  data.pass == 'Esports'
 				? 'text-[#e63c3c]'
 				: data.pass == 'Free'

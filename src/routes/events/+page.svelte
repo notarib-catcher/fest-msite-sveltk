@@ -109,7 +109,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/if}
         {/each}
       </div>
-      <h1 class="text-6xl max-md:text-3xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#880cae] via-[#280bbc] to-[#880cae] text-transparent w-full max-lg:text-center bg-clip-text">
+      <h1 class="text-6xl max-md:text-3xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#880cae] via-[#9c434b] to-[#880cae] text-transparent w-full max-lg:text-center bg-clip-text">
         Esports Competitions
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
