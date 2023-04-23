@@ -22,7 +22,7 @@
 			? 'border-[#e63c3c]'
 			: data.pass == 'Free'
 			? 'border-[#18ff189b]'
-			: 'border-[#0e5f0e9b]'} borderbox  first-letter: overflow-hidden group-[imghov] relative m-6 pt-0 w-[291px] h-[547px]  hover:scale-105 transition-all duration-300  ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white"
+			: 'border-[#0e5f0e9b]'} borderbox   overflow-hidden group-[imghov] relative md:m-6  my-6 pt-0 w-[291px] h-[547px]  hover:scale-105 transition-all duration-300  ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white"
 >
 	<div class=" relative flex w-full justify-between mb-2">
 		<div class="relative pt-6 pl-4 -z-[1]">
@@ -81,7 +81,7 @@
 				? 'border-[#e63c3c] hover:bg-[#e63c3c]'
 				: data.pass == 'Free'
 				? 'border-[#19a3199b] hover:bg-[#19a3199b]'
-				: 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} mx-auto mb-8  to-[#ffd900c7] hover:bg-blue-700 bg-opacity-10 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg"
+				: 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} mx-auto mb-8  to-[#ffd900c7]  bg-opacity-10 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg"
 			>Learn More</a
 		>
 	</div>

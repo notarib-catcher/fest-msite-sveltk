@@ -76,9 +76,9 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
     <!-- <div class="stars  h-full fixed -z-10 w-full stars" id="stars">
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
-    <div  class=" flex flex-col justify-center  max-sm:p-10 max-md:p-16 md:p-20 left-0 min-w-min">
+    <div  class=" pt-16 max-md:pt-5 md:px-20 max-w-full flex flex-col justify-center   left-0 min-w-min">
       
-      <h1 class="text-6xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text">
+      <h1 class="text-6xl max-md:text-3xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text">
         Top Events
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
@@ -89,7 +89,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/each}
       </div>
 
-      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#26bf87] via-[#17d337] to-[#26bf87] text-transparent w-full max-lg:text-center bg-clip-text">
+      <h1 class="text-6xl max-md:text-3xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#26bf87] via-[#17d337] to-[#26bf87] text-transparent w-full max-lg:text-center bg-clip-text">
         Open to all
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
@@ -99,8 +99,8 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/if}
         {/each}
       </div>
-      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#6212a4] via-[#2D6DB1] to-[#6212a4] text-transparent w-full max-lg:text-center bg-clip-text">
-        Mini events
+      <h1 class="text-6xl max-md:text-3xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#6212a4] via-[#2D6DB1] to-[#6212a4] text-transparent w-full max-lg:text-center bg-clip-text">
+        Fun Mini events
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
         {#each standard as event}
@@ -109,7 +109,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/if}
         {/each}
       </div>
-      <h1 class="text-6xl mt-10 mb-4 font-bold bgGradientCardRed text-transparent w-full max-lg:text-center bg-clip-text">
+      <h1 class="text-6xl max-md:text-3xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#880cae] via-[#280bbc] to-[#880cae] text-transparent w-full max-lg:text-center bg-clip-text">
         Esports Competitions
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
@@ -135,9 +135,5 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
   /* .stars div{
     transform: translate(var(--x),var(--y));
   } */
-
-  .bgGradientCardRed{
-        background-image: linear-gradient(to bottom left, rgb(51, 51, 51),rgb(50, 84, 142), rgb(230, 60, 60));
-    }
   </style>
   
