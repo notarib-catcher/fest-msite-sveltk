@@ -55,18 +55,18 @@
     <div class="flex flex-col p-10 sm:px-20 md:px-24 lg:pr-10 lg:pl-5 lg:pt-0 lg:m-10 lg:ml-2 my-10 max-lg:text-center  ">
       <div class="w-fit">
         <div
-        class="bg-clip-text text-left text-transparent bg-gradient-to-r max-lg:pb-4 from-[#125ddf] to-[#F365E5] font-poppins font-normal max-lg:text-xl text-2xl"
+        class="bg-clip-text text-left text-transparent bg-gradient-to-r  from-[#125ddf] to-[#F365E5] font-poppins font-normal max-lg:text-xl text-2xl"
       >
         <b>Date: </b><br class=" lg:hidden">{data.event?.date}
       </div>
       <div
-        class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r max-lg:pb-4 from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
+        class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
       >
         <b>Time: </b><br class="{data.event.time?.length < 20?"hidden":""} lg:hidden">{data.event?.time}
       </div>
       {#if data.event?.prizepool}
         <div
-          class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf] max-lg:pb-4 to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
+          class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf]  to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
         >
           <b>Prize pool: </b><br class="{data.event.prizepool?.length < 10?"hidden":""} lg:hidden">{data.event?.prizepool}
         </div>
