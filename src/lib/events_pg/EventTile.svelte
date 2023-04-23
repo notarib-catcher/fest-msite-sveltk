@@ -13,13 +13,13 @@
 	class=" border-[2px] {
 			data.forceTop?"border-[#26e2faaf]"
 			: data.pass ==='Flagship'
-			? 'border-[#9a0b0b8a]'
+			? 'border-[#f0efed]'
 			: data.pass === 'Standard'
 			? 'border-[#2564eb9c] '
 			: data.pass == 'Proshow'
-			? 'border-[#c59421cb]'
+			? 'border-[#21adc5cb]'
 			:  data.pass == 'Esports'
-			? 'border-[#d620ffcb]'
+			? 'border-[#e63c3c]'
 			: data.pass == 'Free'
 			? 'border-[#18ff189b]'
 			: 'border-[#0e5f0e9b]'} borderbox  first-letter: overflow-hidden group-[imghov] relative m-6 pt-0 w-[291px] h-[547px]  hover:scale-105 transition-all duration-300  ease-in-out rounded-2xl flex justify-between flex-col items-center text-center text-white"
@@ -30,7 +30,18 @@
 		</div>
 
 		
-			<p class="text-[18px] mt-6 mr-4 font-bold">{data.pass}</p>
+			<p class="text-[18px] mt-6 mr-4 font-bold {
+				data.pass ==='Flagship'
+				? 'text-[#f0efed]'
+				: data.pass === 'Standard'
+				? 'text-[#2564eb9c] '
+				: data.pass == 'Proshow'
+				? 'text-[#21adc5cb]'
+				:  data.pass == 'Esports'
+				? 'text-[#e63c3c]'
+				: data.pass == 'Free'
+				? 'text-[#18ff189b]'
+				: 'text-[#0e5f0e9b]'}">{data.pass}</p>
 		
 	</div>
 	<img
@@ -59,15 +70,15 @@
 		<a
 			href={'/events/' + data._id}
 			class=" border-[2px] {
-				data.forceTop?"border-[#26e2faaf]"
+				data.forceTop?"text-[#26e2faaf]"
 				: data.pass ==='Flagship'
-				? 'border-[#9a0b0b8a] hover:bg-[#9a0b0b8a]'
+				? 'border-[#f0efed] hover:bg-[#f0efed]'
 				: data.pass === 'Standard'
 				? 'border-[#2564eb9c] hover:bg-[#2564eb9c]'
 				: data.pass == 'Proshow'
-				? 'border-[#c59421cb] hover:bg-[#c59421cb]'
+				? 'border-[#21adc5cb] hover:bg-[#21adc5cb]'
 				:  data.pass == 'Esports'
-				? 'border-[#d620ffcb] hover:bg-[#d620ffcb]'
+				? 'border-[#e63c3c] hover:bg-[#e63c3c]'
 				: data.pass == 'Free'
 				? 'border-[#19a3199b] hover:bg-[#19a3199b]'
 				: 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} mx-auto mb-8  to-[#ffd900c7] hover:bg-blue-700 bg-opacity-10 transition-all duration-200 text-white font-normal py-2 px-4 rounded-lg"

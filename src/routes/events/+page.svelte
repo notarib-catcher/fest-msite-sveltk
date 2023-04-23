@@ -109,7 +109,7 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
         {/if}
         {/each}
       </div>
-      <h1 class="text-6xl mt-10 mb-4 font-bold bg-gradient-to-tr  from-[#880cae] via-[#280bbc] to-[#880cae] text-transparent w-full max-lg:text-center bg-clip-text">
+      <h1 class="text-6xl mt-10 mb-4 font-bold bgGradientCardRed text-transparent w-full max-lg:text-center bg-clip-text">
         Esports Competitions
       </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
@@ -135,5 +135,9 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
   /* .stars div{
     transform: translate(var(--x),var(--y));
   } */
+
+  .bgGradientCardRed{
+        background-image: linear-gradient(to bottom left, rgb(51, 51, 51),rgb(50, 84, 142), rgb(230, 60, 60));
+    }
   </style>
   
