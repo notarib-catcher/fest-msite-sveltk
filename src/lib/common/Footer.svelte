@@ -13,7 +13,7 @@
         "アニメ見すぎ",
         "Crap, I have a test tomorrow...",
         "Its 4am please send help",
-        "How much coffe is too much?",
+        "How much coffee is too much?",
         "This is no ordinary fest",
             ]
 
