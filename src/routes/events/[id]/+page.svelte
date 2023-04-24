@@ -6,7 +6,7 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
 
   export let data;
   let RegText = "";
-  let RegDisable = false;
+  let RegDisable = true;
   let RegSignIn = false;
 
   let allowedpasses = []
@@ -177,13 +177,17 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
       class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r max-lg:pb-4 from-[#125ddf]  to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
     >
     {#if data.event.pass != "Free"}
-    <div class=" flex flex-row font-bold">
-      <div class="">Accessible with<span>&nbsp</span></div><div class="{
-      data.event.pass == "flagship"?"capitalize":
-      data.event.pass == "Proshow"?"text-[#e5d016] capitalize":
-      data.event.pass == "Standard"?"text-[#2af2c0] capitalize":
-      data.event.pass == "esports"?"text-[#e63c3c] capitalize":"text-[#ffffff]"}">{data.event.pass == "Standard"?"Any":data.event.pass}</div><div><span>&nbsp;</span>Pass.</div>
-    </div>
+      {#if RegDisable}
+      <div class=" flex flex-row font-bold">
+        <div class="">Accessible with<span>&nbsp</span></div><div class="{
+        data.event.pass == "flagship"?"capitalize":
+        data.event.pass == "Proshow"?"text-[#e5d016] capitalize":
+        data.event.pass == "Standard"?"text-[#2af2c0] capitalize":
+        data.event.pass == "esports"?"text-[#e63c3c] capitalize":"text-[#ffffff]"}">{data.event.pass == "Standard"?"Any":data.event.pass}</div><div><span>&nbsp;</span>Pass.</div>
+      </div>
+      {:else}
+      ✔️ You can access this event.
+      {/if}
     {:else}
     <div class=" text-[#19a3199b] flex flex-row font-bold">
       Open event, no pass required.
