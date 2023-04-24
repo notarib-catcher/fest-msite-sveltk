@@ -157,7 +157,7 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
         <b>Date: </b><br class=" lg:hidden">{data.event?.date}
       </div>
       <div
-        class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
+        class="bg-clip-text text-left text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
       >
         <b>Time: </b><br class="{data.event.time?.length < 20?"hidden":""} lg:hidden">{data.event?.time}
       </div>
