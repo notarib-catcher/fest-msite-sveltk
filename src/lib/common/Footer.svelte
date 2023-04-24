@@ -15,6 +15,10 @@
         "Its 4am please send help",
         "How much coffee is too much?",
         "This is no ordinary fest",
+        "Fest ho raha hai kya",
+        "Whose bright idea was this?",
+        "die",
+        "Made with <3 by AD, PK, CV, AS, KS"
             ]
 
             
@@ -57,11 +61,11 @@
 </script>
 
 <div class=" mt-10 bg-gradient-to-tr  via-[#63cbd7] to-[#537ae3] from-[#5378dc] text-transparent bg-clip-text relative w-screen h-[50px] max-sm:h-[70px] grid grid-flow-col max-sm:grid-cols-2 grid-cols-3 grid-rows-1">
-    <div id="footertappy" bind:innerText={ctext} contenteditable="false" class=" w-full text-left pl-4 sm:pt-2 select-text">
-        Coding at 3am...    
-    </div>
-    <div class=" bg-gradient-to-tr  via-[#63cbd7] to-[#537ae3] from-[#5378dc] text-transparent bg-clip-text pt-2 w-full text-center max-sm:hidden">
+    <div class=" bg-gradient-to-tr  via-[#63cbd7] to-[#537ae3] from-[#5378dc] text-transparent bg-clip-text pt-2 pl-4 w-full text-left max-sm:hidden">
         ©2023 The Solstice Team
+    </div>
+    <div id="footertappy" bind:innerText={ctext} contenteditable="false" class=" w-full max-sm:text-left max-sm:pl-4 text-center sm:pt-2 select-text">
+        Coding at 3am...    
     </div>
     <div class=" w-full text-center pt-2 bg-gradient-to-tr  via-[#63cbd7] to-[#537ae3] from-[#5378dc] text-transparent bg-clip-text flex justify-end ">
         <a href="https://linktr.ee/techsolstice" class=" w-full text-right underline pr-3 hover:font-bold ">Visit our linktree</a>
