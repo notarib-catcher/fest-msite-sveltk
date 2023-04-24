@@ -25,11 +25,11 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
   </div>
 <div class=" flex lg:flex-row flex-col items-center justify-center  w-screen lg:pl-10   ">
   <div class=" self-start mt-10 w-full ">
-    <div class="relative max-lg:w-[80%]  mx-auto ">
+    <div class="relative max-lg:w-[80%] max-lg:max-h-screen  mx-auto flex flex-col first:items-start ">
       <img
         src={data.event?.image}
         alt={data.event?.name}
-        class=" top-0 w-full  rounded-lg shadow-xl shadow-black h-fit mb-[5vh]"
+        class=" top-0 w-full  rounded-lg shadow-xl shadow-black h-auto mb-[5vh]"
       />
       <div class="w-full flex justify-center">
         <a
@@ -54,7 +54,7 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
   </div>
 
   <div>
-    <div class="flex flex-col p-10 sm:px-20 md:px-24 lg:pr-10 lg:pl-5 lg:pt-0 lg:m-10 lg:ml-2 my-10 max-lg:text-center  ">
+    <div class="max-md:mt-5 max-lg:mt-36 flex flex-col p-10 sm:px-20 md:px-24 lg:pr-10 lg:pl-5 lg:pt-0 lg:m-10 lg:ml-2 my-10 max-lg:text-center  ">
       <div class="w-fit">
         <div
         class="bg-clip-text text-left text-transparent bg-gradient-to-r  from-[#125ddf] to-[#F365E5] font-poppins font-normal max-lg:text-xl text-2xl"
