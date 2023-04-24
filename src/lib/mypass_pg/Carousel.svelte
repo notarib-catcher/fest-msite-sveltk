@@ -10,7 +10,7 @@
         //normal passes
       "PROSHOW":  "Proshow access",
       "FLAGSHIP": "All flagships",
-      "ESPORTS": "Esports - Valorant",
+      "ESPORTS": "Esports",
       //staff access
       "STAFF" : "Event staff"
     }
