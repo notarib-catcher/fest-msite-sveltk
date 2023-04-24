@@ -1,9 +1,70 @@
 <script>
+  import { signIn } from "@auth/sveltekit/client";
 
   import BgAnim from "$lib/common/BGAnim.svelte";
 import MarkdownBox from "$lib/common/MarkdownBox.svelte";
 
   export let data;
+  let RegText = "";
+  let RegDisable = false;
+  let RegSignIn = false;
+
+  let allowedpasses = []
+
+  allowedpasses.push("FULL_ACCESS")
+  allowedpasses.push("STAFF")
+  if(data.event.pass == "Standard"){
+    allowedpasses.push("PROSHOW")
+    allowedpasses.push("FLAGSHIP")
+    allowedpasses.push("ESPORTS")
+  }
+
+  if(data.event.pass == "flagship"){
+    allowedpasses.push("FLAGSHIP")
+  }
+
+  if(data.event.pass == "Proshow"){
+    allowedpasses.push("PROSHOW")
+  }
+
+  
+  if(data.event.pass.toLowerCase() == "esports"){
+    allowedpasses.push("ESPORTS")
+  }
+
+  if(data.event.pass == "Free"){
+    allowedpasses.push("ANYPASS")
+  }
+
+  if(data.event.ownedpasstype == "nosign"){
+    RegText = "Sign in to register"
+    RegSignIn = true
+  }
+
+  //actual pass check logic
+  
+  if(data.event.ownedpasstype == "nopass"){
+    if(data.event.pass != "Free"){
+
+      RegText = "This event needs " + (data.event.pass.toLowerCase() == "standard"?"a pass":"a "+ data.event.pass.toLowerCase()+ " pass") 
+      RegDisable = true
+    }
+    else{
+      RegText = "Register now!"
+      RegDisable = false
+    }
+  }
+
+  else{
+    if(allowedpasses.includes(data.event.ownedpasstype) || allowedpasses.includes("ANYPASS")){
+      RegText = "Register now!"
+      RegDisable = false
+    }
+    else{
+      RegText = "Please upgrade your pass"
+      RegDisable = true
+    }
+  }
 
 
 </script>
@@ -32,8 +93,25 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
         class=" top-0 w-full  rounded-lg shadow-xl shadow-black h-auto mb-[5vh]"
       />
       <div class="w-full flex justify-center">
+
+      {#if RegSignIn}
+        <button
+        on:click={() => {signIn("google", {callbackUrl: window.location.href + (window.location.href.endsWith('/')?"" : "/") + "?loginSuccess"})}}
+        class="border-[2px] text-center font-bold lg:py-4 {
+          data.event.pass == "flagship"?"border-[#26e2faaf] hover:bg-[#26e2faaf]"
+          : data.event.pass == 'Standard'
+          ? 'border-[#2564eb9c] hover:bg-[#2564eb9c]'
+          : data.event.pass == 'Proshow'
+          ? 'border-[#e5d016] hover:bg-[#e5c91696]'
+          :  data.event.pass == 'esports'
+          ? 'border-[#e63c3c] hover:bg-[#e63c3c]'
+          : data.event.pass == 'Free'
+          ? 'border-[#19a3199b] hover:bg-[#19a3199b]'
+          : 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} w-full transition-all duration-200 text-white font-sans py-2 px-4 rounded-lg self-center"
+      >Sign in to register</button>
+        {:else if !RegDisable}
         <a
-        href={data.event?.reglink || "/book"}
+        href={data.event?.reglink || ""}
         class="border-[2px] text-center font-bold lg:py-4 {
           data.event.pass == "flagship"?"border-[#26e2faaf] hover:bg-[#26e2faaf]"
           : data.event.pass === 'Standard'
@@ -45,7 +123,24 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
           : data.event.pass == 'Free'
           ? 'border-[#19a3199b] hover:bg-[#19a3199b]'
           : 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} w-full transition-all duration-200 text-white font-sans py-2 px-4 rounded-lg self-center"
-      >{(data.event?.reglink)?"Register (external site)":"Registrations open!"}</a>
+      >{(data.event?.reglink)?"Register (external site)" : (data.event?.regneeded)?"Registrations opening soon!":"No registration needed"}</a>
+      {:else}
+      <a
+      href={"/book"}
+      class="border-[2px] text-center font-bold lg:py-4 {
+        data.event.pass == "flagship"?"border-[#26e2faaf] hover:bg-[#26e2faaf]"
+        : data.event.pass === 'Standard'
+        ? 'border-[#2564eb9c] hover:bg-[#2564eb9c]'
+        : data.event.pass == 'Proshow'
+        ? 'border-[#e5d016] hover:bg-[#e5c91696]'
+        :  data.event.pass == 'esports'
+        ? 'border-[#e63c3c] hover:bg-[#e63c3c]'
+        : data.event.pass == 'Free'
+        ? 'border-[#19a3199b] hover:bg-[#19a3199b]'
+        : 'border-[#0e5f0e9b] hover:bg-[#0e5f0e9b]'} w-full transition-all duration-200 text-white font-sans py-2 px-4 rounded-lg self-center"
+    >{RegText}</a>
+      {/if}
+      
       </div>
       
 

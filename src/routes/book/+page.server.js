@@ -43,11 +43,11 @@ export const load =  async (/** @type {{ locals: { getSession: () => any; }; }} 
     const foundpasses = await cursor.toArray()
     if(foundpasses.length > 0){
       let fpass = foundpasses.filter((pass) => {
-        pass.type == "FULL_ACCESS"
+        return (pass.type == "FULL_ACCESS" || pass.type == "STAFF")
       })
 
       if(fpass.length>0){
-        return {top_pass:fpass , payment: existingPayment, origin: process.env.ORIGIN};
+        return {top_pass:fpass[0] , payment: existingPayment, origin: process.env.ORIGIN};
       }
     }
 
