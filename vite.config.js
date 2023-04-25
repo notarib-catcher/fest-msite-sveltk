@@ -3,6 +3,9 @@ import { defineConfig } from 'vite';
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 export default defineConfig({
+	optimizeDeps: {
+		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
+	  },
 	build: {
 		sourcemap: true, // Source map generation must be turned on
 	  },
