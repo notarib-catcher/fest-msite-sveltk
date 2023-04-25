@@ -9,7 +9,6 @@
 <BgAnim/>
 <About />
 <Map />
-<Team />
 
 
 </div>
