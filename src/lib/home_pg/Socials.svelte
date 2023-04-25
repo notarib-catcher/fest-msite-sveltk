@@ -1,0 +1,1 @@
+<div class=" absolute bottom-0 h-[100px] w-[300px] bg-white bg-opacity-20"></div>
