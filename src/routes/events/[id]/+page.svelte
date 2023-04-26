@@ -163,13 +163,13 @@ import MarkdownBox from "$lib/common/MarkdownBox.svelte";
       </div>
       {#if data.event?.prizepool}
         <div
-          class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf]  to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
+          class="bg-clip-text text-left text-transparent bg-gradient-to-r from-[#125ddf]  to-[#F365E5] w-max font-poppins font-normal max-lg:text-xl text-2xl"
         >
           <b>Prize pool: </b><br class="{data.event.prizepool?.length < 10?"hidden":""} lg:hidden">{data.event?.prizepool}
         </div>
       {/if}
       <div
-        class="bg-clip-text max-lg:text-center text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] max-lg:pb-4 w-max font-poppins font-normal max-lg:text-xl text-2xl"
+        class="bg-clip-text text-left text-transparent bg-gradient-to-r from-[#125ddf] to-[#F365E5] max-lg:pb-4 w-max font-poppins font-normal max-lg:text-xl text-2xl"
       >
         <b>Venue: </b><br class="{data.event.venue?.length < 10?"hidden":""} lg:hidden">{data.event?.venue}
       </div>
