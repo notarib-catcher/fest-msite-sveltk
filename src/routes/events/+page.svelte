@@ -37,13 +37,20 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
        let topevents = data.events.filter((event) => {
           return event.pass == "Flagship"  || event.pass == "Proshow" || event._id == "hacksolstice"
        })
+
+       let band = topevents.pop()
        let hackathon = topevents.pop()
        let dj = topevents.pop()
-       let thunt = topevents.pop()
-       
        topevents.unshift(dj)
-       topevents.unshift(thunt)
+       topevents.unshift(band)
        topevents.unshift(hackathon)
+      //  let hackathon = topevents.pop()
+      //  let dj = topevents.pop()
+      //  let thunt = topevents.pop()
+       
+      //  topevents.unshift(dj)
+      //  topevents.unshift(thunt)
+      //  topevents.unshift(hackathon)
 
        for(let i in topevents){
         topevents[i].forceTop = true
