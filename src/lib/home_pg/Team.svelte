@@ -100,7 +100,7 @@
                 <CarouselElement position="Web Developer" name="Chandan CV" photo={CVphoto} linkedinlink="https://www.linkedin.com/in/chandan-cv-3320441b4/" iglink="https://www.instagram.com/ch_and_a_n/" />
                 <CarouselElement position="Web Developer" name="Astitva Agarwal" photo={AAphoto} linkedinlink="https://www.linkedin.com/in/astitva-agarwal-9554b8204" iglink="" />
                 <CarouselElement position="DB Admin" name="Harshit Singh" photo={HSphoto} linkedinlink="https://www.linkedin.com/in/harshit-singh-1a3400245" iglink="https://instagram.com/accountofharshit?igshid=ZDdkNTZiNTM=" />
-                <CarouselElement position="UI Designer" name="Kevin Thomas" photo={KTphoto} linkedinlink="http://linkedIn.com/in/kevvinthomas" iglink="https://instagram.com/kevvin.thomas?igshid=YmMyMTA2M2Y=" />
+                <CarouselElement position="UI Team" name="Kevin Thomas" photo={KTphoto} linkedinlink="http://linkedIn.com/in/kevvinthomas" iglink="https://instagram.com/kevvin.thomas?igshid=YmMyMTA2M2Y=" />
                 
             </Carousel>
 
