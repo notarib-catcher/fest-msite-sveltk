@@ -2,9 +2,9 @@
     The Team
   </div>
 <div class=" flex flex-col justify-center items-center">
-    <div class=" lg:p-20 p-5 w-fit">
+    <a class=" lg:p-20 p-5 w-fit" href="/team">
         <img src = "https://cdn.mitblrfest.in/BannerMain.webp" class=" left-0 mx-auto self-center lg:max-w-[70%] object-cover rounded-xl" alt="banner">
-    </div>
+    </a>
     <div class=" from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-gradient-to-r text-transparent bg-clip-text px-5 text-xl text-center">
         A journey so arduous cannot be completed alone.
         <br><br class=" md:hidden">It requires a group of motivated individuals to come together to create something amazing.
