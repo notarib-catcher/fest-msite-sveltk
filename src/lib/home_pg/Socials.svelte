@@ -1,33 +1,48 @@
 <script>
-    import mailicon from '../../assets/envelope-solid.svg'
-    import linkedinicon from '../../assets/linkedin.svg'
 
-    export let mail;
+    import linkedinicon from '../../assets/GroupLinkedin.svg'
+    import igicon from '../../assets/Groupinstag.svg'
+
+    export let name;
     export let linkedinlink;
+    export let iglink  = "YOOO";
     
-    if(!mail.startsWith("mailto:")){
-        mail = "mailto:" + mail
-    }
+    
 
 </script>
 
-<div class=" absolute bottom-0 h-[100px] w-[300px] bg-white bg-opacity-20">
-    <div class=" w-full h-full flex flex-row items-center justify-center">
-        <div class=" mx-auto">
-            <a href={linkedinlink}>
-                <img src={linkedinicon} class=" filtertogrey w-[40px] h-[40px]" alt = "linkedin">
-            </a>
-        </div>
-        <div class=" mx-auto">
-            <a href={mail}>
-                <img src={mailicon} class=" filtertogrey w-[40px] h-[40px]" alt = "linkedin">
-            </a>
+
+<div class=" absolute bottom-0 h-[100px] w-[300px]  ">
+    <div class="h-full w-full flex justify-center">
+        <div class=" w-[70%] flex  items-center gap-10 ">
+            {#if linkedinlink}
+            <div class=" mx-auto">
+                <a href={linkedinlink} class=" relative">
+                    
+                    <div class=" rounded-lg">
+                        <img src={linkedinicon} class=" w-[37px] h-[37px] box-content rounded-lg p-2 bg-[#18181bd6]" alt = "linkedin">
+                    </div>
+                </a>
+            </div>
+            {/if}
+            {#if iglink}
+            <div class=" mx-auto">
+                <a href={iglink} class=" relative">
+                    
+                    <div class="   rounded-lg">
+                        <img src={igicon} class=" w-[37x] h-[37px]  box-content rounded-lg p-2 bg-[#18181bd6]" alt = "linkedin">
+                    </div>
+                </a>
+            </div>
+            {/if}
         </div>
     </div>
+   
+    
 </div>
 
 <style>
     .filtertogrey{
-        filter: invert(4%) sepia(7%) saturate(1335%) hue-rotate(201deg) brightness(99%) contrast(89%);
+        filter: invert(11%) sepia(35%) saturate(1077%) hue-rotate(232deg) brightness(92%) contrast(94%);
     }
 </style>

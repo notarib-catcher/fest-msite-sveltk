@@ -1,41 +1,73 @@
 <script>
     import Socials from './Socials.svelte';
-    import ADPhoto from '../../assets/AaryanDPhoto.jpg'
+    export let photo
+    export let position = ""
+    export let name = ""
+    export let linkedinlink
+    export let iglink = ""
 
 </script>
-<div class=" movedownonhover flex h-[400px] mb-[50px]  justify-center">
-    <div class="dli card-shadow">
-
-        <div class="  absolute repeatinglg purple w-full h-full">
-        </div>
-        <div class="absolute top-0 h-[400px] w-[300px] ">
-            <div class=" absolute bottom-0 txonhov ">
-                <div class="opacity-0">a</div>
-                <Socials mail= "dwivediaaryan5@gmail.com" linkedinlink="https://www.linkedin.com/in/aaryan-dwivedi-8a238a247/"/>
-            </div>
-        </div>
-        <img src={ADPhoto} alt="Aaryan D, Technical Lead, Lead: Website Construction">
+<div class=" mb-10 w-fit">
+    <div class=" movedownonhover flex h-[400px] mb-[50px]  justify-center">
+        <div class="dli card-shadow">
     
-    </div>
+            <div class="  absolute repeatinglg purple w-full h-full">
+            </div>
+            
+            <div class="txonhovtop absolute top-0 h-[50px]  w-full flex flex-col items-center justify-center align-middle  bg-[#18181bc9]">
+                <div class=" w-full text-center text-xl font-semibold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent bg-clip-text">
+                    {position}
+                </div>
+               
+            </div>
+            <div class="absolute top-0 h-[400px] w-[300px] ">
+                <div class=" absolute bottom-0 txonhov ">
+                    <div class="opacity-0">a</div>
+                    <Socials name linkedinlink={linkedinlink} iglink={iglink}/>
+                </div>
+            </div>
+            <img src={photo}  class=" w-[296px] h-[395px]" alt={name + ' , ' + position}>
+        
+        </div>
+        <div class=" backgroundpan nameclass absolute bottom-0 font-semibold text-xl text-center w-full pb-10 translate-y-16 from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-gradient-to-r text-transparent bg-clip-text">
+            {name}
+        </div> 
+    </div>   
 </div>
 
 
 
-<style>
 
-    .movedownonhover{
-        transform: translateY(13px);
-    }
+<style>
+.txonhovtop{
+    transition: all;
+    transition-duration: 200ms;
+    transform: translateY(-500%);
+}
+
+.movedownonhover{
+    transform: translateY(13px);
+}
 
 .card-shadow:hover{
     box-shadow: 0px 0px 12px #ffffff64;
 }
 
+.nameclass{
+    transition: all;
+    transition-duration: 200ms;
+}
+
 
 img{
 
-object-fit:contain;
+object-fit:cover;
+filter: grayscale(100%);
+transition-duration: 200ms;
+transition: all;
 }
+
+
 
 .txonhov{
 transform: translateY(500%);
@@ -79,6 +111,9 @@ border-width: 2px;
 
 }
 
+.dli:hover > img{
+    filter: none;
+}
 
 
 
@@ -86,10 +121,22 @@ border-width: 2px;
 
 
 .dli:hover{
-border-radius: 10%;
+border-radius: 20px;
 height: 400px;
 width: 300px;
 transform: translateY(0);
+}
+
+.dli:hover + .nameclass{
+    padding-bottom: 15px;
+}
+
+.dli:focus + .nameclass{
+opacity: 0;
+}
+
+.dli:focus-within + .nameclass{
+ padding-bottom: 10px;
 }
 
 .dli:hover .repeatinglg{
@@ -114,6 +161,18 @@ transform: translateY(0);
 
 .dli:focus-within > div > .txonhov{
 transform: translateY(0);
+}
+
+.dli:hover >  .txonhovtop{
+transform: translateY(-2%);
+}
+
+.dli:focus >  .txonhovtop{
+transform: translateY(-2%);
+}
+
+.dli:focus-within >  .txonhovtop{
+transform: translateY(-2%);
 }
 
 .dli:focus{
