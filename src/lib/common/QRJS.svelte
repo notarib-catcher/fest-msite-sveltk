@@ -28,7 +28,7 @@
           colorDark : "#000000",
           colorLight : "#e6e6e6",
           // @ts-ignore
-          correctLevel : QRCode.CorrectLevel.M
+          correctLevel : QRCode.CorrectLevel.L
               });		
               
           };				
