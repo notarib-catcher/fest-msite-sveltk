@@ -175,6 +175,9 @@
             {/if}
 
             <NavbarButton name = "Book" navroute = "/book" isLogoutbtn = {false}/>
+            <div class="md:hidden">
+                <NavbarButton name = "The Team" navroute = "/team" isLogoutbtn = {false}/>
+            </div>
             <div class=" md:hidden">
                 <NavbarButton name = "" navroute = "" isLogoutbtn = {true} />
             </div>
