@@ -31,6 +31,7 @@
     import Carousel from 'svelte-carousel';
 
     import CarouselElement from './CarouselElement.svelte'
+	import BgAnim from '$lib/common/BGAnim.svelte';
 
     let carousel
     const handleClick = async () => {
@@ -77,6 +78,7 @@
 </script>
 
 <div class=" w-screen overflow-hidden  flex flex-col justify-center items-center ">
+    <BgAnim />
     <div class="max-md:text-5xl w-full text-center text-6xl pointer-events-none mt-20 max-md:mt-5 px-3 max-md:text-center font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent bg-clip-text">
         Website Development
     </div>
