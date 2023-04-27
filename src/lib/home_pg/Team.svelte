@@ -85,7 +85,7 @@
     <div class="  w-screen pt-5  ">
         {#if browser}
             <Carousel
-            autoplayDuration={1000}
+            autoplayDuration={2000}
             duration={1000}
             timingFunction="ease"
             autoplay
