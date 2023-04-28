@@ -19,6 +19,7 @@
     import PSphoto from '../../assets/teamphotos/priyanshu.webp'
     import DPphoto from '../../assets/teamphotos/deepthi.webp'
     import ACphoto from '../../assets/teamphotos/ashwin.webp'
+    import AKphoto from '../../assets/teamphotos/Arraddhya.webp'
 
     //Webteam photos
     import KSphoto from '../../assets/teamphotos/kshitij.webp'
@@ -130,6 +131,7 @@
                 <CarouselElement position="Finance Lead" name="Priyanshu Shukla" photo={PSphoto} linkedinlink="https://www.linkedin.com/in/priyanshu-shukla-400867241" iglink="https://www.instagram.com/priyanshushukla1503" />
                 <CarouselElement position="Finance Lead" name="Deepthi Karanam" photo={DPphoto} linkedinlink="https://www.linkedin.com/in/deepthi-karanam-07975823a" iglink="https://www.instagram.com/deepthichowdarykaranam" />
                 <CarouselElement position="Media Lead" name="Advay Inabathini" photo={AIphoto} linkedinlink="https://www.linkedin.com/in/advay-inabathini/" iglink="https://www.instagram.com/advay.nef/" />
+                <CarouselElement position="Media Lead" name="Arraddhya Khare" photo={AKphoto} linkedinlink="https://www.linkedin.com/in/arraddhya-khare-32535b213" iglink="https://www.instagram.com/whoyash27/" />
                 <CarouselElement position="Marketing Lead" name="Ashwin Chandak" photo={ACphoto} linkedinlink="https://www.linkedin.com/in/ashwinchandak" iglink="https://instagram.com/justouttahogwarts?igshid=ZDdkNTZiNTM=" />
                 <CarouselElement position="Marketing Lead" name="Keerthana" photo={KMphoto} linkedinlink="" iglink="https://www.instagram.com/keerthanaaa.__/" />
                 <CarouselElement position="Logistics Lead" name="Vansh Aggarwal" photo={VAphoto} linkedinlink="https://www.linkedin.com/in/vansh-aggarwal-a4a14a239" iglink="https://instagram.com/vanshaggarwal22" />
