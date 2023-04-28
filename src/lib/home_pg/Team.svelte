@@ -99,7 +99,7 @@
             particlesToScroll={1}
             arrows={false}
             swiping={true}
-            pauseOnFocus>
+            pauseOnFocus={true}>
                 <CarouselElement position="Lead Developer" name="Aaryan Dwivedi" photo={ADphoto} linkedinlink="https://www.linkedin.com/in/aaryan-dwivedi-8a238a247/" iglink="https://www.instagram.com/ctoribs/" />
                 <CarouselElement position="Backend Developer" name="Kshitij Srivastava" photo={KSphoto} linkedinlink="https://www.linkedin.com/in/kshitij-srivastava-954a00250/" iglink="" />
                 <CarouselElement position="UI Designer" name="Prakhar Khurana" photo={PKphoto} linkedinlink="https://www.linkedin.com/in/prakhar-khurana" iglink="https://instagram.com/prakhar._.khurana?igshid=YjNmNGQ3MDY=" />
