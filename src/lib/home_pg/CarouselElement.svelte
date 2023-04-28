@@ -11,8 +11,8 @@
     <div class=" movedownonhover flex h-[400px] mb-[50px]  justify-center">
         <div class="dli card-shadow">
     
-            <div class="  absolute repeatinglg purple w-full h-full">
-            </div>
+            <!-- <div class="  absolute repeatinglg purple w-full h-full">
+            </div> -->
             
             <div class="txonhovtop absolute top-0 h-[50px]  w-full flex flex-col items-center justify-center align-middle  bg-[#18181bc9]">
                 <div class=" w-full text-center text-xl font-semibold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent bg-clip-text">
