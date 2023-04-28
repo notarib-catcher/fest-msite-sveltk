@@ -98,7 +98,7 @@
             particlesToShow={itemstoshow}
             particlesToScroll={1}
             arrows={false}
-            swiping={false}
+            swiping={true}
             pauseOnFocus>
                 <CarouselElement position="Lead Developer" name="Aaryan Dwivedi" photo={ADphoto} linkedinlink="https://www.linkedin.com/in/aaryan-dwivedi-8a238a247/" iglink="https://www.instagram.com/ctoribs/" />
                 <CarouselElement position="Backend Developer" name="Kshitij Srivastava" photo={KSphoto} linkedinlink="https://www.linkedin.com/in/kshitij-srivastava-954a00250/" iglink="" />
@@ -125,7 +125,7 @@
             particlesToShow={itemstoshow}
             particlesToScroll={1}
             arrows={false}
-            swiping={false}
+            swiping={true}
             pauseOnFocus>
                 <CarouselElement position="Fest Head" name="Ayush Sinha" photo={ASphoto} linkedinlink="https://www.linkedin.com/in/ayush-sinha-039140226/" iglink="https://www.instagram.com/ayusherein/" />
                 <CarouselElement position="Fest Vice Head" name="Rochak Saini" photo={RSphoto} linkedinlink="https://www.linkedin.com/in/rochak-saini" iglink="https://www.instagram.com/_rochak._/" />
