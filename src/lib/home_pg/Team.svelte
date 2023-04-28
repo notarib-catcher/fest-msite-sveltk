@@ -20,6 +20,10 @@
     import DPphoto from '../../assets/teamphotos/deepthi.webp'
     import ACphoto from '../../assets/teamphotos/ashwin.webp'
     import AKphoto from '../../assets/teamphotos/Arraddhya.webp'
+    import DBphoto from '../../assets/teamphotos/devanshu.webp'
+    import ARphoto from '../../assets/teamphotos/achyut.webp'
+    import HDphoto from '../../assets/teamphotos/dhoka.webp'
+    import DDphoto from '../../assets/teamphotos/dibyabha.webp'
 
     //Webteam photos
     import KSphoto from '../../assets/teamphotos/kshitij.webp'
@@ -139,6 +143,10 @@
                 <CarouselElement position="Operations Lead" name="Amartya Jha" photo={AJphoto} linkedinlink="http://linkedin.com/in/amartya-jha-b348b9136/" iglink="https://instagram.com/amarrtyaaa?igshid=MGNiNDI5ZTU=" />
                 <CarouselElement position="Operations Lead" name="Ritu Raj" photo={RRphoto} linkedinlink="https://www.linkedin.com/in/ritu-raj-mit1038/" iglink="https://instagram.com/im.rituraj_?igshid=ZDdkNTZiNTM=" />
                 <CarouselElement position="Fest Moderation" name="Dev Kothari" photo={DKphoto} linkedinlink="https://www.linkedin.com/in/dev-kothari-workgenda/" iglink="https://instagram.com/devkothaari?igshid=ZDdkNTZiNTM" />
+                <CarouselElement position="Council President" name="Devanshu Bagadia" photo={DBphoto} linkedinlink="https://www.linkedin.com/in/devanshu-bagadia-aa9a1420b" iglink="https://instagram.com/devanshu_bagadia?igshid=ZDdkNTZiNTM=" />
+                <CarouselElement position="Council Vice President" name="Dibyabha Deb" photo={DDphoto} linkedinlink="https://www.linkedin.com/in/dibyabha-deb" iglink="https://instagram.com/dibyabha_deb?igshid=YmMyMTA2M2Y=" />                
+                <CarouselElement position="Council Treasurer" name="Achyut Aryan" photo={ARphoto} linkedinlink="https://www.linkedin.com/in/achyut-aryan-01bb181ba" iglink="https://instagram.com/aryan.achyut?igshid=Yjk4NWM2ZWVkMw==" />
+                <CarouselElement position="Council Secretary" name="Hrishit Dhoka" photo={HDphoto} linkedinlink="https://www.linkedin.com/in/hrishit-dhoka-268b98242" iglink="https://instagram.com/hrishit_dhoka?igshid=ZDdkNTZiNTM=" />
             </Carousel>
 
            {/if}
