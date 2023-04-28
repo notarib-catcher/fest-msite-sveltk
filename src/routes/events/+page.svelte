@@ -84,10 +84,15 @@ import EventTile from '$lib/events_pg/EventTile.svelte';
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
     <div  class=" pt-16 max-md:pt-5 md:px-20 max-w-full flex flex-col justify-center   left-0 min-w-min">
+      <div class="w-full flex flex-col lg:flex-row">
+        <h1 class="text-6xl max-md:text-3xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text">
+          Top Events
+        </h1>
+        <div class=" font-semibold whitespace-nowrap w-full lg:text-right max-md:text-lg text-center text-xl">
+          <a class=" border-b-2 hover:border-[#2e75b3] border-[#7945bd] hover:from-[#3BACC1] hover:via-[#2D6DB1] hover:to-[#3BACC1] hover:bg-gradient-to-r hover:bg-clip-text from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-gradient-to-r bg-clip-text focus:from-[#3BACC1] focus:via-[#2D6DB1] focus:to-[#3BACC1] focus:bg-gradient-to-r focus:bg-clip-text  duration-100 font-semibold hover:font-bold underline text-transparent pt-3" href="https://cdn.mitblrfest.in/final.pdf">You can find the final schedule here</a>.
+        </div>
+      </div> 
       
-      <h1 class="text-6xl max-md:text-3xl mb-4 font-bold bg-gradient-to-tr  from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text">
-        Top Events
-      </h1>
       <div class="flex flex-row flex-wrap justify-center items-center">
         {#each topevents as event}
         {#if !event.hide}
