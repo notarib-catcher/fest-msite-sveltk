@@ -129,11 +129,11 @@
                 </svg>
 
                 <div id = "countdownbox" class=" z-9 text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r via-[#c04d26] from-[#772f9e] to-[#623bac] backgroundpan countFadeIn ">
-                    {#if !lessthanzero}
+                    <!-- {#if !lessthanzero}
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
-                    {:else}
+                    {:else} -->
                     Open Now!
-                    {/if}
+                    <!-- {/if} -->
                 </div>
             </div>
         </div>
