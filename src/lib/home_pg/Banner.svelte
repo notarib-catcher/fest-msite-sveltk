@@ -8,6 +8,8 @@
     let dLeft = "-", hLeft = "-", mLeft = "-", sLeft = "-"
     let particles = 40
     let delay = 2
+
+    let lessthanzero = false
     
     let wave1, wave2, wave3, wave4;
     
@@ -57,6 +59,8 @@
         
         setInterval( () => {
             let Ctime = new Date().getTime()
+
+            let lessthanzero = (endTime - Ctime) <= 0
 
 
             //Get Days, Hours, Minutes, Seconds
@@ -125,7 +129,11 @@
                 </svg>
 
                 <div id = "countdownbox" class=" z-9 text-center text-3xl font-semibold font-mono bg-clip-text text-transparent bg-gradient-to-r via-[#c04d26] from-[#772f9e] to-[#623bac] backgroundpan countFadeIn ">
+                    {#if !lessthanzero}
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
+                    {:else}
+                    Open Now!
+                    {/if}
                 </div>
             </div>
         </div>
