@@ -124,11 +124,7 @@
             <div class=" relative opacity-100 text-white ">
                 
                 <button class="  bg-white disabled:bg-slate-500 bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" disabled on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    ₹450
-                    {/if}
+                    Unavailable
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
@@ -168,11 +164,7 @@
             <div class=" relative opacity-100 text-white ">
                 
                 <button disabled class=" divide-slate-600  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    ₹450
-                    {/if}
+                    Unavailable
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
