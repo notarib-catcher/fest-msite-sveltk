@@ -13,7 +13,7 @@ const passarray = [
     {
         type: "PROSHOW",
         INRcost: 450,
-        open: true
+        open: false
     },
 
     {
