@@ -19,37 +19,37 @@ const passarray = [
     {
         type: "FLAGSHIP",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
         type: "FULL_ACCESS",
         INRcost: 600,
-        open: true
+        open: false
     },
 
     {
         type: "ESPORTS",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
         type: "UPGRADE:PROSHOW_TO_FULL_ACCESS",
         INRcost: 150,
-        open: true
+        open: false
     },
 
     {
         type: "UPGRADE:FLAGSHIP_TO_FULL_ACCESS",
         INRcost: 400,
-        open: true
+        open: false
     },
 
     {
         type: "UPGRADE:ESPORTS_TO_FULL_ACCESS",
         INRcost: 400,
-        open: true
+        open: false
     }
 ];
 

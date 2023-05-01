@@ -132,7 +132,7 @@
                     <!-- {#if !lessthanzero}
                     {dLeft}:{hLeft}:{mLeft}:{sLeft}
                     {:else} -->
-                    Open Now!
+                    Thanks for two amazing days!
                     <!-- {/if} -->
                 </div>
             </div>
