@@ -23,21 +23,22 @@ export const POST = async (event) => {
 	const jsonData = await event.request.json();
 	// const symbolKey = Reflect.ownKeys(formData).find((key) => key.toString() === 'Symbol(state)');
 	//@ts-ignore
-	const joinCode = jsonData['joinCode'];
-	const query = { join_code: { $eq: joinCode } };
-	const cursor = fcVendors.find(query, option);
-	const foundAccount = await cursor.toArray();
-	if (foundAccount.length > 0) {
+	const vendorAuthKey = jsonData['vendorAuthKey'];
+	const foundAccount = await fcVendors.findOne({ vendor_auth_key: vendorAuthKey, suspended: false });
+	console.log(foundAccount);
+	if (foundAccount != null) {
 		return json({
 			status: '200',
 			detail: {
 				userState: {
-					userName: foundAccount[0]['vendor_name'],
-					joinCode: foundAccount[0]['join_code']
+					//@ts-ignore
+					userName: foundAccount['vendor_name'],
+					//@ts-ignore
+					joinCode: foundAccount['vendor_auth_key']
 				}
 			}
 		});
 	} else {
-		return json({ status: '401', detail: 'unauthorized (wrong join code)' });
+		return json({ status: '401', detail: 'unauthorized (wrong join code or account suspended)' });
 	}
 };

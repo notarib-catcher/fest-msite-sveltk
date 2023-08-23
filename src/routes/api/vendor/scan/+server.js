@@ -8,8 +8,8 @@ const cstring = process.env.MONGO_URL;
 const client = new MongoClient(cstring);
 const database = client.db(process.env.MONGO_DB_NAME);
 const fcAccounts = database.collection('fc_accounts');
-const fcGeneratedCoupons = database.collection('fc_generated_coupons');
 const fcVendors = database.collection('fc_vendors');
+const fcLogs = database.collection('fc_logs');
 
 const projection = {
 	_id: 0
@@ -21,37 +21,56 @@ const option = {
 //@ts-ignore
 export const POST = async (event) => {
 	const jsonData = await event.request.json();
-	const joinCode = jsonData['joinCode'];
+	const vendorAuthKey = jsonData['vendorAuthKey'];
 	const couponCode = jsonData['couponCode'];
-	const query = { join_code: { $eq: joinCode } };
-	const cursor = fcVendors.find(query, option);
-	const foundAccount = await cursor.toArray();
+	const vendorName = jsonData['vendorName'];
+	const foundVendor = await fcVendors.findOne({
+		vendor_name: vendorName,
+		vendor_auth_key: vendorAuthKey,
+		suspended: false
+	});
 
-	if (foundAccount.length > 0) {
-		const output = await fcGeneratedCoupons.findOne({
-			code: couponCode,
-			scanned: false,
-			banned: false,
-			scanned_by: 'null'
+	if(!couponCode){
+		return json({ status: '400', detail: 'invalid coupon code'});
+	}
+
+	if (foundVendor != null) {
+		const foundAccount = await fcAccounts.findOne({
+			curr_code: couponCode
 		});
-		if (output != null) {
-			fcGeneratedCoupons.updateOne(
+		if (foundAccount != null) {
+			fcAccounts.updateOne(
+				{ email_id: foundAccount['email_id'] },
+				{ $set: { in_wallet: 0, curr_code: '' } }
+			);
+			fcVendors.updateOne(
+				{ vendor_auth_key: vendorAuthKey, vendor_name: foundVendor['vendor_name'] },
 				{
-					email_id: output['email_id'],
-					code: couponCode,
-					scanned: false,
-					banned: false,
-					scanned_by: 'null'
-				},
-				{ $set: { scanned: true, scanned_by: jsonData['vendorName'] } }
+					$set: {
+						balance: foundVendor['balance'] + foundAccount['in_wallet'],
+						number_of_coupons_scanned: foundVendor['number_of_coupons_scanned'] + 1
+					}
+				}
 			);
 
-			fcAccounts.updateOne({ email_id: output['email_id'] }, { $set: { in_wallet: 0 } });
+			fcLogs.insertOne({
+				type: 'REDEEMC',
+				user_acc: foundAccount['email_id'],
+				user_acc_bal: foundAccount['balance'],
+				vendor_acc: foundVendor['vendor_name'],
+				vendor_acc_bal: foundVendor['balance'] + foundAccount['in_wallet'],
+				wallet_amount: foundAccount['in_wallet'],
+				wallet_code: foundAccount['curr_code'],
+				new_wallet_amount: 0,
+				new_wallet_code: null,
+				timestamp: new Date(),
+			});
+
 			return json({ status: '200', detail: 'code scanned successfully!' });
 		} else {
 			return json({ status: '422', detail: 'invalid code' });
 		}
 	} else {
-		return json({ status: '401', detail: 'unauthorized' });
+		return json({ status: '403', detail: 'unauthorized (suspended or wrong auth key)' });
 	}
 };
