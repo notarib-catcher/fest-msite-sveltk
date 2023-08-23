@@ -7,6 +7,9 @@
     import hamburger from "../../assets/hamburger-md-svgrepo-com.svg"
     import { navigating } from "$app/stores";
 
+    // @ts-ignore
+    export let fcAllowed = false;
+
     $: if($navigating) onCloseMenu();
  
     
@@ -173,13 +176,16 @@
             {#if $page.data.session}
             <NavbarButton name = "My pass" navroute = "/mypass" isLogoutbtn = {false}/>
             {/if}
+            {#if fcAllowed}
+            <NavbarButton name = "Food Coupon Gen" navroute = "/fc/gen" isLogoutbtn = {false}/>
+            {/if}
 
             <NavbarButton name = "Book" navroute = "/book" isLogoutbtn = {false}/>
             <div class="md:hidden">
                 <NavbarButton name = "The Team" navroute = "/team" isLogoutbtn = {false}/>
             </div>
             <div class=" md:hidden">
-                <NavbarButton name = "" navroute = "" isLogoutbtn = {true} />
+                <NavbarButton name = "the fuck is here" navroute = "/" isLogoutbtn = {true} />
             </div>
             <div class="max-md:hidden">
                 <NavbarButton name = "Events" navroute = "/events" isLogoutbtn = {false}/>

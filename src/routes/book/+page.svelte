@@ -15,6 +15,8 @@
     let popupEsports = false
 
 // @ts-nocheck
+    // data contains the returned object from page.server.js
+    // skeleton of object -> {top_pass: , payment: , origin: process.env.ORIGIN}
     export let data;
 
     const upgradeArr = {
@@ -25,6 +27,8 @@
 
     let upgradeprice = "Unavailable"
 
+    // logic to show the upgrade price if the pass is not of the type FULL_ACCESS
+    // should also include a check for staff type pass
     if(data.top_pass.type){
         if(data.top_pass.type != "FULL_ACCESS"){
             if(upgradeArr[data.top_pass.type]){
@@ -34,14 +38,15 @@
     }
     
 
+    /* what is the use of this check ? */
+    // could possibly be to hide all the passes on the page
     if(browser){
         if(data.payment){
             document.body.style.overflowY = "hidden"
         }
     }
 
-
-
+    // default values are provided to all parameters in this function
     const signURL = (type = "", refcode = "NA", phone = "0000000000") => {
         let payload = {
             type: type,
@@ -55,11 +60,12 @@
     }
 
     const book = (Bevent) => {
+        // whenever a booking event is fired an object is passed to this function
         let {detail: options} = Bevent
         if(!$page.data.session){
             signIn("google","/book?loginSuccess")
         }
-
+        // the skeleton of the object is as below
         let {phnum, refcode, type} = options
 
         if(type == "FLAGS"){
@@ -69,6 +75,7 @@
         if(type == "AAP"){
             type = "FULL_ACCESS"
         }
+
 
         if(type == "ESPRT"){
             type = "ESPORTS"
@@ -85,8 +92,9 @@
         // if(type == "" ){
         //     return
         // }
-
+        // I believe this returns an encrypted string which contains the options object and uses the users email id as the secret key
         let signed = signURL(type, refcode, phnum)
+        // then the user is redirected to the payment page
         window.location.replace(data.origin + "/pay/" + signed)
     }
 

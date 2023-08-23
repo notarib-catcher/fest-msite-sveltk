@@ -11,7 +11,7 @@ const database = client.db('content');
 const events = database.collection('efficientFetching');
 
   
-  const options = {}
+const options = {}
 export async function load(){
     const foundevents = await events.findOne({title:"events"},options)
     if(!foundevents){
