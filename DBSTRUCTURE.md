@@ -11,3 +11,18 @@ Passes
     "refCode":"referral_code_used_while_paying"
 }
 ```
+Team members
+```json
+{
+    "_id":"LMDCIDFC",
+    "email":"teammember@gmail.com"
+    "assoc_id": "passes id"
+    
+}
+```
+Team Id
+{
+    "_id": "anything"
+    "team_id": ""
+    "pass_id": ""
+}
