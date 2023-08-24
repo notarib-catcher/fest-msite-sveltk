@@ -1,19 +1,14 @@
 <script>
-	import { enhance } from '$app/forms';
 	import NavbarButton from '$lib/common/NavbarButton.svelte';
 
 	export let data;
 	export let form;
 </script>
 
-<main class="grid min-h-screen w-full place-items-center">
-	{#if form?.success}
-		<NavbarButton name={form.generatedCode} navroute="" isLogoutbtn={false} />
-	
-	{:else if data.generatedCode != null}
+<main class="grid min-h-screen w-full place-items-center overscroll-auto pt-20">
+	{#if form?.success == true || data.generatedCode}
 		<NavbarButton name={data.generatedCode} navroute="" isLogoutbtn={false} />
 	{/if}
-
 	<form action="?/genCode" method="post">
 		<input
 			type="radio"
@@ -56,4 +51,14 @@
 			>Invalidate current FOOD COUPON</button
 		>
 	</form>
+	
+	{#if data.history != null}
+		{#each { length: data.history.length } as _, i}
+			<p class="text-white">
+				{data.history[i]['type']}
+				{data.history[i]['wallet_code']} -> {data.history[i]['new_wallet_code']}
+			</p>
+			<p class="text-white">{data.history[i]['timestamp']}</p>
+		{/each}
+	{/if}
 </main>

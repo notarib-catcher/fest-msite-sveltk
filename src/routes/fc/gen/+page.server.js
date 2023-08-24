@@ -41,12 +41,18 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 		const types = await cursor.toArray();
 		//@ts-ignore
 		delete types[0]['_id'];
+		const history = await getLastFiveLogs(session.user.email);
 		let returnObject = {
 			fcAllowed: true,
 			session: session,
 			fcTypes: types[0],
-			generatedCode: foundAccount['curr_code']
+			generatedCode: "",
+			history: history
 		};
+
+		if (foundAccount['curr_code']) {
+			returnObject.generatedCode = foundAccount['curr_code'];
+		}
 		// console.log(Object.keys(types[0]).length);
 		//@ts-ignore
 		return returnObject;
@@ -55,6 +61,16 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 		throw redirect(301, process.env.ORIGIN);
 	}
 };
+
+//@ts-ignore
+async function getLastFiveLogs(emailId) {
+	const cursor = fcLogs
+		.find({ user_acc: { $eq: emailId } }, optionsTypes)
+		.sort({ timestamp: -1 })
+		.limit(5);
+	const history = await cursor.toArray();
+	return history;
+}
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -114,8 +130,9 @@ export const actions = {
 				wallet_code: foundAccount['curr_code'],
 				new_wallet_amount: foodCouponValue,
 				new_wallet_code: generatedCode,
-				timestamp:  new Date(),
+				timestamp: new Date()
 			});
+
 			return { generatedCode: generatedCode, success: true };
 		} else {
 			return { generatedCode: foundAccount['curr_code'], success: true };
@@ -151,7 +168,7 @@ export const actions = {
 				wallet_code: foundAccount['curr_code'],
 				new_wallet_amount: 0,
 				new_wallet_code: null,
-				timestamp: new Date(),
+				timestamp: new Date()
 			});
 			return { success: true };
 		} else {
