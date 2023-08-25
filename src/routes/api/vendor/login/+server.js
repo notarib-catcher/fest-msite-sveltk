@@ -20,25 +20,33 @@ const option = {
 
 //@ts-ignore
 export const POST = async (event) => {
-	const jsonData = await event.request.json();
+	const receivedText = await event.request.text();
 	// const symbolKey = Reflect.ownKeys(formData).find((key) => key.toString() === 'Symbol(state)');
-	//@ts-ignore
+	// @ts-ignore
+	const jsonData = JSON.parse(receivedText);
 	const vendorAuthKey = jsonData['vendorAuthKey'];
-	const foundAccount = await fcVendors.findOne({ vendor_auth_key: vendorAuthKey, suspended: false });
+	const foundAccount = await fcVendors.findOne({
+		vendor_auth_key: vendorAuthKey,
+		suspended: false
+	});
 	console.log(foundAccount);
 	if (foundAccount != null) {
 		return json({
 			status: '200',
 			detail: {
-				userState: {
+				authState: {
 					//@ts-ignore
 					userName: foundAccount['vendor_name'],
 					//@ts-ignore
-					joinCode: foundAccount['vendor_auth_key']
+					vendorAuthKey: foundAccount['vendor_auth_key']
+				},
+				vendorState: {
+					balance: foundAccount['balance'],
+					numberOfCouponsScanned: foundAccount['number_of_coupons_scanned']
 				}
 			}
 		});
 	} else {
-		return json({ status: '401', detail: 'unauthorized (wrong join code or account suspended)' });
+		return json({ status: '403', detail: 'unauthorized (wrong join code or account suspended)' });
 	}
 };

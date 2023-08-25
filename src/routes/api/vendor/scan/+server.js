@@ -30,13 +30,14 @@ export const POST = async (event) => {
 		suspended: false
 	});
 
-	if(!couponCode){
-		return json({ status: '400', detail: 'invalid coupon code'});
+	if (!couponCode) {
+		return json({ status: '400', detail: 'please enter a valid code' });
 	}
 
 	if (foundVendor != null) {
+		console.log(couponCode);
 		const foundAccount = await fcAccounts.findOne({
-			curr_code: couponCode
+			curr_code: parseInt(couponCode),
 		});
 		if (foundAccount != null) {
 			fcAccounts.updateOne(
@@ -63,14 +64,23 @@ export const POST = async (event) => {
 				wallet_code: foundAccount['curr_code'],
 				new_wallet_amount: 0,
 				new_wallet_code: null,
-				timestamp: new Date(),
+				timestamp: new Date()
 			});
 
-			return json({ status: '200', detail: 'code scanned successfully!' });
+			return json({
+				status: '200',
+				detail: {
+					msg: 'code scanned successfully!',
+					vendorState: {
+						balance: foundVendor['balance'] + foundAccount['in_wallet'],
+						numberOfCouponsScanned: foundVendor['number_of_coupons_scanned'] + 1
+					}
+				}
+			});
 		} else {
-			return json({ status: '422', detail: 'invalid code' });
+			return json({ status: '422', detail: 'Entered wrong code' });
 		}
 	} else {
-		return json({ status: '403', detail: 'unauthorized (suspended or wrong auth key)' });
+		return json({ status: '403', detail: 'unauthorized (suspended)' });
 	}
 };

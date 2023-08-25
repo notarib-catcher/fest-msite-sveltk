@@ -46,7 +46,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 			fcAllowed: true,
 			session: session,
 			fcTypes: types[0],
-			generatedCode: "",
+			generatedCode: '',
 			history: history
 		};
 
@@ -86,7 +86,7 @@ export const actions = {
 		// console.log(formData[symbolKey]);
 		let generatedCode;
 		while (true) {
-			generatedCode = Math.random().toString(36).substring(2, 6);
+			generatedCode = Math.floor(100000 + Math.random() * 900000);
 			const foundCode = await fcAccounts.findOne({ code: generatedCode });
 
 			if (foundCode == null) {
@@ -110,30 +110,34 @@ export const actions = {
 		const foodCouponValue = parseInt(formData[symbolKey][1]['value'].split(' ')[1]);
 
 		if (currentInWallet == 0) {
-			fcAccounts.updateOne(
-				{ email_id: emailId },
-				{
-					$set: {
-						balance: currentBalance - foodCouponValue,
-						in_wallet: foodCouponValue,
-						curr_code: generatedCode
+			if (currentBalance >= foodCouponValue) {
+				fcAccounts.updateOne(
+					{ email_id: emailId },
+					{
+						$set: {
+							balance: currentBalance - foodCouponValue,
+							in_wallet: foodCouponValue,
+							curr_code: generatedCode
+						}
 					}
-				}
-			);
-			fcLogs.insertOne({
-				type: 'NEWC',
-				user_acc: emailId,
-				user_acc_bal: foundAccount['balance'] - foodCouponValue,
-				vendor_acc: null,
-				vendor_acc_bal: null,
-				wallet_amount: currentInWallet,
-				wallet_code: foundAccount['curr_code'],
-				new_wallet_amount: foodCouponValue,
-				new_wallet_code: generatedCode,
-				timestamp: new Date()
-			});
+				);
+				fcLogs.insertOne({
+					type: 'NEWC',
+					user_acc: emailId,
+					user_acc_bal: foundAccount['balance'] - foodCouponValue,
+					vendor_acc: null,
+					vendor_acc_bal: null,
+					wallet_amount: currentInWallet,
+					wallet_code: foundAccount['curr_code'],
+					new_wallet_amount: foodCouponValue,
+					new_wallet_code: generatedCode,
+					timestamp: new Date()
+				});
 
-			return { generatedCode: generatedCode, success: true };
+				return { generatedCode: generatedCode, success: true };
+			} else {
+				return { generatedCode: null, success: false };
+			}
 		} else {
 			return { generatedCode: foundAccount['curr_code'], success: true };
 		}
