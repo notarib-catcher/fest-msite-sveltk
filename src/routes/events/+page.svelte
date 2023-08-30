@@ -32,50 +32,50 @@
 
 	export let data;
 
-	let topevents = data.events.filter((event) => {
-		return event.pass == 'Flagship' || event.pass == 'Proshow' || event._id == 'hacksolstice';
-	});
+	// let topevents = data.events.filter((event) => {
+	// 	return event.pass == 'Flagship' || event.pass == 'Proshow' || event._id == 'hacksolstice';
+	// });
 
-	let band = topevents.pop();
-	let hackathon = topevents.pop();
-	let dj = topevents.pop();
-	// adds element to the begining of the array
-	topevents.unshift(dj);
-	topevents.unshift(band);
-	topevents.unshift(hackathon);
-	//  let hackathon = topevents.pop()
-	//  let dj = topevents.pop()
-	//  let thunt = topevents.pop()
+	// let band = topevents.pop();
+	// let hackathon = topevents.pop();
+	// let dj = topevents.pop();
+	// // adds element to the begining of the array
+	// topevents.unshift(dj);
+	// topevents.unshift(band);
+	// topevents.unshift(hackathon);
+	// //  let hackathon = topevents.pop()
+	// //  let dj = topevents.pop()
+	// //  let thunt = topevents.pop()
 
-	//  topevents.unshift(dj)
-	//  topevents.unshift(thunt)
-	//  topevents.unshift(hackathon)
+	// //  topevents.unshift(dj)
+	// //  topevents.unshift(thunt)
+	// //  topevents.unshift(hackathon)
 
-	for (let i in topevents) {
-		topevents[i].forceTop = true;
-	}
+	// for (let i in topevents) {
+	// 	topevents[i].forceTop = true;
+	// }
 
-    // all the events except the ones included in topevent
-	let remainingevents1 = data.events.filter((event) => {
-		return !topevents.includes(event);
-	});
+	// // all the events except the ones included in topevent
+	// let remainingevents1 = data.events.filter((event) => {
+	// 	return !topevents.includes(event);
+	// });
 
-	let freeevents = remainingevents1.filter((event) => {
-		return event.pass.toLowerCase() == 'free';
-	});
+	// let freeevents = remainingevents1.filter((event) => {
+	// 	return event.pass.toLowerCase() == 'free';
+	// });
 
-    // all the events except the ones included in topevents and freeevents
-	let remainingevents2 = remainingevents1.filter((event) => {
-		return !freeevents.includes(event);
-	});
+	// // all the events except the ones included in topevents and freeevents
+	// let remainingevents2 = remainingevents1.filter((event) => {
+	// 	return !freeevents.includes(event);
+	// });
 
-	let standard = remainingevents2.filter((event) => {
-		return event.pass.toLowerCase() == 'standard';
-	});
+	// let standard = remainingevents2.filter((event) => {
+	// 	return event.pass.toLowerCase() == 'standard';
+	// });
 
-	let esports = remainingevents2.filter((event) => {
-		return !standard.includes(event);
-	});
+	// let esports = remainingevents2.filter((event) => {
+	// 	return !standard.includes(event);
+	// });
 </script>
 
 <BgAnim />
@@ -83,7 +83,18 @@
 	<!-- <div class="stars  h-full fixed -z-10 w-full stars" id="stars">
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
-	<div class=" pt-16 max-md:pt-5 md:px-20 max-w-full flex flex-col justify-center left-0 min-w-min">
+	<div class="pt-16 max-md:pt-5 text-white">
+		{#each Object.entries(data.priorityCategories) as [name, info]}
+			<h1>{info.displayName}</h1>
+			{#each data.events as event}
+				{#if event.priority >= info.from && event.priority <= info.to}
+					<h2>&emsp;&nbsp;Event Name -> {event.eventName}</h2>
+					<h2>&emsp;&emsp;&nbsp;Event Description -> {event.eventDescription}</h2>
+				{/if}
+			{/each}
+		{/each}
+	</div>
+	<!-- <div class=" pt-16 max-md:pt-5 md:px-20 max-w-full flex flex-col justify-center left-0 min-w-min">
 		<div class="w-full flex flex-col lg:flex-row">
 			<h1
 				class="text-6xl max-md:text-3xl mb-4 font-bold bg-gradient-to-tr from-[#3BACC1] via-[#2D6DB1] to-[#3BACC1] text-transparent w-full max-lg:text-center bg-clip-text"
@@ -141,8 +152,8 @@
 					<EventTile data={event} />
 				{/if}
 			{/each}
-		</div>
-	</div>
+		</div> -->
+	<!-- </div> -->
 </div>
 
 <style>
