@@ -84,6 +84,10 @@ export const actions = {
 		const symbolKey = Reflect.ownKeys(formData).find((key) => key.toString() === 'Symbol(state)');
 		// @ts-ignore
 		// console.log(formData[symbolKey]);
+		const foodCouponValue = parseInt(formData[symbolKey][1]['value'].split(' ')[1]);
+		if (foodCouponValue < 0) {
+			return { generatedCode: null, success: false };
+		}
 		let generatedCode;
 		while (true) {
 			generatedCode = Math.floor(100000 + Math.random() * 900000);
@@ -107,7 +111,6 @@ export const actions = {
 		const currentInWallet = foundAccount['in_wallet'];
 		const currentBalance = foundAccount['balance'];
 		//@ts-ignore
-		const foodCouponValue = parseInt(formData[symbolKey][1]['value'].split(' ')[1]);
 
 		if (currentInWallet == 0) {
 			if (currentBalance >= foodCouponValue) {
