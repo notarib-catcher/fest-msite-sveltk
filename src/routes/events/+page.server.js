@@ -46,5 +46,6 @@ export async function load() {
     // sort events in order based on their priority
     //@ts-ignore
 	events.sort((a, b) => a.priority - b.priority);
+	console.log(events);
     return {events: events, priorityCategories: priorityCategories};
 }

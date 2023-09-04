@@ -20,9 +20,9 @@ export const handle = SvelteKitAuth({
     //@ts-ignore
     providers:[ Google({
         //@ts-ignore
-        clientId: "478459070159-1smgvbs62bo8knj3c2o6v1c8743binnq.apps.googleusercontent.com",
+        clientId: process.env.GOOGLE_CLIENT_ID,
         //@ts-ignore
-        clientSecret: "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",
+        clientSecret: process.env.GOOGLE_SECRET,
         //@ts-ignore
         })], 
 
