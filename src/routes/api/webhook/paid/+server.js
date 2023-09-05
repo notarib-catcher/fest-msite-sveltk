@@ -36,10 +36,10 @@ export const POST = async ({request}) => {
 
     const signature = request.headers.get('X-Razorpay-Signature') || "nosig"
     const reqOb = await request.json()
-    console.log("validating...")
-    console.log(reqOb)
+    // console.log("validating...")
+    // console.log(reqOb)
     try{
-        console.log("STRINGIFY: " + JSON.stringify(reqOb))
+        // console.log("STRINGIFY: " + JSON.stringify(reqOb))
         const validRequest = validateWebhookSignature(JSON.stringify(reqOb), signature, secret)
         if(!validRequest){
             throw error(403,"Invalid Signature")
@@ -51,7 +51,7 @@ export const POST = async ({request}) => {
     }
     
     
-    console.log("valid webhook")
+    // console.log("valid webhook")
 
 
 
@@ -102,7 +102,7 @@ export const POST = async ({request}) => {
         algorithm: 'RS256'
     })
 
-    console.log("PAYLOAD: "+ ticketServerPayload)
+    // console.log("PAYLOAD: "+ ticketServerPayload)
 
     //TODO send it to MPTICKET and add it to stringreturned
 

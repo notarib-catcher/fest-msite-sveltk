@@ -185,7 +185,7 @@
                 <NavbarButton name = "The Team" navroute = "/team" isLogoutbtn = {false}/>
             </div>
             <div class=" md:hidden">
-                <NavbarButton name = "the fuck is here" navroute = "/" isLogoutbtn = {true} />
+                <NavbarButton name = "" navroute = "" isLogoutbtn = {true} />
             </div>
             <div class="max-md:hidden">
                 <NavbarButton name = "Events" navroute = "/events" isLogoutbtn = {false}/>

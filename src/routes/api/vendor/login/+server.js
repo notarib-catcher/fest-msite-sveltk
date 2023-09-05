@@ -29,7 +29,6 @@ export const POST = async (event) => {
 		vendor_auth_key: vendorAuthKey,
 		suspended: false
 	});
-	console.log(foundAccount);
 	if (foundAccount != null) {
 		return json({
 			status: '200',

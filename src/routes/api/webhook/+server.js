@@ -23,8 +23,8 @@ export const POST = async ({request}) => {
 
     const signature = request.headers.get('X-Razorpay-Signature') || "nosig"
     const reqOb = await request.json()
-    console.log("validating...")
-    console.log(reqOb)
+    // console.log("validating...")
+    // console.log(reqOb)
 
     let validRequest = false
     try{

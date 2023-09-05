@@ -69,6 +69,7 @@ async function getLastFiveLogs(emailId) {
 		.sort({ timestamp: -1 })
 		.limit(5);
 	const history = await cursor.toArray();
+	// console.log("something");
 	return history;
 }
 

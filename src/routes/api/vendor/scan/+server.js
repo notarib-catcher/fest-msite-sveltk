@@ -35,7 +35,6 @@ export const POST = async (event) => {
 	}
 
 	if (foundVendor != null) {
-		console.log(couponCode);
 		const foundAccount = await fcAccounts.findOne({
 			curr_code: parseInt(couponCode),
 		});
