@@ -1,4 +1,7 @@
 <script>
+    // just displays the amount for the pass with the pregenerated upi qrcode
+    // i believe after the payment the payment is manually approved through the low code backend.
+    // it also updates the payment database in mongo db
     import UPIQR from '../../assets/UPI_QR.png'
     export let data;
 </script>

@@ -1,0 +1,13 @@
+Understood the booking flow (get access to database)
+
+Idea 1 ->
+    give two options to users -> Register as team leader or Register as a team member
+    If registered as a team leader ->
+        follow the normal payment flow and generate a qr and add to db
+        add two new tables ->
+            team name with their ids, the event they are partaking in, invite link, isPaymentVerified, openForMembers, memberLimit, currentMemberCount
+            another would be a table that will contain the team members ->
+                it will contain the user_id, isTeamLeader, team_id.
+    If registered as a team member ->
+        will open a dialog box where the user will enter the invite Code
+        will check if the memberLimit <= currentMemberCount, isPaymentVerified == True, openForMembers == True

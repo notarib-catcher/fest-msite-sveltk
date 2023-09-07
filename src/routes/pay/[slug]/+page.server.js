@@ -9,6 +9,7 @@ import { redirect } from '@sveltejs/kit';
 
 dotenv.config();
 
+// contains all passes and possible upgrades
 const passarray = [
     {
         type: "PROSHOW",
@@ -74,10 +75,14 @@ const options = {
 };
 
 export const load = async (/** @type {{ locals: { getSession: () => any; }; }} */ event) => {
+     // referralStatus is used to apply discounts
     let costMultiplier = 1;
     let referralStatus = "n";
 
+    // use of console.count ?
+    // checking for different errors
     console.count("pprc")
+    // believe it is used to stop taking payments
     if (process.env.ALLOW_PAYMENTS != "y") {
         throw redirect(302, "/book");
     }
@@ -92,13 +97,17 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     console.count("pprc");
 
     // @ts-ignore
+    // if the book endpoint doesn't send correct payload redirect to error page
     const params = event.params;
+    /* what is /?cancelled */
     if (!params.slug) {
         throw redirect(302, "/?cancelled")
     }
 
     let decoded = {};
 
+    // since the payload that book endpoint generate is encrypted by using the users email id as the key
+    // the same step is performed to get the actual value of the payload
     try {
         //@ts-ignore
         decoded = verify(params.slug, session.user.email);
@@ -144,6 +153,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
         return pass.type == queried_type;
     })
 
+    // to allow for disabling of certain passes without effecting other type
     if (!pass?.open) {
         console.log(queried_type)
         throw redirect(302, "/book?cancelled&passnotopen");
@@ -151,22 +161,25 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
     let currentPass = await passes.findOne({ email: { $eq: session.user.email }, generated: { $eq: true } });
 
+    // if the queried_type doesn't exist in passarray
     if (!pass) {
         throw redirect(302, "/?cancelled");
     }
 
     if (referralCode != "NA") {
+        // check if the referal code is correct
         let ambassador = await ambassadors.findOne({ refCode: { $eq: referralCode } })
 
         if (ambassador) {
             costMultiplier = 0.8;
             referralStatus = "y";
         } else {
+            // if not return the book endpoint to page.svelte which just redirects to whatever link that it receives
             return { link: process.env.ORIGIN + "/book", rcodestatus: "i" };
         }
     }
 
-
+    // get all possible passes
     let allowedPasses = getValidPasses(currentPass);
 
     if (allowedPasses.includes(queried_type)) {
@@ -218,6 +231,7 @@ const getValidPasses = (currentPass) => {
 const paymentHandler = async (session, decoded, pass, queried_type, costMultiplier, referralCode, referralStatus) => {
     let referenceID = uuidv4();
 
+    // rayzorpay is not used only the alternate payment method is used
     if (process.env.USE_ALTERNATE_PAYMENT == 'y') {
 
         await payments.insertOne({
@@ -235,6 +249,7 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
             contact: decoded.contact || null
         });
 
+        // return the link to the upi page to page.sevelte which will just redirect to the link which is supplied
         return { link: "/upi", rcodestatus: referralStatus };
     }
 

@@ -8,6 +8,8 @@
 	import CancelledNotif from "$lib/common/CancelledNotif.svelte";
 	import Footer from "$lib/common/Footer.svelte";
 	import Analytics from "$lib/common/Analytics.svelte";
+
+    export let data;
 </script>
 <Analytics/>
 <LoginNotif />
@@ -20,7 +22,7 @@
     </div>
 {/if}
 <div class=" font-poppins">
-    <Navbar />
+    <Navbar fcAllowed="{data.fcAllowed}"/>
 </div>
 
 <slot />
