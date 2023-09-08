@@ -32,7 +32,7 @@ const passarray = [
     {
         type: "ESPORTS",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
