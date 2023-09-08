@@ -62,7 +62,6 @@
             // eventChosen2: eventChosen2
         }
 
-        console.log(data)
 
         dispatch2("book",data)
      }

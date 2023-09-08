@@ -89,7 +89,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     //payment success, add pass
 
     let {type, refCode, contact, p_id} = paymentdoc
-    console.log("Processing: " + type + " for " + params.slug)
+    // console.log("Processing: " + type + " for " + params.slug)
 
     if(type.startsWith('UPGRADE:')){
 
@@ -107,11 +107,11 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
         type = "!ALL!"
     }
-    console.log("Revoke check done")
+    // console.log("Revoke check done")
 
     //Rename full access pass to match type naming used by MPTICKET for an all access pass
     type = (type == "FULL_ACCESS")?"!ALL!":type;
-    console.log("signing")
+    // console.log("signing")
 
 
     //sign MPTICKET payload
@@ -126,7 +126,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     })
 
 
-    console.log("PAYLOAD: "+ ticketServerPayload)
+    // console.log("PAYLOAD: "+ ticketServerPayload)
 
     //TODO send it to MPTICKET and add it to stringreturned
 

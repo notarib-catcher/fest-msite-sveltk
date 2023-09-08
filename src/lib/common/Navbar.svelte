@@ -1,4 +1,11 @@
 <script>
+
+
+    // @ts-ignore
+    export let fcAllowed = false;
+
+    $: if($navigating) onCloseMenu();
+
     
 
    // @ts-ignore
@@ -14,6 +21,7 @@
     <div class=" relative top-0 w-full h-[100px] bg-white">
 
     </div>
+
     <div class="absolute bottom-5 w-full h-[100px] bg-white">
 
     </div>
