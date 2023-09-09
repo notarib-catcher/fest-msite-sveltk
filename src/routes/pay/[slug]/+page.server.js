@@ -155,7 +155,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
     // to allow for disabling of certain passes without effecting other type
     if (!pass?.open) {
-        console.log(queried_type)
+        // console.log(queried_type)
         throw redirect(302, "/book?cancelled&passnotopen");
     }
 

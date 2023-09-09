@@ -84,15 +84,17 @@
       <div class="bg-white h-1 w-1 rounded-full blur-[2px] absolute" style="top: 90px;left:90px" id="star"></div>
     </div> -->
 	<div class="pt-16 max-md:pt-5 text-white">
-		{#each Object.entries(data.priorityCategories) as [name, info]}
-			<h1>{info.displayName}</h1>
-			{#each data.events as event}
-				{#if event.priority >= info.from && event.priority <= info.to}
-					<h2>&emsp;&nbsp;Event Name -> {event.eventName}</h2>
-					<h2>&emsp;&emsp;&nbsp;Event Description -> {event.eventDescription}</h2>
-				{/if}
+		{#if data.events.status === 'success'}
+			{#each Object.entries(data.priorityCategories) as [name, info]}
+				<h1>{info.displayName}</h1>
+				{#each data.events.detail as event}
+					{#if event.attributes.PriorityOnWebsite >= info.from && event.attributes.PriorityOnWebsite <= info.to}
+						<h2>&emsp;&nbsp;Event Name -> {event.attributes.Heading}</h2>
+						<h2>&emsp;&emsp;&nbsp;Event Description -> {event.attributes.Description}</h2>
+					{/if}
+				{/each}
 			{/each}
-		{/each}
+		{/if}
 	</div>
 	<!-- <div class=" pt-16 max-md:pt-5 md:px-20 max-w-full flex flex-col justify-center left-0 min-w-min">
 		<div class="w-full flex flex-col lg:flex-row">
