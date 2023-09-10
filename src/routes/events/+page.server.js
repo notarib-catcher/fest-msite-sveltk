@@ -28,8 +28,10 @@ const priorityCategories = {
 export async function load() {
 	// general api endpoint structure -> api/{collection name}
 	let events = await getCollectionStrapi('api/event-cards');
-	//@ts-ignore
-	events.detail.sort((a, b) => a.attributes.PriorityOnWebsite - b.attributes.PriorityOnWebsite);
+	if (events.status === 'success') {
+		//@ts-ignore
+		events.detail.sort((a, b) => a.attributes.PriorityOnWebsite - b.attributes.PriorityOnWebsite);
+	}
 	// console.log(events)
 	return { events: events, priorityCategories: priorityCategories };
 }
@@ -41,12 +43,12 @@ async function getCollectionStrapi(endpoint) {
 			Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
 			'Content-Type': 'application/json'
 		})
-	})
-	if(!response.ok){
-		return {status: "failure", detail: response.status};
+	});
+	if (!response.ok) {
+		return { status: 'failure', detail: response.status };
 	} else {
 		let jsonData = await response.json();
 		// jsonData.data is a list. All the fields are present under jsonData.data[0].attributes (for first element)
-		return {status: "success", detail: jsonData.data};
+		return { status: 'success', detail: jsonData.data };
 	}
 }
