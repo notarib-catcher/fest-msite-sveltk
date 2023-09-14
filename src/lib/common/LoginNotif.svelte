@@ -13,7 +13,7 @@
 </script>
 
 
-<div class = "absolute top-0 w-screen h-fit z-20 pointer-events-none">
+<div class = "absolute top-0 w-screen h-fit z-[2000] pointer-events-none">
     {#if isLogin}
     <div class="  backdrop-blur-xl bg-gradient-to-r from-[#f1d0e6] via-[#772f9e] to-[#623bac] bg-clip-text text-transparent text-2xl font-semibold h-[50px] w-fit p-2 rounded-lg mx-auto ModalPopIn backgroundpan">
         Welcome, {$page.data.session?.user?.name?.split(" ")[0]}!

@@ -9,5 +9,4 @@
 </script>
 
 <div>
-    <NavbarButton name="hi" navroute="hello" isLogoutbtn=true />
 </div>

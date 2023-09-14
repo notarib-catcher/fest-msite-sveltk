@@ -11,20 +11,20 @@
     import Loader from "$lib/common/Loader.svelte";
     export let data;
 </script>
-<Loader />
-<Analytics/>
+<CancelledNotif />
 <LoginNotif />
 <LogoutNotif />
-<CancelledNotif />
-
+<Loader />
+<div class=" font-poppins">
+    <Navbar fcAllowed="{data.fcAllowed}"/>
+</div>
+<Analytics/>
 {#if $page.url.pathname == "/"}
     <div id="banner-container" class=" z-1">
         <Banner />
     </div>
 {/if}
-<div class=" font-poppins">
-    <Navbar fcAllowed="{data.fcAllowed}"/>
-</div>
+
 
 <slot />
 
