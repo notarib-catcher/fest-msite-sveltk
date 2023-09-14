@@ -8,9 +8,10 @@
 	import CancelledNotif from "$lib/common/CancelledNotif.svelte";
 	import Footer from "$lib/common/Footer.svelte";
 	import Analytics from "$lib/common/Analytics.svelte";
-
+    import Loader from "$lib/common/Loader.svelte";
     export let data;
 </script>
+<Loader />
 <Analytics/>
 <LoginNotif />
 <LogoutNotif />

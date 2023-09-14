@@ -4,12 +4,10 @@
     import About from "$lib/home_pg/About.svelte";
     import Sponsors from "$lib/home_pg/Sponsors.svelte";
 	import TeamPrompt from "$lib/home_pg/TeamPrompt.svelte";
+	import NavbarButton from "$lib/common/NavbarButton.svelte";
+    
 </script>
 
 <div>
-<BgAnim/>
-<About />
-<Sponsors/>
-<TeamPrompt/>
-<Map />
+    <NavbarButton name="hi" navroute="hello" isLogoutbtn=true />
 </div>
