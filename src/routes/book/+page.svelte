@@ -50,7 +50,7 @@
     const signURL = (type = "", refcode = "NA", phone = "0000000000") => {
         let payload = {
             type: type,
-            refcode: (refcode.trim() == "")?"NA" : refcode.trim().toUpperCase(),
+            refcode: "NA",
             contact: "+91" + phone,
             iat: new Date().getTime()
         }
@@ -68,31 +68,7 @@
         // the skeleton of the object is as below
         let {phnum, refcode, type} = options
 
-        if(type == "FLAGS"){
-            type = "FLAGSHIP"
-        }
-
-        if(type == "AAP"){
-            type = "FULL_ACCESS"
-        }
-
-
-        if(type == "ESPRT"){
-            type = "ESPORTS"
-        }
-
-        // if(event.toLowerCase().includes("proshow")){
-        //     type = "PROSHOW"
-        // }
-
-        // if(event.toLowerCase().includes("standard")){
-        //     type = "STANDARD"
-        // }
-
-        // if(type == "" ){
-        //     return
-        // }
-        // I believe this returns an encrypted string which contains the options object and uses the users email id as the secret key
+        
         let signed = signURL(type, refcode, phnum)
         // then the user is redirected to the payment page
         window.location.replace(data.origin + "/pay/" + signed)
@@ -107,7 +83,7 @@
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
                 <div class=" max-w-fit max-lg:max-w-screen-md max-md:text-sm text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r bg-clip-text text-transparent text-2xl">
                     You already have a pending payment ({data.payment.ref_id})<br><a href={data.payment.short_url} class=" font-semibold border-b-2 hover:border-b-4 duration-200 hover:font-bold active:text-white border-[#4b2c59] ">Pay it</a> or <a data-sveltekit-preload-data="tap" href={"/cancelpayment/" + data.payment.ref_id} class=" font-semibold border-b-2 active:text-white hover:border-b-4 hover:font-bold duration-200 border-[#4b2c59]">Cancel the payment</a>
-                    <br><div class=" mt-5">Already paid? Fill <a class=" border-[#4b2c59] underline border-b-2 font-semibold" href = "https://docs.google.com/forms/d/e/1FAIpQLScD89gsNWlTHq0iPoMVoxro5I6XjrzylJexGDqESKBCieqXuw/viewform">this form!</a></div>
+                    <br><div class=" mt-5">Already paid? <form method="POST"><input type="text" name="ref_id" value={data.payment.ref_id} hidden><button class="underline border-2 rounded-md p-2 border-[#4b2c59] mt-2 hover:scale-105 active:scale-95 transition-all duration-200">Refresh status</button></form></div>
                 </div>
             </div>   
         </div>

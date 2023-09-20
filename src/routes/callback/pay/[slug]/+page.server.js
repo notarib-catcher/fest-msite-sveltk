@@ -91,59 +91,68 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     let {type, refCode, contact, p_id} = paymentdoc
     // console.log("Processing: " + type + " for " + params.slug)
 
-    if(type.startsWith('UPGRADE:')){
+    // if(type.startsWith('UPGRADE:')){
 
-        let toRevoke = await tickets.findOne({ email: {$eq: session.user.email}, type: { $ne: "!ALL!"}  })
-        if(toRevoke){
-            let alreadyRevoked = await revocations.findOne( {_id: {$eq: toRevoke?._id}})
-            if(!alreadyRevoked){
-                await revocations.insertOne({
-                    _id: toRevoke._id,
-                    type: "!FULL!",
-                    reason: "Upgraded to new ticket"
-                })
-            }
-        }
+    //     let toRevoke = await tickets.findOne({ email: {$eq: session.user.email}, type: { $ne: "!ALL!"}  })
+    //     if(toRevoke){
+    //         let alreadyRevoked = await revocations.findOne( {_id: {$eq: toRevoke?._id}})
+    //         if(!alreadyRevoked){
+    //             await revocations.insertOne({
+    //                 _id: toRevoke._id,
+    //                 type: "!FULL!",
+    //                 reason: "Upgraded to new ticket"
+    //             })
+    //         }
+    //     }
 
-        type = "!ALL!"
-    }
+    //     type = "!ALL!"
+    // }
     // console.log("Revoke check done")
 
     //Rename full access pass to match type naming used by MPTICKET for an all access pass
     type = (type == "FULL_ACCESS")?"!ALL!":type;
     // console.log("signing")
 
+    let EXpass = await passes.findOne({paymentID: p_id, generated:true})
+    if(EXpass){
+        throw redirect(302, "/mypass")
+    }
+
+    let payloadreturned = {data: "https://compete.mitblrfest.in"}
+    if(!type.startsWith("SPORT")){
+        let ticketServerPayload = sign({
+            "name": session.user.name,
+            "phone": contact || "+910000000000",
+            "email": session.user.email,
+            "type" : type
+        // @ts-ignore
+        },webprivkey,{
+            algorithm: 'RS256'
+        })
+    
+    
+        // console.log("PAYLOAD: "+ ticketServerPayload)
+    
+        //TODO send it to MPTICKET and add it to stringreturned
+    
+    
+        payloadreturned = await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})
+    }
 
     //sign MPTICKET payload
-    let ticketServerPayload = sign({
-        "name": session.user.name,
-        "phone": contact || "+910000000000",
-        "email": session.user.email,
-        "type" : type
-    // @ts-ignore
-    },webprivkey,{
-        algorithm: 'RS256'
-    })
-
-
-    // console.log("PAYLOAD: "+ ticketServerPayload)
-
-    //TODO send it to MPTICKET and add it to stringreturned
-
-
-    let payloadreturned = await axios.post("https://ticketing.mitblrfest.in/sign",{token: ticketServerPayload})
+    
 
     let stringreturned = payloadreturned.data
 
     //stop displaying the old pass if any
-    await passes.findOneAndUpdate({
-        email: {$eq: session.user.email},
-        type: { $ne: "FULL_ACCESS" }
-    },{
-        $set:{
-            generated: false
-        }
-    })
+    // await passes.findOneAndUpdate({
+    //     email: {$eq: session.user.email},
+    //     type: { $ne: "FULL_ACCESS" }
+    // },{
+    //     $set:{
+    //         generated: false
+    //     }
+    // })
 
 
 

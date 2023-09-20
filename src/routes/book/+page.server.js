@@ -1,9 +1,13 @@
 import * as dotenv from 'dotenv';
+import { redirect } from '@sveltejs/kit';
+import  Razorpay  from 'razorpay'
 dotenv.config();
 
 import { MongoClient } from 'mongodb';
 // mongo db url
 const cstring = process.env.MONGO_URL;
+
+var razorInstance = new Razorpay({ key_id: process.env.RAZORPAY_KEY_ID , key_secret: process.env.RAZORPAY_SECRET })
 
 // @ts-ignore
 // setting up mongo db
@@ -64,3 +68,47 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 	return { top_pass: foundpasses[0] || {}, payment: existingPayment, origin: process.env.ORIGIN };
 };
 
+export const actions = {
+	default: async (event) => {
+		const session = await event.locals.getSession();
+		if (!session?.user) {
+			throw redirect(302, "/")
+		  }
+
+		const request = event.request
+        const data = await request.formData()
+        const ref_id = data.get('ref_id')
+		let existingPayment = await payments.findOne({ ref_id : { $eq: ref_id }, email: { $eq: session.user.email }, status: { $eq: "created" }}, options)
+	
+		if(existingPayment){
+			
+	
+			// not required since razor pay is no longer used
+			if(existingPayment.p_id != "UPI"){
+			  let plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
+
+			  if(!plink){
+				return
+			  }
+
+			  await payments.findOneAndUpdate({
+				p_id: existingPayment.p_id
+				},{
+					$set:{
+						status: plink.status
+					}
+			  })
+	
+			  if(plink.status == "paid"){
+				throw redirect(302,'/callback/pay/' + ref_id)
+			  }
+	
+			  
+			}
+			
+			
+		}
+
+		throw redirect(302, '/')
+	}
+}
