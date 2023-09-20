@@ -3,7 +3,7 @@
     import { page } from '$app/stores';
     import sign from 'jwt-encode'
 
-    import logo from '../../assets/SolsticeFullLogo.svg'
+    import logo from '../../assets/falaksurgemd.png'
 
     import { signIn } from '@auth/sveltekit/client';
 	import Popup from '$lib/book_pg/Popup.svelte';
@@ -100,14 +100,8 @@
 
     
 </script>
-{#if !data.top_pass.type}
-<div class=" w-screen mt-20 px-5 z-[2]  text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr  md:hidden">You can upgrade a pass to all access by paying the difference.</div>
-{/if}
 <div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative">
     <BgAnim />
-    {#if !data.top_pass.type}
-    <div class=" absolute w-screen top-0 z-[2] h-fit text-xl text-center from-[#D283B8] to-[#D283B8] via-[#6738BE] bg-clip-text text-transparent bg-gradient-to-tr pt-20 max-md:hidden">You can upgrade a pass to all access by paying the difference.</div>
-    {/if}
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
             <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
@@ -118,128 +112,9 @@
             </div>   
         </div>
     {/if}
-    {#if !data.top_pass.type}
-    
-
-    <div class=" top-20 grid h-fit  grid-flow-col max-md:grid-flow-row max-lg:grid-rows-2 max-lg:gap-10 max-lg:mb-5 w-fit mx-[200px] md:mt-20 lg:mt-0 max-lg:mt-10 lg:gap-5 xl:gap-20 gap-y-9 ">
-        
-        
-        <div class=" h-[300px] w-[250px] bgGradientCardBlueAccent rounded-3xl border-white border-[1px] bg-opacity-30 flex flex-col-reverse items-center relative lg:hidden">
-            <div class="absolute top-0 right-0 p-4 text-center text-md font-cstm text-[#ffffff] ">Standard + Proshow Pass</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white disabled:bg-slate-500 bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" disabled on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
-                    Unavailable
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
-                Join the fun!
-            </div>
-            {#if popupProshow}
-                <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="PROSHOW" on:close ={() => { popupProshow = false}} on:book={book}/>
-            {/if}
-        </div>
-        <div class=" h-[300px] w-[250px] bgGradientCardSilver rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#bcbbbb] ">Standard + Flagship Pass</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupFlagship = true}}>
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    ₹200
-                    {/if}
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-12 text-[#bcbbbb]">
-                Attend a Flagship Event
-            </div>
-            {#if popupFlagship}
-            <Popup title="Flagship Event" innerText="Access to all flagship and standard events" type="FLAGS" on:close ={() => { popupFlagship = false}} on:book={book}/>
-            {/if}
-        </div>
-        <div class=" h-[300px] w-[250px] bgGradientCardBlueAccent border-white border-[1px] rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative max-lg:hidden">
-            <div class="absolute top-0 w-full text-center p-4  text-md font-cstm text-[#ffffff] ">Standard + Proshow Pass</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button disabled class=" divide-slate-600  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupProshow = true}}>
-                    Unavailable
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-12 text-[#ffffff]">
-                Enjoy the music!
-            </div>
-            {#if popupProshow}
-            <Popup title="Proshow Pass" innerText="Proshow and All Fun/Mini events" type="PROSHOW" on:close ={() => { popupProshow = false}} on:book={book}/>
-            {/if}
-        </div> 
-        <!--card-->
-        
-        
-        <div>
-            <div class=" h-[300px] w-[250px] bgGradientCardRed rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-                <div class="absolute top-0 right-0 p-4 text-center text-md font-cstm text-[#bcbbbb] ">Standard + Esports Pass</div>
-                <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                    <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-                </div>
-                <div class=" relative opacity-100 text-white ">
-                    
-                    <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}}>
-                        {#if !$page.data.session}
-                        SIGN IN
-                        {:else}
-                        ₹200
-                        {/if}
-                    </button> 
-                </div>
-                <div class=" absolute bottom-0 text-sm mb-12 text-[#bcbbbb]">
-                    Compete in E-sports
-                </div>
-                {#if popupEsports}
-                <Popup title="Esports" innerText="Compete in esports and access all standard events" type="ESPRT" on:close ={() => { popupEsports = false}} on:book={book}/>
-                    {/if}
-                </div>
-            </div>
-            <!--endofcard-->
-            <div class=" h-[300px] w-[250px] bgGradientCardGold border-[1px] border-white rounded-3xl bg-opacity-30 flex flex-col-reverse items-center relative">
-                <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white text-center">All Access Pass</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    ₹600
-                    {/if}
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-8 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
-            </div>
-            {#if popupStandard}
-            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" type="AAP" on:close ={() => { popupStandard = false}} on:book={book}/>
-                {/if}
-            </div>
-            
-            <!--endofallcards-->
-
-    </div>
-    {:else if data.top_pass.type != "FULL_ACCESS"}
     <div>
         <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Upgrade</div>
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Sports</div>
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
                 <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
             </div>
@@ -257,33 +132,10 @@
                 Everything, Everywhere,<br>All at Once.
             </div>
             {#if popupStandard && upgradeprice != "Unavailable"}
-            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" type={"UPGRADE:"+data.top_pass.type.toUpperCase()+"_TO_FULL_ACCESS"} on:close ={() => { popupStandard = false}} on:book={book}/>
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="SPORTS" on:close ={() => { popupStandard = false}} on:book={book}/>
             {/if}
         </div>
     </div>
-    {:else}
-    <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">All Access Pass</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else window.location.replace('/mypass')}} >
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    Already Owned
-                    {/if}
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
-            </div>
-        </div>
-    </div>
-    {/if}
 
 </div>
 
