@@ -298,7 +298,7 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
         amount: pass.INRcost * 100 * costMultiplier,
         currency: "INR",
         accept_partial: false,
-        description: `TechSolstice ${ pass.type } pass`,
+        description: `Falak ${ pass.type } pass`,
 
         customer: {
             name: session.user.name || "Anonymous",
@@ -321,7 +321,8 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
 
         callback_url: process.env.ORIGIN + "/callback/pay/" + referenceID,
         callback_method: 'get'
-    }).catch(() => {
+    }).catch((err) => {
+        console.error(err)
         throw redirect(302, "/book?cancelled");
     });
 
