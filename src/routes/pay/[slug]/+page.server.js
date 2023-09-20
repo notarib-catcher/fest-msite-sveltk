@@ -16,7 +16,7 @@ const passarray = [
 
     {
         type: "SPORT_FB_M",
-        INRcost: 200,
+        INRcost: 2,
         open: true
     },
 
@@ -185,10 +185,9 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
         // @ts-ignore
         return pass.type == queried_type;
     })
-
+    
     // to allow for disabling of certain passes without effecting other type
     if (!pass?.open) {
-        console.log(queried_type)
         throw redirect(302, "/book?cancelled&passnotopen");
     }
 
@@ -242,7 +241,7 @@ const getValidPasses = (currentPass) => {
     //prevent buying same pass twice
     else{
         return passes.filter((pass) => {
-            currentPass.type != pass
+            return currentPass.type != pass
         })
     }
 
