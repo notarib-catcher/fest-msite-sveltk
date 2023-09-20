@@ -11,44 +11,77 @@ dotenv.config();
 
 // contains all passes and possible upgrades
 const passarray = [
-    {
-        type: "PROSHOW",
-        INRcost: 450,
-        open: false
-    },
+    
+    //mens
 
     {
-        type: "FLAGSHIP",
+        type: "SPORT_FB_M",
         INRcost: 200,
-        open: false
+        open: true
     },
 
     {
-        type: "FULL_ACCESS",
+        type: "SPORT_BB_M",
         INRcost: 600,
         open: false
     },
 
     {
-        type: "ESPORTS",
+        type: "SPORT_VB_M",
         INRcost: 200,
         open: false
     },
 
     {
-        type: "UPGRADE:PROSHOW_TO_FULL_ACCESS",
+        type: "SPORT_TN_M",
         INRcost: 150,
         open: false
     },
 
     {
-        type: "UPGRADE:FLAGSHIP_TO_FULL_ACCESS",
+        type: "SPORT_TT_M",
+        INRcost: 400,
+        open: false
+    },
+
+    //womens
+
+    {
+        type: "SPORT_BB_F",
+        INRcost: 200,
+        open: false
+    },
+
+    {
+        type: "SPORT_TB_F",
+        INRcost: 600,
+        open: false
+    },
+
+    {
+        type: "SPORT_TN_F",
+        INRcost: 200,
+        open: false
+    },
+
+    {
+        type: "SPORT_TT_F",
+        INRcost: 150,
+        open: false
+    },
+
+
+    //gender neutral
+
+    
+    {
+        type: "SPORT_ATH",
         INRcost: 400,
         open: false
     },
 
     {
-        type: "UPGRADE:ESPORTS_TO_FULL_ACCESS",
+        type: "SPORT_CHS",
         INRcost: 400,
         open: false
     }
@@ -201,30 +234,38 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
  * Return all the passes that can be upgraded to.
  */
 const getValidPasses = (currentPass) => {
+    const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS"];
     if (!currentPass) {
-        return ["ESPORTS", "FLAGSHIP", "PROSHOW", "FULL_ACCESS"];
+        return passes
     }
 
-    let validPasses = [];
-
-    switch (currentPass.type) {
-        case 'STAFF':
-            throw redirect(301, "/mypass");
-
-        case 'FULL_ACCESS':
-            throw redirect(301, "/mypass");
-
-        case 'PROSHOW':
-            return ["UPGRADE:PROSHOW_TO_FULL_ACCESS"];
-
-        case 'ESPORTS':
-            return ["UPGRADE:ESPORTS_TO_FULL_ACCESS"];
-
-        case 'FLAGSHIP':
-            return ["UPGRADE:FLAGSHIP_TO_FULL_ACCESS"];
+    //prevent buying same pass twice
+    else{
+        return passes.filter((pass) => {
+            currentPass.type != pass
+        })
     }
 
-    return validPasses;
+    // let validPasses = [];
+
+    // switch (currentPass.type) {
+    //     case 'STAFF':
+    //         throw redirect(301, "/mypass");
+
+    //     case 'FULL_ACCESS':
+    //         throw redirect(301, "/mypass");
+
+    //     case 'PROSHOW':
+    //         return ["UPGRADE:PROSHOW_TO_FULL_ACCESS"];
+
+    //     case 'ESPORTS':
+    //         return ["UPGRADE:ESPORTS_TO_FULL_ACCESS"];
+
+    //     case 'FLAGSHIP':
+    //         return ["UPGRADE:FLAGSHIP_TO_FULL_ACCESS"];
+    // }
+
+    // return validPasses;
 }
 
 // @ts-ignore
