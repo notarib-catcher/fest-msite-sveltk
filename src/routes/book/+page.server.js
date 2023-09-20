@@ -88,8 +88,10 @@ export const actions = {
 			  let plink = await razorInstance.paymentLink.fetch(existingPayment.p_id)
 
 			  if(!plink){
-				return
+				return { success: true }
 			  }
+
+			  console.log("PL found " + ref_id)
 
 			  await payments.findOneAndUpdate({
 				p_id: existingPayment.p_id
