@@ -16,30 +16,35 @@ const passarray = [
 
     {
         type: "SPORT_FB_M",
+        name: "Football (M)",
         INRcost: 2,
         open: true
     },
 
     {
         type: "SPORT_BB_M",
+        name: "Basketball (M)",
         INRcost: 600,
         open: false
     },
 
     {
         type: "SPORT_VB_M",
+        name: "Volleyball (M)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TN_M",
+        name: "Tennis (M)",
         INRcost: 150,
         open: false
     },
 
     {
         type: "SPORT_TT_M",
+        name: "Table Tennis (M)",
         INRcost: 400,
         open: false
     },
@@ -48,24 +53,28 @@ const passarray = [
 
     {
         type: "SPORT_BB_F",
+        name: "Basketball (F)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TB_F",
+        name: "Throwball (F)",
         INRcost: 600,
         open: false
     },
 
     {
         type: "SPORT_TN_F",
+        name: "Tennis (F) (Singles)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TT_F",
+        name: "Table Tennis (F) (Singles)",
         INRcost: 150,
         open: false
     },
@@ -76,12 +85,14 @@ const passarray = [
     
     {
         type: "SPORT_ATH",
+        name: "Athletics",
         INRcost: 400,
         open: false
     },
 
     {
         type: "SPORT_CHS",
+        name: "Chess",
         INRcost: 400,
         open: false
     }
@@ -298,7 +309,7 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
         amount: pass.INRcost * 100 * costMultiplier,
         currency: "INR",
         accept_partial: false,
-        description: `Falak ${ pass.type } pass`,
+        description: `Falak SURGE 2023 ${ pass.name } pass`,
 
         customer: {
             name: session.user.name || "Anonymous",
