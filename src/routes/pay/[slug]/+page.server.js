@@ -229,7 +229,11 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
         throw redirect(302, "/book?cancelled&passnotopen");
     }
 
-    let currentPass = await passes.findOne({ email: { $eq: session.user.email }, generated: { $eq: true } });
+    let currentPasses = await passes.find({ email: { $eq: session.user.email }, generated: { $eq: true } }).toArray();
+    let cpasstypearr = []
+    for(let _cpass of currentPasses){
+        cpasstypearr.push(_cpass.type)
+    }
 
     // if the queried_type doesn't exist in passarray
     if (!pass) {
@@ -250,7 +254,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     }
 
     // get all possible passes
-    let allowedPasses = getValidPasses(currentPass);
+    let allowedPasses = getValidPasses(cpasstypearr);
 
     if (allowedPasses.includes(queried_type)) {
         return await paymentHandler(session, decoded, pass, queried_type, costMultiplier, referralCode, referralStatus);
@@ -270,17 +274,18 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
  *
  * Return all the passes that can be upgraded to.
  */
-const getValidPasses = (currentPass) => {
+const getValidPasses = (currentPasses) => {
     const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS",
                     "CLTR_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS"];
-    if (!currentPass) {
+    if (currentPasses.length == 0) {
+        console.log("No existing pass")
         return passes
     }
 
     //prevent buying same pass twice
     else{
         return passes.filter((pass) => {
-            return currentPass.type != pass
+            return !currentPasses.includes(pass) 
         })
     }
 
