@@ -78,7 +78,7 @@ export const actions = {
 		const request = event.request
         const data = await request.formData()
         const ref_id = data.get('ref_id')
-		let existingPayment = await payments.findOne({ ref_id : { $eq: ref_id }, email: { $eq: session.user.email }, status: { $eq: "created" }}, options)
+		let existingPayment = await payments.findOne({ ref_id : { $eq: ref_id }, email: { $eq: session.user.email }, status: { $eq: "created" }})
 	
 		if(existingPayment){
 			
