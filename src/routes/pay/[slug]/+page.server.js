@@ -95,7 +95,7 @@ const passarray = [
         name: "Chess",
         INRcost: 400,
         open: false
-    }
+    },
 
     // cultural
 
