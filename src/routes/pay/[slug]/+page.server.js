@@ -271,7 +271,8 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
  * Return all the passes that can be upgraded to.
  */
 const getValidPasses = (currentPass) => {
-    const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS"];
+    const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS",
+                    "CLTR_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS"];
     if (!currentPass) {
         return passes
     }
