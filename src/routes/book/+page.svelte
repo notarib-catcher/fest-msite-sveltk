@@ -9,10 +9,8 @@
 	import Popup from '$lib/book_pg/Popup.svelte';
 	import BgAnim from '$lib/common/BGAnim.svelte';
 
-    let popupFlagship = false
-    let popupProshow = false
-    let popupStandard = false
-    let popupEsports = false
+    let popupSport = false
+    let popupCultural = false
 
 // @ts-nocheck
     // data contains the returned object from page.server.js
@@ -76,7 +74,7 @@
 
     
 </script>
-<div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative">
+<div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative gap-5 md:flex-row flex-col">
     <BgAnim />
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
@@ -96,19 +94,44 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupStandard = true}} >
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupSport = true}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
-                    {upgradeprice!="Unavailable"?"₹"+upgradeprice:upgradeprice}
+                    Book now
                     {/if}
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
                 Everything, Everywhere,<br>All at Once.
             </div>
-            {#if popupStandard && upgradeprice != "Unavailable"}
-            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="SPORTS" on:close ={() => { popupStandard = false}} on:book={book}/>
+            {#if popupSport}
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="SPORTS" on:close ={() => { popupSport = false}} on:book={book}/>
+            {/if}
+        </div>
+    </div>
+
+    <div>
+        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Cultural</div>
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
+            </div>
+            <div class=" relative opacity-100 text-white ">
+                
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupCultural = true}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    Book now
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
+            {#if popupCultural && upgradeprice != "Unavailable"}
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="CULTURAL" on:close ={() => { popupCultural = false}} on:book={book}/>
             {/if}
         </div>
     </div>

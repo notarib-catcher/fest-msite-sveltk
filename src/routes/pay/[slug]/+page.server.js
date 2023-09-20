@@ -96,6 +96,33 @@ const passarray = [
         INRcost: 400,
         open: false
     }
+
+    // cultural
+
+    {
+        type: "CLTR_PRO",
+        name: "Proshow and Minor Events",
+        INRcost: 4,
+        open: true
+    },
+    {
+        type: "CLTR_BOB",
+        name: "Battle of Bands",
+        INRcost: 400,
+        open: false
+    },
+    {
+        type: "CLTR_GRD",
+        name: "Group Dance",
+        INRcost: 400,
+        open: false
+    },
+    {
+        type: "CLTR_FAS",
+        name: "Fashion Show",
+        INRcost: 400,
+        open: false
+    },
 ];
 
 //@ts-ignore

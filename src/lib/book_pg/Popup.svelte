@@ -34,7 +34,7 @@
      let gsel
      let defevent
      let selevbox
-    
+     let selevbox2
      onMount( ()=> {
     
         document.addEventListener('input', ()=>{
@@ -45,10 +45,24 @@
         if(browser){
             defevent.selected = true
             
-            setInterval(() => {
-                gsel.disabled = (phnum.length < 10)
-                selevbox.disabled = (gval == "")
-                sbbtn.disabled = !(gval != "" && eventChosen != "" && phnum.length == 10)
+            setInterval(async () => {
+                if(gsel){
+                    gsel.disabled = !(phnum.length == 10 && category == "SPORTS")
+                }
+                if(selevbox){
+                    selevbox.disabled = (gval == "" && category == "SPORTS")
+                }
+                if(selevbox2){
+                    selevbox2.disabled = !(category == "CULTURAL" && phnum.length == 10)
+                }
+                
+                
+                sbbtn.disabled = !((gval != "" || category != "SPORTS") && eventChosen != "" && phnum.length == 10)
+
+                if(eventChosen != ""){
+                    let evprice = (vpassarr2.filter((pass) => {return pass.type == eventChosen}))[0].INRcost
+                    upBkTxt(evprice)
+                }
             }, 100);
 
     }
@@ -169,13 +183,55 @@
         name: "Chess",
         INRcost: 400,
         open: false
-    }
+    },
+
+    //cultural
+
+    {
+        type: "CLTR_PRO",
+        name: "Proshow and Minor Events",
+        INRcost: 400,
+        open: false
+    },
+    {
+        type: "CLTR_BOB",
+        name: "Battle of Bands",
+        INRcost: 400,
+        open: false
+    },
+    {
+        type: "CLTR_GRD",
+        name: "Group Dance",
+        INRcost: 400,
+        open: false
+    },
+    {
+        type: "CLTR_FAS",
+        name: "Fashion Show",
+        INRcost: 400,
+        open: false
+    },
+
 
 
 ];
 let isSubmitDisabled = true
 
 const vpassarr2 = []
+
+for(let p of passarray){
+    if(category == "SPORTS"){
+        if(p.type.startsWith("SPORT")){
+            vpassarr2.push(p)
+        }
+    }
+
+    if(category == "CULTURAL"){
+        if(p.type.startsWith("CLTR")){
+            vpassarr2.push(p)
+        }
+    }
+}
 
 
 
@@ -221,14 +277,19 @@ const upBkTxt = (amount = 0) => {
                     </select>
                     <select bind:value={eventChosen} bind:this={selevbox} class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 placeholder:text-sm">
                         <option bind:this={defevent} class=" bg-slate-700 text-sm" selected disabled value="">Select an event</option>
-                        {#each passarray as pass, i}
+                        {#each vpassarr2 as pass, i}
                             {#if pass.type.endsWith("_" + gval) || pass.type.endsWith("_ATH") || pass.type.endsWith("_CHS")}
-                                <option class=" bg-slate-700 text-xs" value={pass.type} on:click={() => {upBkTxt(pass.INRcost)}}>{pass.name + " - ₹" + pass.INRcost}</option>
+                                <option class=" bg-slate-700 text-xs" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
                             {/if}
                         {/each}
                     </select>
-                {:else}
-                
+                {:else if category == "CULTURAL"}
+                <select bind:value={eventChosen} bind:this={selevbox2} disabled class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 placeholder:text-sm">
+                    <option bind:this={defevent} class=" bg-slate-700 text-sm" selected disabled value="">Select an event</option>
+                    {#each vpassarr2 as pass, i}
+                            <option class=" bg-slate-700 text-xs" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
+                    {/each}
+                </select>
                 {/if}
             </div>
              
