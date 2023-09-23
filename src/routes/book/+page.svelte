@@ -145,7 +145,7 @@
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
                 Everything, Everywhere,<br>All at Once.
             </div>
-            {#if popupCultural}
+            {#if popupEsports}
             <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="ESPORTS" on:close ={() => { popupEsports = false}} on:book={book}/>
             {/if}
         </div>
