@@ -43,7 +43,9 @@
         })
 
         if(browser){
-            defevent.selected = true
+            if(!category == "ESPORTS"){
+                defevent.selected = true
+            }
             
             setInterval(async () => {
                 if(gsel){
@@ -61,6 +63,13 @@
 
                 if(eventChosen != ""){
                     let evprice = (vpassarr2.filter((pass) => {return pass.type == eventChosen}))[0].INRcost
+                    upBkTxt(evprice)
+                }
+
+                
+                if(category == "ESPORTS" && phnum.length == 10){
+                    let evprice = ((vpassarr2.filter((pass) => pass.type == "ESPORTS"))[0]).INRcost
+                    console.log(evprice)
                     upBkTxt(evprice)
                 }
             }, 100);
@@ -215,7 +224,7 @@
     {
         type: "ESPORTS",
         name: "Esports pass",
-        INRCost: 1,
+        INRcost: 1,
         open:false
     }
 
@@ -235,6 +244,12 @@ for(let p of passarray){
 
     if(category == "CULTURAL"){
         if(p.type.startsWith("CLTR")){
+            vpassarr2.push(p)
+        }
+    }
+
+    if(category == "ESPORTS"){
+        if(p.type == "ESPORTS"){
             vpassarr2.push(p)
         }
     }

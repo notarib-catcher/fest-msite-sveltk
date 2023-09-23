@@ -36,7 +36,7 @@ export const handle = SvelteKitAuth({
             options: {
                 httpOnly: true,
                 sameSite: 'lax',
-                domain: 'mitblrfest.in',
+                domain: process.env.NODE_ENV === 'production'?'mitblrfest.in':'localhost',
                 path: '/',
                 secure: process.env.NODE_ENV === 'production'
             }
