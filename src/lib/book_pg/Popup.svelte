@@ -57,7 +57,7 @@
                 }
                 
                 
-                sbbtn.disabled = !((gval != "" || category != "SPORTS") && eventChosen != "" && phnum.length == 10)
+                sbbtn.disabled = !((gval != "" || category != "SPORTS") && (eventChosen != "" || category == "ESPORTS") && phnum.length == 10)
 
                 if(eventChosen != ""){
                     let evprice = (vpassarr2.filter((pass) => {return pass.type == eventChosen}))[0].INRcost
@@ -74,16 +74,16 @@
             noPhNum.classList.remove("hidden")
             return
         }
-        noEvent.classList.add("hidden")
-        if(eventChosen == "" && (title.toLowerCase().includes("flagship") || title.toLowerCase().includes("esports"))){
-            noEvent.classList.remove("hidden")
-            return
-        }
-        noTeamDeets.classList.add("hidden")
-        if(extradat.trim() == "" && title.toLowerCase().includes("flagship")){
-            noTeamDeets.classList.remove("hidden")
-            return
-        }
+        // noEvent.classList.add("hidden")
+        // if(eventChosen == "" && (title.toLowerCase().includes("flagship") || title.toLowerCase().includes("esports"))){
+        //     noEvent.classList.remove("hidden")
+        //     return
+        // }
+        // noTeamDeets.classList.add("hidden")
+        // if(extradat.trim() == "" && title.toLowerCase().includes("flagship")){
+        //     noTeamDeets.classList.remove("hidden")
+        //     return
+        // }
 
         let data = {
             type: eventChosen,
@@ -297,6 +297,8 @@ const upBkTxt = (amount = 0) => {
                             <option class=" bg-slate-700 text-xs" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
                     {/each}
                 </select>
+                {:else if category == "ESPORTS"}
+
                 {/if}
             </div>
              

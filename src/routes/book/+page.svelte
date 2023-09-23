@@ -11,29 +11,19 @@
 
     let popupSport = false
     let popupCultural = false
+    let popupEsports = false
 
 // @ts-nocheck
     // data contains the returned object from page.server.js
     // skeleton of object -> {top_pass: , payment: , origin: process.env.ORIGIN}
     export let data;
 
-    const upgradeArr = {
-        "ESPORTS":400,
-        "FLAGSHIP":400,
-        "PROSHOW":150,
-    }
 
     let upgradeprice = "Unavailable"
 
     // logic to show the upgrade price if the pass is not of the type FULL_ACCESS
     // should also include a check for staff type pass
-    if(data.top_pass.type){
-        if(data.top_pass.type != "FULL_ACCESS"){
-            if(upgradeArr[data.top_pass.type]){
-                upgradeprice = upgradeArr[data.top_pass.type]
-            }
-        }
-    }
+    
     
 
     /* what is the use of this check ? */
@@ -130,8 +120,33 @@
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
                 Everything, Everywhere,<br>All at Once.
             </div>
-            {#if popupCultural && upgradeprice != "Unavailable"}
+            {#if popupCultural}
             <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="CULTURAL" on:close ={() => { popupCultural = false}} on:book={book}/>
+            {/if}
+        </div>
+    </div>
+
+    <div>
+        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
+            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Cultural</div>
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
+            </div>
+            <div class=" relative opacity-100 text-white ">
+                
+                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    Book now
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
+            {#if popupCultural}
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="ESPORTS" on:close ={() => { popupEsports = false}} on:book={book}/>
             {/if}
         </div>
     </div>
