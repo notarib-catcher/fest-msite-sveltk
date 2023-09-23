@@ -122,10 +122,13 @@ const passarray = [
         name: "Fashion Show",
         INRcost: 400,
         open: false
-    },    
+    },  
+    
+    //esports
+    
     {
         type: "ESPORTS",
-        name: "Esports pass",
+        name: "Esports",
         INRCost: 1,
         open:false
     }
@@ -270,7 +273,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     }
 };
 
-/**
+/** OLD CODE IGNORE THIS
  * Handle pass upgrades as follows.
  *     CURRENT PASS -> UPGRADE OPTIONS
  *     FULL_ACCESS -> Nothing
@@ -353,7 +356,7 @@ const paymentHandler = async (session, decoded, pass, queried_type, costMultipli
 
         customer: {
             name: session.user.name || "Anonymous",
-            email: session.user.email || "solstice.common.acc@mitblrfest.in",
+            email: session.user.email || "falak@mirblrfest.in",
             contact: decoded.contact || "+91" + "0000000000"
         },
 
