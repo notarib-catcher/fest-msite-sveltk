@@ -212,6 +212,13 @@
         open: false
     },
 
+    {
+        type: "ESPORTS",
+        name: "Esports pass",
+        INRCost: 1,
+        open:false
+    }
+
 
 
 ];
