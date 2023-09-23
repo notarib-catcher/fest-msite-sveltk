@@ -122,7 +122,14 @@ const passarray = [
         name: "Fashion Show",
         INRcost: 400,
         open: false
-    },
+    },    
+    {
+        type: "ESPORTS",
+        name: "Esports pass",
+        INRCost: 1,
+        open:false
+    }
+
 ];
 
 //@ts-ignore
