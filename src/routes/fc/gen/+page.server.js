@@ -31,7 +31,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 	const session = await event.locals.getSession();
 	if (!session?.user) {
 		//@ts-ignore
-		throw redirect(301, process.env.ORIGIN);
+		throw redirect(302, process.env.ORIGIN);
 	}
 
 	const foundAccount = await fcAccounts.findOne({ email_id: session.user.email });
@@ -58,7 +58,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 		return returnObject;
 	} else {
 		//@ts-ignore
-		throw redirect(301, process.env.ORIGIN);
+		throw redirect(302, process.env.ORIGIN);
 	}
 };
 
@@ -79,7 +79,7 @@ export const actions = {
 		const session = await event.locals.getSession();
 		if (!session?.user) {
 			//@ts-ignore
-			throw redirect(301, process.env.ORIGIN);
+			throw redirect(302, process.env.ORIGIN);
 		}
 		const formData = await event.request.formData();
 		const symbolKey = Reflect.ownKeys(formData).find((key) => key.toString() === 'Symbol(state)');
@@ -150,7 +150,7 @@ export const actions = {
 		const session = await event.locals.getSession();
 		if (!session?.user) {
 			//@ts-ignore
-			throw redirect(301, process.env.ORIGIN);
+			throw redirect(302, process.env.ORIGIN);
 		}
 		const emailId = session.user.email;
 
