@@ -9,8 +9,10 @@
 	import Footer from "$lib/common/Footer.svelte";
 	import Analytics from "$lib/common/Analytics.svelte";
     import Loader from "$lib/common/Loader.svelte";
+    import UserAgentCheck from "$lib/common/UserAgentCheck.svelte";
     export let data;
 </script>
+<UserAgentCheck />
 <CancelledNotif />
 <LoginNotif />
 <LogoutNotif />
