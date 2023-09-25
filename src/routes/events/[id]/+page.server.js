@@ -7,75 +7,153 @@ const cstring = process.env.MONGO_URL
 
 // @ts-ignore
 const client = new MongoClient(cstring);
-const database = client.db('content');
-const databaseReal = client.db(process.env.MONGO_DB_NAME);
-const events = database.collection('events');
-const passes = databaseReal.collection('passes')
+const databaseRegs = client.db("teams");
+const t_soloregs = databaseRegs.collection('t_soloregs')
+const t_teams = databaseRegs.collection('t_teams')
+const t_events = databaseRegs.collection('t_events')
+const database = client.db(process.env.MONGO_DB_NAME)
+const passes = database.collection('passes')
 
-const projection = {
-    _id: 0
-  }
+const allowedPasses = {
+    "event-1":[],
+    "S_FB_M" : ["SPORT_FB_M"], //Team event
+    "S_BB_M" : ["SPORT_BB_M"], //Team event
+    "S_VB_M" : ["SPORT_VB_M"], //Team event
+    "S_TN_M" : ["SPORT_TN_M"], //Team event
+    "S_TT_M" : ["SPORT_TT_M"], //Team event
+    "S_BB_F" : ["SPORT_BB_F"], //Team event
+    "S_TB_F" : ["SPORT_TB_F"], //Team event
+    "S_TN_F" : ["SPORT_TN_F"],
+    "S_TT_F" : ["SPORT_TT_F"],
+    "S_ATH" : ["SPORT_ATH"],
+    "S_CHS" : ["SPORT_CHS"],
+    "C_PRO" : ["CLTR_PRO"], //No need to register
+    "C_BOB" : ["CLTR_BOB"], //Team event
+    "C_GRD" : ["CLTR_GRD"], //Team event
+    "C_FAS" : ["CLTR_FAS"],
+    "C_STRSPL" : ["CLTR_PRO"],
+    "C_THESHD" : ["CLTR_PRO"],
+    "C_MNDSCR" : ["CLTR_PRO"],
+    "C_MKTMHM" : ["CLTR_PRO"],
+    "C_RANCOM" : ["CLTR_PRO"],
+    "C_BTBLBD" : ["CLTR_PRO"],
+    "C_NATNIR" : ["CLTR_PRO"],
+    "C_FCSFRM" : ["CLTR_PRO"],
+    "C_RMXRYL" : ["CLTR_PRO"],
+    "C_MNGODY" : ["CLTR_PRO"],
+    "C_BSHBTL" : ["CLTR_PRO"],
+    "C_QZAPLZ" : ["CLTR_PRO"],
+    "C_ZENITH" : ["CLTR_PRO"],
+    "C_STRBET" : ["CLTR_PRO"],
+    "C_BRNWAV" : ["CLTR_PRO"],
+    "C_SAARANG" : ["CLTR_PRO"],
+    "ES_BGDMHM" : ["ESPORTS"],
+    "ES_VALRIS" : ["ESPORTS"],
+    "ES_CODEXE" : ["ESPORTS"],
+    "ES_CRWQST" : ["ESPORTS"],
+    "ES_GOLQST" : ["ESPORTS"]
+}
 
-  const options = {
-    projection: projection
 
-  }
 export async function load(event){
-    let {params} = event
-    let cpass = {type:"nopass"}
-    const session = await event.locals.getSession();
-    if (session?.user) {
-        const query = { email: {$eq: session.user.email}, generated: { $eq: true } }
-        const cursor = await passes.find(query,options)
-        const foundpasses = await cursor.toArray()
-        if(foundpasses.length > 0){
-            let fpass = foundpasses.filter((pass) => {
-                return (pass.type == "FULL_ACCESS" || pass.type == "STAFF")
-            })
-
-            if(fpass.length>0){
-                cpass.type = fpass[0].type
-            }
-            else{
-                cpass.type = foundpasses[0].type
-            }
-            
-        }
-
+    console.log("HERE")
+    
+    let returned = {
+        eventID: event.params.id,
+        session: false,
+        reg: {
+            team: {
+                reg:false,
+                owner:false
+            },
+            solo: false
+        },
+        pass: false,
+        needsreg: true
     }
-    else{
-        cpass.type = "nosign"
+    
+    let {params} = event
+    const eventID = params.id
+    console.log(params.id)
+
+
+    //check if event exists
+    let eventDoc = null
+    try{
+        eventDoc = await t_events.findOne({_id: eventID}).catch(error => console.error)
+    }
+    catch(error){
+        console.error(error)
+    }
+    
+    if(!eventDoc){
+        throw redirect(302, "/")
+    }
+
+    returned.needsreg = eventDoc.needsreg
+
+    //beyong this point, we cannot redirect. We MUST return some value.
+    const session = await event.locals.getSession();
+	if (!session?.user) {
+		//@ts-ignore
+		return returned
+	}
+
+    //user is logged in
+    returned.session = true
+
+
+    //check for teams - since people can join teams without owning a pass, this is first
+    for(event of allowedPasses[eventID]){
+        const pass = await passes.findOne({type: eventID, email:session.user.email})
+        if(pass){
+            returned.pass = true
+            break
+        }
+    }
+
+    const teams_query = {
+        members: {
+            $elemMatch:{
+                email: session.user.email
+            }
+        },
+    }
+
+
+    const teams = await t_teams.find(teams_query).toArray()
+
+    for(let team of teams){
+        if(team.event == eventID){
+            returned.reg.team.reg = true
+            if(team.owner == session.user.email){
+                returned.reg.team.owner = true
+                return returned
+            }
+        }
     }
 
     
+    if(returned.reg.team.reg || !returned.pass || (returned.pass && !returned.needsreg)){
+        //registered as team or doesnt need to register AND has pass
+        return returned
+    }
 
-    const foundevents = await events.find({route:params.id}).toArray();
-    let modifiedevents = [];
-    for(let i=0;i<foundevents.length;i++){
-        let event = foundevents[i];
-        modifiedevents.push({
-            _id: event._id.toString(),
-            name: event.title,
-            pass: event.pass,
-            slug: event.shortDescription,
-            rules: event.rules.split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
-                return  {text:v, br:"<br>"} }),
-            longDescription: event.longDescription.split(/\n|\r\n/g).map((/** @type {any} */ v, /** @type {any} */ i) => {
-                return  {text:v, br:"<br>"} }),
-            image: event.image,
-            route: event.route,
-            date: event.Date,
-            prizepool:event.prizepool ,
-            time: event.time,
-            venue: event.venue,
-            reglink: event.reglink || null,
-            mdLink: event.mdLink || null,
-            ownedpasstype: cpass.type,
-            regneeded: event.regneeded || null
-        });
+
+
+
+    //check solo regs
+    
+    const soloreg = await t_soloregs.findOne({event:eventID, email:session.user.email})
+
+    if(soloreg){
+        returned.reg.solo = true
     }
-    if(modifiedevents.length == 0){
-        throw redirect(301,"/404")
-    }
-    return {event:modifiedevents[0]};
+
+    //no solo reg, check team regs
+
+    
+
+    return returned
+
 }
