@@ -38,6 +38,7 @@
 		"dotenv": "^16.0.3",
 		"jsonwebtoken": "^9.0.0",
 		"jwt-encode": "^1.0.1",
+		"marked": "^9.0.3",
 		"mongodb": "^5.2.0",
 		"razorpay": "^2.8.6",
 		"svelte-markdown": "^0.2.3",
