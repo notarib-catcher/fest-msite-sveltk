@@ -15,7 +15,7 @@ const database = client.db(process.env.MONGO_DB_NAME)
 const passes = database.collection('passes')
 
 const allowedPasses = {
-    "event-1":[],
+    "event-1":["SPORT_ATH"],
     "S_FB_M" : ["SPORT_FB_M"], //Team event
     "S_BB_M" : ["SPORT_BB_M"], //Team event
     "S_VB_M" : ["SPORT_VB_M"], //Team event
@@ -56,7 +56,6 @@ const allowedPasses = {
 
 
 export async function load(event){
-    console.log("HERE")
     
     let returned = {
         eventID: event.params.id,
@@ -69,12 +68,12 @@ export async function load(event){
             solo: false
         },
         pass: false,
-        needsreg: true
+        needreg: false
     }
     
     let {params} = event
     const eventID = params.id
-    console.log(params.id)
+
 
 
     //check if event exists
@@ -89,8 +88,9 @@ export async function load(event){
     if(!eventDoc){
         throw redirect(302, "/")
     }
+  
 
-    returned.needsreg = eventDoc.needsreg
+    returned.needreg = eventDoc.needregs
 
     //beyong this point, we cannot redirect. We MUST return some value.
     const session = await event.locals.getSession();
@@ -105,7 +105,8 @@ export async function load(event){
 
     //check for teams - since people can join teams without owning a pass, this is first
     for(event of allowedPasses[eventID]){
-        const pass = await passes.findOne({type: eventID, email:session.user.email})
+        const pass = await passes.findOne({type: event, email:session.user.email})
+    
         if(pass){
             returned.pass = true
             break
@@ -134,7 +135,7 @@ export async function load(event){
     }
 
     
-    if(returned.reg.team.reg || !returned.pass || (returned.pass && !returned.needsreg)){
+    if(!eventDoc.solo){
         //registered as team or doesnt need to register AND has pass
         return returned
     }

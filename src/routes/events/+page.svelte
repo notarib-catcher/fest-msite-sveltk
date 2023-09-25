@@ -28,7 +28,7 @@
 			let EsportsEventsTemp = []
 			
 			for(let festEvent of eventData){
-				console.log(festEvent.attributes.Priority)
+
 				if(festEvent.attributes.Priority <= 1000){
 					FeaturedEventsTemp.push(festEvent)
 				}
