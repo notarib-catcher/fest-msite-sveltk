@@ -64,7 +64,7 @@
 
     
 </script>
-<div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative gap-5 md:flex-row flex-col">
+<div class=" bg-transparent min-h-screen h-fit flex items-center justify-center relative xl:gap-40 lg:gap-28 gap-5 md:flex-row flex-col max-md:mt-10">
     <BgAnim />
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
@@ -76,65 +76,28 @@
             </div>   
         </div>
     {/if}
-    <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Sports</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupSport = true}} >
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    Book now
-                    {/if}
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
-            </div>
-            {#if popupSport}
-            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="SPORTS" on:close ={() => { popupSport = false}} on:book={book}/>
-            {/if}
-        </div>
-    </div>
-
-    <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Cultural</div>
-            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
-            </div>
-            <div class=" relative opacity-100 text-white ">
-                
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupCultural = true}} >
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    Book now
-                    {/if}
-                </button> 
-            </div>
-            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
-            </div>
-            {#if popupCultural}
+    {#if popupSport}
+        <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="SPORTS" on:close ={() => { popupSport = false}} on:book={book}/>
+    {/if}
+    {#if popupCultural}
             <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="CULTURAL" on:close ={() => { popupCultural = false}} on:book={book}/>
-            {/if}
-        </div>
-    </div>
+    {/if}
+    {#if popupEsports}
+            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="ESPORTS" on:close ={() => { popupEsports = false}} on:book={book}/>
+    {/if}
+    
 
     <div>
-        <div class=" h-[300px] w-[250px] bgGradientCardGold rounded-3xl bg-opacity-30 border-[1px] border-white flex flex-col-reverse items-center relative">
-            <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">Cultural</div>
+        <div class="h-[300px] w-[250px] bg-[#238a80] flex flex-col-reverse items-center relative cardcultural">
+            
             <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
-                <img src = {logo} alt="logo" width="170px" class=" mx-auto mb-24"> 
+                <div class=" w-fit mx-auto text-5xl text-[#FFE500] mb-24 font-monster">
+                    CULTURAL
+                </div> 
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-50 text-[#393a3b] font-bold capitalize duration-300 py-2 px-12 rounded-lg mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}} >
+                <button class="  bg-white bg-opacity-50 hover:bg-opacity-70 focus:bg-opacity-70 font-monster text-[#04022A] font-bold capitalize duration-300 py-2 px-12  mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupCultural = true}} >
                     {#if !$page.data.session}
                     SIGN IN
                     {:else}
@@ -145,9 +108,57 @@
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
                 Everything, Everywhere,<br>All at Once.
             </div>
-            {#if popupEsports}
-            <Popup title="All accesss pass" innerText="Full access to everything in TechSolstice" category="ESPORTS" on:close ={() => { popupEsports = false}} on:book={book}/>
-            {/if}
+        </div>
+    </div>
+
+    <div>
+        <div class=" cardsports h-[300px] w-[250px] bg-[#04022A]  flex flex-col-reverse items-center relative">
+        
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <div class=" w-fit mx-auto text-5xl text-[#FFE500] mb-24 font-monster">
+                    SPORTS
+                </div> 
+            </div>
+            <div class=" relative opacity-100 text-white ">
+                
+                <button class="  bg-white bg-opacity-20 text-[#FFE500] hover:bg-opacity-40 focus:bg-opacity-40 font-monster font-bold capitalize duration-300 py-2 px-12  mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupSport = true}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    Book now
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
+            
+        </div>
+    </div>
+    
+    <div>
+        <div class="h-[300px] w-[250px] bg-[#bd0070] flex flex-col-reverse items-center relative cardesports">
+            <!-- <div class="absolute top-0 right-0 p-4  text-md font-cstm text-white ">
+                <img src = {logo} alt="logo" width="100px" class=" mx-auto mb-24 p-2"> 
+            </div> -->
+            <div class=" text-right w-full h-full absolute pt-4 text-2xl font-bold flex items-center align-middle ">
+                <div class=" w-fit mx-auto text-5xl text-[#FFE500] mb-24 font-monster">
+                    ESPORTS
+                </div> 
+            </div>
+            <div class=" relative opacity-100 ">
+                
+                <button class="  bg-white bg-opacity-50 text-[#04022A] hover:bg-opacity-70 focus:bg-opacity-70 font-monster font-bold capitalize duration-300 py-2 px-12  mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupEsports = true}} >
+                    {#if !$page.data.session}
+                    SIGN IN
+                    {:else}
+                    Book now
+                    {/if}
+                </button> 
+            </div>
+            <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
+                Everything, Everywhere,<br>All at Once.
+            </div>
         </div>
     </div>
 
@@ -177,74 +188,43 @@
 
     }
 
-    .bgGradientCardGold{
-        background-image: linear-gradient(to bottom left, rgba(219, 196, 44, 0.461),rgba(219, 196, 44, 0.726),rgba(209, 105, 31, 0.475));
-        transition-duration: 200ms;
-        transition-property: all;
+    .cardsports{
+        will-change: filter, transform;
+        transition: all  100ms ease-in-out; 
     }
-        
-    .bgGradientCardSilver{
-        background-image: linear-gradient(to top right, rgba(192, 192, 192, 0.436), rgba(44, 61, 89, 0.4), rgba(141, 145, 141, 0.445));
-        transition-duration: 200ms;
-        transition-property: all;
-    }
-    .bgGradientCardRed{
-        background-image: linear-gradient(to top right, rgba(51, 51, 51, 0.47), rgba(50, 84, 142, 0.525), rgba(230, 60, 60, 0.571));
-        transition-duration: 200ms;
-        transition-property: all;
+    .cardsports:hover {
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #FFE500);
     }
 
-    .bgGradientCardBlueAccent{
-        background-image: linear-gradient(to top right, rgba(141, 107, 205, 0.3), rgba(67, 102, 186, 0.59), rgba(98, 200, 243, 0.8));
-        transition-duration: 200ms;
-        transition-property: all;
+    .cardcultural{
+        will-change: filter, transform;
+        transition: all  100ms ease-in-out; 
     }
 
-    .bgGradientCardBlueAccent:hover{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
+    .cardcultural:hover{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #04022A);
     }
-
-    .bgGradientCardRed:hover{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
+    .cardesports{
+        will-change: filter, transform;
+        transition: all  100ms ease-in-out; 
     }
-    .bgGradientCardSilver:hover{
-        box-shadow: 0px 0px 30px #fffFFF33;
+    .cardesports:hover{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #04022A);
     }
-    .bgGradientCardGold:hover{
-        box-shadow: 0px 0px 30px #fffFFF33;
+    .cardsports:focus {
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #FFE500);
     }
-
-    .bgGradientCardBlueAccent:focus{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
+    .cardcultural:focus{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #04022A);
     }
-
-    .bgGradientCardRed:focus{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
-    }
-    .bgGradientCardSilver:focus{
-        box-shadow: 0px 0px 30px #fffFFF33;
-    }
-    .bgGradientCardGold:focus{
-        box-shadow: 0px 0px 30px #fffFFF33;
-    }
-    .bgGradientCardBlueAccent:focus-within{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
-    }
-
-    .bgGradientCardRed:focus-within{
-        box-shadow: 0px 0px 30px #fffFFF33;
-
-    }
-    .bgGradientCardSilver:focus-within{
-        box-shadow: 0px 0px 30px #fffFFF33;
-    }
-    .bgGradientCardGold:focus-within{
-        box-shadow: 0px 0px 30px #fffFFF33;
+    .cardesports:focus{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #04022A);
     }
 
     li {

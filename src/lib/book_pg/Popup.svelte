@@ -257,10 +257,10 @@ for(let p of passarray){
 
 
 
-let booktext = "Enter Details"
+let booktext = "Details Needed"
 const upBkTxt = (amount = 0) => {
     if(amount == 0){
-        booktext = "Enter Details"
+        booktext = "Details Needed"
     }
     else{
         booktext = "Pay ₹" + amount
@@ -276,9 +276,9 @@ const upBkTxt = (amount = 0) => {
 
 <div class=" fixed top-0 left-0 z-[11] w-screen max-xs:w-[600px] h-screen flex items-center justify-center font-normal fadeinSlow ">
     
-    <div class=" bg-[#1e1e1e] relative  p-2 rounded-2xl  max-md:font-semibold text-center max-md:text-md z-[9] max-w-[20%] max-sm:max-w-[60%] max-xs:max-w-[80%] max-md:max-w-[40%]  max-md:text-sm max-xl:max-w-[30%] max-md:my-[10%] overflow-hidden" >
+    <div class=" bg-[#FE786F] relative  p-2 border-[1px] border-white  max-md:font-semibold text-center max-md:text-md z-[9] max-w-[20%] max-sm:max-w-[60%] max-xs:max-w-[80%] max-md:max-w-[40%]  max-md:text-sm max-xl:max-w-[30%] max-md:my-[10%] overflow-hidden" >
        
-        <div class=" from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-center text-sm p-2">
+        <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2">
             For a team event, only the<br>team leader needs a pass.
         </div>
        
@@ -290,38 +290,36 @@ const upBkTxt = (amount = 0) => {
         <div class=" text-white font-extralight">
             
             <div class=" px-4 sm:px-6">
-                <input placeholder="Phone Number" pattern="\d*" class=" p-2 max-sm:text-sm placeholder:max-md:text-sm w-full bg-transparent outline-none duration-200 caret-[#ffffff5b] placeholder:text-white border-b-2 " bind:value={phnum} type="text" maxlength="10">
+                <input placeholder="Phone Number" pattern="\d*" class=" font-monster p-2 max-sm:text-sm placeholder:max-md:text-sm w-full bg-transparent outline-none duration-200 caret-[#ffffff5b] placeholder:text-white border-b-2 " bind:value={phnum} type="text" maxlength="10">
                 {#if category == "SPORTS"}
-                    <select bind:value={gval} bind:this={gsel} class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2">
-                        <option class=" bg-slate-700 text-opacity-70" disabled selected value="">Select your gender</option>
-                        <option class=" bg-slate-700" value="M">Male</option>
-                        <option class=" bg-slate-700" value="F">Female</option>
+                    <select bind:value={gval} bind:this={gsel} class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 font-monster">
+                        <option class=" bg-slate-700 text-opacity-70 font-poppins" disabled selected value="">Select your gender</option>
+                        <option class=" bg-slate-700 font-poppins" value="M">Male</option>
+                        <option class=" bg-slate-700 font-poppins" value="F">Female</option>
                     </select>
-                    <select bind:value={eventChosen} bind:this={selevbox} class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 placeholder:text-sm">
-                        <option bind:this={defevent} class=" bg-slate-700 text-sm" selected disabled value="">Select an event</option>
+                    <select bind:value={eventChosen} bind:this={selevbox} class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 font-monster">
+                        <option bind:this={defevent} class=" bg-slate-700 text-sm font-poppins " selected disabled value="">Select an event</option>
                         {#each vpassarr2 as pass, i}
                             {#if pass.type.endsWith("_" + gval) || pass.type.endsWith("_ATH") || pass.type.endsWith("_CHS")}
-                                <option class=" bg-slate-700 text-xs" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
+                                <option class=" bg-slate-700 text-xs font-poppins" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
                             {/if}
                         {/each}
                     </select>
                 {:else if category == "CULTURAL"}
-                <select bind:value={eventChosen} bind:this={selevbox2} disabled class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 placeholder:text-sm">
-                    <option bind:this={defevent} class=" bg-slate-700 text-sm" selected disabled value="">Select an event</option>
+                <select bind:value={eventChosen} bind:this={selevbox2} disabled class=" disabled:opacity-30 w-full bg-transparent mt-4 p-2 border-b-2 placeholder:text-sm font-monster">
+                    <option bind:this={defevent} class=" bg-slate-700 text-sm font-poppins" selected disabled value="">Select an event</option>
                     {#each vpassarr2 as pass, i}
-                            <option class=" bg-slate-700 text-xs" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
+                            <option class=" bg-slate-700 text-xs font-poppins" value={pass.type}>{pass.name + " - ₹" + pass.INRcost}</option>
                     {/each}
                 </select>
-                {:else if category == "ESPORTS"}
-
                 {/if}
             </div>
              
            
         </div>
-        <div class="w-full text-center mt-4  font-semibold from-[#9c8494] via-[#d0b4e0] to-[#ada0c7] bg-gradient-to-r text-transparent bg-clip-text text-xs px-3 ">Press anywhere outside to dismiss</div>
-        <button class=" w-fit font-normal text-center  bg-white bg-opacity-[2%]  rounded-lg p-2 text-md  my-4 disabled:opacity-50 opacity-100 disabled:scale-100 scale-105 transition-all duration-300  " bind:this={sbbtn} on:click={sendDat}>
-            <div class=" w-full text-center text-xl font-normal  bg-clip-text text-transparent bg-gradient-to-r from-[#2058b7] via-[#aa48a0] to-[#a0bdc27f]">{booktext}</div>
+        <div class="w-full text-center mt-4  font-bold uppercase text-xs px-3 ">Press anywhere outside<br> to dismiss</div>
+        <button class=" w-fit font-normal text-center  bg-[#FFE500]    p-2 text-md  my-4 hover:scale-110 active:scale-95 disabled:opacity-50 opacity-100 disabled:scale-100 scale-105 transition-all duration-100  " bind:this={sbbtn} on:click={sendDat}>
+            <div class=" w-full text-center text-xl font-normal   text-[04022A] font-monster  ">{booktext}</div>
         </button>
     </div> 
     <button class=" pointer-events-auto fixed backdrop-blur-md top-0 left-0 h-screen w-screen cursor-pointer fadeinSlow" on:click={() => {dispatch("close",{ details: "close"})}}>
@@ -356,6 +354,11 @@ const upBkTxt = (amount = 0) => {
             }
 
 
+    }
+
+    input{
+        caret-color: black;
+        caret-shape: underscore;
     }
 
     
