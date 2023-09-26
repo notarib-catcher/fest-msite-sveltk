@@ -1,15 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rye&family=Yatra+One&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face{
+    font-family: 'Monster Mech';
+    src:  url("https://falak.mitblrfest.in/fonts/MonsterMech.ttf") format('truetype');
+}
+
+.font-monster{
+    font-family: 'Monster Mech';
+    letter-spacing: 1px;
+}
+
+.font-monster::placeholder{
+    font-family: 'Monster Mech';
+    letter-spacing: 1px;
+}
 
 .Text-Gradient{
     background: -webkit-linear-gradient(#eee, #333);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
 
 html {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
@@ -20,11 +38,12 @@ html {
 }
   
 html::-webkit-scrollbar {
+    background: #3300BD;
     display: none; /* for Chrome, Safari, and Opera */
 }
 
 body{
-    background: #18181b;
+    background: #3300BD;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
