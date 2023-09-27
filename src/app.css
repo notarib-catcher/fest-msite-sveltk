@@ -11,6 +11,26 @@
     src:  url("https://falak.mitblrfest.in/fonts/MonsterMech.ttf") format('truetype');
 }
 
+@font-face{
+    font-family: 'Uni Sans H';
+    src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavy.otf") format('opentype');
+}
+
+@font-face{
+    font-family: 'Uni Sans HI';
+    src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavyItalic.otf") format('opentype');
+}
+
+@font-face{
+    font-family: 'Uni Sans T';
+    src:  url("https://falak.mitblrfest.in/fonts/UniSansThin.otf") format('opentype');
+}
+
+@font-face{
+    font-family: 'Uni Sans TI';
+    src:  url("https://falak.mitblrfest.in/fonts/UniSansThinItalic.otf") format('opentype');
+}
+
 .font-monster{
     font-family: 'Monster Mech';
     letter-spacing: 1px;
