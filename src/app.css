@@ -31,6 +31,23 @@
     src:  url("https://falak.mitblrfest.in/fonts/UniSansThinItalic.otf") format('opentype');
 }
 
+.font-uni-h{
+    font-family: 'Uni Sans H';
+}
+
+.font-uni-hi{
+    font-family: 'Uni Sans HI';
+}
+
+
+.font-uni-t{
+    font-family: 'Uni Sans T';
+}
+
+.font-uni-ti{
+    font-family: 'Uni Sans TI';
+}
+
 .font-monster{
     font-family: 'Monster Mech';
     letter-spacing: 1px;
