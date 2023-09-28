@@ -1,4 +1,5 @@
 <script>
+    import sanitizeHtml from 'sanitize-html'
     import {marked} from "marked";
 
     /**
@@ -6,6 +7,7 @@
      * @type string
      */
     export let markdown;
+
 
     /**
      * Convert a markdown source into a raw HTML string.
@@ -15,10 +17,19 @@
      * @return string
      */
     function toHTML(markdown) {
-        return marked(markdown);
+        return sanitizeHtml(marked(markdown),
+            {
+                allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img', 'a' ])
+            }
+        );
+        
     }
 </script>
 
 <div class="md-converter">
     {@html toHTML(markdown)}
 </div>
+
+<style>
+    
+</style>
