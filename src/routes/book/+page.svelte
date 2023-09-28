@@ -106,7 +106,7 @@
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
+                Your Canvas<br>for Cultural Brilliance.
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
+                Your arena<br>for sporting excellence.
             </div>
             
         </div>
@@ -157,7 +157,7 @@
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
-                Everything, Everywhere,<br>All at Once.
+                Your portal to<br>Digital Domination.
             </div>
         </div>
     </div>
@@ -204,7 +204,7 @@
 
     .cardcultural:hover{
         transform: translateX(-5px) translateY(-5px);
-        filter: drop-shadow(10px 10px #04022A);
+        filter: drop-shadow(10px 10px #FFE500);
     }
     .cardesports{
         will-change: filter, transform;
@@ -212,7 +212,7 @@
     }
     .cardesports:hover{
         transform: translateX(-5px) translateY(-5px);
-        filter: drop-shadow(10px 10px #04022A);
+        filter: drop-shadow(10px 10px #FFE500);
     }
     .cardsports:focus {
         transform: translateX(-5px) translateY(-5px);
@@ -220,11 +220,11 @@
     }
     .cardcultural:focus{
         transform: translateX(-5px) translateY(-5px);
-        filter: drop-shadow(10px 10px #04022A);
+        filter: drop-shadow(10px 10px #FFE500);
     }
     .cardesports:focus{
         transform: translateX(-5px) translateY(-5px);
-        filter: drop-shadow(10px 10px #04022A);
+        filter: drop-shadow(10px 10px #FFE500);
     }
 
     li {
