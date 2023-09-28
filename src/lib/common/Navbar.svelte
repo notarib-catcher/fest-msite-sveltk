@@ -70,7 +70,7 @@
                 <NavbarButton isLogoutbtn />
             {/if}
             <NavbarButton name="Home" navroute="/" image={surgelogo}/>
-            <NavbarButton name="The Team" navroute="/team" image={team}/>
+            <!-- <NavbarButton name="The Team" navroute="/team" image={team}/> -->
             <NavbarButton name="Events" navroute="/events" image={calendarIcon}/>
             <NavbarButton name="Get a pass" navroute="/book" image={cartIcon}/>
             {#if $page.data.session?.user}
