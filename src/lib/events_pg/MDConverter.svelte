@@ -1,5 +1,5 @@
 <script>
-    import marked from "marked";
+    import {marked} from "marked";
 
     /**
      * Markdown source to be parsed into raw HTML.
@@ -15,7 +15,7 @@
      * @return string
      */
     function toHTML(markdown) {
-        return marked.marked(markdown);
+        return marked(markdown);
     }
 </script>
 

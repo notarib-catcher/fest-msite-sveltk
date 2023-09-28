@@ -9,6 +9,10 @@
 	import { onMount } from 'svelte';
 	import { each } from 'svelte/internal';
 
+	import EventPlaceholder from '$lib/events_pg/EventPlaceholder.svelte';
+
+	let arrayofexamples = [1,2]
+
 	let FeaturedEvents = []
 	let SportsEvents = []
 	let CulturalEvents = []
@@ -54,40 +58,66 @@
 </script>
 
 <BgAnim />
-<div class="h-fit w-screen flex mt-10 items-center justify-center flex-col p-10">
+<div class="h-fit w-screen flex mt-10 items-center justify-center flex-col p-[5vw]">
 	
 	<div class=" w-fit h-fit">
-		<div class=" text-6xl w-full text-center md:text-left mb-10 text-[#FE786F] font-yatra">
+		<div class=" text-6xl w-full text-center md:text-left mb-10 text-[#FE786F] font-monster">
 			Featured Events
 		</div>
-		<div class=" grid grid-flow-row gap-16  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-5 xl: ">
-			{#each FeaturedEvents as festEvent}
-				<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription}></EventTile>
-			{/each}
+		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
+			
+			{#if FeaturedEvents.length > 0}
+				{#each FeaturedEvents as festEvent}
+					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
+				{/each}
+			{:else}
+				{#each arrayofexamples as example}
+					<EventPlaceholder />
+				{/each}
+			{/if}
+			
 		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#0ebaaa] font-yatra">
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#0ebaaa] font-monster">
 			Sports Events
 		</div>
-		<div class=" grid grid-flow-row gap-16  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-5 xl: ">
-			{#each SportsEvents as festEvent}
-				<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription}></EventTile>
-			{/each}
+		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
+			{#if SportsEvents.length > 0}
+				{#each SportsEvents as festEvent}
+					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
+				{/each}
+			{:else}
+				{#each arrayofexamples as example}
+					<EventPlaceholder />
+				{/each}
+			{/if}
 		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#1095ff] font-yatra">
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#1095ff] font-monster">
 			Cultural Events
 		</div>
-		<div class=" grid grid-flow-row gap-16  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-5 xl: ">
-			{#each CulturalEvents as festEvent}
-				<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription}></EventTile>
-			{/each}
+		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
+			{#if CulturalEvents.length > 0}
+				{#each CulturalEvents as festEvent}
+					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
+				{/each}
+			{:else}
+				{#each arrayofexamples as example}
+					<EventPlaceholder />
+				{/each}
+			{/if}
 		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#ed008c] font-yatra">
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#ed008c] font-monster">
 			E-Sports Events
 		</div>
-		<div class=" grid grid-flow-row gap-16  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-5 xl: ">
-			{#each EsportsEvents as festEvent}
-				<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription}></EventTile>
-			{/each}
+		<div class="  grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
+			{#if EsportsEvents.length > 0}
+				{#each EsportsEvents as festEvent}
+					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
+				{/each}
+			{:else}
+				{#each arrayofexamples as example}
+					<EventPlaceholder />
+				{/each}
+			{/if}
 		</div>
 	</div>
 	

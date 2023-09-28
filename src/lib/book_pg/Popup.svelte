@@ -198,7 +198,7 @@
 
     {
         type: "CLTR_PRO",
-        name: "Proshow and Minor Events",
+        name: "Proshow and Cultural Events",
         INRcost: 400,
         open: false
     },

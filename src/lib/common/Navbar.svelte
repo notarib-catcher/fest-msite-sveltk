@@ -83,7 +83,7 @@
         </div>
     </div>
 </div>
-<button on:click={closeMenu} bind:this={menubackdrop} class="bluroutmenubkd fixed z-[499] h-[100lvh] w-[100lvw] backdrop-blur-md cursor-default" hidden>
+<button on:click={closeMenu} bind:this={menubackdrop} class="bluroutmenubkd fixed z-[499] top-0 h-[100lvh] w-[100lvw] backdrop-blur-md cursor-default" hidden>
 
 </button>
 

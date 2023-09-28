@@ -31,100 +31,63 @@
 	 */
 	export let imageURL
 
+	/**
+	 * @type {number}
+	 */
+	 export let priority
+
+	let priclass = ""
+	if(priority <= 1000){
+		priclass = "featuredecard"
+	}
+	else if (priority <= 2000){
+		priclass = "sportsecard"
+	}
+	else if (priority <= 3000){
+		priclass = "culturalecard"
+	}
+	else{
+		priclass = "esportsecard"
+	}
+
 </script>
-{#if cscheme == "dark"}
 
-<div class="text-black font-yatra w-[225px] h-[400px] relative rounded-lg overflow-clip z-0 hover:z-[1] hover:scale-105 focus:z-[1] focus:scale-105 transition-all duration-200 bg-[#aaaaaa]">
-	<!-- svelte-ignore a11y-missing-attribute -->
-	<img class=" w-full h-full left-0 top-0 absolute z-[-1]" src={imageURL}>
-	<div class="z-1 w-full h-[50px] top-0 absolute text-center p-2 text-xl font-semibold">
-		{heading}
-	</div>
-	<div class="absolute w-full h-[50%] bg-black bottom-0 bg-opacity-30">
-		<div class="absolute top-5 p-5 text-center">
-			<span class=" w-full ">
-				{shortDesc || "Click the button for more details!"}
-			</span>
+
+<div class=" max-w-[500px] w-[90vw] h-fit ecard {priclass} flex flex-col rounded-lg hover:scale-105 focus:scale-105 transition-all duration-200">
+	 <img src={imageURL} class=" w-full p-2">
+	 <div class=" w-full flex sm:flex-row flex-col">
+		<div class=" pl-3 text-white h-fit w-full sm:w-[70%] max-sm:pr-2 mb-2">
+			<span class=" font-uni font-bold text-xl">{heading}</span><br>
+			<span class="max-sm:pr-2">{shortDesc || "Click to go to the event page"}</span>
 		</div>
-		<div class=" absolute bottom-5 w-full flex items-center justify-center">
-			<button class=" p-2 border-black rounded-md border-2 hover:scale-105 active:scale-95 focus:scale-105 transition-all duration-200" on:click={() => {window.location = "/events/" + eventID}}>
-				More info
-			</button>
+		<div class=" h-full sm:self-center w-[30%] max-sm:mb-2 max-sm:ml-3 font-uni">
+			<div class=" w-full flex sm:justify-center">
+				<a class=" h-full font-uni font-bold sm:mr-2 p-2 rounded-lg" href={"/events/"+eventID}>
+					More info
+				</a>
+			</div>
 		</div>
-	</div>
-	
+	 </div>
 </div>
 
-{:else if cscheme == "light"}
 
-<div class="text-white font-yatra w-[225px] h-[400px] relative rounded-lg overflow-clip z-0 hover:z-[1] hover:scale-105 focus:z-[1] focus:scale-105 transition-all duration-200 bg-[#aaaaaa]">
-	<!-- svelte-ignore a11y-missing-attribute -->
-	<img class=" w-full h-full left-0 top-0 absolute z-[-1]" src={imageURL}>
-	<div class="z-1 w-full h-[50px] top-0 absolute text-center p-2 text-xl font-semibold">
-		{heading}
-	</div>
-	<div class="absolute w-full h-[50%] bg-black bottom-0 bg-opacity-30">
-		<div class="absolute top-5 p-5 text-center">
-			<span class=" w-full ">
-				{shortDesc || "Click the button for more details!"}
-			</span>
-		</div>
-		<div class=" absolute bottom-5 w-full flex items-center justify-center">
-			<button class=" p-2 border-white rounded-md border-2 hover:scale-105 active:scale-95 focus:scale-105 transition-all duration-200" on:click={() => {window.location = "/events/" + eventID}}>
-				More info
-			</button>
-		</div>
-	</div>
-	
-</div>
 
-{:else if cscheme == "alt-dark"}
-
-<div class="font-yatra w-[225px] h-[400px] relative rounded-lg overflow-clip z-0 hover:z-[1] hover:scale-105 focus:z-[1] focus:scale-105 transition-all duration-200 bg-[#aaaaaa]">
-	<!-- svelte-ignore a11y-missing-attribute -->
-	<img class=" w-full h-full left-0 top-0 absolute z-[-1]" src={imageURL}>
-	<div class="text-black z-1 w-full h-[50px] top-0 absolute text-center p-2 text-xl font-semibold">
-		{heading}
-	</div>
-	<div class="text-white absolute w-full h-[50%] bg-black bottom-0 bg-opacity-30">
-		<div class="absolute top-5 p-5 text-center">
-			<span class=" w-full ">
-				{shortDesc || "Click the button for more details!"}
-			</span>
-		</div>
-		<div class=" absolute bottom-5 w-full flex items-center justify-center">
-			<button class=" p-2 border-white rounded-md border-2 hover:scale-105 active:scale-95 focus:scale-105 transition-all duration-200" on:click={() => {window.location = "/events/" + eventID}}>
-				More info
-			</button>
-		</div>
-	</div>
-	
-</div>
-
-{:else if cscheme == "alt-light"}
-
-<div class=" font-yatraw-[225px] h-[400px] relative rounded-lg overflow-clip z-0 hover:z-[1] hover:scale-105 focus:z-[1] focus:scale-105 transition-all duration-200 bg-[#aaaaaa]">
-	<!-- svelte-ignore a11y-missing-attribute -->
-	<img class=" w-full h-full left-0 top-0 absolute z-[-1]" src={imageURL}>
-	<div class="text-white z-1 w-full h-[50px] top-0 absolute text-center p-2 text-xl font-semibold">
-		{heading}
-	</div>
-	<div class="absolute w-full h-[50%] bg-black bottom-0 bg-opacity-30">
-		<div class="absolute top-5 p-5 text-center">
-			<span class=" w-full ">
-				{shortDesc || "Click the button for more details!"}
-			</span>
-		</div>
-		<div class=" absolute bottom-5 w-full flex items-center justify-center">
-			<button class=" p-2 border-black rounded-md border-2 hover:scale-105 active:scale-95 focus:scale-105 transition-all duration-200" on:click={() => {window.location = "/events/" + eventID}}>
-				More info
-			</button>
-		</div>
-	</div>
-	
-</div>
-
-{/if}
 <style>
+
+	
+
+	.ecard > div > div > div > button:hover {
+		scale: 105%;
+	}
+
+	.ecard > div > div > div > button:active {
+		scale: 95%;
+	}
+
+	.ecard > div > div > div > a {
+    	background-color: #04022A;
+    	color: #FFE500;
+    	transition: all 200ms;
+	}
 
 </style>

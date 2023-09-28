@@ -12,45 +12,41 @@
 }
 
 @font-face{
-    font-family: 'Uni Sans H';
+    font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavy.otf") format('opentype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face{
-    font-family: 'Uni Sans HI';
+    font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavyItalic.otf") format('opentype');
+    font-weight: bold;
+    font-style: italic;
 }
 
 @font-face{
-    font-family: 'Uni Sans T';
+    font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansThin.otf") format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face{
-    font-family: 'Uni Sans TI';
+    font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansThinItalic.otf") format('opentype');
+    font-style: italic;
+    font-weight: normal;
 }
 
-.font-uni-h{
-    font-family: 'Uni Sans H';
-}
-
-.font-uni-hi{
-    font-family: 'Uni Sans HI';
-}
-
-
-.font-uni-t{
-    font-family: 'Uni Sans T';
-}
-
-.font-uni-ti{
-    font-family: 'Uni Sans TI';
+.font-uni{
+    font-family: 'Uni Sans';
 }
 
 .font-monster{
     font-family: 'Monster Mech';
     letter-spacing: 1px;
+    line-height: 1.1;
 }
 
 .font-monster::placeholder{
@@ -408,3 +404,22 @@ body{
         transform: translateX(0%);
     }
 }
+
+.sportsecard{
+    /* 0EBAAA */
+    background-color: #0B9588;
+}
+.esportsecard{
+    /* ED008C */
+    background-color: #be0070;
+}
+.culturalecard{
+    /* 1095FF */
+    background-color: #0D77CC;
+}
+.featuredecard{
+    /* FE786F */
+    background-color: #D76860;
+
+}
+

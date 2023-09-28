@@ -6,7 +6,7 @@
 
 
   import trophy from "../../../assets/trophy-solid.svg"
-  // import MDConverter from "$lib/events_pg/MDConverter.svelte";
+  import MDConverter from "$lib/events_pg/MDConverter.svelte";
 
   let event = {}
   $: LImage = event.Image
@@ -175,7 +175,7 @@
 
     <div class="px-[5vw] xl:px-[10vw] w-screen">
       {#if Description}
-        <!-- <MdConverter markdown={Description} /> -->
+         <MDConverter markdown={Description} />
       {/if}
     </div>
   </div>
