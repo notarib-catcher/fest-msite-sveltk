@@ -267,6 +267,27 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
     let allowedPasses = getValidPasses(cpasstypearr);
 
     if (allowedPasses.includes(queried_type)) {
+
+        if(queried_type == "CLTR_PRO"){
+            let countDoc = await payments.findOne({_id: "DAILY_PAYM_TRACK"})
+            if(countDoc){
+                let currDate = new Date()
+                let cdocDate = new Date(countDoc.date)
+    
+                if(currDate.getDay() != cdocDate.getDay()){
+                    await payments.updateOne({_id: "DAILY_PAYM_TRACK"}, {
+                        $set:{
+                            date: currDate.toISOString(),
+                            count: 0
+                        }
+                    })
+                }
+                else if(countDoc.count >= countDoc.maxcount){
+                    throw redirect(302,"/book?nostock")
+                }
+            }   
+        }
+
         return await paymentHandler(session, decoded, pass, queried_type, costMultiplier, referralCode, referralStatus);
     } else {
         throw redirect(302, "/mypass");
