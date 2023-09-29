@@ -230,7 +230,7 @@
 
     <!-- Markdown Body -->
 
-    <div class="px-[9vw] xl:px-[14vw] mb-5 w-screen mt-5 text-white">
+    <div class="px-[9vw] xl:px-[14vw] mb-10 w-screen mt-5 text-white">
       {#if Description}
          <MDConverter markdown={Description} />
       {/if}
