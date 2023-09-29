@@ -15,7 +15,6 @@ const database = client.db(process.env.MONGO_DB_NAME)
 const passes = database.collection('passes')
 
 const allowedPasses = {
-    "event-1":["SPORT_ATH"],
     "S_FB_M" : ["SPORT_FB_M"], //Team event
     "S_BB_M" : ["SPORT_BB_M"], //Team event
     "S_VB_M" : ["SPORT_VB_M"], //Team event
@@ -23,7 +22,7 @@ const allowedPasses = {
     "S_TT_M" : ["SPORT_TT_M"], //Team event
     "S_BB_F" : ["SPORT_BB_F"], //Team event
     "S_TB_F" : ["SPORT_TB_F"], //Team event
-    "S_TN_F" : ["SPORT_TN_F"],
+    "S_TN_F" : ["SPORT_TN_F"], 
     "S_TT_F" : ["SPORT_TT_F"],
     "S_ATH" : ["SPORT_ATH"],
     "S_CHS" : ["SPORT_CHS"],
@@ -90,7 +89,7 @@ export async function load(event){
     }
   
 
-    returned.needreg = eventDoc.needregs
+    returned.needreg = eventDoc.needreg
 
     //beyong this point, we cannot redirect. We MUST return some value.
     const session = await event.locals.getSession();

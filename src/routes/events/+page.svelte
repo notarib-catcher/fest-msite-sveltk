@@ -5,9 +5,7 @@
 	const txtcdnURL = "https://txtcdn.mitblrfest.in/api/events"
 	import BgAnim from '$lib/common/BGAnim.svelte';
 	import EventTile from '$lib/events_pg/EventTile.svelte';
-	import About from '$lib/home_pg/About.svelte';
 	import { onMount } from 'svelte';
-	import { each } from 'svelte/internal';
 
 	import EventPlaceholder from '$lib/events_pg/EventPlaceholder.svelte';
 
@@ -46,6 +44,11 @@
 					EsportsEventsTemp.push(festEvent)
 				}
 			}
+
+			FeaturedEventsTemp.sort((a,b) => a.attributes.Priority - b.attributes.Priority)
+			SportsEventsTemp.sort((a,b) => a.attributes.Priority - b.attributes.Priority)
+			CulturalEventsTemp.sort((a,b) => a.attributes.Priority - b.attributes.Priority)
+			EsportsEventsTemp.sort((a,b) => a.attributes.Priority - b.attributes.Priority)
 
 			FeaturedEvents = FeaturedEventsTemp
 			SportsEvents = SportsEventsTemp

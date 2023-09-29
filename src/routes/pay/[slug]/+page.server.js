@@ -67,14 +67,14 @@ const passarray = [
 
     {
         type: "SPORT_TN_F",
-        name: "Tennis (F) (Singles)",
+        name: "Tennis (F)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TT_F",
-        name: "Table Tennis (F) (Singles)",
+        name: "Table Tennis (F)",
         INRcost: 150,
         open: false
     },
@@ -286,7 +286,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
  */
 const getValidPasses = (currentPasses) => {
     const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS",
-                    "CLTR_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS", "ESPORT"];
+                    "CLTR_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS", "ESPORTS"];
     if (currentPasses.length == 0) {
         console.log("No existing pass")
         return passes

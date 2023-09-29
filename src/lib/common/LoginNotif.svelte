@@ -6,8 +6,6 @@
     if(browser){
         const urlParams = new URLSearchParams(window.location.search);
         isLogin = urlParams.has('loginSuccess');
-        console.log("IsL: " + isLogin)
-
         setTimeout(() => {
             window.history.pushState({}, document.title, window.location.pathname);
         }, 1000)

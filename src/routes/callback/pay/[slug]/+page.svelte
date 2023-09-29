@@ -10,10 +10,10 @@
         }, 2000)
 </script>
 
-<div class=" h-screen w-screen ">
+<div class=" h-screen w-screen fixed z-[2000] bg-black top-0 left-0 ">
 
 
-    <div class="  absolute backdrop-blur-md top-0 left-0 z-[100] w-screen h-screen text-3xl  flex items-center justify-center font-normal bg-clip-text text-transparent  bg-gradient-to-tr from-[#D283B8] via-[#995BBB] to-[#6738BE] ">
+    <div class="  absolute backdrop-blur-md top-0 left-0 z-[100] w-screen h-screen text-3xl  flex items-center justify-center font-bold font-uni text-white ">
         <div class=" w-screen text-center">
             {data.res}
         </div>
