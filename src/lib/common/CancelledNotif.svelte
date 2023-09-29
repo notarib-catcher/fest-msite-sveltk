@@ -4,15 +4,15 @@ import { browser } from '$app/environment';
 
     const isCancelled = $page.url.searchParams.has('cancelled')
     if(browser){
-        window.history.pushState({}, document.title, window.location.pathname);
-    
-        
+        setTimeout(() => {
+            window.history.pushState({}, document.title, window.location.pathname);
+        }, 1000)
     }
 </script>
 
 <div class = "absolute top-0 w-screen h-fit z-[2000] pointer-events-none">
     {#if isCancelled}
-    <div class=" backdrop-blur-xl bg-gradient-to-r from-[#f1d0e6] via-[#772f9e] to-[#623bac] bg-clip-text text-transparent text-2xl font-semibold h-[50px] w-fit p-2 rounded-md mx-auto ModalPopIn">
+    <div class="font-uni text-2xl font-semibold h-[50px] w-fit p-2 bg-[#FE786F] text-white border-[1px] border-white mx-auto ModalPopIn">
         Payment Cancelled
     </div>
     {/if}
@@ -21,24 +21,25 @@ import { browser } from '$app/environment';
 <style>
 
 .ModalPopIn{
-    transform: translateY(-100px);
+    transform: translateY(-200px);
     animation-name: login;
-    animation-duration: 4000ms;
+    animation-duration: 3000ms;
     animation-iteration-count: 1;
     animation-fill-mode: forward;
+    animation-timing-function: ease-in-out;
     }
     @keyframes login{
         0%{
             transform: translateY(-55px);
         }
         25%{
-            transform: translateY(0px);
+            transform: translateY(20px);
         }
         50%{
-            transform: translateY(0px);
+            transform: translateY(20px);
         }
         100%{
-            transform: translateY(-55px);
+            transform: translateY(-200px);
         }
     }
 </style>
