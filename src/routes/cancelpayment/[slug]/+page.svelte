@@ -1,5 +1,6 @@
 <script>
 	import { browser } from '$app/environment';
+	import BgAnim from '$lib/common/BGAnim.svelte';
 
     export let data
 
@@ -13,13 +14,11 @@
   
 </script>
 
-<div class=" h-screen w-screen ">
 
-
-        <div class="  absolute backdrop-blur-md top-0 left-0 z-[100] w-screen h-screen text-3xl  flex items-center justify-center font-normal bg-clip-text text-transparent  bg-gradient-to-tr from-[#D283B8] via-[#995BBB] to-[#6738BE] ">
-            <div class=" w-screen text-center">
+<div class=" bg-black h-screen w-screen z-[3000] ">
+        <div class=" absolute backdrop-blur-md top-0 left-0 z-[100] w-screen h-screen text-3xl  flex items-center justify-center font-normal ">
+            <div class=" w-screen text-center font-uni font-semibold text-white">
                 Resetting payment status...
             </div>
         </div>
-
 </div>

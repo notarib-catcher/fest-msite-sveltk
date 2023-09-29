@@ -68,8 +68,8 @@
     <BgAnim />
     {#if data.payment}
         <div class="fixed backdrop-blur-md top-0 left-0 z-[8] w-screen h-screen  flex items-center justify-center font-normal fadeinSlow ">
-            <div class=" bg-black p-4 rounded-2xl md:whitespace-nowrap">
-                <div class=" max-w-fit max-lg:max-w-screen-md max-md:text-sm text-center from-[#D283B8] via-[#995BBB] to-[#6738BE] bg-gradient-to-r bg-clip-text text-transparent text-2xl">
+            <div class=" bg-[#FE786F] border-white border-[1px] p-4  md:whitespace-nowrap">
+                <div class=" max-w-fit max-lg:max-w-screen-md max-md:text-sm text-center font-uni font-semibold text-white   text-2xl">
                     You already have a pending payment ({data.payment.ref_id})<br><a href={data.payment.short_url} class=" font-semibold border-b-2 hover:border-b-4 duration-200 hover:font-bold active:text-white border-[#4b2c59] ">Pay it</a> or <a data-sveltekit-preload-data="tap" href={"/cancelpayment/" + data.payment.ref_id} class=" font-semibold border-b-2 active:text-white hover:border-b-4 hover:font-bold duration-200 border-[#4b2c59]">Cancel the payment</a>
                     <br><div class=" mt-5">Already paid? <form method="POST"><input type="text" name="ref_id" value={data.payment.ref_id} hidden><button class="underline border-2 rounded-md p-2 border-[#4b2c59] mt-2 hover:scale-105 active:scale-95 transition-all duration-200">Refresh status</button></form></div>
                 </div>

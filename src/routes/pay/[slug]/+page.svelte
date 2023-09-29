@@ -1,5 +1,6 @@
 <script>
 	import { browser } from '$app/environment';
+	import BgAnim from '$lib/common/BGAnim.svelte';
 
     export let data
 
@@ -12,8 +13,9 @@
     }
 </script>
 
-<div class="absolute z-[2000] h-screen w-screen bg-black flex items-center justify-center overflow-hidden top-0 left-0">
-    <div class=" text-center text-3xl font-normal text-white">
+
+<div class="absolute bg-black z-[2000] h-screen w-screen flex items-center justify-center overflow-hidden top-0 left-0">
+    <div class=" text-center text-3xl font-semibold font-uni text-white">
         {#if data.rcodestatus == "i"}
             Invalid Referral Code, Redirecting...
         {/if}
