@@ -47,6 +47,8 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 			session: session,
 			fcTypes: types[0],
 			generatedCode: '',
+			balance: foundAccount['balance'],
+			wallet: foundAccount['in_wallet'],
 			history: history
 		};
 
@@ -85,8 +87,9 @@ export const actions = {
 		const symbolKey = Reflect.ownKeys(formData).find((key) => key.toString() === 'Symbol(state)');
 		// @ts-ignore
 		// console.log(formData[symbolKey]);
-		const foodCouponValue = parseInt(formData[symbolKey][1]['value'].split(' ')[1]);
-		if (foodCouponValue < 0) {
+		let foodCouponValue = formData[symbolKey][0]['value'];
+		foodCouponValue = Number(foodCouponValue);
+		if (foodCouponValue < 0 || typeof(foodCouponValue) === 'undefined') {
 			return { generatedCode: null, success: false };
 		}
 		let generatedCode;
@@ -138,12 +141,17 @@ export const actions = {
 					timestamp: new Date()
 				});
 
-				return { generatedCode: generatedCode, success: true };
+				return { generatedCode: generatedCode, success: true, balance: foundAccount['balance'], wallet: foundAccount['in_wallet']};
 			} else {
 				return { generatedCode: null, success: false };
 			}
 		} else {
-			return { generatedCode: foundAccount['curr_code'], success: true };
+			return {
+				generatedCode: foundAccount['curr_code'],
+				success: true,
+				balance: foundAccount['balance'],
+				wallet: foundAccount['in_wallet']
+			};
 		}
 	},
 	invalidateCurrentCode: async (event) => {
@@ -154,7 +162,7 @@ export const actions = {
 		}
 		const emailId = session.user.email;
 
-		const foundAccount = await fcAccounts.findOne({ email_id: emailId });
+		const foundAccount = await fcAccounts.findOne({ email_id: emailId, in_wallet: {$ne: 0}});
 		if (foundAccount != null) {
 			fcAccounts.updateOne(
 				{ email_id: emailId },
