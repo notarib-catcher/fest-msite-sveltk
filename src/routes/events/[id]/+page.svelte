@@ -129,7 +129,7 @@
       </div>
     {:else}
     <div class=" flex items-center justify-center w-screen px-[5vw] xl:px-[10vw]">
-      <button class=" w-full text-center h-fit relative p-2 rounded-lg mt-5 border-2 border-white text-white active:scale-95 hover:scale-105 transition-all duration-200 ">
+      <button class=" w-[90%] text-center h-fit relative p-2 rounded-lg mt-5 border-2 border-white text-white active:scale-95 hover:scale-105 transition-all duration-200 ">
         Please Login to {data.needreg?"Register":"buy a pass"}
       </button>
     </div>
