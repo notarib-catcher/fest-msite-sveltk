@@ -17,35 +17,35 @@ const passarray = [
     {
         type: "SPORT_FB_M",
         name: "Football (M)",
-        INRcost: 2,
+        INRcost: 5000,
         open: true
     },
 
     {
         type: "SPORT_BB_M",
         name: "Basketball (M)",
-        INRcost: 600,
+        INRcost: 5000,
         open: false
     },
 
     {
         type: "SPORT_VB_M",
         name: "Volleyball (M)",
-        INRcost: 200,
+        INRcost: 3000,
         open: false
     },
 
     {
         type: "SPORT_TN_M",
         name: "Tennis (M)",
-        INRcost: 150,
+        INRcost: 800,
         open: false
     },
 
     {
         type: "SPORT_TT_M",
         name: "Table Tennis (M)",
-        INRcost: 400,
+        INRcost: 800,
         open: false
     },
 
@@ -54,28 +54,28 @@ const passarray = [
     {
         type: "SPORT_BB_F",
         name: "Basketball (F)",
-        INRcost: 200,
+        INRcost: 2000,
         open: false
     },
 
     {
         type: "SPORT_TB_F",
         name: "Throwball (F)",
-        INRcost: 600,
+        INRcost: 2000,
         open: false
     },
 
     {
         type: "SPORT_TN_F",
-        name: "Tennis (F)",
+        name: "Tennis Singles (F)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TT_F",
-        name: "Table Tennis (F)",
-        INRcost: 150,
+        name: "Table Tennis Singles (F)",
+        INRcost: 200,
         open: false
     },
 
@@ -86,14 +86,14 @@ const passarray = [
     {
         type: "SPORT_ATH",
         name: "Athletics",
-        INRcost: 400,
+        INRcost: 100,
         open: false
     },
 
     {
         type: "SPORT_CHS",
-        name: "Chess",
-        INRcost: 400,
+        name: "Chess (Team of 6)",
+        INRcost: 1500,
         open: false
     },
 

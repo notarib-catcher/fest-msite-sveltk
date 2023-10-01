@@ -113,36 +113,36 @@
 
     {
         type: "SPORT_FB_M",
-        name: "Football (Men's/Team)",
-        INRcost: 200,
+        name: "Men's Football (per team cost)",
+        INRcost: 5000,
         open: false
     },
 
     {
         type: "SPORT_BB_M",
-        name: "Basketball (Men's/Team)",
-        INRcost: 600,
+        name: "Men's Basketball (per team cost)",
+        INRcost: 5000,
         open: false
     },
 
     {
         type: "SPORT_VB_M",
-        name: "Volleyball (Men's/Team)",
-        INRcost: 200,
+        name: "Men's Volleyball (per team cost)",
+        INRcost: 3000,
         open: false
     },
 
     {
         type: "SPORT_TN_M",
-        name: "Tennis (Men's/Team)",
-        INRcost: 150,
+        name: "Men's Tennis (Doubles - per team cost)",
+        INRcost: 800,
         open: false
     },
 
     {
         type: "SPORT_TT_M",
-        name: "Table Tennis (Men's/Team)",
-        INRcost: 400,
+        name: "Men's Table Tennis (Doubles - per team cost)",
+        INRcost: 800,
         open: false
     },
 
@@ -150,29 +150,29 @@
 
     {
         type: "SPORT_BB_F",
-        name: "Basketball (Women's/Team)",
-        INRcost: 200,
+        name: "Women's Basketball (per team cost)",
+        INRcost: 2000,
         open: false
     },
 
     {
         type: "SPORT_TB_F",
-        name: "Throwball (Women's/Team)",
-        INRcost: 600,
+        name: "Women's Throwball (per team cost)",
+        INRcost: 2000,
         open: false
     },
 
     {
         type: "SPORT_TN_F",
-        name: "Tennis (Women's/Singles)",
+        name: "Women's Tennis (Singles)",
         INRcost: 200,
         open: false
     },
 
     {
         type: "SPORT_TT_F",
-        name: "Table Tennis (Women's/Singles)",
-        INRcost: 150,
+        name: "Women's Table Tennis (Singles)",
+        INRcost: 200,
         open: false
     },
 
@@ -182,15 +182,15 @@
     
     {
         type: "SPORT_ATH",
-        name: "Athletics",
-        INRcost: 400,
+        name: "Athletics (Individual)",
+        INRcost: 100,
         open: false
     },
 
     {
         type: "SPORT_CHS",
-        name: "Chess",
-        INRcost: 400,
+        name: "Chess (6 members / team from a uni)",
+        INRcost: 1500,
         open: false
     },
 
