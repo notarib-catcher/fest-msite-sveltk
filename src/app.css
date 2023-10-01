@@ -452,3 +452,39 @@ body{
    width: 90%;
    margin-top: 5px;
 }  
+
+#Volcano{
+    background-image: url("./assets/2846339.svg");
+    background-size: cover;
+    height: 400vmax;
+    width: 600vmax;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+  #Surge{
+    position : absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #Surge img{
+    width: 70%;
+    height: 100%;
+  }
+  #Cablecar{
+    position: absolute;
+    height: 150px;
+    animation: move 10s 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes move{
+    0%{
+      offset-distance: 0%;
+    }
+    100%{
+      offset-distance: 100%;
+      
+    }
+  }

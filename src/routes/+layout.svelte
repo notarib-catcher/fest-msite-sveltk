@@ -10,6 +10,7 @@
 	import Analytics from "$lib/common/Analytics.svelte";
     import Loader from "$lib/common/Loader.svelte";
     import UserAgentCheck from "$lib/common/UserAgentCheck.svelte";
+	import LandingPage from "$lib/home_pg/LandingPage.svelte";
     export let data;
 </script>
 <UserAgentCheck />
@@ -22,9 +23,7 @@
 </div>
 <Analytics/>
 {#if $page.url.pathname == "/"}
-    <div id="banner-container" class=" z-1">
-        <Banner />
-    </div>
+    <LandingPage />
 {/if}
 
 
