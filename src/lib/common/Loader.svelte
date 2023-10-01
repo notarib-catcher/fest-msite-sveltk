@@ -7,7 +7,7 @@
     if(!$navigating){
         setTimeout(() => {
             navload = false
-        }, 2300)
+        }, 500)
     }
 </script>
 
