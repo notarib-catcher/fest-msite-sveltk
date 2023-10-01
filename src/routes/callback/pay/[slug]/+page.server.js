@@ -166,6 +166,16 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
         refCode: (refCode != 'NA')?refCode:""
     })
 
+    await payments.updateOne({
+        _id:"DAILY_PAYM_TRACK"
+    },
+    {
+        $inc:{
+            count: 1
+        }
+    }
+    )
+
 
     
     return {res: "Payment processed! Redirecting...", redirect: "/mypass"}
