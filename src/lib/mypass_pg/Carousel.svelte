@@ -110,7 +110,7 @@
                 </div>
             {/if}
             <div class=" w-full text-center pt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#c7acac] via-[#d6bfe2] to-[#7e7b83]">
-                This QR grants event access.<br>Take a screenshot, <i>Just in case.</i>
+                To register for an event,<br>head to the events page<br>and press MORE INFO.
             </div>
             
         </div>

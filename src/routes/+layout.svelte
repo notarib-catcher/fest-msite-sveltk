@@ -10,7 +10,6 @@
 	import Analytics from "$lib/common/Analytics.svelte";
     import Loader from "$lib/common/Loader.svelte";
     import UserAgentCheck from "$lib/common/UserAgentCheck.svelte";
-	import LandingPage from "$lib/home_pg/LandingPage.svelte";
     export let data;
 </script>
 <UserAgentCheck />
@@ -22,11 +21,6 @@
     <Navbar fcAllowed="{data.fcAllowed}"/>
 </div>
 <Analytics/>
-{#if $page.url.pathname == "/"}
-    <LandingPage />
-{/if}
-
-
 <slot />
 
 <Footer />

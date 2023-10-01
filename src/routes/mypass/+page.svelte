@@ -1,5 +1,6 @@
 <script>
-    import Carousel from "../../lib/mypass_pg/Carousel.svelte";
+    import BgAnim from "$lib/common/BGAnim.svelte";
+import Carousel from "../../lib/mypass_pg/Carousel.svelte";
     export let data;
     /**
 	 * @type {any[]}
@@ -17,8 +18,8 @@
         }
     }
 </script>
-
-<div class="bg-gradient-to-t to-[#2b1a25] via-[#130926] from-zinc-900 h-screen w-screen">
+<BgAnim />
+<div class="h-screen w-screen">
     <Carousel codeDataArr = {passstrArr} typeArr={passtypeArr} />
 </div>
 

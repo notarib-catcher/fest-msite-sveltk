@@ -35,22 +35,24 @@ const allowedPasses = {
     "C_FAS" : ["CLTR_FAS"], //team, 10
 
     //Cultural Normie
-    "C_MNDSCR": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_BTSCAR": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_STRBET": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_BTBLBD": ["CLTR_PRO", "SUP_PRO"], //team, 4
-    "C_FCSFRM": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_ZENITH": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_SHKTNK": ["CLTR_PRO", "SUP_PRO"], //team, 7
-    "C_BSHBTL": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_MNGODY": ["CLTR_PRO", "SUP_PRO"], //solo
-    "C_RANCOM": ["CLTR_PRO", "SUP_PRO"], //team, 3
-    "C_THESHD": ["CLTR_PRO", "SUP_PRO"], //team, 20
-    "C_STRSPL": ["CLTR_PRO", "SUP_PRO"], //team, 20
-    "C_MKTMHM": ["CLTR_PRO", "SUP_PRO"], //team, 3
-    "C_CINCRF": ["CLTR_PRO", "SUP_PRO"], //team, 4
-    "C_BTLBAB": ["CLTR_PRO", "SUP_PRO"], //team, 2
-    "C_LOGLYM": ["CLTR_PRO", "SUP_PRO"], //solo
+    "C_MNDSCR": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_BTSCAR": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_STRBET": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_BTBLBD": ["CLTR_PRO", "SUP_PRO"], //team, 4 -
+    "C_FCSFRM": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_ZENITH": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_SHKTNK": ["CLTR_PRO", "SUP_PRO"], //team, 7 -
+    "C_BSHBTL": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_MNGODY": ["CLTR_PRO", "SUP_PRO"], //solo -
+    "C_RANCOM": ["CLTR_PRO", "SUP_PRO"], //team, 3 -
+    "C_THESHD": ["CLTR_PRO", "SUP_PRO"], //team, 20 -
+    "C_STRSPL": ["CLTR_PRO", "SUP_PRO"], //team, 20 -
+    "C_MKTMHM": ["CLTR_PRO", "SUP_PRO"], //team, 3 -
+    "C_CINCRF": ["CLTR_PRO", "SUP_PRO"], //team, 4 -
+    "C_BTLBAB": ["CLTR_PRO", "SUP_PRO"], //team, 2 -
+    "C_ECHOES": ["CLTR_PRO", "SUP_PRO"], //solo -
+    // "C_LOGLYM": ["CLTR_PRO", "SUP_PRO"], //solo - REMOVED
+    "C_SRGSAF": ["CLTR_PRO", "SUP_PRO"], //team, 4 -    
 
     //Esports
     "ES_BGDMHM" : ["ESPORTS"], //team, 4
