@@ -8,5 +8,4 @@
     
 </script>
 
-<div>
-</div>
+<div></div>

@@ -366,7 +366,14 @@ body{
     animation-duration: 300ms;
     animation-fill-mode: forwards;
 }
-
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 @keyframes blurin {
     0%{
         backdrop-filter: blur(0px);
@@ -453,13 +460,11 @@ body{
    margin-top: 5px;
 }  
 
-#Volcano{
+.Volcano{
     background-image: url("./assets/2846339.svg");
     background-size: cover;
-    height: 400vmax;
-    width: 600vmax;
+    height: 100vh;
     background-repeat: no-repeat;
-    position: absolute;
   }
   #Surge{
     position : absolute;
@@ -469,10 +474,7 @@ body{
     justify-content: center;
     align-items: center;
   }
-  #Surge img{
-    width: 70%;
-    height: 100%;
-  }
+
   #Cablecar{
     position: absolute;
     height: 150px;
@@ -488,3 +490,55 @@ body{
       
     }
   }
+
+  @keyframes zoomIn{
+    0%{
+        transform: translate(0,0) scale(1);
+    }
+    100%{
+        transform: translate(calc(calc((3.5* 100vw)/750)*200),calc(calc((0.75* 100vw)/500)*100) ) scale(4);
+        /* transform: translate(calc(calc(())),calc(calc((0.75* 100vw)/500)*100) ) scale(4); */
+    }
+  }
+    
+
+  .zoomedInMountain{
+    animation: zoomIn 3s forwards;
+  }
+
+  .surgeLogoActive{
+    animation: fadeInAnimation 3s;
+  }
+.surgeLogo{
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    height: 500px;
+    width:500px;
+}
+@keyframes moveLogoBottomRight {
+    0% {
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        height: 500px;
+        width: 500px;
+        margin: 0px;
+    }
+    100% {
+        bottom: 0;
+        right: 0;
+        transform: translate(0, 25%);
+        height: 200px;
+        width: 200px;
+        margin: 5px;
+     }
+}
+
+  .surgeLogoInactive{
+    animation: moveLogoBottomRight 3s forwards;
+    height: 100px;
+    
+  }
+
