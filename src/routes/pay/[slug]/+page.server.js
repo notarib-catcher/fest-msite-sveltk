@@ -101,9 +101,15 @@ const passarray = [
 
     {
         type: "CLTR_PRO",
-        name: "Proshow and Minor Events",
+        name: "Proshow and Cultural Events",
         INRcost: 4,
         open: true
+    },
+    {
+        type: "SUP_PRO",
+        name: "VIP",
+        INRcost: 1500,
+        open: false
     },
     {
         type: "CLTR_BOB",
@@ -307,7 +313,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
  */
 const getValidPasses = (currentPasses) => {
     const passes = ["SPORT_FB_M", "SPORT_BB_M", "SPORT_VB_M", "SPORT_TN_M", "SPORT_TT_M", "SPORT_BB_F", "SPORT_TB_F", "SPORT_TN_F", "SPORT_TT_F", "SPORT_ATH", "SPORT_CHS",
-                    "CLTR_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS", "ESPORTS"];
+                    "CLTR_PRO", "SUP_PRO", "CLTR_BOB", "CLTR_GRD", "CLTR_FAS", "ESPORTS"];
     if (currentPasses.length == 0) {
         console.log("No existing pass")
         return passes

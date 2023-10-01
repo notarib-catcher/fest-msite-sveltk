@@ -203,6 +203,12 @@
         open: false
     },
     {
+        type: "SUP_PRO",
+        name: "VIP: Proshow & Meet the artists (+ All normal cultural events)",
+        INRcost: 1500,
+        open: false
+    },
+    {
         type: "CLTR_BOB",
         name: "Battle of Bands",
         INRcost: 400,

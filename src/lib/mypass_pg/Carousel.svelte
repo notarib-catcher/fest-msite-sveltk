@@ -6,10 +6,23 @@
 
     const passNameDisplay = {
         //legacy pass - all access doesnt exist anymore
-      "FULL_ACCESS": "All Access Pass",
+      "SPORT_FB_M": "Football (Team pass)",
+      "SPORT_BB_M": "Basketball (Team pass)",
+      "SPORT_VB_M": "Volleyball (Team pass)",
+      "SPORT_TN_M": "Tennis (Doubles)",
+      "SPORT_TT_M": "Table Tennis (Doubles)",
+      "SPORT_BB_F": "Basketball (Team pass)",
+      "SPORT_TB_F": "Throwball (Team pass)",
+      "SPORT_TN_F": "Tennis (Singles)",
+      "SPORT_TT_F": "Table Tennis (Singles)",
+      "SPORT_ATH": "Athletics",
+      "SPORT_CHS": "Chess (Team pass)",
         //normal passes
-      "PROSHOW":  "Proshow access",
-      "FLAGSHIP": "All flagships",
+      "CLTR_PRO":  "Proshow and Cultural",
+      "SUP_PRO":  "SURGE VIP PASS",
+      "CLTR_GRD": "Group Dance (Team)",
+      "CLTR_BOB": "Band Battle (Team)",
+      "CLTR_FAS": "Fashion Show",
       "ESPORTS": "Esports",
       //staff access
       "STAFF" : "Event staff"
