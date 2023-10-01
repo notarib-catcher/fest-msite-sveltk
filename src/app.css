@@ -77,10 +77,12 @@ html::-webkit-scrollbar {
 
 body{
     background: #3300BD;
+    height:100lvh;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
-
+    overflow: clip;
+    margin: 0;
 }
 
 .fadeinonload{
@@ -455,11 +457,20 @@ body{
 
 #Volcano{
     background-image: url("./assets/2846339.svg");
-    background-size: cover;
-    height: 400vmax;
-    width: 600vmax;
     background-repeat: no-repeat;
-    position: absolute;
+    position: fixed;
+  }
+  @media all and (orientation: portrait) {
+    #Volcano {
+        height: 400vh;
+        width: 600vh;
+    }
+  }
+  @media all and (orientation: landscape) {
+    #Volcano {
+        height: 400vw;
+        width: 600vw;
+    }
   }
   #Surge{
     position : absolute;
@@ -476,12 +487,39 @@ body{
   #Cablecar{
     position: absolute;
     height: 150px;
-    animation: move 10s 1;
     animation-fill-mode: forwards;
+    
   }
-  @keyframes move{
+  @keyframes move1{
     0%{
       offset-distance: 0%;
+    }
+    100%{
+      offset-distance: 45%;
+      
+    }
+  }
+  .animation1{
+    animation: move1 4s 1;
+}
+.animation2{
+    animation: move2 4s 1;
+}
+.animation3{
+    animation: move3 4s 1;
+}
+  @keyframes move2{
+    0%{
+      offset-distance: 45%;
+    }
+    100%{
+      offset-distance: 75%;
+      
+    }
+  }
+  @keyframes move3{
+    0%{
+      offset-distance: 75%;
     }
     100%{
       offset-distance: 100%;

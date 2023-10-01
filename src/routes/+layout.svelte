@@ -23,4 +23,3 @@
 <Analytics/>
 <slot />
 
-<Footer />
