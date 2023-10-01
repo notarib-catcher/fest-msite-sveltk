@@ -31,11 +31,10 @@
         lengthY = (4*vmax/500)*126;
         for(let ttt=3; ttt>0; ttt--){
             let PosX=OriginX+((DestinationX-OriginX)/3)*ttt;
-            let PosY=OriginY+((DestinationY-OriginY)/3)*ttt-vmax/3;
+            let PosY=OriginY+((DestinationY-OriginY)/3)*ttt-vmax/4;
             
           arrPos.push([PosX,PosY]);
         }
-      gallery.innerHTML+= `<img id="Cablecar" src=${CableCar} alt="Cable Car" style="-webkit-transform: scaleX(-1) rotate(13deg); transform: scaleX(-1) translateY(40px) rotate(12.5deg); offset-Path: path('M ${OriginX} ${OriginY} L ${DestinationX} ${DestinationY}');"/>`;
     console.log(gallery);
     gallery.style.transform=`translate(${-1*(OriginX-body?.clientWidth/2)}px, ${-1*(OriginY-body?.clientHeight/2)}px)`;
     
@@ -91,6 +90,7 @@
   
   <main>
       <div id="Volcano" style="transform: translate(${OriginX}px, ${OriginY}px);">
+        <img id="Cablecar" src={CableCar} alt="Cable Car" style="-webkit-transform: scaleX(-1) rotate(13deg); transform: scaleX(-1) translateY(40px) rotate(12.5deg); offset-Path: path('M {OriginX} {OriginY} L {DestinationX} {DestinationY}');"/>
       </div>
       <!-- <div id="Surge">
         <img src={Surge} alt="Surge Logo" />

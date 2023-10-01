@@ -488,7 +488,6 @@ body{
     position: absolute;
     height: 150px;
     animation-fill-mode: forwards;
-    
   }
   @keyframes move1{
     0%{
