@@ -166,15 +166,19 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
         refCode: (refCode != 'NA')?refCode:""
     })
 
-    await payments.updateOne({
-        _id:"DAILY_PAYM_TRACK"
-    },
-    {
-        $inc:{
-            count: 1
+
+    if(type == "CLTR_PRO" || type == "SUP_PRO"){
+        await payments.updateOne({
+            _id:"DAILY_PAYM_TRACK"
+        },
+        {
+            $inc:{
+                count: 1
+            }
         }
+        )
     }
-    )
+  
 
 
     
