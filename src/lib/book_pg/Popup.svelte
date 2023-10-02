@@ -204,7 +204,7 @@
     },
     {
         type: "SUP_PRO",
-        name: "VIP: Proshow & Meet the artists (+ All normal cultural events)",
+        name: "Superpass Proshow + Cultural (perks in proshow) 799",
         INRcost: 799,
         open: false
     },

@@ -19,7 +19,7 @@
       "SPORT_CHS": "Chess (Team pass)",
         //normal passes
       "CLTR_PRO":  "Proshow and Cultural",
-      "SUP_PRO":  "SURGE VIP PASS",
+      "SUP_PRO":  "SUPERPASS",
       "CLTR_GRD": "Group Dance (Team)",
       "CLTR_BOB": "Band Battle (Team)",
       "CLTR_FAS": "Fashion Show",
