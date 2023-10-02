@@ -64,7 +64,7 @@
     <img src={hamburger} width="50px">
 </button>
 <div bind:this={menu} class="menumoveoutleft fixed bg-opacity-30 text-white top-0 left-0 h-[100dvh] md:w-[35%] lg:w-[25%] w-[100%] bg-black z-[500]" hidden>
-    <button class="absolute right-0 top-0 mt-2 mr-2 p-1 rounded-full bg-black bg-opacity-30 active:bg-white active:bg-opacity-25 transition-all duration-150" on:click={closeMenu}>
+    <button class="ml-4 absolute right-0 top-0 mt-2 mr-2 p-1 rounded-full bg-black bg-opacity-30 active:bg-white active:bg-opacity-25 transition-all duration-150" on:click={closeMenu}>
         <img src={closebtn} width="30px">
     </button>
     <div class=" w-full h-full flex items-center justify-center">
