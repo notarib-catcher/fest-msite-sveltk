@@ -107,9 +107,9 @@ const passarray = [
     },
     {
         type: "SUP_PRO",
-        name: "VIP",
-        INRcost: 1,
-        open: true
+        name: "SUPER",
+        INRcost: 799,
+        open: false
     },
     {
         type: "CLTR_BOB",
