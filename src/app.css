@@ -75,7 +75,7 @@ html::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
-body{
+.onhp{
     background: #3300BD;
     height:100lvh;
     -webkit-user-select: none; /* Safari */
@@ -462,19 +462,29 @@ body{
    margin-top: 5px;
 }  
 
-.Volcano{
-    background-image: url("./assets/2846339.svg");
-    background-repeat: no-repeat;
-    position: fixed;
-  }
+    .Volcano{
+        background-image: url("./imgs/2846339.svg");
+        background-repeat: no-repeat;
+        position: fixed;
+        background-size:cover;
+        transition-property: all;
+        transition-duration: 2000ms;
+    }
+  
+    .VolcanoDuringAnims{
+
+    }
+
+
+
   @media all and (orientation: portrait) {
-    #Volcano {
+    .VolcanoDuringAnims {
         height: 400vh;
         width: 600vh;
     }
   }
   @media all and (orientation: landscape) {
-    #Volcano {
+    .VolcanoDuringAnims {
         height: 400vw;
         width: 600vw;
     }

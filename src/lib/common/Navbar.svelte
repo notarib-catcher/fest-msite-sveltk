@@ -20,8 +20,10 @@
     export let fcAllowed;
     let menu
     let menubackdrop
+    let menubtn
 
     const closeMenu = async () => {
+        menubtn.hidden=false
         menu.classList.remove("menumoveinleft")
         menubackdrop.classList.remove("blurinmenubkd")
         menu.classList.add("menumoveoutleft")
@@ -43,6 +45,7 @@
         menu.classList.remove("menumoveoutleft")
         menu.hidden = false
         menubackdrop.hidden = false
+        menubtn.hidden = true
     }
 
     $: if($navigating) closeMenu();
@@ -57,8 +60,8 @@
 
 
 <!--Navbox new-->
-<button class="z-[49] fixed top-0 left-0" on:click={openMenu}>
-    <img src={hamburger} width="30px">
+<button class="z-[500] fixed top-0 left-0" on:click={openMenu} bind:this={menubtn}>
+    <img src={hamburger} width="50px">
 </button>
 <div bind:this={menu} class="menumoveoutleft fixed bg-opacity-30 text-white top-0 left-0 h-[100dvh] md:w-[35%] lg:w-[25%] w-[100%] bg-black z-[500]" hidden>
     <button class="absolute right-0 top-0 mt-2 mr-2 p-1 rounded-full bg-black bg-opacity-30 active:bg-white active:bg-opacity-25 transition-all duration-150" on:click={closeMenu}>
