@@ -274,7 +274,7 @@ export const load = async (/** @type {{ locals: { getSession: () => any; }; }} *
 
     if (allowedPasses.includes(queried_type)) {
 
-        if(queried_type == "CLTR_PRO"){
+        if(queried_type == "CLTR_PRO" || queried_type == "SUP_PRO"){
             let countDoc = await payments.findOne({_id: "DAILY_PAYM_TRACK"})
             if(countDoc){
                 let currDate = new Date()
