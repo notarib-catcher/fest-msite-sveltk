@@ -8,6 +8,7 @@
   import trophy from "../../../assets/trophy-solid.svg"
   import MDConverter from "$lib/events_pg/MDConverter.svelte";
 	import BgAnim from "$lib/common/BGAnim.svelte";
+	import { signIn } from "@auth/sveltekit/client";
 
   let event = {}
   $: LImage = event.Image
@@ -129,7 +130,7 @@
       </div>
     {:else}
     <div class=" flex items-center justify-center w-screen px-[5vw] xl:px-[10vw]">
-      <button class=" w-[90%] text-center h-fit relative p-2 rounded-lg mt-5 border-2 border-white text-white active:scale-95 hover:scale-105 transition-all duration-200 ">
+      <button class=" w-[90%] text-center h-fit relative p-2 rounded-lg mt-5 border-2 border-white text-white active:scale-95 hover:scale-105 transition-all duration-200 " on:click={() => {signIn('google',{callbackUrl: "/events/"+ data.eventID})}}>
         Please Login to {data.needreg?"Register":"buy a pass"}
       </button>
     </div>
