@@ -1,11 +1,13 @@
 <script>
 	import { browser } from '$app/environment';
-
+	import { page } from '$app/stores';
 	// @ts-nocheck
 	const txtcdnURL = "https://txtcdn.mitblrfest.in/api/events"
 	import BgAnim from '$lib/common/BGAnim.svelte';
 	import EventTile from '$lib/events_pg/EventTile.svelte';
 	import { onMount } from 'svelte';
+
+
 
 	import EventPlaceholder from '$lib/events_pg/EventPlaceholder.svelte';
 
@@ -55,6 +57,35 @@
 			CulturalEvents = CulturalEventsTemp
 			EsportsEvents = EsportsEventsTemp
 
+			
+			const sc2 = $page.url.searchParams.get('scrollto')
+
+			let cehdg = document.getElementById('cehdg')
+			let fehdg = document.getElementById('fehdg')
+			let sehdg = document.getElementById('sehdg')
+			let eehdg = document.getElementById('eehdg')
+			
+
+			switch(sc2){
+				case 'ce':
+
+					cehdg?.scrollIntoView()
+					break;
+				case 'se':
+
+					sehdg?.scrollIntoView()
+					break;
+				case 'fe':
+
+					fehdg?.scrollIntoView()
+					break;
+				case 'ee':
+	
+					eehdg?.scrollIntoView()
+					break;
+				
+				
+			}
 		}
 	})
 
@@ -64,7 +95,7 @@
 <div class="h-fit w-screen flex mt-10 items-center justify-center flex-col p-[5vw]">
 	
 	<div class=" w-fit h-fit">
-		<div class=" text-6xl w-full text-center md:text-left mb-10 text-[#FE786F] font-monster">
+		<div class=" text-6xl w-full text-center md:text-left mb-10 text-[#FE786F] font-monster" id="fehdg">
 			Featured Events
 		</div>
 		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
@@ -80,21 +111,7 @@
 			{/if}
 			
 		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#0ebaaa] font-monster">
-			Sports Events
-		</div>
-		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
-			{#if SportsEvents.length > 0}
-				{#each SportsEvents as festEvent}
-					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
-				{/each}
-			{:else}
-				{#each arrayofexamples as example}
-					<EventPlaceholder />
-				{/each}
-			{/if}
-		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#1095ff] font-monster">
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#1095ff] font-monster" id="cehdg">
 			Cultural Events
 		</div>
 		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
@@ -108,7 +125,21 @@
 				{/each}
 			{/if}
 		</div>
-		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#ed008c] font-monster">
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#0ebaaa] font-monster" id="sehdg">
+			Sports Events
+		</div>
+		<div class=" grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">
+			{#if SportsEvents.length > 0}
+				{#each SportsEvents as festEvent}
+					<EventTile eventID={festEvent.attributes.EventID} cscheme={festEvent.attributes.Cscheme} imageURL={festEvent.attributes.PImage} heading={festEvent.attributes.Heading} shortDesc={festEvent.attributes.ShortDescription} priority={festEvent.attributes.Priority}></EventTile>
+				{/each}
+			{:else}
+				{#each arrayofexamples as example}
+					<EventPlaceholder />
+				{/each}
+			{/if}
+		</div>
+		<div class="mt-10 text-6xl w-full text-center md:text-left mb-10 text-[#ed008c] font-monster" id="eehdg">
 			E-Sports Events
 		</div>
 		<div class="  grid grid-flow-row lg:grid-cols-2 grid-cols-1 gap-10 ">

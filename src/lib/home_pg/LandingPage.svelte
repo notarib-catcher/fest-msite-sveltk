@@ -164,7 +164,7 @@
 <main>
 	<div class=" z-[150] flex flex-col items-center justify-center w-screen h-screen fixed top-0 left-0 z-[100] ">
 		<div class="z-[105] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv1"></div>
-		<div class="z-[104] pb-44 font-monster text-3xl hidden text-white" bind:this={tagline}>
+		<div class="z-[104] pb-44 font-monster text-3xl max-md:text-2xl hidden text-white" bind:this={tagline}>
 			Ride the wave of energy
 		</div>
 		<div class="z-[104] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv2"></div>
@@ -178,7 +178,7 @@
 				<div class="h-fit mt-10 font-uni font-bold text-white text-center">
 					Welcome to Falak, where sports take centre stage in our celebration of culture, creativity, and excellence. Our sports events are designed to ignite your competitive fire, offering a thrilling platform to showcase your athleticism and sportsmanship. 				</div>
 				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-end max-md:justify-center">
-					<button class="relative z-[150] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80">
+					<button class="relative z-[150] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80" on:click={() => {window.location = "/events?scrollto=se"}}>
 						Check out the sports events
 					</button>
 				</div>
@@ -191,10 +191,10 @@
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster">
 					CULTURAL
 				</div>
-				<div class="h-fit mt-10 font-uni font-bold text-white">
+				<div class="h-fit mt-10 font-uni font-bold text-white text-center">
 					At Falak, we believe that culture is the heartbeat of our festival, showcasing the richness of our diverse heritage through enchanting dances, gripping dramas, and soul-stirring music. But that's not all – we also fuel the spirit of competition with engaging debates, captivating painting contests, and mind-boggling quizzes.				</div>
 				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-end max-md:justify-center">
-					<button class="relative z-[150] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80">
+					<button class="relative z-[150] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80" on:click={() => {window.location = "/events"}}>
 						Check out the cultural events
 					</button>
 				</div>
@@ -211,7 +211,7 @@
 					<iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" w-[90vw] max-w-[600px] h-[70vh] max-md:h-[50vh]  p-5 rounded-lg overflow-hidden" style="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-end max-md:justify-center">
-					<button class="relative z-[150] btn1  p-2 font-uni font-bold bg-white text-blue-400 opacity-80 mb-5" on:click={() => {window.location = "/events"}}>
+					<button class="relative z-[150] btn1  p-2 font-uni font-bold bg-white text-blue-400 mb-5" on:click={() => {window.location = "/events"}}>
 						Explore the fest
 					</button>
 				</div>

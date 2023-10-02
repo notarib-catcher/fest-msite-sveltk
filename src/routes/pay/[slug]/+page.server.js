@@ -102,31 +102,31 @@ const passarray = [
     {
         type: "CLTR_PRO",
         name: "Proshow and Cultural Events",
-        INRcost: 4,
+        INRcost: 699,
         open: true
     },
     {
         type: "SUP_PRO",
         name: "VIP",
-        INRcost: 1500,
+        INRcost: 799,
         open: false
     },
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
-        INRcost: 400,
+        INRcost: 4000,
         open: false
     },
     {
         type: "CLTR_GRD",
         name: "Group Dance",
-        INRcost: 400,
+        INRcost: 3000,
         open: false
     },
     {
         type: "CLTR_FAS",
         name: "Fashion Show",
-        INRcost: 400,
+        INRcost: 1700,
         open: false
     },  
     
@@ -135,7 +135,7 @@ const passarray = [
     {
         type: "ESPORTS",
         name: "Esports",
-        INRCost: 1,
+        INRCost: 150,
         open:false
     }
 

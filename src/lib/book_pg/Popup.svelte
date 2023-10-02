@@ -199,38 +199,38 @@
     {
         type: "CLTR_PRO",
         name: "Proshow and Cultural Events",
-        INRcost: 400,
+        INRcost: 699,
         open: false
     },
     {
         type: "SUP_PRO",
         name: "VIP: Proshow & Meet the artists (+ All normal cultural events)",
-        INRcost: 1500,
+        INRcost: 799,
         open: false
     },
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
-        INRcost: 400,
+        INRcost: 4000,
         open: false
     },
     {
         type: "CLTR_GRD",
         name: "Group Dance",
-        INRcost: 400,
+        INRcost: 3000,
         open: false
     },
     {
         type: "CLTR_FAS",
         name: "Fashion Show",
-        INRcost: 400,
+        INRcost: 1700,
         open: false
     },
 
     {
         type: "ESPORTS",
         name: "Esports pass",
-        INRcost: 1,
+        INRcost: 150,
         open:false
     }
 
