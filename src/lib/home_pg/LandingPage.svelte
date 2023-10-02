@@ -162,22 +162,45 @@
 </script>
 
 <main>
-	<div class=" z-[150] flex flex-col items-center justify-center w-screen h-screen fixed top-0 left-0 z-[100] ">
+	<div class=" z-[150] flex flex-col items-center justify-center w-screen h-screen fixed top-0 left-0 ">
 		
-		<div class="z-[104] pb-44 font-monster text-3xl max-md:text-2xl hidden text-white" bind:this={tagline}>
-			Ride the wave of energy
+		<div class="z-[104] animationFade2 pb-44 font-monster mb-10 text-6xl max-md:text-2xl hidden text-white" bind:this={tagline}>
+			
+
+			<p class="popout">
+	<span>R</span>
+	<span>I</span>
+	<span>D</span>
+	<span>E</span><br>
+	<span>T</span>
+	<span>H</span>
+	<span>E</span><br>
+	<span>W</span>
+	<span>A</span>
+	<span>V</span>
+	<span>E</span><br>
+	<span>O</span>
+	<span>F</span><br>
+	<span>E</span>
+	<span>N</span>
+	<span>E</span>
+	<span>R</span>
+	<span>G</span>
+	<span>Y</span>
+	</p>
 		</div>
 		
+		
 		<!-- Popbox -->
-		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb3}>
-			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] p-5 ">
+		<div class="flex z-[150]  flex-col items-center justify-center h-fit p-5" bind:this={pb3}>
+			<div class=" flex flex-col animationFade items-center justify-center h-fit bg-white bg-opacity-20 rounded-xl  max-w-[600px] p-5 ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster">
 					SPORTS
 				</div>
 				<div class="h-fit mt-10 font-uni font-bold text-white text-center">
 					Welcome to Falak, where sports take centre stage in our celebration of culture, creativity, and excellence. Our sports events are designed to ignite your competitive fire, offering a thrilling platform to showcase your athleticism and sportsmanship. 				</div>
 				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-end max-md:justify-center">
-					<button class="relative z-[150] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80" on:click={() => {window.location = "/events?scrollto=se"}}>
+					<button class="relative z-[200] btn1 mt-10 p-2 font-uni font-bold bg-white text-blue-400 opacity-80" on:click={() => {window.location = "/events?scrollto=se"}} >
 						Check out the sports events
 					</button>
 				</div>
@@ -185,8 +208,8 @@
 		</div>	
 
 		<!-- Popbox -->
-		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb2}>
-			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] p-5 ">
+		<div class="flex z-[150]  flex-col items-center justify-center h-fit p-5" bind:this={pb2}>
+			<div class=" flex flex-col animationFade items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] p-5 ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster">
 					CULTURAL
 				</div>
@@ -201,23 +224,23 @@
 		</div>	
 
 		<!-- Popbox -->
-		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb1}>
-			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] ">
+		<div class="flex z-[150]  flex-col items-center justify-center h-fit p-5" bind:this={pb1}>
+			<div class=" flex flex-col animationFade items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster mt-5">
 					Find us
 				</div>
 				<div class="h-fit relative z-[150]  font-uni font-bold text-white">
-					<iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" w-[90vw] max-w-[600px] h-[70vh] max-md:h-[50vh]  p-5 rounded-lg overflow-hidden" style="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					<iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" w-[90vw] max-w-[600px] h-[60vh] max-md:h-[50vh]  p-5 rounded-lg overflow-hidden" style="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
-				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-end max-md:justify-center">
-					<button class="relative z-[150] btn1  p-2 font-uni font-bold bg-white text-blue-400 mb-5" on:click={() => {window.location = "/events"}}>
+				<div class="xl:w-[40%] w-[90%] md:w-[75%] lg:w-[50%] flex flex-row justify-center max-md:justify-center">
+					<button class="relative z-[150] btn1 align-middle justify-center p-2 font-uni font-bold bg-white text-blue-400 mb-5" on:click={() => {window.location = "/events"}}>
 						Explore the fest
 					</button>
 				</div>
 			</div>
 		</div>	
 		
-		<div class="z-[104] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv2"></div>
+		<div class="z-[104] h-[100lvh] w-[100lvw] top-0 left-0 absolute " id="Clickdiv2"></div>
 		<div class="z-[105] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv1"></div>
 	</div>
 
