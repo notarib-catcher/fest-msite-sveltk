@@ -92,11 +92,11 @@
             </button>
           {:else if data.reg.team.reg}
             {#if data.reg.team.owner}
-              <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2" disabled>
+              <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "https://compete.mitblrfest.in"}}>
                 You registered your team ✔️
               </button>
             {:else}
-              <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2" disabled>
+              <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "https://compete.mitblrfest.in"}}>
                 Your team is competing ✔️
               </button>
             {/if}
