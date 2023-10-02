@@ -249,7 +249,7 @@ for(let p of passarray){
     }
 
     if(category == "CULTURAL"){
-        if(p.type.startsWith("CLTR")){
+        if(p.type.startsWith("CLTR") || p.type == "SUP_PRO"){
             vpassarr2.push(p)
         }
     }

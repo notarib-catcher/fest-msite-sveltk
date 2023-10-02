@@ -62,7 +62,7 @@
 		</div>
 		<div class=" h-full sm:self-center w-[30%] max-sm:mb-2 max-sm:ml-3 font-uni">
 			<div class=" w-full flex sm:justify-center">
-				<a class=" h-full font-uni font-bold sm:mr-2 p-2 rounded-lg" href={"/events/"+eventID}>
+				<a class=" h-full font-uni font-bold sm:mr-2 p-2 rounded-lg" href={shortDesc.toLowerCase().includes("coming soon")?"/events/":"/events/"+eventID}>
 					More info
 				</a>
 			</div>
