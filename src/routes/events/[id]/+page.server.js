@@ -54,6 +54,8 @@ const allowedPasses = {
     // "C_LOGLYM": ["CLTR_PRO", "SUP_PRO"], //solo - REMOVED
     "C_SRGSAF": ["CLTR_PRO", "SUP_PRO"], //team, 4 -
     "C_SAARANG": ["CLTR_PRO", "SUP_PRO"],
+    "C_BRNWAV": ["CLTR_PRO", "SUP_PRO"],
+    "C_QZAPLZ": ["CLTR_PRO", "SUP_PRO"],
 
     //Esports
     "ES_BGDMHM" : ["ESPORTS"], //team, 4
