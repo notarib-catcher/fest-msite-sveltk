@@ -163,15 +163,14 @@
 
 <main>
 	<div class=" z-[150] flex flex-col items-center justify-center w-screen h-screen fixed top-0 left-0 z-[100] ">
-		<div class="z-[105] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv1"></div>
+		
 		<div class="z-[104] pb-44 font-monster text-3xl max-md:text-2xl hidden text-white" bind:this={tagline}>
 			Ride the wave of energy
 		</div>
-		<div class="z-[104] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv2"></div>
-
+		
 		<!-- Popbox -->
 		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb3}>
-			<div class=" flex flex-col items-center justify-center h-fit max-md:bg-black max-md:bg-opacity-20 rounded-xl  max-w-[600px] p-5 ">
+			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] p-5 ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster">
 					SPORTS
 				</div>
@@ -187,7 +186,7 @@
 
 		<!-- Popbox -->
 		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb2}>
-			<div class=" flex flex-col items-center justify-center h-fit max-md:bg-black max-md:bg-opacity-20 rounded-xl  max-w-[600px] p-5 ">
+			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] p-5 ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster">
 					CULTURAL
 				</div>
@@ -203,7 +202,7 @@
 
 		<!-- Popbox -->
 		<div class="flex flex-col items-center justify-center h-fit p-5" bind:this={pb1}>
-			<div class=" flex flex-col items-center justify-center h-fit max-md:bg-black max-md:bg-opacity-20 rounded-xl  max-w-[600px] ">
+			<div class=" flex flex-col items-center justify-center h-fit bg-white bg-opacity-20 backdrop-blur-md rounded-xl  max-w-[600px] ">
 				<div class=" h-fit text-white text-opacity-70 text-4xl font-monster mt-5">
 					Find us
 				</div>
@@ -217,7 +216,11 @@
 				</div>
 			</div>
 		</div>	
+		
+		<div class="z-[104] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv2"></div>
+		<div class="z-[105] h-[100lvh] w-[100lvw] top-0 left-0 fixed" id="Clickdiv1"></div>
 	</div>
+
 	
 	
 	<div id="Volcano" class="VolcanoDuringAnims Volcano" style="transform: translate(${OriginX}px, ${OriginY}px);">
