@@ -204,7 +204,7 @@
     },
     {
         type: "SUP_PRO",
-        name: "Superpass Proshow + Cultural (perks in proshow) 799",
+        name: "Superpass Proshow + Cultural (perks in proshow)",
         INRcost: 799,
         open: false
     },
