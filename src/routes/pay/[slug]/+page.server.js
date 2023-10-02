@@ -25,28 +25,28 @@ const passarray = [
         type: "SPORT_BB_M",
         name: "Basketball (M)",
         INRcost: 5000,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_VB_M",
         name: "Volleyball (M)",
         INRcost: 3000,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_TN_M",
         name: "Tennis (M)",
         INRcost: 800,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_TT_M",
         name: "Table Tennis (M)",
         INRcost: 800,
-        open: false
+        open: true
     },
 
     //womens
@@ -55,28 +55,28 @@ const passarray = [
         type: "SPORT_BB_F",
         name: "Basketball (F)",
         INRcost: 2000,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_TB_F",
         name: "Throwball (F)",
         INRcost: 2000,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_TN_F",
         name: "Tennis Singles (F)",
         INRcost: 200,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_TT_F",
         name: "Table Tennis Singles (F)",
         INRcost: 200,
-        open: false
+        open: true
     },
 
 
@@ -87,14 +87,14 @@ const passarray = [
         type: "SPORT_ATH",
         name: "Athletics",
         INRcost: 100,
-        open: false
+        open: true
     },
 
     {
         type: "SPORT_CHS",
         name: "Chess (Team of 6)",
         INRcost: 1500,
-        open: false
+        open: true
     },
 
     // cultural
@@ -109,25 +109,25 @@ const passarray = [
         type: "SUP_PRO",
         name: "VIP",
         INRcost: 799,
-        open: false
+        open: true
     },
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
         INRcost: 4000,
-        open: false
+        open: true
     },
     {
         type: "CLTR_GRD",
         name: "Group Dance",
         INRcost: 3000,
-        open: false
+        open: true
     },
     {
         type: "CLTR_FAS",
         name: "Fashion Show",
         INRcost: 1700,
-        open: false
+        open: true
     },  
     
     //esports
@@ -136,7 +136,7 @@ const passarray = [
         type: "ESPORTS",
         name: "Esports",
         INRCost: 150,
-        open:false
+        open: true
     }
 
 ];
