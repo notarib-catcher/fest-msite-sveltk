@@ -521,6 +521,15 @@ html::-webkit-scrollbar {
 .animation3{
     animation: move3 4s 1;
 }
+.animationFade{
+    animation: FadeIn 4s 1;
+    background-color:rgb(28, 0, 94,0.2);
+    backdrop-filter: blur(12px);
+}
+.animationFade2{
+    animation: FadeIn 4s 1;
+}
+
   @keyframes move2{
     0%{
       offset-distance: 45%;
@@ -584,10 +593,61 @@ html::-webkit-scrollbar {
         margin: 5px;
      }
 }
-
+@keyframes Fadein{
+    0%{
+        opacity: 0;
+        backdrop-filter: blur(12px);
+    }
+    100%{
+        opacity: 100%;
+        backdrop-filter: blur(12px);
+    }
+}
   .surgeLogoInactive{
     animation: moveLogoBottomRight 3s forwards;
     height: 100px;
     
   }
 
+  
+  
+  .popout {
+	font-weight: 900;
+
+}
+@keyframes ani {
+	0% {
+		transform: translate3d(0, 0, 0);
+		text-shadow: 0em 0em 0 #fe786f;
+		color: black;
+	}
+	30% {
+		transform: translate3d(0, 0, 0);
+		text-shadow: 0em 0em 0 #fe786f;
+		color: black;
+	}
+	70% {
+		transform: translate3d(0.08em, -0.08em, 0);
+		text-shadow: -0.08em 0.08em #fe786f;
+		color: black;
+	}
+	100% {
+		transform: translate3d(0.08em, -0.08em, 0);
+		text-shadow: -0.08em 0.08em #fe786f;
+		color: black;
+	}
+}
+.popout span {
+	position: relative;
+	display: inline-block;
+	animation: ani 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+}
+.popout span:nth-last-child(1n) {
+	animation-delay: -0.1666666667s;
+}
+.popout span:nth-last-child(2n) {
+	animation-delay: -0.3333333333s;
+}
+.popout span:nth-last-child(3n) {
+	animation-delay: -0.5s;
+}
