@@ -108,7 +108,7 @@ const passarray = [
     {
         type: "SUP_PRO",
         name: "VIP",
-        INRcost: 799,
+        INRcost: 1,
         open: true
     },
     {
