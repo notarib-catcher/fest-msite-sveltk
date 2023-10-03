@@ -3,12 +3,12 @@
 	import { navigating } from "$app/stores";
 	import { onMount } from "svelte";
 
-    let navload = true
-    if(!$navigating){
-        setTimeout(() => {
-            navload = false
-        }, 500)
-    }
+    let navload = false
+    // if(!$navigating){
+    //     setTimeout(() => {
+    //         navload = false
+    //     }, 500)
+    // }
 </script>
 
 {#if navload || $navigating}
