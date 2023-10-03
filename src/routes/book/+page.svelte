@@ -58,6 +58,8 @@
 
         
         let signed = signURL(type, refcode, phnum)
+
+        console.log(signed)
         // then the user is redirected to the payment page
         window.location.replace(data.origin + "/pay/" + signed)
     }

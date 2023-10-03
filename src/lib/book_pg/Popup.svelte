@@ -95,8 +95,8 @@
         // }
 
         let data = {
-            type: eventChosen,
-            event: eventChosen,
+            type: (category == "ESPORTS")? "ESPORTS" : eventChosen,
+            event: eventChosen || "NEVENT",
             
             phnum: phnum,
             refcode: "",

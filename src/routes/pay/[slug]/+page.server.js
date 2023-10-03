@@ -135,7 +135,7 @@ const passarray = [
     {
         type: "ESPORTS",
         name: "Esports",
-        INRCost: 150,
+        INRcost: 150,
         open: true
     }
 
