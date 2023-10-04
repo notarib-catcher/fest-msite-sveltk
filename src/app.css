@@ -12,6 +12,11 @@
 }
 
 @font-face{
+    font-family: 'CS Juicy';
+    src:  url("/fonts/CSJuicyRegular.otf") format('opentype');
+}
+
+@font-face{
     font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavy.otf") format('opentype');
     font-weight: bold;
@@ -37,6 +42,14 @@
     src:  url("https://falak.mitblrfest.in/fonts/UniSansThinItalic.otf") format('opentype');
     font-style: italic;
     font-weight: normal;
+}
+
+.font-cs{
+    font-family: 'CS Juicy'
+}
+
+.font-csc{
+    font-family: "CS Juicy Color"; 
 }
 
 .font-uni{

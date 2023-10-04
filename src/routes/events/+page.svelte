@@ -69,19 +69,27 @@
 			switch(sc2){
 				case 'ce':
 
-					cehdg?.scrollIntoView()
+					setTimeout( () => {
+						cehdg?.scrollIntoView()
+					}, 2000)
 					break;
 				case 'se':
 
-					sehdg?.scrollIntoView()
+				setTimeout( () => {
+						sehdg?.scrollIntoView()
+					}, 2000)
 					break;
 				case 'fe':
 
-					fehdg?.scrollIntoView()
+				setTimeout( () => {
+						fehdg?.scrollIntoView()
+					}, 2000)
 					break;
 				case 'ee':
 	
-					eehdg?.scrollIntoView()
+				setTimeout( () => {
+						eehdg?.scrollIntoView()
+					}, 2000)
 					break;
 				
 				

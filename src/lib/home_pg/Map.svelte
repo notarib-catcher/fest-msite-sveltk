@@ -3,7 +3,7 @@
         Find Us
       </div>
     <div class=" flex relative z-0 items-center justify-center mt-10 rounded-[40px] bg-[18181b] mb-10 dropshadowhere ">
-        
+        <iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" w-[90vw] h-[60vh] max-md:h-[50vh] rounded-lg overflow-hidden" style="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 
