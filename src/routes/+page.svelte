@@ -126,7 +126,7 @@
         </div>
     </div>
     <div class="absolute h-[45lvh] translate-y-[50px] w-screen  flex items-center justify-center">
-        <div id="flktxt-hp" class=" w-[90vw] font-csc font-bold text-[#FFE500] text-xl lg:text-2xl xl:text-3xl  text-center">
+        <div id="flktxt-hp" class=" w-[90vw] font-csc font-bold text-[#FFE500] -translate-y-[50px] text-xl lg:text-2xl xl:text-3xl  text-center">
     <!-- TEXT IN HERE -->
         </div>
     
@@ -165,7 +165,7 @@
             Join the party
         </button>
     </div>
-    <div class="w-[350px] h-[550px] mx-auto sportsecard bkdsp max-md:h-[450px]">
+    <div class="w-[350px] h-[550px] mx-auto sportsecard bkdsp">
         <span class="transition-all duration-200 w-full relative top-5 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Sports Events
         </span>
