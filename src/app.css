@@ -651,3 +651,18 @@ html::-webkit-scrollbar {
 .popout span:nth-last-child(3n) {
 	animation-delay: -0.5s;
 }
+
+@keyframes bounce2 {
+    0%, 100% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+    50% {
+        
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+}
+.animate-bounce2 {
+    animation: bounce2 1s infinite;
+}
