@@ -114,7 +114,7 @@
             <div id="flk-banner" data-value="FALAK SURGE" class=" whitespace-nowrap overflow-clip bannertext text-[9.3vw] font-csc bg-clip-text text-transparent bg-gradient-to-b from-[#FFE500] to-[#F9BAA8]">
             </div>
         </div>
-        <div class=" bannerbtm absolute bottom-[20lvh] left-0 w-screen h-[70vh] -z-[7]">
+        <div class=" bannerbtm absolute bottom-[0lvh] left-0 w-screen h-[100vh] -z-[7]">
     
         </div>
     </div>
@@ -126,10 +126,6 @@
     </div>
 </div>
 
-<div class="w-screen bg-[#3300bd] hue-rotate flex items-center justify-center text-center flex-col mb-20">
-    <span class="text-white font-uni">Organised by</span>
-    <img src={mitlogo} class=" w-[500px] " style=" filter: brightness(0) invert(1);">
-</div>
 
 
 <div id="arrowcontain" class="transition-all duration-1000 fixed top-0 left-0 w-screen z-[50] h-[100svh] items-center justify-end flex flex-col">
@@ -309,6 +305,11 @@
     <iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" mt-5 max-sm:w-[90vw] w-[70vw] h-[90vh] max-md:h-[50vh] rounded-lg overflow-hidden mb-20" style="filter: invert(1) hue-rotate(180deg)" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
+<div class="w-screen bg-[#3300bd] hue-rotate flex items-center justify-center text-center flex-col mb-20">
+    <span class="text-white font-uni">Organised by</span>
+    <img src={mitlogo} class=" w-[500px] " style=" filter: brightness(0) invert(1);">
+</div>
+
 <div class=" h-[200px] w-screen max-md:bg-[#04022A] flex flex-col items-center justify-center md:mb-20">
     <div class=" h-full p-5 bg-[#04022A] rounded-lg flex items-center justify-center flex-col ">
         <img src={SURGELOGO} class="max-h-[30%]">
@@ -340,7 +341,7 @@
     }
     .bannerbtm{
         background-image: url("/imgs/trees.png");
-        background-size: 100vw;
+        background-size: fit;
         background-repeat: repeat-x;
         background-position: bottom center;
         
@@ -368,7 +369,7 @@
         animation-fill-mode: forwards;
     } 
 
-    @media (min-width: 1024px) {
+    /* @media (min-width: 1024px) {
         .bannerbtm {
             background-size: 70vw;
         }
@@ -408,7 +409,7 @@
         .bannerbtm {
             background-size: 270vw;
         }
-    }
+    } */
 
 
     /*
