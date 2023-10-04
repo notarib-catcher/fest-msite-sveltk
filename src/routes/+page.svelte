@@ -6,7 +6,7 @@
 
     const textTarget = "FALAK SURGE"
     let currentText = "           "
-    const randomCharSpace = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    const randomCharSpace = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     const falaktext = "Welcome to Falak, a vibrant cultural and sports fest that ignites the spirit of unity, creativity, and excellence."
     const delay = (time) => new Promise((resolve, reject) => setTimeout(resolve, time))
@@ -33,6 +33,10 @@
                 }
                 addedinterval = true
                 console.log(flksplit)
+
+                if(flktxt.textContent){
+                    return
+                }
 
                 let interval = setInterval(() => {
                     let x = flksplit.pop()
@@ -114,7 +118,7 @@
     </div>
     <div class="absolute h-[45lvh] translate-y-[50px] w-screen  flex items-center justify-center">
         <div id="flktxt-hp" class=" w-[90vw] font-uni font-bold text-[#FFE500] lg:text-2xl text-xl text-center">
-    
+    <!-- TEXT IN HERE -->
         </div>
     
     </div>
@@ -126,20 +130,30 @@
     <img id="scroll-arrow" src={downarrow} class="arrow-fadein lg:w-[4vw] xl:w-[3vw] w-[50px] animate-bounce">
 </div>
 <div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white">
+    ABOUT US
+</div>
+
+<div class=" w-screen px-[5vw] text-center bg-[#3300bd] text-[#FFE500] font-poppins select-none pt-10 font-bold text-xl lg:text-2xl xl:text-3xl">
+    Our journey began with a vision to bridge the gap between culture and sports, providing a holistic experience for all. Falak is not just an event; it's an annual celebration that unites people from all walks of life.
+    <br><br>With captivating cultural performances that showcase the beauty of tradition, adrenaline-pumping sports competitions, and thought-provoking debates that challenge intellects, Falak is a melting pot of talent and ideas.
+</div>
+
+<div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white">
     EVENTS
 </div>
 
+
 <div class="eventsbox grid lg:grid-rows-2 lg:grid-cols-2 grid-rows-4 grid-cols-1 w-screen h-fit p-[5vw] bg-[#3300bd] gap-[5vw]">
-    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] featuredecard">
+    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] featuredecard bkdfe">
 
     </div>
-    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] sportsecard">
+    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] sportsecard bkdsp">
 
     </div>
-    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] culturalecard">
+    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] culturalecard bkdce">
 
     </div>
-    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] esportsecard">
+    <div class=" h-[42.5vw] w-[42.5vw] max-lg:w-[90vw] esportsecard bkdes">
 
     </div>
 
@@ -202,25 +216,25 @@
 
     @media (min-width: 1500px) {
         .bannerbtm {
-            background-size: 50vw;
+            background-size: 90vw;
         }
     }
 
     @media (max-width: 700px) {
         .bannerbtm {
-            background-size: 120vw;
+            background-size: 200vw;
         }
     }
 
     @media (max-width: 600px) {
         .bannerbtm {
-            background-size: 150vw;
+            background-size: 230vw;
         }
     }
 
     @media (max-width: 500px) {
         .bannerbtm {
-            background-size: 200vw;
+            background-size: 270vw;
         }
     }
 
@@ -249,5 +263,25 @@
         100%{
             opacity: 2;
         }
+    }
+
+    .bkdsp{
+        transform: translate(-5px -5px);
+        filter: drop-shadow(10px 10px #004F47);
+    }
+
+    .bkdes{
+        transform: translate(-5px -5px);
+        filter: drop-shadow(10px 10px #450029);
+    }
+
+    .bkdfe{
+        transform: translate(-5px -5px);
+        filter: drop-shadow(10px 10px #761A00);
+    }
+
+    .bkdce{
+        transform: translate(-5px -5px);
+        filter: drop-shadow(10px 10px #053358);
     }
 </style>

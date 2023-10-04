@@ -187,6 +187,10 @@ html::-webkit-scrollbar {
     animation: 250ms ease-out 0s 1 showAnim;
 }
 
+body{
+ background-color: #3300bd;
+}
+
 @keyframes  hideAnim{
     0%{
         transform: translateX(0);
@@ -431,6 +435,8 @@ html::-webkit-scrollbar {
     background-color: #D76860;
 
 }
+
+
 
 .sportshdg{
     /* 0EBAAA */
