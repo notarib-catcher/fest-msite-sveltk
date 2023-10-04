@@ -281,7 +281,7 @@
         <label for="cb3" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">How do I register for team events?</label>
         <div class="tab__content">
           <p class="border-b-2 border-[#FFE500] text-white "> 
-              To register for team events, you need to buy a pass to make a team<br>
+              To register for team events, you need to buy a pass to make a team.<br>
               You do not need to buy a pass if you are joining someone else's team for a sports or featured event.<br>
               You need to buy a pass to join someone's team for cultural events.
               <br>
