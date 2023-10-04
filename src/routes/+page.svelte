@@ -112,7 +112,7 @@
     
         </div>
     </div>
-    <div class="absolute h-[45lvh] w-screen h-screen  flex items-center justify-center">
+    <div class="absolute h-[45lvh] translate-y-[50px] w-screen  flex items-center justify-center">
         <div id="flktxt-hp" class=" w-[90vw] font-uni font-bold text-[#FFE500] lg:text-2xl text-xl text-center">
     
         </div>
@@ -125,7 +125,7 @@
 <div id="arrowcontain" class="transition-all duration-1000 fixed top-0 left-0 w-screen z-[50] h-[100svh] items-center justify-end flex flex-col">
     <img id="scroll-arrow" src={downarrow} class="arrow-fadein lg:w-[4vw] xl:w-[3vw] w-[50px] animate-bounce">
 </div>
-<div class="w-screen px-[5vw] text-6xl font-monster bg-[#3300bd] text-white">
+<div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white">
     EVENTS
 </div>
 
