@@ -155,47 +155,47 @@
 
 <div class="eventsbox grid lg:grid-cols-2 lg:grid-rows-2 grid-rows-4 grid-cols-1 items-center justify-center mx-auto w-fit gap-10">
     <div class="w-[350px] h-[550px] mx-auto  featuredecard bkdfe">
-        <span class=" w-full absolute top-0 left-0 pt-5 pl-5 text-white text-3xl font-monster">
+        <span class="transition-all duration-200 w-full relative top-5 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Featured Events
         </span>
-        <span class="max-w-[80%] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
+        <span class="max-w-[80%] relative -translate-y-[50px] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
             The Heartbeat of the Fest. Explore a captivating array of events showcase the essence of our fest. From high-energy dance performances to pulse-pounding musical exchanges, our featured events promise unforgettable moments of inspiration and entertainment.
         </span>
-        <button class="transition-all duration-200 btnbkd -translate-x-[5px] -translate-y-[5px] absolute bottom-5 left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events"}}>
+        <button class="transition-all duration-200 btnbkd  relative -translate-y-[50px] left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events"}}>
             Join the party
         </button>
     </div>
-    <div class="w-[350px] md:h-[550px] mx-auto sportsecard bkdsp max-md:h-[400px]">
-        <span class="transition-all duration-200 w-full absolute top-0 left-0 pt-5 pl-5 text-white text-3xl font-monster">
+    <div class="w-[350px] h-[550px] mx-auto sportsecard bkdsp max-md:h-[450px]">
+        <span class="transition-all duration-200 w-full relative top-5 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Sports Events
         </span>
-        <span class=" max-w-[80%] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
+        <span class=" max-w-[80%] relative -translate-y-[50px] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
             Sports take centre stage in our celebration of culture, creativity, and excellence. Our sports events are designed to ignite your competitive fire, offering a thrilling platform to showcase your athleticism and sportsmanship. 
         </span>
-        <button class="transition-all duration-200 btnbkd -translate-x-[5px] -translate-y-[5px] absolute bottom-5 left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=se"}}>
+        <button class="transition-all duration-200 btnbkd  relative bottom-0 translate-y-[35px] left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=se"}}>
             on your marks...
         </button>
     </div>
     <div class="w-[350px] h-[550px] mx-auto culturalecard bkdce">
-        <span class=" w-full absolute top-0 left-0 pt-5 pl-5 text-white text-3xl font-monster">
+        <span class="transition-all duration-200 w-full relative top-5 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Cultural Events
         </span>
-        <span class=" max-w-[80%] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
+        <span class=" max-w-[80%] p-5 inline-block -translate-y-[50px] mt-14 text-xl font-poppins font-bold text-white">
             Culture is the heartbeat of our festival, showcasing the richness of our diverse heritage through enchanting dances, gripping dramas, and soul-stirring music. We also fuel the spirit of competition with debates, painting contests, and quizzes. 
         </span>
-        <button class="transition-all duration-200 btnbkd -translate-x-[5px] -translate-y-[5px] absolute bottom-5 left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=ce"}}>
+        <button class="transition-all duration-200 btnbkd  relative bottom-0 -translate-y-[20px] left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=ce"}}>
             Get on the stage
         </button>
 
     </div>
     <div class="w-[350px] h-[550px] mx-auto esportsecard bkdes">
-        <span class=" w-full absolute top-0 left-0 pt-5 pl-5 text-white text-3xl font-monster">
+        <span class=" transition-all duration-200 w-full relative top-5 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Esports Events
         </span>
-        <span class=" max-w-[80%] p-5 inline-block mt-14 text-xl font-poppins font-bold text-white">
+        <span class=" max-w-[80%] p-5 inline-block -translate-y-[50px] mt-14 text-xl font-poppins font-bold text-white">
             Gaming is a culture. Dive into the exhilarating world of esports tournaments, where the digital arena meets the richness of cultural diversity. Join us for a thrilling gaming experience like no other, as we bridge the gap between tradition and technology.
         </span>
-        <button class="transition-all duration-200 btnbkd -translate-x-[5px] -translate-y-[5px] absolute bottom-5 left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=ee"}}>
+        <button class="transition-all duration-200 btnbkd  relative bottom-0 -translate-y-[20px] left-5 bg-white text-black font-uni font-bold p-2" on:click={() => {window.location = "/events?scrollto=ee"}}>
             Begin matchmaking
         </button>
     </div>
