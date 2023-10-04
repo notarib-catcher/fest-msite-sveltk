@@ -108,10 +108,10 @@
 </script>
 <div class=" h-[120lvh] bg-[#3300bd] -z-[10] relative">
     <div class="h-[80lvh] w-screen bg-opacity-100 ">
-        <div class=" bannertop absolute top-0 left-0 w-screen h-[80lvh] -z-[9]">  
+        <div class=" bannertop absolute top-0 left-0 w-screen h-[100lvh] -z-[9]">  
         </div>
         <div class=" absolute w-full h-full top-0 left-0 flex items-center justify-center -z-[8] -translate-y-[20lvh]">
-            <div id="flk-banner" data-value="FALAK SURGE" class=" whitespace-nowrap overflow-clip bannertext text-[10vw] font-csc bg-clip-text text-transparent bg-gradient-to-b from-[#FFE500] to-[#F9BAA8]">
+            <div id="flk-banner" data-value="FALAK SURGE" class=" whitespace-nowrap overflow-clip bannertext text-[9.3vw] font-csc bg-clip-text text-transparent bg-gradient-to-b from-[#FFE500] to-[#F9BAA8]">
             </div>
         </div>
         <div class=" bannerbtm absolute bottom-[20lvh] left-0 w-screen h-[70vh] -z-[7]">
@@ -119,7 +119,7 @@
         </div>
     </div>
     <div class="absolute h-[45lvh] translate-y-[50px] w-screen  flex items-center justify-center">
-        <div id="flktxt-hp" class=" w-[90vw] font-csc font-bold text-[#FFE500] text-xl lg:text-2xl xl:text-3xl text-center">
+        <div id="flktxt-hp" class=" w-[90vw] font-csc font-bold text-[#FFE500] text-xl lg:text-2xl xl:text-3xl  text-center">
     <!-- TEXT IN HERE -->
         </div>
     
@@ -162,7 +162,7 @@
             Join the party
         </button>
     </div>
-    <div class="w-[350px] h-[550px] mx-auto sportsecard bkdsp">
+    <div class="w-[350px] md:h-[550px] mx-auto sportsecard bkdsp max-md:h-[400px]">
         <span class="transition-all duration-200 w-full absolute top-0 left-0 pt-5 pl-5 text-white text-3xl font-monster">
             Sports Events
         </span>
@@ -333,7 +333,7 @@
     }
 
     .bannertop{
-        background-image: url("/imgs/lghtnn.png");
+        background-image: url("/imgs/2846339.svg");
         background-position: 0px -50px;
         background-size: cover;
         background-repeat: no-repeat;
