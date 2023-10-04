@@ -19,6 +19,13 @@
     onMount(async () => {
         if(browser){
 
+            let bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if(bodyScrollTop != 0){
+                const arrowcontain = document.getElementById("arrowcontain")
+                arrowcontain.classList.add('hidden')
+            }
+
             const Scroll = () => {
                 const arrowcontain = document.getElementById("arrowcontain")
                 arrowcontain.style.opacity = 0
@@ -200,9 +207,9 @@
     
     <div class="tab">
         <input type="checkbox" name="accordion-0" id="cb0">
-        <label for="cb0" class="tab__label font-uni font-bold border-b-2 mt-1">I can't seem to login with google</label>
+        <label for="cb0" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">I can't seem to login with google</label>
         <div class="tab__content">
-          <p class="border-b-2 text-white"> 
+          <p class="border-b-2 border-[#FFE500] text-white"> 
               If you get a <code>"disallowed_useragent"</code> error when logging in, it means that google accounts aren't supported by the browser you are using. Please use a different browser, such as chrome.
               <br>
               <br>
@@ -214,9 +221,9 @@
     <!-- starttab -->
     <div class="tab">
         <input type="checkbox" name="accordion-6" id="cb6">
-        <label for="cb6" class="tab__label font-uni font-bold border-b-2 mt-1">Where do I buy a pass for a featured event?</label>
+        <label for="cb6" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">Where do I buy a pass for a featured event?</label>
         <div class="tab__content">
-          <p class="border-b-2 text-white "> 
+          <p class="border-b-2 border-[#FFE500] text-white "> 
             Passes for featured events are clubbed under "Cultural" tab on bookings page.   
           </p>
           
@@ -224,9 +231,9 @@
       </div>
     <div class="tab">
       <input type="checkbox" name="accordion-1" id="cb1">
-      <label for="cb1" class="tab__label font-uni font-bold border-b-2 mt-1">How do I know if an event is a team event?</label>
+      <label for="cb1" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">How do I know if an event is a team event?</label>
       <div class="tab__content">
-        <p class="border-b-2 text-white"> 
+        <p class="border-b-2 border-[#FFE500] text-white"> 
             First, make sure you are logged in.
             <br><br>
             Then, head to the events page, press "More info" on the event you want to compete in.
@@ -240,9 +247,9 @@
     </div>
     <div class="tab">
         <input type="checkbox" name="accordion-5" id="cb5">
-        <label for="cb5" class="tab__label font-uni font-bold border-b-2 mt-1">I wanna participate in a team event, as a solo participant</label>
+        <label for="cb5" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">I wanna participate in a team event, as a solo participant</label>
         <div class="tab__content">
-          <p class="border-b-2 text-white"> 
+          <p class="border-b-2 border-[#FFE500] text-white"> 
               Some team events have a minimum team size, others do not.<br>
               Consult the event's rulebook and check for a minimum team size, member count, or similar rule.<br>
               If you still have doubts, or if it isn't mentioned, you can text the event's organisers for help.<br>
@@ -256,9 +263,9 @@
     <!-- endtab -->
     <div class="tab">
         <input type="checkbox" name="accordion-2" id="cb2">
-        <label for="cb2" class="tab__label font-uni font-bold border-b-2 mt-1">How do I register for solo events?</label>
+        <label for="cb2" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">How do I register for solo events?</label>
         <div class="tab__content">
-          <p class="border-b-2 text-white "> 
+          <p class="border-b-2 border-[#FFE500] text-white "> 
               To register for a solo-participation event, you need to buy a pass.
               <br>
               <br>
@@ -271,9 +278,9 @@
       </div>
       <div class="tab">
         <input type="checkbox" name="accordion-3" id="cb3">
-        <label for="cb3" class="tab__label font-uni font-bold border-b-2 mt-1">How do I register for team events?</label>
+        <label for="cb3" class="tab__label font-uni font-bold border-b-2 border-[#FFE500] mt-1">How do I register for team events?</label>
         <div class="tab__content">
-          <p class="border-b-2 text-white "> 
+          <p class="border-b-2 border-[#FFE500] text-white "> 
               To register for team events, you need to buy a pass to make a team<br>
               You do not need to buy a pass if you are joining someone else's team for a sports or featured event.<br>
               You need to buy a pass to join someone's team for cultural events.
