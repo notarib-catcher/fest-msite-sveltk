@@ -203,7 +203,7 @@
 <div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white text-center">
     FAQ
 </div>
-<section class="accordion w-[90vw] px-[5vw] mx-auto border-white ">
+<section class="accordion w-[90vw] px-[5vw] mx-auto  mt-10 ">
     
     <div class="tab">
         <input type="checkbox" name="accordion-0" id="cb0">
@@ -308,7 +308,7 @@
 <div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white text-center">
     FIND US
 </div>
-<div class=" w-screen px-[15vw] max-sm:px-[5vw]">
+<div class=" w-screen px-[15vw] max-sm:px-[5vw] mt-10">
     <iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4613.399303500147!2d77.58746683406315!3d13.125627330237217!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196682f2da33%3A0x358deab93bcf0b1f!2sMAHE-BLR!5e0!3m2!1sen!2sin!4v1682232657039!5m2!1sen!2sin" class=" mt-5 max-sm:w-[90vw] w-[70vw] h-[90vh] max-md:h-[50vh] rounded-lg overflow-hidden mb-20" style="filter: invert(1) hue-rotate(180deg)" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
