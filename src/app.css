@@ -12,6 +12,11 @@
 }
 
 @font-face{
+    font-family: 'CS Juicy';
+    src:  url("/fonts/CSJuicyRegular.otf") format('opentype');
+}
+
+@font-face{
     font-family: 'Uni Sans';
     src:  url("https://falak.mitblrfest.in/fonts/UniSansHeavy.otf") format('opentype');
     font-weight: bold;
@@ -37,6 +42,14 @@
     src:  url("https://falak.mitblrfest.in/fonts/UniSansThinItalic.otf") format('opentype');
     font-style: italic;
     font-weight: normal;
+}
+
+.font-cs{
+    font-family: 'CS Juicy'
+}
+
+.font-csc{
+    font-family: "CS Juicy Color"; 
 }
 
 .font-uni{
@@ -185,6 +198,10 @@ html::-webkit-scrollbar {
 
 .show{
     animation: 250ms ease-out 0s 1 showAnim;
+}
+
+body{
+ background-color: #3300bd;
 }
 
 @keyframes  hideAnim{
@@ -432,6 +449,8 @@ html::-webkit-scrollbar {
 
 }
 
+
+
 .sportshdg{
     /* 0EBAAA */
     color: #0EBAAA;
@@ -650,4 +669,19 @@ html::-webkit-scrollbar {
 }
 .popout span:nth-last-child(3n) {
 	animation-delay: -0.5s;
+}
+
+@keyframes bounce2 {
+    0%, 100% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+    50% {
+        
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+}
+.animate-bounce2 {
+    animation: bounce2 1s infinite;
 }

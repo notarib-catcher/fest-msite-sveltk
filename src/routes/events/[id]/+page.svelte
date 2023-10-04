@@ -76,7 +76,7 @@
             <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2" disabled>
               You have a pass ✔️
             </button>
-          {:else if event.TeamEvent}
+          {:else if event.TeamEvent && (data.eventID.startsWith("S_") || (data.eventID.startsWith("C_") && data.eventID.length == 5))}
             <button class=" rounded-lg text-center w-[90%] p-2 text-white border-white border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "/book"}}>
               Team captain? Buy a pass
             </button>
@@ -116,12 +116,12 @@
               </button>
             {/if}
           {:else}
-            {#if !event.TeamEvent}
+            {#if !event.TeamEvent || (event.TeamEvent && (data.eventID.startsWith("C_") && data.eventID.length >= 6))}
               <button class=" rounded-lg text-center w-[90%] p-2 bg-red-800 bg-clip-text text-transparent border-red-800 border-2" disabled>
-                ❌ Registration requires pass
+                ❌ {!event.TeamEvent ? "Registration" : "Joining a team" } requires a pass
               </button>
             {:else}
-            <button class=" rounded-lg text-center w-[90%] p-2 text-[#1095ff] border-[#1095ff] border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "https://compete.mitblrfest.in/"}}>
+              <button class=" rounded-lg text-center w-[90%] p-2 text-[#1095ff] border-[#1095ff] border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "https://compete.mitblrfest.in/"}}>
                 Join a team!
               </button>
             {/if}
@@ -135,6 +135,13 @@
       </button>
     </div>
     {/if}
+
+    <div class=" flex items-center max-md:justify-start italic justify-end w-screen px-[9vw] xl:px-[14vw] sm:flex-row  mt-5 text-white text-right text-xs font-bold">
+      <div>
+        To join a team, ask the team leader for the invite link
+      </div>
+      
+    </div>
 
     <!-- Landscape text -->
     <div class=" w-screen px-[9vw] xl:px-[14vw] flex flex-col sm:flex-row sm:mt-10 mt-5 ">
