@@ -134,14 +134,14 @@
 
     {
         type: "SPORT_TN_M",
-        name: "Men's Tennis (Doubles - per team cost)",
+        name: "Men's Tennis (per team cost)",
         INRcost: 800,
         open: false
     },
 
     {
         type: "SPORT_TT_M",
-        name: "Men's Table Tennis (Doubles - per team cost)",
+        name: "Men's Table Tennis (per team cost)",
         INRcost: 800,
         open: false
     },
@@ -183,7 +183,7 @@
     {
         type: "SPORT_ATH",
         name: "Athletics (Individual)",
-        INRcost: 100,
+        INRcost: 200,
         open: false
     },
 
@@ -231,7 +231,7 @@
         type: "ESPORTS",
         name: "Esports pass",
         INRcost: 150,
-        open:false
+        open: false
     }
 
 

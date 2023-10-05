@@ -86,7 +86,7 @@ const passarray = [
     {
         type: "SPORT_ATH",
         name: "Athletics",
-        INRcost: 100,
+        INRcost: 200,
         open: true
     },
 
