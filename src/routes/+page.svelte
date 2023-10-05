@@ -200,6 +200,16 @@
         </button>
     </div>
 </div>
+
+<div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white text-center mb-10">
+    2022 Aftermovie
+</div>
+
+<div class=" flex items-center justify-center w-fit mx-auto h-fit bg-[#FFE500] p-2 box-border vidbox">
+    <iframe class=" w-[45vmax] h-[25.5vmax] md:min-w-[560px] md:min-h-[315px] lg:min-w-[840px] lg:min-h-[473px]" src="https://www.youtube-nocookie.com/embed/ow1mtqZ6UPU?si=my8nhEwpbU0KZ1n3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+
 <div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white text-center">
     FAQ
 </div>
@@ -463,6 +473,27 @@
     .bkdce{
         transform: translate(-5px -5px);
         filter: drop-shadow(10px 10px #053358);
+    }
+
+    .vidbox:hover{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #7e7200);
+    }
+
+    .vidbox:focus{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #7e7200);
+    }
+
+    
+    .vidbox:focus-within{
+        transform: translateX(-5px) translateY(-5px);
+        filter: drop-shadow(10px 10px #7e7200);
+    }
+
+    .vidbox{
+       transition-property: all;
+       transition-duration: 300ms;
     }
 
     /* Core styles/functionality for FAQ */
