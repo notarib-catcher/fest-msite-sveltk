@@ -201,7 +201,7 @@
     </div>
 </div>
 
-<div class="w-screen px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white text-center mb-10 scale-90">
+<div class="w-[90vw] px-[5vw] text-6xl font-monster pt-10 bg-[#3300bd] text-white mx-auto mb-10 text-center max-sm:text-4xl">
     2022 Aftermovie
 </div>
 
