@@ -157,7 +157,7 @@
 
     {
         type: "SPORT_TB_F",
-        name: "Women's Throwball (per team cost)",
+        name: "(PAUSED) Women's Throwball (per team cost)",
         INRcost: 2000,
         open: false
     },
@@ -182,7 +182,7 @@
     
     {
         type: "SPORT_ATH",
-        name: "Athletics (Individual)",
+        name: "(PAUSED) Athletics (Individual)",
         INRcost: 200,
         open: false
     },

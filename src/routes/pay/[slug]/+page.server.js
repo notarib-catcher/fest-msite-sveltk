@@ -62,7 +62,7 @@ const passarray = [
         type: "SPORT_TB_F",
         name: "Throwball (F)",
         INRcost: 2000,
-        open: true
+        open: false
     },
 
     {
@@ -87,7 +87,7 @@ const passarray = [
         type: "SPORT_ATH",
         name: "Athletics",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
