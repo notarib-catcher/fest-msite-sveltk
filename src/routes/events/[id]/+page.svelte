@@ -137,10 +137,11 @@
     {/if}
 
     <div class=" flex items-center max-md:justify-start italic justify-end w-screen px-[9vw] xl:px-[14vw] sm:flex-row  mt-5 text-white text-right text-xs font-bold">
-      <div>
-        To join a team, ask the team leader for the invite link
+      {#if event.TeamEvent}
+      <div>  
+      Join a team: get invite link from team leader
       </div>
-      
+      {/if}
     </div>
 
     <!-- Landscape text -->

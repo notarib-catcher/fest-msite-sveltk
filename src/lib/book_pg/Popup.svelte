@@ -288,7 +288,7 @@ const upBkTxt = (amount = 0) => {
             For a team event, only the<br>team leader needs a pass.
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { category != "ESPORTS"? "hidden":""} ">
-            You can bring a team for ESPORTS,<br> but they will all need their own pass.
+            You can only register for ONE ESPORTS event,<br>Forms for team registrations<br>will be emailed to you soon.
         </div>
        
         <!--error boxes, hidden by default-->
