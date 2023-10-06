@@ -182,9 +182,9 @@
     
     {
         type: "SPORT_ATH",
-        name: "(PAUSED) Athletics (Individual)",
+        name: "Athletics (Individual)",
         INRcost: 200,
-        open: false
+        open: true
     },
 
     {
