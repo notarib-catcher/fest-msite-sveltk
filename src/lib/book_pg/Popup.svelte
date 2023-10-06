@@ -204,7 +204,7 @@
     },
     {
         type: "SUP_PRO",
-        name: "Superpass Proshow + Cultural (perks in proshow)",
+        name: "(SOLD OUT!) Superpass Proshow",
         INRcost: 799,
         open: false
     },

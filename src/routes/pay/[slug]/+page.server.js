@@ -109,7 +109,7 @@ const passarray = [
         type: "SUP_PRO",
         name: "SUPER",
         INRcost: 799,
-        open: true
+        open: false
     },
     {
         type: "CLTR_BOB",
