@@ -184,7 +184,7 @@
         type: "SPORT_ATH",
         name: "Athletics (Individual)",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
