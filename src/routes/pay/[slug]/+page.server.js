@@ -114,7 +114,7 @@ const passarray = [
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
-        INRcost: 4000,
+        INRcost: 2500,
         open: true
     },
     {
