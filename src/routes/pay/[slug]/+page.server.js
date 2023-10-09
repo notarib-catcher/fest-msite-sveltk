@@ -127,7 +127,7 @@ const passarray = [
         type: "CLTR_FAS",
         name: "Fashion Show",
         INRcost: 1700,
-        open: true
+        open: false
     },  
     
     //esports
