@@ -121,7 +121,7 @@
     {
         type: "SPORT_BB_M",
         name: "Men's Basketball (per team cost)",
-        INRcost: 5000,
+        INRcost: 3000,
         open: false
     },
 
