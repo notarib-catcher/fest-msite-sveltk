@@ -24,7 +24,7 @@ const passarray = [
     {
         type: "SPORT_BB_M",
         name: "Basketball (M)",
-        INRcost: 5000,
+        INRcost: 3000,
         open: true
     },
 
