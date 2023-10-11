@@ -289,7 +289,7 @@ const upBkTxt = (amount = 0) => {
             <!-- Shown for sports -->
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { (category == "SPORTS" || category == "ESPORTS") ? "hidden":""} ">
-            Participation for cultural events<br>requires a MAHE ID.
+            Participation for cultural events<br>requires a College ID.
             <!-- Shown for cultural -->
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { category != "ESPORTS"? "hidden":""} ">
