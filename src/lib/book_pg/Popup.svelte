@@ -284,13 +284,17 @@ const upBkTxt = (amount = 0) => {
     
     <div class=" bg-[#FE786F] relative  p-2 border-[1px] border-white  max-md:font-semibold text-center max-md:text-md z-[9] max-w-[20%] max-sm:max-w-[60%] max-xs:max-w-[80%] max-md:max-w-[40%]  max-md:text-sm max-xl:max-w-[30%] max-md:my-[10%] overflow-hidden" >
        
-        <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { category == "ESPORTS"? "hidden":""} ">
-            For a FEATURED team event, only the<br>team leader needs a pass.<br>
+        <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { (category == "ESPORTS" || category == "CULTURAL") ? "hidden":""} ">
+            Bring your ID on event day.
+            <!-- Shown for sports -->
+        </div>
+        <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { (category == "SPORTS" || category == "ESPORTS") ? "hidden":""} ">
             Participation for cultural events<br>requires a MAHE ID.
-            
+            <!-- Shown for cultural -->
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { category != "ESPORTS"? "hidden":""} ">
             You can only register for ONE ESPORTS event,<br>Forms for team registrations<br>will be emailed to you soon.
+            <!-- Shown for esports -->
         </div>
        
         <!--error boxes, hidden by default-->
