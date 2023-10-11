@@ -24,7 +24,7 @@ const passarray = [
     {
         type: "SPORT_BB_M",
         name: "Basketball (M)",
-        INRcost: 5000,
+        INRcost: 3000,
         open: true
     },
 
@@ -114,7 +114,7 @@ const passarray = [
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
-        INRcost: 4000,
+        INRcost: 2500,
         open: true
     },
     {
@@ -127,7 +127,7 @@ const passarray = [
         type: "CLTR_FAS",
         name: "Fashion Show",
         INRcost: 1700,
-        open: true
+        open: false
     },  
     
     //esports

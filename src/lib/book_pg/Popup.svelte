@@ -121,7 +121,7 @@
     {
         type: "SPORT_BB_M",
         name: "Men's Basketball (per team cost)",
-        INRcost: 5000,
+        INRcost: 3000,
         open: false
     },
 
@@ -211,7 +211,7 @@
     {
         type: "CLTR_BOB",
         name: "Battle of Bands",
-        INRcost: 4000,
+        INRcost: 2500,
         open: false
     },
     {
@@ -222,8 +222,8 @@
     },
     {
         type: "CLTR_FAS",
-        name: "Fashion Show",
-        INRcost: 1700,
+        name: "(PAUSED) Fashion Show",
+        INRcost: 1700, // change to 300 per person like esports
         open: false
     },
 
