@@ -103,7 +103,7 @@ const passarray = [
         type: "CLTR_PRO",
         name: "Proshow and Cultural Events",
         INRcost: 699,
-        open: false
+        open: true
     },
     {
         type: "SUP_PRO",
