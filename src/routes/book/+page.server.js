@@ -91,7 +91,13 @@ export const actions = {
 				return { success: true }
 			  }
 
+			  
+
 			  console.log("PL found " + ref_id)
+
+			  if(plink.status == "paid"){
+				throw redirect(302,'/callback/pay/' + ref_id)
+			  }
 
 			  await payments.findOneAndUpdate({
 				p_id: existingPayment.p_id
@@ -101,9 +107,7 @@ export const actions = {
 					}
 			  })
 	
-			  if(plink.status == "paid"){
-				throw redirect(302,'/callback/pay/' + ref_id)
-			  }
+			  
 	
 			  
 			}
