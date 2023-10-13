@@ -290,6 +290,7 @@ const upBkTxt = (amount = 0) => {
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { (category == "SPORTS" || category == "ESPORTS") ? "hidden":""} ">
             Participation for cultural events<br>requires a College ID.
+            <br>The Standup Comedy show is<br>MAHE students only.
             <!-- Shown for cultural -->
         </div>
         <div class="   text-center uppercase font-bold text-[#04022A] text-xs p-2 { category != "ESPORTS"? "hidden":""} ">
