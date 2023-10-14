@@ -59,7 +59,7 @@
 <BgAnim />
 <div class="flex flex-col w-screen h-fit mt-10">
   <img src={LImage} class=" xl:w-[80vw] w-[90vw] rounded-lg mx-auto">
-  <div class="flex items-center justify-center flex-col bg-black bg-opacity-70 box-border xl:w-[80vw] w-[90vw] ml-[5vw] xl:ml-[10vw] mt-5 rounded-xl">
+  <div class="flex items-center justify-center flex-col bg-black mb-10 bg-opacity-70 box-border xl:w-[80vw] w-[90vw] ml-[5vw] xl:ml-[10vw] mt-5 rounded-xl">
     <!-- landscape Image -->
     
 
