@@ -199,7 +199,7 @@
     {
         type: "CLTR_PRO",
         name: "(PAUSED) Proshow and Cultural Events",
-        INRcost: 699,
+        INRcost: 799,
         open: false
     },
     {
