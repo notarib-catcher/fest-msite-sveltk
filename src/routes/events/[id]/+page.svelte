@@ -244,6 +244,10 @@
          <MDConverter markdown={Description} />
       {/if}
     </div>
+    <div class="px-[9vw] xl:px-[14vw] mb-10 text-xs italic font-thin w-screen mt-5 text-center text-white">
+        The information on this page is managed by the respective event head and not by Fest IT Team.<br>
+        Please direct all queries to the concerned. Their contact will be in the rules document.
+    </div>
   </div>
 </div>
 
