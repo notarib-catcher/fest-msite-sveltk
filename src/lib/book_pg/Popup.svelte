@@ -222,9 +222,9 @@
     },
     {
         type: "CLTR_FAS",
-        name: "(PAUSED) Fashion Show",
-        INRcost: 1700, // change to 300 per person like esports
-        open: false
+        name: "Fashion Show",
+        INRcost: 250, // change to 300 per person like esports
+        open: true
     },
 
     {
