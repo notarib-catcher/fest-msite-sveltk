@@ -76,7 +76,7 @@
             <button class=" rounded-lg text-center w-[90%] p-2 bg-green-800 bg-clip-text text-transparent border-green-800 border-2" disabled>
               You have a pass ✔️
             </button>
-          {:else if event.TeamEvent && (data.eventID.startsWith("S_") || (data.eventID.startsWith("C_") && data.eventID.length == 5))}
+          {:else if event.TeamEvent && (data.eventID.startsWith("S_") || (data.eventID.startsWith("C_") && data.eventID.length == 5)) && data.eventID != "C_FAS"}
             <button class=" rounded-lg text-center w-[90%] p-2 text-white border-white border-2 hover:scale-105 active:scale-95 transition-all duration-200" on:click={() => {window.location = "/book"}}>
               Team captain? Buy a pass
             </button>
@@ -116,7 +116,7 @@
               </button>
             {/if}
           {:else}
-            {#if !event.TeamEvent || (event.TeamEvent && (data.eventID.startsWith("C_") && data.eventID.length >= 6))}
+            {#if !event.TeamEvent || (event.TeamEvent && (data.eventID.startsWith("C_") && data.eventID.length >= 6)) || data.eventID == "C_FAS"}
               <button class=" rounded-lg text-center w-[90%] p-2 bg-red-800 bg-clip-text text-transparent border-red-800 border-2" disabled>
                 ❌ {!event.TeamEvent ? "Registration" : "Joining a team" } requires a pass
               </button>
