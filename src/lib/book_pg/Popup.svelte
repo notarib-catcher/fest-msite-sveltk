@@ -110,7 +110,7 @@
 
 		{
 			type: 'SPORT_FB_M',
-			name: "(PAUSED) Men's Football (per team cost)",
+			name: "(CLOSED) Men's Football (per team cost)",
 			INRcost: 5000,
 			open: false
 		},
