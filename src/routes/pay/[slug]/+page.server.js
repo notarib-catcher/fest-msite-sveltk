@@ -18,7 +18,7 @@ const passarray = [
         type: "SPORT_FB_M",
         name: "Football (M)",
         INRcost: 5000,
-        open: true
+        open: false
     },
 
     {

@@ -113,7 +113,7 @@
 
     {
         type: "SPORT_FB_M",
-        name: "Men's Football (per team cost)",
+        name: "(CLOSED) Men's Football (per team cost)",
         INRcost: 5000,
         open: false
     },
@@ -157,7 +157,7 @@
 
     {
         type: "SPORT_TB_F",
-        name: "(PAUSED) Women's Throwball (per team cost)",
+        name: "(CLOSED) Women's Throwball (per team cost)",
         INRcost: 2000,
         open: false
     },
