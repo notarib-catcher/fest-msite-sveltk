@@ -120,7 +120,7 @@
 
     {
         type: "SPORT_BB_M",
-        name: "Men's Basketball (per team cost)",
+        name: "(CLOSED) Men's Basketball (per team cost)",
         INRcost: 3000,
         open: false
     },
@@ -150,7 +150,7 @@
 
     {
         type: "SPORT_BB_F",
-        name: "Women's Basketball (per team cost)",
+        name: "(CLOSED) Women's Basketball (per team cost)",
         INRcost: 2000,
         open: false
     },
