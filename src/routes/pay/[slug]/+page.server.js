@@ -32,21 +32,21 @@ const passarray = [
         type: "SPORT_VB_M",
         name: "Volleyball (M)",
         INRcost: 3000,
-        open: true
+        open: false
     },
 
     {
         type: "SPORT_TN_M",
         name: "Tennis (M)",
         INRcost: 800,
-        open: true
+        open: false
     },
 
     {
         type: "SPORT_TT_M",
         name: "Table Tennis (M)",
         INRcost: 800,
-        open: true
+        open: false
     },
 
     //womens
@@ -69,14 +69,14 @@ const passarray = [
         type: "SPORT_TN_F",
         name: "Tennis Singles (F)",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
         type: "SPORT_TT_F",
         name: "Table Tennis Singles (F)",
         INRcost: 200,
-        open: true
+        open: false
     },
 
 
@@ -87,14 +87,14 @@ const passarray = [
         type: "SPORT_ATH",
         name: "Athletics",
         INRcost: 200,
-        open: true
+        open: false
     },
 
     {
         type: "SPORT_CHS",
         name: "Chess (Team of 6)",
         INRcost: 1500,
-        open: true
+        open: false
     },
 
     // cultural
