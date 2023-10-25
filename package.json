@@ -28,7 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@auth/sveltekit": "^0.3.0",
+		"@auth/sveltekit": "0.3.10",
 		"@picocss/pico": "^1.5.9",
 		"@sentry/node": "^7.47.0",
 		"@sentry/svelte": "^7.47.0",
