@@ -27,7 +27,7 @@
 </script>
 
 {#if isLogoutbtn}
-	<button disabled
+	<button
 		type="button"
 		class="w-[100px] h-[100px] rounded-xl hover:scale-105 transition-all duration-200 active:scale-95 bg-opacity-20 bg-black"
 		on:click={$page.data.session
@@ -53,7 +53,7 @@
 			</svg>
 			{/if}
 			<span class="mt-2 font-thin">
-				<!-- {$page.data.session ? 'Logout' : 'Login'} --> (Disabled)
+				{$page.data.session ? 'Logout' : 'Login'} 
 			</span>
 		</div></button
 	>
