@@ -123,12 +123,8 @@
             </div>
             <div class=" relative opacity-100 text-white ">
                 
-                <button class="  bg-white bg-opacity-20 text-[#FFE500] hover:bg-opacity-40 focus:bg-opacity-40 font-monster font-bold capitalize duration-300 py-2 px-12  mb-24" on:click={() => {if(!$page.data.session) {signIn("google","/book?loginSuccess")} else popupSport = true}} >
-                    {#if !$page.data.session}
-                    SIGN IN
-                    {:else}
-                    Book now
-                    {/if}
+                <button class=" opacity-70  bg-white bg-opacity-20 text-[#FFE500] font-monster font-bold capitalize duration-300 py-2 px-12  mb-24">
+                    Closed
                 </button> 
             </div>
             <div class=" absolute bottom-0 text-sm mb-3 text-center text-[#ffffff]">
