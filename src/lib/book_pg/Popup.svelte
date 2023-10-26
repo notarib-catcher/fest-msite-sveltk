@@ -210,7 +210,7 @@
     },
     {
         type: "CLTR_BOB",
-        name: "Battle of Bands",
+        name: "(CLOSED) Battle of Bands",
         INRcost: 2500,
         open: false
     },
