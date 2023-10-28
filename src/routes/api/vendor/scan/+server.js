@@ -6,7 +6,7 @@ dotenv.config();
 const cstring = process.env.MONGO_URL;
 //@ts-ignore
 const client = new MongoClient(cstring);
-const database = client.db(process.env.MONGO_DB_NAME);
+const database = client.db('food_coupons');
 const fcAccounts = database.collection('fc_accounts');
 const fcVendors = database.collection('fc_vendors');
 const fcLogs = database.collection('fc_logs');
@@ -36,7 +36,7 @@ export const POST = async (event) => {
 
 	if (foundVendor != null) {
 		const foundAccount = await fcAccounts.findOne({
-			curr_code: parseInt(couponCode),
+			curr_code: parseInt(couponCode)
 		});
 		if (foundAccount != null) {
 			fcAccounts.updateOne(
