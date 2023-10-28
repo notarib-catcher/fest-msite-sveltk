@@ -117,28 +117,28 @@
 
 		{
 			type: 'SPORT_BB_M',
-			name: "Men's Basketball (per team cost)",
+			name: "(CLOSED) Men's Basketball (per team cost)",
 			INRcost: 3000,
 			open: false
 		},
 
 		{
 			type: 'SPORT_VB_M',
-			name: "Men's Volleyball (per team cost)",
+			name: "(CLOSED) Men's Volleyball (per team cost)",
 			INRcost: 3000,
 			open: false
 		},
 
 		{
 			type: 'SPORT_TN_M',
-			name: "Men's Tennis (per team cost)",
+			name: "(CLOSED) Men's Tennis (per team cost)",
 			INRcost: 800,
 			open: false
 		},
 
 		{
 			type: 'SPORT_TT_M',
-			name: "Men's Table Tennis (per team cost)",
+			name: "(CLOSED) Men's Table Tennis (per team cost)",
 			INRcost: 800,
 			open: false
 		},
@@ -147,28 +147,28 @@
 
 		{
 			type: 'SPORT_BB_F',
-			name: "Women's Basketball (per team cost)",
+			name: "(CLOSED) Women's Basketball (per team cost)",
 			INRcost: 2000,
 			open: false
 		},
 
 		{
 			type: 'SPORT_TB_F',
-			name: "(PAUSED) Women's Throwball (per team cost)",
+			name: "(CLOSED) Women's Throwball (per team cost)",
 			INRcost: 2000,
 			open: false
 		},
 
 		{
 			type: 'SPORT_TN_F',
-			name: "Women's Tennis (Singles)",
+			name: "(CLOSED) Women's Tennis (Singles)",
 			INRcost: 200,
 			open: false
 		},
 
 		{
 			type: 'SPORT_TT_F',
-			name: "Women's Table Tennis (Singles)",
+			name: "(CLOSED) Women's Table Tennis (Singles)",
 			INRcost: 200,
 			open: false
 		},
@@ -177,14 +177,14 @@
 
 		{
 			type: 'SPORT_ATH',
-			name: 'Athletics (Individual)',
+			name: '(CLOSED) Athletics (Individual)',
 			INRcost: 200,
 			open: false
 		},
 
 		{
 			type: 'SPORT_CHS',
-			name: 'Chess (6 members / team from a uni)',
+			name: '(CLOSED) Chess',
 			INRcost: 1500,
 			open: false
 		},
@@ -205,7 +205,7 @@
 		},
 		{
 			type: 'CLTR_BOB',
-			name: 'Battle of Bands',
+			name: '(CLOSED) Battle of Bands',
 			INRcost: 2500,
 			open: false
 		},

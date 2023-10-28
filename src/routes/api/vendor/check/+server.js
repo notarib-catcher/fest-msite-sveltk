@@ -6,7 +6,7 @@ dotenv.config();
 const cstring = process.env.MONGO_URL;
 //@ts-ignore
 const client = new MongoClient(cstring);
-const database = client.db(process.env.MONGO_DB_NAME);
+const database = client.db('food_coupons');
 // const fcAccounts = database.collection('fc_accounts');
 // const fcTypes = database.collection('fc_types');
 // const fcGeneratedCoupons = database.collection('fc_generated_coupons');

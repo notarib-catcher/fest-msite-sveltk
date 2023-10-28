@@ -53,7 +53,7 @@
 			</svg>
 			{/if}
 			<span class="mt-2 font-thin">
-				{$page.data.session ? 'Logout' : 'Login'}
+				{$page.data.session ? 'Logout' : 'Login'} 
 			</span>
 		</div></button
 	>
