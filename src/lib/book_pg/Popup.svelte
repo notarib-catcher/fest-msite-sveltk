@@ -219,7 +219,7 @@
 			type: 'CLTR_FAS',
 			name: '(CLOSED) Fashion Show',
 			INRcost: 250, // change to 300 per person like esports
-			open: true
+			open: false
 		},
 
 		{
