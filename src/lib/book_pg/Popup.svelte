@@ -200,7 +200,7 @@
 		{
 			type: 'SUP_PRO',
 			name: 'Superpass Proshow',
-			INRcost: 799,
+			INRcost: 550,
 			open: false
 		},
 		{
