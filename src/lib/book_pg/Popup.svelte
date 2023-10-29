@@ -199,7 +199,7 @@
 		},
 		{
 			type: 'SUP_PRO',
-			name: '(SOLD OUT!) Superpass Proshow',
+			name: 'Superpass Proshow',
 			INRcost: 799,
 			open: false
 		},
