@@ -199,8 +199,8 @@
 		},
 		{
 			type: 'SUP_PRO',
-			name: '(SOLD OUT!) Superpass Proshow',
-			INRcost: 799,
+			name: 'Superpass Proshow',
+			INRcost: 550,
 			open: false
 		},
 		{
@@ -219,7 +219,7 @@
 			type: 'CLTR_FAS',
 			name: '(CLOSED) Fashion Show',
 			INRcost: 250, // change to 300 per person like esports
-			open: true
+			open: false
 		},
 
 		{
