@@ -193,13 +193,13 @@
 
 		{
 			type: 'CLTR_PRO',
-			name: '(PAUSED) Proshow and Cultural Events',
+			name: '(CLOSED) Proshow and Cultural Events',
 			INRcost: 799,
 			open: false
 		},
 		{
 			type: 'SUP_PRO',
-			name: 'Superpass Proshow',
+			name: '(CLOSED) Superpass Proshow',
 			INRcost: 550,
 			open: false
 		},
